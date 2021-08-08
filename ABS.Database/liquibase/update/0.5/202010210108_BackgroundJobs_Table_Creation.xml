@@ -1,0 +1,20 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="fshaikh" id="202010210108_BackgroundJobs_Table_Creation">
+        <createTable tableName="BackgroundJobs">
+            <column autoIncrement="true" name="BGJId" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_BackgroundJobs"/>
+            </column>
+            <column name="StateId" type="int"/>
+            <column name="StateName" type="nvarchar(MAX)"/>
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="HangfireIdentifier" type="uniqueidentifier"/>
+            <column name="CreatedAt" type="datetime2"/>
+            <column name="ExpireAt" type="datetime2"/>
+            <column name="UpdatedAt" type="datetime2"/>
+            <column name="InvocationData" type="nvarchar(MAX)"/>
+            <column name="Arguments" type="nvarchar(MAX)"/>
+            <column name="userIdentifier" type="nvarchar(MAX)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!-- reference the release changelog.xml file for each release folder here -->    
+    <include file="20201004124600_Configuration_ItemType_Inserts.xml" relativeToChangelogFile="true"/>
+    <include file="20201005055800_Configuration_ItemType_Inserts_SaveZeroValues.xml" relativeToChangelogFile="true"/>
+    <include file="20201007134600_AddColumn_Relationships_Depth_Ordering.xml" relativeToChangelogFile="true"/>
+	<include file="202010210108_BackgroundJobs_Table_Creation.xml" relativeToChangelogFile="true"/>
+	<include file="202010261350_Configuration_ItemType_Inserts_UPDATEALLACTUALBV.xml" relativeToChangelogFile="true"/>
+	<include file="202010291528_APIEndpoints_Table_Creation.xml" relativeToChangelogFile="true"/>
+
+</databaseChangeLog>
+

@@ -1,0 +1,181 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+
+    <changeSet author="jbeam" id="20200715195055-BudgetVersionGLAccountsAprilAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="April" tableName="BudgetVersionGLAccounts"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-BudgetVersionStatisticsAprilAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="April" tableName="BudgetVersionStatistics"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-StatisticalDataAprilAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="April" tableName="StatisticalData"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-BudgetVersionGLAccountsAugustAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="August" tableName="BudgetVersionGLAccounts"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-BudgetVersionStatisticsAugustAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="August" tableName="BudgetVersionStatistics"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-StatisticalDataAugustAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="August" tableName="StatisticalData"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-RelationshipsChildIDAllowNulls">
+        <dropNotNullConstraint columnDataType="int(10)" columnName="ChildID" tableName="Relationships"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-EntitiesClinicalAllowNulls">
+        <dropNotNullConstraint columnDataType="boolean" columnName="Clinical" tableName="Entities"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-EntitiesCostAccountingAllowNulls">
+        <dropNotNullConstraint columnDataType="boolean" columnName="CostAccounting" tableName="Entities"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-BudgetVersionGLAccountsDecemberAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="December" tableName="BudgetVersionGLAccounts"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-BudgetVersionStatisticsDecemberAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="December" tableName="BudgetVersionStatistics"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-StatisticalDataDecemberAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="December" tableName="StatisticalData"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-BudgetVersionGLAccountsFebruaryAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="February" tableName="BudgetVersionGLAccounts"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-BudgetVersionStatisticsFebruaryAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="February" tableName="BudgetVersionStatistics"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-StatisticalDataFebruaryAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="February" tableName="StatisticalData"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-EntitiesInsuranceCarrierAllowNulls">
+        <dropNotNullConstraint columnDataType="boolean" columnName="InsuranceCarrier" tableName="Entities"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-DepartmentsIsGroupAllowNulls">
+        <dropNotNullConstraint columnDataType="boolean" columnName="IsGroup" tableName="Departments"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-ChargeCodesIsMasterAllowNulls">
+        <dropNotNullConstraint columnDataType="boolean" columnName="IsMaster" tableName="ChargeCodes"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-DepartmentsIsMasterAllowNulls">
+        <dropNotNullConstraint columnDataType="boolean" columnName="IsMaster" tableName="Departments"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-JobCodesIsMasterAllowNulls">
+        <dropNotNullConstraint columnDataType="boolean" columnName="IsMaster" tableName="JobCodes"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-PayTypesIsMasterAllowNulls">
+        <dropNotNullConstraint columnDataType="boolean" columnName="IsMaster" tableName="PayTypes"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-BudgetVersionGLAccountsJanuaryAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="January" tableName="BudgetVersionGLAccounts"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-BudgetVersionStatisticsJanuaryAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="January" tableName="BudgetVersionStatistics"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-StatisticalDataJanuaryAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="January" tableName="StatisticalData"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-BudgetVersionGLAccountsJulyAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="July" tableName="BudgetVersionGLAccounts"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-BudgetVersionStatisticsJulyAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="July" tableName="BudgetVersionStatistics"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-StatisticalDataJulyAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="July" tableName="StatisticalData"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-BudgetVersionGLAccountsJuneAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="June" tableName="BudgetVersionGLAccounts"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-BudgetVersionStatisticsJuneAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="June" tableName="BudgetVersionStatistics"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-StatisticalDataJuneAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="June" tableName="StatisticalData"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-BudgetVersionGLAccountsMarchAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="March" tableName="BudgetVersionGLAccounts"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-BudgetVersionStatisticsMarchAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="March" tableName="BudgetVersionStatistics"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-StatisticalDataMarchAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="March" tableName="StatisticalData"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-BudgetVersionGLAccountsMayAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="May" tableName="BudgetVersionGLAccounts"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-BudgetVersionStatisticsMayAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="May" tableName="BudgetVersionStatistics"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-StatisticalDataMayAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="May" tableName="StatisticalData"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-BudgetVersionGLAccountsNovemberAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="November" tableName="BudgetVersionGLAccounts"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-BudgetVersionStatisticsNovemberAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="November" tableName="BudgetVersionStatistics"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-StatisticalDataNovemberAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="November" tableName="StatisticalData"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-BudgetVersionGLAccountsOctoberAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="October" tableName="BudgetVersionGLAccounts"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-BudgetVersionStatisticsOctoberAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="October" tableName="BudgetVersionStatistics"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-StatisticalDataOctoberAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="October" tableName="StatisticalData"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-RelationshipsParentIDAllowNulls">
+        <dropNotNullConstraint columnDataType="int(10)" columnName="ParentID" tableName="Relationships"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-ForecastStepsPercentageChangeValueAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="PercentageChangeValue" tableName="ForecastSteps"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-DimensionsRatioAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="Ratio" tableName="Dimensions"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-EntitiesSellerOfServicesAllowNulls">
+        <dropNotNullConstraint columnDataType="boolean" columnName="SellerOfServices" tableName="Entities"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-BudgetVersionGLAccountsSeptemberAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="September" tableName="BudgetVersionGLAccounts"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-BudgetVersionStatisticsSeptemberAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="September" tableName="BudgetVersionStatistics"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-StatisticalDataSeptemberAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="September" tableName="StatisticalData"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-BudgetVersionsUserProfileIDAllowNulls">
+        <dropNotNullConstraint columnDataType="int(10)" columnName="UserProfileID" tableName="BudgetVersions"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-StatisticalDataValueAllowNulls">
+        <dropNotNullConstraint columnDataType="int(10)" columnName="Value" tableName="StatisticalData"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-BudgetVersionGLAccountsrowTotalAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="rowTotal" tableName="BudgetVersionGLAccounts"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-BudgetVersionStatisticsrowTotalAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="rowTotal" tableName="BudgetVersionStatistics"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-StatisticCodesIsMasterAllowNulls">
+        <dropNotNullConstraint columnDataType="boolean" columnName="IsMaster" tableName="StatisticsCodes"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-EntitiesBuyerOfServiceAllowNulls">
+        <dropNotNullConstraint columnDataType="boolean" columnName="BuyerOfService" tableName="Entities"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-EntitiesCareDeliverFacilityAllowNulls">
+        <dropNotNullConstraint columnDataType="boolean" columnName="CareDeliverFacility" tableName="Entities"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200715195055-ForecastStepsUseEntityGroupTotalAllowNulls">
+        <dropNotNullConstraint columnDataType="boolean" columnName="UseEntityGroupTotal" tableName="ForecastSteps"/>
+    </changeSet>	
+    <changeSet author="jbeam" id="20200715195055-ForecastStepsUseDepartmentGroupTotalAllowNulls">
+        <dropNotNullConstraint columnDataType="boolean" columnName="UseDepartmentGroupTotal" tableName="ForecastSteps"/>
+    </changeSet>		
+    <changeSet author="jbeam" id="20200715195055-ForecastStepsUseStatisticGroupTotalAllowNulls">
+        <dropNotNullConstraint columnDataType="boolean" columnName="UseStatisticGroupTotal" tableName="ForecastSteps"/>
+    </changeSet>			
+</databaseChangeLog>

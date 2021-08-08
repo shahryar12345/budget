@@ -1,0 +1,18 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+      http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+
+    <changeSet id="202005110626_TImePeriods_Data" author="fshaikh">
+        <sql>
+
+			SET IDENTITY_INSERT [dbo].[TimePeriods] ON 
+			INSERT [dbo].[TimePeriods] ([TimePeriodID], [TimePeriodName], [TimePeriodCode], [TimePeriodDescription], [FetchedFromADS], [FiscalYearIDItemTypeID], [FiscalStartMonthIDItemTypeID], [FiscalYearEndIDItemTypeID], [FiscalEndMonthIDItemTypeID], [Identifier], [CreationDate], [UpdatedDate], [CreatedBy], [UpdateBy], [IsActive], [IsDeleted]) VALUES (1, N'FY2020', N'FY2020', NULL, 0, 52, 12, 53, 13, NULL, NULL, NULL, NULL, NULL, 1, 0)
+			INSERT [dbo].[TimePeriods] ([TimePeriodID], [TimePeriodName], [TimePeriodCode], [TimePeriodDescription], [FetchedFromADS], [FiscalYearIDItemTypeID], [FiscalStartMonthIDItemTypeID], [FiscalYearEndIDItemTypeID], [FiscalEndMonthIDItemTypeID], [Identifier], [CreationDate], [UpdatedDate], [CreatedBy], [UpdateBy], [IsActive], [IsDeleted]) VALUES (2, N'FY2021', N'FY2021', NULL, 0, 53, 12, 54, 13, NULL, NULL, NULL, NULL, NULL, 1, 0)
+			SET IDENTITY_INSERT [dbo].[TimePeriods] OFF
+
+
+
+        </sql>
+    </changeSet>
+</databaseChangeLog>

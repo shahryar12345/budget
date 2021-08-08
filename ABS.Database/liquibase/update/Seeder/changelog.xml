@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!-- reference the release changelog.xml file for each release folder here -->    
+   	<!-- <include file="20200619050927_ABS-400_Demo_Data_Inserts.xml" relativeToChangelogFile="true"/> -->
+	<!-- <include file="202005110624_Entity_Data.xml" relativeToChangelogFile="true"/> -->
+	<!-- <include file="20200517063200_Statistical_Data_Sample.xml" relativeToChangelogFile="true"/> -->
+	<!-- <include file="202005140012_Statistics_department_Data.xml" relativeToChangelogFile="true"/> -->
+	<!--	 <include file="202005110624_TImePeriods_Data.xml" relativeToChangelogFile="true"/> -->
+	 	
+
+</databaseChangeLog>
+

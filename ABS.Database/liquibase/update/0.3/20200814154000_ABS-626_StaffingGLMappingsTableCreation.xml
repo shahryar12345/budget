@@ -1,0 +1,41 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="jbeam" id="20200814154000-StaffingGLMappingsTableCreation">
+        <createTable tableName="StaffingGLMappings">
+            <column autoIncrement="true" name="StaffingGLMappingID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_StaffingGLMappings"/>
+            </column>
+            <column name="Name" type="nvarchar(MAX)"/>
+            <column name="Code" type="nvarchar(MAX)"/>
+            <column name="Description" type="nvarchar(MAX)"/>
+            <column name="EntityID" type="int"/>
+            <column name="DepartmentID" type="int"/>
+            <column name="JobCodeID" type="int"/>
+            <column name="PayTypeID" type="int"/>
+            <column name="GLAccountID" type="int"/>
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="varbinary(MAX)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="jbeam" id="20200814154000-StaffingGLMappingsDepartmentFK">
+        <addForeignKeyConstraint baseColumnNames="DepartmentID" baseTableName="StaffingGLMappings" constraintName="FK_StaffingGLMappings_Departments_DepartmentID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="DepartmentID" referencedTableName="Departments" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200814154000-StaffingGLMappingsEntityFK">
+        <addForeignKeyConstraint baseColumnNames="EntityID" baseTableName="StaffingGLMappings" constraintName="FK_StaffingGLMappings_Entities_EntityID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="EntityID" referencedTableName="Entities" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200814154000-StaffingGLMappingsGLAccountFK">
+        <addForeignKeyConstraint baseColumnNames="GLAccountID" baseTableName="StaffingGLMappings" constraintName="FK_StaffingGLMappings_GLAccounts_GLAccountID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="GLAccountID" referencedTableName="GLAccounts" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200814154000-StaffingGLMappingsJobCodeFK">
+        <addForeignKeyConstraint baseColumnNames="JobCodeID" baseTableName="StaffingGLMappings" constraintName="FK_StaffingGLMappings_JobCodes_JobCodeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="JobCodeID" referencedTableName="JobCodes" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200814154000-StaffingGLMappingsPayTypeFK">
+        <addForeignKeyConstraint baseColumnNames="PayTypeID" baseTableName="StaffingGLMappings" constraintName="FK_StaffingGLMappings_PayTypes_PayTypeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="PayTypeID" referencedTableName="PayTypes" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

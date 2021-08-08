@@ -1,0 +1,70 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+      http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+
+    <changeSet id="202005062149_Create_Constraints" author="jbeam">
+        <sql>
+			ALTER TABLE [dbo].[ForecastSteps]  WITH CHECK ADD  CONSTRAINT [FK_ForecastSteps_BudgetVersions_SourceBudgetVersionBudgetVersionID] FOREIGN KEY([SourceBudgetVersionBudgetVersionID])
+			REFERENCES [dbo].[BudgetVersions] ([BudgetVersionID])
+			 
+			ALTER TABLE [dbo].[ForecastSteps] CHECK CONSTRAINT [FK_ForecastSteps_BudgetVersions_SourceBudgetVersionBudgetVersionID]
+			 
+			ALTER TABLE [dbo].[ForecastSteps]  WITH CHECK ADD  CONSTRAINT [FK_ForecastSteps_BudgetVersions_TargetBudgetVersionBudgetVersionID] FOREIGN KEY([TargetBudgetVersionBudgetVersionID])
+			REFERENCES [dbo].[BudgetVersions] ([BudgetVersionID])
+			 
+			ALTER TABLE [dbo].[ForecastSteps] CHECK CONSTRAINT [FK_ForecastSteps_BudgetVersions_TargetBudgetVersionBudgetVersionID]
+			 
+			ALTER TABLE [dbo].[ForecastSteps]  WITH CHECK ADD  CONSTRAINT [FK_ForecastSteps_Departments_SourceDepartmentDepartmentID] FOREIGN KEY([SourceDepartmentDepartmentID])
+			REFERENCES [dbo].[Departments] ([DepartmentID])
+			 
+			ALTER TABLE [dbo].[ForecastSteps] CHECK CONSTRAINT [FK_ForecastSteps_Departments_SourceDepartmentDepartmentID]
+			 
+			ALTER TABLE [dbo].[ForecastSteps]  WITH CHECK ADD  CONSTRAINT [FK_ForecastSteps_Departments_TargetDepartmentDepartmentID] FOREIGN KEY([TargetDepartmentDepartmentID])
+			REFERENCES [dbo].[Departments] ([DepartmentID])
+			 
+			ALTER TABLE [dbo].[ForecastSteps] CHECK CONSTRAINT [FK_ForecastSteps_Departments_TargetDepartmentDepartmentID]
+			 
+			ALTER TABLE [dbo].[ForecastSteps]  WITH CHECK ADD  CONSTRAINT [FK_ForecastSteps_Entities_SourceEntityEntityID] FOREIGN KEY([SourceEntityEntityID])
+			REFERENCES [dbo].[Entities] ([EntityID])
+			 
+			ALTER TABLE [dbo].[ForecastSteps] CHECK CONSTRAINT [FK_ForecastSteps_Entities_SourceEntityEntityID]
+			 
+			ALTER TABLE [dbo].[ForecastSteps]  WITH CHECK ADD  CONSTRAINT [FK_ForecastSteps_Entities_TargetEntityEntityID] FOREIGN KEY([TargetEntityEntityID])
+			REFERENCES [dbo].[Entities] ([EntityID])
+			 
+			ALTER TABLE [dbo].[ForecastSteps] CHECK CONSTRAINT [FK_ForecastSteps_Entities_TargetEntityEntityID]
+			 
+			ALTER TABLE [dbo].[ForecastSteps]  WITH CHECK ADD  CONSTRAINT [FK_ForecastSteps_ForecastModels_ForecastModelID] FOREIGN KEY([ForecastModelID])
+			REFERENCES [dbo].[ForecastModels] ([ForecastModelID])
+			 
+			ALTER TABLE [dbo].[ForecastSteps] CHECK CONSTRAINT [FK_ForecastSteps_ForecastModels_ForecastModelID]
+			 
+			ALTER TABLE [dbo].[ForecastSteps]  WITH CHECK ADD  CONSTRAINT [FK_ForecastSteps_ItemTypes_ForecastStepTypeItemTypeID] FOREIGN KEY([ForecastStepTypeItemTypeID])
+			REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+			 
+			ALTER TABLE [dbo].[ForecastSteps] CHECK CONSTRAINT [FK_ForecastSteps_ItemTypes_ForecastStepTypeItemTypeID]
+			 
+			ALTER TABLE [dbo].[ForecastSteps]  WITH CHECK ADD  CONSTRAINT [FK_ForecastSteps_ItemTypes_SourceScenarioTypeItemTypeID] FOREIGN KEY([SourceScenarioTypeItemTypeID])
+			REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+			 
+			ALTER TABLE [dbo].[ForecastSteps] CHECK CONSTRAINT [FK_ForecastSteps_ItemTypes_SourceScenarioTypeItemTypeID]
+			 
+			ALTER TABLE [dbo].[ForecastSteps]  WITH CHECK ADD  CONSTRAINT [FK_ForecastSteps_ItemTypes_TargetScenarioTypeItemTypeID] FOREIGN KEY([TargetScenarioTypeItemTypeID])
+			REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+			 
+			ALTER TABLE [dbo].[ForecastSteps] CHECK CONSTRAINT [FK_ForecastSteps_ItemTypes_TargetScenarioTypeItemTypeID]
+			 
+			ALTER TABLE [dbo].[ForecastSteps]  WITH CHECK ADD  CONSTRAINT [FK_ForecastSteps_StatisticsCodes_SourceStatisticCodeStatisticsCodeID] FOREIGN KEY([SourceStatisticCodeStatisticsCodeID])
+			REFERENCES [dbo].[StatisticsCodes] ([StatisticsCodeID])
+			 
+			ALTER TABLE [dbo].[ForecastSteps] CHECK CONSTRAINT [FK_ForecastSteps_StatisticsCodes_SourceStatisticCodeStatisticsCodeID]
+			 
+			ALTER TABLE [dbo].[ForecastSteps]  WITH CHECK ADD  CONSTRAINT [FK_ForecastSteps_StatisticsCodes_TargetStatisticCodeStatisticsCodeID] FOREIGN KEY([TargetStatisticCodeStatisticsCodeID])
+			REFERENCES [dbo].[StatisticsCodes] ([StatisticsCodeID])
+			 
+			ALTER TABLE [dbo].[ForecastSteps] CHECK CONSTRAINT [FK_ForecastSteps_StatisticsCodes_TargetStatisticCodeStatisticsCodeID]
+			 	 			   
+        </sql>
+    </changeSet>
+</databaseChangeLog>

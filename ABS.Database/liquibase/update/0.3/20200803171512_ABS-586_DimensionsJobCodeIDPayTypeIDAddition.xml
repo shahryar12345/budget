@@ -1,0 +1,19 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="jbeam" id="20200803171512-DimensionsJobCodeIDAddition">
+        <addColumn tableName="Dimensions">
+            <column name="JobCodeID" type="int(10)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="jbeam" id="20200803171512-DimensionsPayTypeIDAddition">
+        <addColumn tableName="Dimensions">
+            <column name="PayTypeID" type="int(10)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="jbeam" id="20200803171512-DimensionsJobCodeIDFK">
+        <addForeignKeyConstraint baseColumnNames="PayTypeID" baseTableName="Dimensions" constraintName="FK_Dimensions_PayTypes_PayTypeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="PayTypeID" referencedTableName="PayTypes" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200803171512-DimensionsPayTypeIDFK">
+        <addForeignKeyConstraint baseColumnNames="JobCodeID" baseTableName="Dimensions" constraintName="FK_Dimensions_JobCodes_JobCodeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="JobCodeID" referencedTableName="JobCodes" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

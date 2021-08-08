@@ -1,0 +1,397 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="fshaikh" id="202101120526000_Security_AllTablesCreate_IdentityAppRoles">
+        <preConditions  onFail="MARK_RAN" onFailMessage="IdentityAppRoles table already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if IdentityScreens table exists. Will try to run again next LB update.">  
+            <not>
+                <tableExists tableName="IdentityAppRoles"/>
+            </not>  
+        </preConditions> 
+        <createTable tableName="IdentityAppRoles">
+            <column autoIncrement="true" name="IdentityAppRoleID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_IdentityAppRoles"/>
+            </column>
+             <column name="Code" type="nvarchar(MAX)"/>
+            <column name="Name" type="nvarchar(MAX)"/>
+            <column name="Value" type="nvarchar(MAX)"/>
+            <column name="Description" type="nvarchar(MAX)"/>
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="fshaikh" id="202101120526001_Security_AllTablesCreate_IdentityGroups">
+        <preConditions  onFail="MARK_RAN" onFailMessage="IdentityGroups table already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if IdentityScreens table exists. Will try to run again next LB update.">  
+            <not>
+                <tableExists tableName="IdentityGroups"/>
+            </not>  
+        </preConditions> 
+
+        <createTable tableName="IdentityGroups">
+            <column autoIncrement="true" name="IdentityGroupID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_IdentityGroups"/>
+            </column>
+             <column name="Code" type="nvarchar(MAX)"/>
+            <column name="Name" type="nvarchar(MAX)"/>
+            <column name="Value" type="nvarchar(MAX)"/>
+            <column name="Description" type="nvarchar(MAX)"/>
+            <column name="isLDAPGroup" type="bit"/>
+            
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="fshaikh" id="202101120526002_Security_AllTablesCreate_IdentityScreenOperations">
+        <preConditions  onFail="MARK_RAN" onFailMessage="IdentityScreenOperations table already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if IdentityScreens table exists. Will try to run again next LB update.">  
+            <not>
+                <tableExists tableName="IdentityScreenOperations"/>
+            </not>  
+        </preConditions> 
+
+        <createTable tableName="IdentityScreenOperations">
+            <column autoIncrement="true" name="IdentityScreenOperationID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_IdentityScreenOperations"/>
+            </column>
+             <column name="Code" type="nvarchar(MAX)"/>
+            <column name="Name" type="nvarchar(MAX)"/>
+            <column name="Value" type="nvarchar(MAX)"/>
+            <column name="Description" type="nvarchar(MAX)"/>
+            <column name="Can_ReadOnly" type="bit"/>
+            <column name="Can_Create" type="bit"/>
+            <column name="Can_Update" type="bit"/>
+            <column name="Can_Delete" type="bit"/> 
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="fshaikh" id="202101120526003_Security_AllTablesCreate_IdentityScreens">
+        <preConditions  onFail="MARK_RAN" onFailMessage="IdentityScreens table already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if IdentityScreens table exists. Will try to run again next LB update.">  
+            <not>
+                <tableExists tableName="IdentityScreens"/>
+            </not>  
+        </preConditions> 
+
+        <createTable tableName="IdentityScreens">
+            <column autoIncrement="true" name="IdentityScreenID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_IdentityScreens"/>
+            </column>
+             <column name="Code" type="nvarchar(MAX)"/>
+            <column name="Name" type="nvarchar(MAX)"/>
+            <column name="Value" type="nvarchar(MAX)"/>
+            <column name="Description" type="nvarchar(MAX)"/>
+            <column name="IsView" type="bit"/>
+            <column name="IsCreate" type="bit"/>
+            <column name="IsUPdate" type="bit"/>
+            <column name="IsDelete" type="bit"/> 
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="fshaikh" id="202101120526004_Security_AllTablesCreate_IdentityAppRoleUsers">
+        <preConditions  onFail="MARK_RAN" onFailMessage="IdentityAppRoleUsers table already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if IdentityScreens table exists. Will try to run again next LB update.">  
+            <not>
+                <tableExists tableName="IdentityAppRoleUsers"/>
+            </not>  
+        </preConditions> 
+
+        <createTable tableName="IdentityAppRoleUsers">
+            <column autoIncrement="true" name="IdentityAppRoleUserID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_IdentityAppRoleUsers"/>
+            </column>
+             <column name="Code" type="nvarchar(MAX)"/>
+            <column name="Name" type="nvarchar(MAX)"/>
+            <column name="Value" type="nvarchar(MAX)"/>
+            <column name="Description" type="nvarchar(MAX)"/>
+            <column name="UserIDUserProfileID" type="int"/>
+            <column name="AppRoleIDIdentityAppRoleID" type="int"/>
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="fshaikh" id="202101120526005_Security_AllTablesCreate_IdentityAppRoleGroup">
+        <preConditions  onFail="MARK_RAN" onFailMessage="IdentityAppRoleGroup table already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if IdentityScreens table exists. Will try to run again next LB update.">  
+            <not>
+                <tableExists tableName="IdentityAppRoleGroup"/>
+            </not>  
+        </preConditions> 
+
+        <createTable tableName="IdentityAppRoleGroup">
+            <column autoIncrement="true" name="IdentityRoleGroupID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_IdentityAppRoleGroup"/>
+            </column>
+             <column name="Code" type="nvarchar(MAX)"/>
+            <column name="Name" type="nvarchar(MAX)"/>
+            <column name="Value" type="nvarchar(MAX)"/>
+            <column name="Description" type="nvarchar(MAX)"/>
+            <column name="UserIDUserProfileID" type="int"/>
+            <column name="GroupsIDIdentityGroupID" type="int"/>
+            <column name="AppRoleIDIdentityAppRoleID" type="int"/>
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="fshaikh" id="202101120526006_Security_AllTablesCreate_IdentityAppRoleScreenOperations">
+        <preConditions  onFail="MARK_RAN" onFailMessage="IdentityAppRoleScreenOperations table already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if IdentityScreens table exists. Will try to run again next LB update.">  
+            <not>
+                <tableExists tableName="IdentityAppRoleScreenOperations"/>
+            </not>  
+        </preConditions> 
+
+        <createTable tableName="IdentityAppRoleScreenOperations">
+            <column autoIncrement="true" name="IdentityAppRoleScreenOperationID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_IdentityAppRoleScreenOperations"/>
+            </column>
+             <column name="Code" type="nvarchar(MAX)"/>
+            <column name="Name" type="nvarchar(MAX)"/>
+            <column name="Value" type="nvarchar(MAX)"/>
+            <column name="Description" type="nvarchar(MAX)"/>
+            <column name="UserIDUserProfileID" type="int"/>
+            <column name="ScreenOperationIDIdentityScreenOperationID" type="int"/>
+            <column name="AppRoleIDIdentityAppRoleID" type="int"/>
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="fshaikh" id="202101120526007_Security_AllTablesCreate_IdentityAppRoleScreens">
+        <preConditions  onFail="MARK_RAN" onFailMessage="IdentityAppRoleScreens table already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if IdentityScreens table exists. Will try to run again next LB update.">  
+            <not>
+                <tableExists tableName="IdentityAppRoleScreens"/>
+            </not>  
+        </preConditions> 
+
+        <createTable tableName="IdentityAppRoleScreens">
+            <column autoIncrement="true" name="IdentityAppRoleScreenID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_IdentityAppRoleScreens"/>
+            </column>
+             <column name="Code" type="nvarchar(MAX)"/>
+            <column name="Name" type="nvarchar(MAX)"/>
+            <column name="Value" type="nvarchar(MAX)"/>
+            <column name="Description" type="nvarchar(MAX)"/>
+            <column name="UserIDUserProfileID" type="int"/>
+            <column name="ScreenIDIdentityScreenID" type="int"/>
+            <column name="AppRoleIDIdentityAppRoleID" type="int"/>
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="datetime"/>
+        </createTable>
+    </changeSet>
+     <changeSet author="fshaikh" id="202101120526008_Security_AllTablesCreate_IdentityAppRoleDataDepartments">
+        <preConditions  onFail="MARK_RAN" onFailMessage="IdentityAppRoleDataDepartments table already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if IdentityScreens table exists. Will try to run again next LB update.">  
+            <not>
+                <tableExists tableName="IdentityAppRoleDataDepartments"/>
+            </not>  
+        </preConditions> 
+
+        <createTable tableName="IdentityAppRoleDataDepartments">
+            <column autoIncrement="true" name="IdentityAppRoleDataDepartmentID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_IdentityAppRoleDataDepartments"/>
+            </column>
+             <column name="Code" type="nvarchar(MAX)"/>
+            <column name="Name" type="nvarchar(MAX)"/>
+            <column name="Value" type="nvarchar(MAX)"/>
+            <column name="Description" type="nvarchar(MAX)"/>
+            <column name="UserIDUserProfileID" type="int"/>
+            <column name="DepartmentID1" type="int"/>
+            <column name="AppRoleIDIdentityAppRoleID" type="int"/>
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="fshaikh" id="202101120526009_Security_AllTablesCreate_IdentityAppRoleDataEntities">
+        <preConditions  onFail="MARK_RAN" onFailMessage="IdentityAppRoleDataEntities table already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if IdentityScreens table exists. Will try to run again next LB update.">  
+            <not>
+                <tableExists tableName="IdentityAppRoleDataEntities"/>
+            </not>  
+        </preConditions> 
+
+        <createTable tableName="IdentityAppRoleDataEntities">
+            <column autoIncrement="true" name="IdentityAppRoleDataEntityID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_IdentityAppRoleDataEntities"/>
+            </column>
+             <column name="Code" type="nvarchar(MAX)"/>
+            <column name="Name" type="nvarchar(MAX)"/>
+            <column name="Value" type="nvarchar(MAX)"/>
+            <column name="Description" type="nvarchar(MAX)"/>
+            <column name="EntityID1" type="int"/>
+            <column name="AppRoleIDIdentityAppRoleID" type="int"/>
+            <column name="UserIDUserProfileID" type="int"/>
+          
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="fshaikh" id="202101120526009_Security_AllTablesCreate_IdentityAppRoleDataGLAccounts">
+        <preConditions  onFail="MARK_RAN" onFailMessage="IdentityAppRoleDataGLAccounts table already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if IdentityScreens table exists. Will try to run again next LB update.">  
+            <not>
+                <tableExists tableName="IdentityAppRoleDataGLAccounts"/>
+            </not>  
+        </preConditions> 
+
+        <createTable tableName="IdentityAppRoleDataGLAccounts">
+            <column autoIncrement="true" name="IdentityAppRoleDataGLAccountsID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_IdentityAppRoleDataGLAccounts"/>
+            </column>
+             <column name="Code" type="nvarchar(MAX)"/>
+            <column name="Name" type="nvarchar(MAX)"/>
+            <column name="Value" type="nvarchar(MAX)"/>
+            <column name="Description" type="nvarchar(MAX)"/>
+            <column name="GLAccountsIDGLAccountID" type="int"/>
+            <column name="AppRoleIDIdentityAppRoleID" type="int"/>
+            <column name="UserIDUserProfileID" type="int"/>
+          
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="fshaikh" id="202101120526009_Security_AllTablesCreate_IdentityAppRoleDataJobCodes">
+        <preConditions  onFail="MARK_RAN" onFailMessage="IdentityAppRoleDataJobCodes table already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if IdentityScreens table exists. Will try to run again next LB update.">  
+            <not>
+                <tableExists tableName="IdentityAppRoleDataJobCodes"/>
+            </not>  
+        </preConditions> 
+
+        <createTable tableName="IdentityAppRoleDataJobCodes">
+            <column autoIncrement="true" name="IdentityAppRoleDataJobCodesID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_IdentityAppRoleDataJobCodes"/>
+            </column>
+             <column name="Code" type="nvarchar(MAX)"/>
+            <column name="Name" type="nvarchar(MAX)"/>
+            <column name="Value" type="nvarchar(MAX)"/>
+            <column name="Description" type="nvarchar(MAX)"/>
+            <column name="JobCodesIDJobCodeID" type="int"/>
+            <column name="AppRoleIDIdentityAppRoleID" type="int"/>
+            <column name="UserIDUserProfileID" type="int"/>
+          
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="fshaikh" id="202101120526009_Security_AllTablesCreate_IdentityAppRoleDataPayTypes">
+        <preConditions  onFail="MARK_RAN" onFailMessage="IdentityAppRoleDataPayTypes table already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if IdentityScreens table exists. Will try to run again next LB update.">  
+            <not>
+                <tableExists tableName="IdentityAppRoleDataPayTypes"/>
+            </not>  
+        </preConditions> 
+
+        <createTable tableName="IdentityAppRoleDataPayTypes">
+            <column autoIncrement="true" name="IdentityAppRoleDataPayTypeID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_IdentityAppRoleDataPayTypes"/>
+            </column>
+             <column name="Code" type="nvarchar(MAX)"/>
+            <column name="Name" type="nvarchar(MAX)"/>
+            <column name="Value" type="nvarchar(MAX)"/>
+            <column name="Description" type="nvarchar(MAX)"/>
+            <column name="PayTypesIDPayTypeID" type="int"/>
+            <column name="AppRoleIDIdentityAppRoleID" type="int"/>
+            <column name="UserIDUserProfileID" type="int"/>
+          
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="fshaikh" id="202101120526009_Security_AllTablesCreate_IdentityAppRoleDataStatistics">
+        <preConditions  onFail="MARK_RAN" onFailMessage="IdentityAppRoleDataStatistics table already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if IdentityScreens table exists. Will try to run again next LB update.">  
+            <not>
+                <tableExists tableName="IdentityAppRoleDataStatistics"/>
+            </not>  
+        </preConditions> 
+
+        <createTable tableName="IdentityAppRoleDataStatistics">
+            <column autoIncrement="true" name="IdentityAppRoleDataStatisticsID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_IdentityAppRoleDataStatistics"/>
+            </column>
+             <column name="Code" type="nvarchar(MAX)"/>
+            <column name="Name" type="nvarchar(MAX)"/>
+            <column name="Value" type="nvarchar(MAX)"/>
+            <column name="Description" type="nvarchar(MAX)"/>
+            <column name="StatsCodeIDStatisticsCodeID" type="int"/>
+            <column name="AppRoleIDIdentityAppRoleID" type="int"/>
+            <column name="UserIDUserProfileID" type="int"/>
+          
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="datetime"/>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

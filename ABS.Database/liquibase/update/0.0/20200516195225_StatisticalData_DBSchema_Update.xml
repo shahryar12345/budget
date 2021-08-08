@@ -1,0 +1,38 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+      http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+
+    <changeSet id="20200516195225_StatisticalData_DBSchema_Update" author="fshaikh">
+        <sql>
+                ALTER TABLE [dbo].[StatisticalData] ADD [April] decimal  NULL
+
+                ALTER TABLE [dbo].[StatisticalData] ADD [August] decimal  NULL
+
+      
+                ALTER TABLE [dbo].[StatisticalData] ADD [December] decimal  NULL
+
+                ALTER TABLE [dbo].[StatisticalData] ADD [February] decimal  NULL
+
+                ALTER TABLE [dbo].[StatisticalData] ADD [January] decimal  NULL
+
+                ALTER TABLE [dbo].[StatisticalData] ADD [July] decimal  NULL
+
+                ALTER TABLE [dbo].[StatisticalData] ADD [June] decimal  NULL
+
+                ALTER TABLE [dbo].[StatisticalData] ADD [March] decimal  NULL
+
+                ALTER TABLE [dbo].[StatisticalData] ADD [May] decimal  NULL
+
+                ALTER TABLE [dbo].[StatisticalData] ADD [November] decimal  NULL
+                
+                ALTER TABLE [dbo].[StatisticalData] ADD [October] decimal  NULL
+                
+                ALTER TABLE [dbo].[StatisticalData] ADD [September] decimal  NULL
+
+              
+        </sql>
+    </changeSet>
+</databaseChangeLog>
+
+                    

@@ -1,0 +1,88 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="fshaikh" id="202012161420_TableCreate_ForecastHistory">
+        <preConditions  onFail="MARK_RAN" onFailMessage="ForecastHistory table already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if ForecastHistory table exists. Will try to run again next LB update.">  
+            <not>
+                <tableExists tableName="ForecastHistory"/>
+            </not>  
+        </preConditions> 
+
+        <createTable tableName="ForecastHistory">
+            <column autoIncrement="true" name="ForecastHistoryID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ForecastHistory"/>
+            </column>
+             <column name="ForecastHistoryName" type="nvarchar(MAX)"/>
+            <column name="ForecastHistoryCode" type="nvarchar(MAX)"/>
+            <column name="ForecastHistoryDescription" type="nvarchar(MAX)"/>
+            <column name="formulaMethod" type="nvarchar(MAX)"/>
+            <column name="DatascenarioType" type="nvarchar(MAX)"/>
+            <column name="DatascenarioTypeIdItemTypeID" type="int"/>
+            <column name="budgetVersionID" type="int"/>
+            <column name="UserIDUserProfileID" type="int"/>
+            
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="datetime"/>
+        </createTable>
+    </changeSet>
+     <changeSet author="fshaikh" id="202012161420_IndexCreate_ForecastHistory-ForecastHistoryDatascenarioTypeIdItemTypeID">
+        <preConditions  onFail="MARK_RAN" onFailMessage="IX_ForecastHistory_DatascenarioTypeIdItemTypeID Index already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if IX_ForecastHistory_DatascenarioTypeIdItemTypeID Index exists. Will try to run again next LB update.">  
+            <not>
+                <indexExists indexName="IX_ForecastHistory_DatascenarioTypeIdItemTypeID"/>
+            </not>  
+        </preConditions>        
+        <createIndex indexName="IX_ForecastHistory_DatascenarioTypeIdItemTypeID" tableName="ForecastHistory">
+            <column name="DatascenarioTypeIdItemTypeID"/>
+        </createIndex>
+    </changeSet>
+  <changeSet author="fshaikh" id="202012161420_IndexCreate_ForecastHistory-ForecastHistorybudgetVersionIDIndex">
+        <preConditions  onFail="MARK_RAN" onFailMessage="IX_ForecastHistory_budgetVersionID Index already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if IX_ForecastHistory_budgetVersionID Index exists. Will try to run again next LB update.">  
+            <not>
+                <indexExists indexName="IX_ForecastHistory_budgetVersionID"/>
+            </not>  
+        </preConditions>        
+        <createIndex indexName="IX_ForecastHistory_budgetVersionID" tableName="ForecastHistory">
+            <column name="budgetVersionID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="fshaikh" id="202012161420_IndexCreate_ForecastHistory-ForecastHistory_UserIDUserProfileID">
+        <preConditions  onFail="MARK_RAN" onFailMessage="IX_ForecastHistory_UserIDUserProfileID Index already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if IX_ForecastHistory_UserIDUserProfileID Index exists. Will try to run again next LB update.">  
+            <not>
+                <indexExists indexName="IX_ForecastHistory_UserIDUserProfileID"/>
+            </not>  
+        </preConditions>        
+        <createIndex indexName="IX_ForecastHistory_UserIDUserProfileID" tableName="ForecastHistory">
+            <column name="UserIDUserProfileID"/>
+        </createIndex>
+    </changeSet>
+ <changeSet author="fshaikh" id="202012161420_FKCreate_ForecastHistory-BudgetVersionIDFK">
+        <preConditions  onFail="MARK_RAN" onFailMessage="FK_ForecastHistory_BudgetVersions_BudgetVersionID Foreign Key already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if FK_ForecastHistory_BudgetVersions_BudgetVersionID Foreign Key exists. Will try to run again next LB update.">  
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_ForecastHistory_BudgetVersions_BudgetVersionID"/>
+            </not>  
+        </preConditions>    
+        <addForeignKeyConstraint baseColumnNames="BudgetVersionID" baseTableName="ForecastHistory" constraintName="FK_ForecastHistory_BudgetVersions_BudgetVersionID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="BudgetVersionID" referencedTableName="BudgetVersions" validate="true"/>
+    </changeSet>
+    <changeSet author="fshaikh" id="202012161420_FK_ForecastHistory_ItemTypes_DatascenarioTypeIdItemTypeID">
+        <preConditions  onFail="MARK_RAN" onFailMessage="FK_ForecastHistory_ItemTypes_DatascenarioTypeIdItemTypeID Foreign Key already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if FK_ForecastHistory_ItemTypes_DatascenarioTypeIdItemTypeID Foreign Key exists. Will try to run again next LB update.">  
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_ForecastHistory_ItemTypes_DatascenarioTypeIdItemTypeID"/>
+            </not>  
+        </preConditions>    
+        <addForeignKeyConstraint baseColumnNames="DatascenarioTypeIdItemTypeID" baseTableName="ForecastHistory" constraintName="FK_ForecastHistory_ItemTypes_DatascenarioTypeIdItemTypeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ItemTypeID" referencedTableName="ItemTypes" validate="true"/>
+    </changeSet>
+     <changeSet author="fshaikh" id="202012161420_FK_ForecastHistory_IdentityUserProfile_UserIDUserProfileID">
+        <preConditions  onFail="MARK_RAN" onFailMessage="FK_ForecastHistory_IdentityUserProfile_UserIDUserProfileID Foreign Key already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if FK_ForecastHistory_IdentityUserProfile_UserIDUserProfileID Foreign Key exists. Will try to run again next LB update.">  
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_ForecastHistory_IdentityUserProfile_UserIDUserProfileID"/>
+            </not>  
+        </preConditions>    
+        <addForeignKeyConstraint baseColumnNames="UserIDUserProfileID" baseTableName="ForecastHistory" constraintName="FK_ForecastHistory_IdentityUserProfile_UserIDUserProfileID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="UserProfileID" referencedTableName="IdentityUserProfile" validate="true"/>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,52 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="jbeam" id="20200824132124-PayTypeDistributionEntityIDAddition">
+        <addColumn tableName="PayTypeDistribution">
+            <column name="EntityID" type="int(10)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="jbeam" id="20200824132124-PayTypeDistributionDepartmentIDAddition">
+        <addColumn tableName="PayTypeDistribution">
+            <column name="DepartmentID" type="int(10)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="jbeam" id="20200824132124-PayTypeDistributionPayTypeIDAddition">
+        <addColumn tableName="PayTypeDistribution">
+            <column name="PayTypeID" type="int(10)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="jbeam" id="20200824132124-PayTypeDistributionJobCodeIDAddition">
+        <addColumn tableName="PayTypeDistribution">
+            <column name="JobCodeID" type="int(10)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="jbeam" id="20200824132124-PayTypeDistributionProductiveAddition">
+        <addColumn tableName="PayTypeDistribution">
+            <column name="Productive" type="bit(1)">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="jbeam" id="20200824132124-PayTypeDistributionIsGroupAddition">
+        <addColumn tableName="PayTypeDistribution">
+            <column name="IsGroup" type="bit(1)">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="jbeam" id="20200824132124-PayTypeDistributionPayTypeIDFK">
+        <addForeignKeyConstraint baseColumnNames="PayTypeID" baseTableName="PayTypeDistribution" constraintName="FK_PayTypeDistribution_PayTypes_PayTypeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="PayTypeID" referencedTableName="PayTypes" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200824132124-PayTypeDistributionDepartmentIDFK">
+        <addForeignKeyConstraint baseColumnNames="DepartmentID" baseTableName="PayTypeDistribution" constraintName="FK_PayTypeDistribution_Departments_DepartmentID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="DepartmentID" referencedTableName="Departments" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200824132124-PayTypeDistributionEntityIDFK">
+        <addForeignKeyConstraint baseColumnNames="EntityID" baseTableName="PayTypeDistribution" constraintName="FK_PayTypeDistribution_Entities_EntityID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="EntityID" referencedTableName="Entities" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200824132124-PayTypeDistributionJobCodeIDFK">
+        <addForeignKeyConstraint baseColumnNames="JobCodeID" baseTableName="PayTypeDistribution" constraintName="FK_PayTypeDistribution_JobCodes_JobCodeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="JobCodeID" referencedTableName="JobCodes" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200824132124-PayTypeDistributionPercentageAllowNulls">
+        <dropNotNullConstraint columnDataType="decimal(18,2)" columnName="Percentage" tableName="PayTypeDistribution"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,28 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+  <changeSet author="jbeam" id="20200803152150-JobCodesDescriptionAddition">
+        <addColumn tableName="JobCodes">
+            <column name="JobCodeDescription" type="nvarchar(-1)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="jbeam" id="20200803152150-JobCodesLowcodeAddition">
+        <addColumn tableName="JobCodes">
+            <column name="Lowcode" type="nvarchar(-1)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="jbeam" id="20200803152150-JobCodeHighCodeAddition">
+        <addColumn tableName="JobCodes">
+            <column name="HighCode" type="nvarchar(-1)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="jbeam" id="20200803152150-JobCodesJobCodeObjectReferenceIDAddition">
+        <addColumn tableName="JobCodes">
+            <column name="JobCodeObjectReferenceID" type="nvarchar(-1)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="jbeam" id="20200803152150-JobCodesCommentsAddition">
+        <addColumn tableName="JobCodes">
+            <column name="Comments" type="nvarchar(-1)"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,21 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="jbeam" id="20200807181247123-StaffingDataDataScenarioIDAddition">
+          <preConditions  onFail="MARK_RAN" onFailMessage="DataScenarioID1DataScenarioID column already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if DataScenarioID1DataScenarioID column exists. Will try to run again next LB update.">  
+            <not>
+                <columnExists tableName="StaffingData" columnName="DataScenarioID1DataScenarioID"/>
+            </not>  
+        </preConditions>   
+        <addColumn tableName="StaffingData">
+            <column name="DataScenarioID1DataScenarioID" type="int(10)"/>
+        </addColumn>
+    </changeSet>    
+	<changeSet author="jbeam" id="20200807181247123-StaffingDataDataScenarioIDFK">
+		<preConditions  onFail="MARK_RAN" onFailMessage="DataScenarioID1DataScenarioID FK already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if DataScenarioID1DataScenarioID FK exists. Will try to run again next LB update.">  
+            <not>
+                <foreignKeyConstraintExists foreignKeyName="FK_StaffingData_DataScenario_DataScenarioID"/>
+            </not>  
+        </preConditions> 
+        <addForeignKeyConstraint baseColumnNames="DataScenarioID1DataScenarioID" baseTableName="StaffingData" constraintName="FK_StaffingData_DataScenario_DataScenarioID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="DataScenarioID" referencedTableName="DataScenario" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

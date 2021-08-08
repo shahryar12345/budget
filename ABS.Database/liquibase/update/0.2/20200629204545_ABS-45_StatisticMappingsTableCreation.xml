@@ -1,0 +1,94 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="jbeam" id="20200629204545_StatisticMappingsTableCreation">
+        <createTable tableName="StatisticMappings">
+            <column autoIncrement="true" name="StatisticMappingID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_StatisticMappings"/>
+            </column>
+            <column name="StatisticMappingName" type="nvarchar(MAX)"/>
+            <column name="StatisticMappingCode" type="nvarchar(MAX)"/>
+            <column name="StatisticMappingDescription" type="nvarchar(MAX)"/>
+            <column name="EntityID" type="int"/>
+            <column name="ColumnLabels" type="nvarchar(MAX)"/>
+            <column name="DepartmentID" type="int"/>
+            <column name="PrimaryStatisticMasterStatisticsCodeID" type="int"/>
+            <column name="PrimaryStatisticCodeStatisticsCodeID" type="int"/>
+            <column name="SecondaryStatisticMasterStatisticsCodeID" type="int"/>
+            <column name="SecondaryStatisticCodeStatisticsCodeID" type="int"/>
+            <column name="TertiaryStatisticMasterStatisticsCodeID" type="int"/>
+            <column name="TertiaryStatisticCodeStatisticsCodeID" type="int"/>
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="varbinary(MAX)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="jbeam" id="20200629204545_StatisticMappingsEntityFK">
+        <addForeignKeyConstraint baseColumnNames="EntityID" baseTableName="StatisticMappings" constraintName="FK_StatisticMappings_Entities_EntityID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="EntityID" referencedTableName="Entities" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200629204545_StatisticMappingsPrimaryStatFK">
+        <addForeignKeyConstraint baseColumnNames="PrimaryStatisticCodeStatisticsCodeID" baseTableName="StatisticMappings" constraintName="FK_StatisticMappings_StatisticsCodes_PrimaryStatisticCodeStatisticsCodeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="StatisticsCodeID" referencedTableName="StatisticsCodes" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200629204545_StatisticMappingsPrimaryStatMasterFK">
+        <addForeignKeyConstraint baseColumnNames="PrimaryStatisticMasterStatisticsCodeID" baseTableName="StatisticMappings" constraintName="FK_StatisticMappings_StatisticsCodes_PrimaryStatisticMasterStatisticsCodeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="StatisticsCodeID" referencedTableName="StatisticsCodes" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200629204545_StatisticMappingsSecondarStatFK">
+        <addForeignKeyConstraint baseColumnNames="SecondaryStatisticCodeStatisticsCodeID" baseTableName="StatisticMappings" constraintName="FK_StatisticMappings_StatisticsCodes_SecondaryStatisticCodeStatisticsCodeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="StatisticsCodeID" referencedTableName="StatisticsCodes" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200629204545_StatisticMappingsSecondaryStatMasterFK">
+        <addForeignKeyConstraint baseColumnNames="SecondaryStatisticMasterStatisticsCodeID" baseTableName="StatisticMappings" constraintName="FK_StatisticMappings_StatisticsCodes_SecondaryStatisticMasterStatisticsCodeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="StatisticsCodeID" referencedTableName="StatisticsCodes" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200629204545_StatisticMappingsTertiaryStatFK">
+        <addForeignKeyConstraint baseColumnNames="TertiaryStatisticCodeStatisticsCodeID" baseTableName="StatisticMappings" constraintName="FK_StatisticMappings_StatisticsCodes_TertiaryStatisticCodeStatisticsCodeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="StatisticsCodeID" referencedTableName="StatisticsCodes" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200629204545_StatisticMappingsTertiaryStatMasterFK">
+        <addForeignKeyConstraint baseColumnNames="TertiaryStatisticMasterStatisticsCodeID" baseTableName="StatisticMappings" constraintName="FK_StatisticMappings_StatisticsCodes_TertiaryStatisticMasterStatisticsCodeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="StatisticsCodeID" referencedTableName="StatisticsCodes" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200629204545_StatisticMappingsDepartmentIndex">
+        <createIndex indexName="IX_StatisticMappings_DepartmentID" tableName="StatisticMappings">
+            <column name="DepartmentID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="jbeam" id="20200629204545_StatisticMappingsEntityIndex">
+        <createIndex indexName="IX_StatisticMappings_EntityID" tableName="StatisticMappings">
+            <column name="EntityID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="jbeam" id="20200629204545_StatisticMappingsPrimaryStatIndex">
+        <createIndex indexName="IX_StatisticMappings_PrimaryStatisticCodeStatisticsCodeID" tableName="StatisticMappings">
+            <column name="PrimaryStatisticCodeStatisticsCodeID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="jbeam" id="20200629204545_StatisticMappingsPrimaryStatMasterIndex">
+        <createIndex indexName="IX_StatisticMappings_PrimaryStatisticMasterStatisticsCodeID" tableName="StatisticMappings">
+            <column name="PrimaryStatisticMasterStatisticsCodeID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="jbeam" id="20200629204545_StatisticMappingsSecondaryStatIndex">
+        <createIndex indexName="IX_StatisticMappings_SecondaryStatisticCodeStatisticsCodeID" tableName="StatisticMappings">
+            <column name="SecondaryStatisticCodeStatisticsCodeID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="jbeam" id="20200629204545_StatisticMappingsSecondaryStatMasterIndex">
+        <createIndex indexName="IX_StatisticMappings_SecondaryStatisticMasterStatisticsCodeID" tableName="StatisticMappings">
+            <column name="SecondaryStatisticMasterStatisticsCodeID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="jbeam" id="20200629204545_StatisticMappingsTertiaryStatIndex">
+        <createIndex indexName="IX_StatisticMappings_TertiaryStatisticCodeStatisticsCodeID" tableName="StatisticMappings">
+            <column name="TertiaryStatisticCodeStatisticsCodeID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="jbeam" id="20200629204545_StatisticMappingsTertiaryStatMasterIndex">
+        <createIndex indexName="IX_StatisticMappings_TertiaryStatisticMasterStatisticsCodeID" tableName="StatisticMappings">
+            <column name="TertiaryStatisticMasterStatisticsCodeID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="jbeam" id="20200629204545_StatisticMappingsDepartmentFK">
+        <addForeignKeyConstraint baseColumnNames="DepartmentID" baseTableName="StatisticMappings" constraintName="FK_StatisticMappings_Departments_DepartmentID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="DepartmentID" referencedTableName="Departments" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

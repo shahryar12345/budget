@@ -1,0 +1,16 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+
+    <changeSet author="fshaikh" id="202010261350_Configuration_ItemType_Inserts_UPDATEALLACTUALBV">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="ItemTypeKeyword" value="CONFIGURATION"/>
+            <column name="ItemTypeCode" value="UPDATEALLACTUALBV"/>
+            <column name="ItemTypeValue" value="FALSE"/>
+            <column name="ItemTypeDescription" value="True/false/"/>
+            <column name="ItemTypeDisplayName" value="UPDATEALLACTUALBV"/>
+        </insert>       
+    </changeSet>
+</databaseChangeLog>

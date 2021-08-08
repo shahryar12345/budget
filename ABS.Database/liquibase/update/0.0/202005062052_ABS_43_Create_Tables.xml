@@ -1,0 +1,36 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+      http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+
+	<changeSet id="202005062052_Create_StatisticsCodes_Table" author="jbeam">
+        <sql>
+			/****** Object:  Table [dbo].[StatisticsCodes]    Script Date: 5/6/2020 4:54:39 PM ******/
+			CREATE TABLE [dbo].[StatisticsCodes](
+				[StatisticsCodeID] [int] IDENTITY(1,1) NOT NULL,
+				[StatisticsCode] [nvarchar](max) NULL,
+				[StatisticsCodeName] [nvarchar](max) NULL,
+				[Description] [nvarchar](max) NULL,
+				[IsMaster] [bit] NOT NULL,
+				[StatisticCodeTypeItemTypeID] [int] NULL,
+				[Summable] [bit] NOT NULL,
+				[ColumnLabel] [nvarchar](max) NULL,
+				[ParentID] [int] NULL,
+				[ChildID] [nvarchar](max) NULL,
+				[DataSourcceIDItemTypeID] [int] NULL,
+				[Identifier] [uniqueidentifier] NULL,
+				[CreationDate] [datetime2](7) NULL,
+				[UpdatedDate] [datetime2](7) NULL,
+				[CreatedBy] [int] NULL,
+				[UpdateBy] [int] NULL,
+				[IsActive] [bit] NULL,
+				[IsDeleted] [bit] NULL,
+				[RowVersion] [varbinary](max) NULL,
+			CONSTRAINT [PK_StatisticsCodes] PRIMARY KEY CLUSTERED 
+			(
+				[StatisticsCodeID] ASC
+			)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+			) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+        </sql>
+    </changeSet>	
+</databaseChangeLog>

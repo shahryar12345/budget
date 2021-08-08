@@ -1,0 +1,57 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="sbadgley" id="20200813101200_StaffingDataType_AverageWage_IT_Insert">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="Identifier" value="FE4C4807-B472-49B5-9C4B-7E78CF830590"/>
+            <column name="CreationDate" valueDate="2020-13-08T10:12:00.00"/>
+            <column name="UpdatedDate" valueDate="2020-13-08T10:12:00.00"/>
+            <column name="CreatedBy" valueNumeric="0"/>
+            <column name="UpdateBy" valueNumeric="0"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="RowVersion"/>
+            <column name="ItemTypeKeyword" value="STAFFINGDATATYPE"/>
+            <column name="ItemTypeCode" value="AverageWage"/>
+            <column name="ItemTypeValue" value="AverageWage"/>
+            <column name="ItemTypeDescription" value="Staffing Data Type - Average Wage"/>
+            <column name="ItemTypeDisplayName" value="Average Wage"/>
+        </insert>		
+    </changeSet>
+    <changeSet author="sbadgley" id="20200813101200_StaffingDataType_PayTypeDistribution_IT_Insert">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="Identifier" value="FE4C4807-B472-49B5-9C4B-7E78CF830591"/>
+            <column name="CreationDate" valueDate="2020-13-08T10:12:00.00"/>
+            <column name="UpdatedDate" valueDate="2020-13-08T10:12:00.00"/>
+            <column name="CreatedBy" valueNumeric="0"/>
+            <column name="UpdateBy" valueNumeric="0"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="RowVersion"/>
+            <column name="ItemTypeKeyword" value="STAFFINGDATATYPE"/>
+            <column name="ItemTypeCode" value="PayTypeDistribution"/>
+            <column name="ItemTypeValue" value="PayTypeDistribution"/>
+            <column name="ItemTypeDescription" value="Staffing Data Type - Pay Type Distribution"/>
+            <column name="ItemTypeDisplayName" value="Pay Type Distribution"/>
+        </insert>	
+    </changeSet>
+    <changeSet author="sbadgley" id="20200813101200_StaffingDataType_FTEs_IT_Insert">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="Identifier" value="FE4C4807-B472-49B5-9C4B-7E78CF830592"/>
+            <column name="CreationDate" valueDate="2020-13-08T10:12:00.00"/>
+            <column name="UpdatedDate" valueDate="2020-13-08T10:12:00.00"/>
+            <column name="CreatedBy" valueNumeric="0"/>
+            <column name="UpdateBy" valueNumeric="0"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="RowVersion"/>
+            <column name="ItemTypeKeyword" value="STAFFINGDATATYPE"/>
+            <column name="ItemTypeCode" value="FTEs"/>
+            <column name="ItemTypeValue" value="FTEs"/>
+            <column name="ItemTypeDescription" value="Staffing Data Type - FTEs"/>
+            <column name="ItemTypeDisplayName" value="FTEs"/>
+        </insert>	
+    </changeSet>	
+</databaseChangeLog>

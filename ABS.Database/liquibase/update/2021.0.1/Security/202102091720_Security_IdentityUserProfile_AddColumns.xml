@@ -1,0 +1,64 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+       
+    <changeSet author="fshaikh" id="202102091720_Security_IdentityUserProfile_AddColumns_UserEntities">
+       <preConditions  onFail="MARK_RAN" onFailMessage="UserEntities column already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if UserEntities column exists. Will try to run again next LB update.">  
+            <not>
+                <columnExists tableName="IdentityUserProfile" columnName="UserEntities"/>
+            </not>  
+        </preConditions>   
+        <addColumn tableName="IdentityUserProfile">
+            <column name="UserEntities" type="nvarchar(MAX)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="fshaikh" id="202102091720_Security_IdentityUserProfile_AddColumns_UserDepartments">
+       <preConditions  onFail="MARK_RAN" onFailMessage="UserDepartments column already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if UserDepartments column exists. Will try to run again next LB update.">  
+            <not>
+                <columnExists tableName="IdentityUserProfile" columnName="UserDepartments"/>
+            </not>  
+        </preConditions>   
+        <addColumn tableName="IdentityUserProfile">
+            <column name="UserDepartments" type="nvarchar(MAX)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="fshaikh" id="202102091720_Security_IdentityUserProfile_AddColumns_UserStatisticCodes">
+       <preConditions  onFail="MARK_RAN" onFailMessage="UserStatisticCodes column already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if UserStatisticCodes column exists. Will try to run again next LB update.">  
+            <not>
+                <columnExists tableName="IdentityUserProfile" columnName="UserStatisticCodes"/>
+            </not>  
+        </preConditions>   
+        <addColumn tableName="IdentityUserProfile">
+            <column name="UserStatisticCodes" type="nvarchar((MAX))"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="fshaikh" id="202102091720_Security_IdentityUserProfile_AddColumns_UserGLAccounts">
+       <preConditions  onFail="MARK_RAN" onFailMessage="UserGLAccounts column already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if UserGLAccounts column exists. Will try to run again next LB update.">  
+            <not>
+                <columnExists tableName="IdentityUserProfile" columnName="UserGLAccounts"/>
+            </not>  
+        </preConditions>   
+        <addColumn tableName="IdentityUserProfile">
+            <column name="UserGLAccounts" type="nvarchar(MAX)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="fshaikh" id="202102091720_Security_IdentityUserProfile_AddColumns_UserJobCodes">
+       <preConditions  onFail="MARK_RAN" onFailMessage="UserJobCodes column already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if UserJobCodes column exists. Will try to run again next LB update.">  
+            <not>
+                <columnExists tableName="IdentityUserProfile" columnName="UserJobCodes"/>
+            </not>  
+        </preConditions>   
+        <addColumn tableName="IdentityUserProfile">
+            <column name="UserJobCodes" type="nvarchar((MAX))"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="fshaikh" id="202102091720_Security_IdentityUserProfile_AddColumns_UserPayTypes">
+       <preConditions  onFail="MARK_RAN" onFailMessage="UserPayTypes column already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if UserPayTypes column exists. Will try to run again next LB update.">  
+            <not>
+                <columnExists tableName="IdentityUserProfile" columnName="UserPayTypes"/>
+            </not>  
+        </preConditions>   
+        <addColumn tableName="IdentityUserProfile">
+            <column name="UserPayTypes" type="nvarchar(MAX)"/>
+        </addColumn>
+    </changeSet>
+</databaseChangeLog>

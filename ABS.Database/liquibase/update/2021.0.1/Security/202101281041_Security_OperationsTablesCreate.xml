@@ -1,0 +1,67 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="fshaikh" id="202101281041_Security_OperationsTablesCreate">
+        <preConditions  onFail="MARK_RAN" onFailMessage="IdentityOperations table already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if IdentityScreens table exists. Will try to run again next LB update.">  
+            <not>
+                <tableExists tableName="IdentityOperations"/>
+            </not>  
+        </preConditions> 
+        <createTable tableName="IdentityOperations">
+            <column autoIncrement="true" name="IdentityOperationID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_IdentityOperations"/>
+            </column>
+             <column name="Code" type="nvarchar(MAX)"/>
+            <column name="Name" type="nvarchar(MAX)"/>
+            <column name="Value" type="nvarchar(MAX)"/>
+            <column name="IsView" type="bit"/>
+            <column name="IsCreate" type="bit"/>
+            <column name="IsUPdate" type="bit"/>
+            <column name="IsDelete" type="bit"/>
+            <column name="Description" type="nvarchar(MAX)"/>
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="fshaikh" id="202101281041_Security_Screen_ColumnAddition_ParentID">
+        <addColumn tableName="IdentityScreens">
+            <column name="ParentID" type="int(10)"/>
+        </addColumn>
+    </changeSet>
+     <changeSet author="fshaikh" id="202101281041_Security_Screen_ColumnAddition_ChildID">
+        <addColumn tableName="IdentityScreens">
+            <column name="ChildID" type="nvarchar(100)"/>
+        </addColumn>
+    </changeSet>
+     <changeSet author="fshaikh" id="202101281041_Security_ScreenOperation_ColumnAddition_IdentityOperationsID">
+        <addColumn tableName="IdentityScreenOperations">
+            <column name="IdentityOperationID" type="int(10)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="fshaikh" id="202101281041_Security_ScreenOperation_ColumnAddition_IdentityScreensIdentityScreenID">
+        <addColumn tableName="IdentityScreenOperations">
+            <column name="IdentityScreensIdentityScreenID" type="int(10)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="FShaikh" id="202101281041_Security_ScreenOperation_IndexAddition_IX_IdentityScreenOperations_IdentityOperationsID">
+        <createIndex indexName="IX_IdentityScreenOperations_IdentityOperationsID" tableName="IdentityScreenOperations">
+            <column name="IdentityOperationID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="FShaikh" id="202101281041_Security_IndexAddition_IX_IdentityScreenOperations_IdentityScreensIdentityScreenID">
+        <createIndex indexName="IX_IdentityScreenOperations_IdentityScreensIdentityScreenID" tableName="IdentityScreenOperations">
+            <column name="IdentityScreensIdentityScreenID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="fshaikh" id="202101281041_Security_FK_IdentityScreenOperations_IdentityOperations_IdentityOperationsID">
+        <addForeignKeyConstraint baseColumnNames="IdentityOperationID" baseTableName="IdentityScreenOperations" constraintName="FK_IdentityScreenOperations_IdentityOperations_IdentityOperationsID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="IdentityOperationID" referencedTableName="IdentityOperations" validate="true"/>
+    </changeSet> 
+    <changeSet author="fshaikh" id="202101281041_Security_FK_IdentityScreenOperations_IdentityScreens_IdentityScreensIdentityScreenID">
+        <addForeignKeyConstraint baseColumnNames="IdentityScreensIdentityScreenID" baseTableName="IdentityScreenOperations" constraintName="FK_IdentityScreenOperations_IdentityScreens_IdentityScreensIdentityScreenID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="IdentityScreenID" referencedTableName="IdentityScreens" validate="true"/>
+    </changeSet> 
+</databaseChangeLog>

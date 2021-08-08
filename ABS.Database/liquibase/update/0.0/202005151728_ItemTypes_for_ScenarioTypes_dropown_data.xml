@@ -1,0 +1,22 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+      http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+
+    <changeSet id="202005151728_ItemTypes_for_ScenarioTypes_dropown_data" author="fshaikh">
+        <sql>
+          INSERT INTO [dbo].[ItemTypes]
+               ([ItemDataType],[Identifier],[CreationDate],[UpdatedDate],[CreatedBy],[UpdateBy],[IsActive],[IsDeleted],[ItemTypeKeyword],[ItemTypeCode],[ItemTypeDisplayName])
+          VALUES
+               ('string',NEWID(),getdate(),getdate(),1,1,1,0,'STATISTICSDATA','Patient Care','Patient Care'),
+               ('string',NEWID(),getdate(),getdate(),1,1,1,0,'STATISTICSDATA','Doctors','Doctors'),
+               ('string',NEWID(),getdate(),getdate(),1,1,1,0,'STATISTICSDATA','Nursing Unit','Nursing Unit'),
+    		   ('string',NEWID(),getdate(),getdate(),1,1,1,0,'GENERALLEDGERDATA','Patient Care','Patient Care'),
+               ('string',NEWID(),getdate(),getdate(),1,1,1,0,'GENERALLEDGERDATA','Doctors','Doctors'),
+               ('string',NEWID(),getdate(),getdate(),1,1,1,0,'GENERALLEDGERDATA','Nursing Unit','Nursing Unit'),
+    		   ('string',NEWID(),getdate(),getdate(),1,1,1,0,'STAFFINGDATA','Patient Care','Patient Care'),
+               ('string',NEWID(),getdate(),getdate(),1,1,1,0,'STAFFINGDATA','Doctors','Doctors'),
+               ('string',NEWID(),getdate(),getdate(),1,1,1,0,'STAFFINGDATA','Nursing Unit','Nursing Unit')
+        </sql>
+    </changeSet>
+</databaseChangeLog>

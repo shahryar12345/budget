@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!-- NOTE: initial creation of the BUDGET_DB database must be run on the MASTER database, therefore it happens
+    as part of the creation/setup of the docker database image, as liquibase connects only to the BUDGET_DB database -->
+
+    <!-- include each specific file in the specific order it should run for the release folder-->
+	    <include file="202004031423_Create_Tables.xml" relativeToChangelogFile="true"/>
+	    <include file="202004031435_Create_Indexes.xml" relativeToChangelogFile="true"/>
+	    <include file="202004031437_Create_Constraints.xml" relativeToChangelogFile="true"/>
+	 	<include file="202004280037_ItemTypes_Updates.xml" relativeToChangelogFile="true"/> 
+	 	<include file="202005062052_ABS_43_Create_Tables.xml" relativeToChangelogFile="true"/>
+	    <include file="202005062052_ABS_43_Create_Constraints.xml" relativeToChangelogFile="true"/>	  
+	    <include file="202005052051_ABS_44_Create_Tables.xml" relativeToChangelogFile="true"/>
+		<include file="202005052051_ABS_44_Create_Constraints.xml" relativeToChangelogFile="true"/>	
+	    <include file="202005062149_ABS-129_Create_Tables.xml" relativeToChangelogFile="true"/>
+	    <include file="202005062149_ABS-129_Create_Constraints.xml" relativeToChangelogFile="true"/>
+	    <include file="202005071939_ABS-263_Create_Tables.xml" relativeToChangelogFile="true"/>	
+	    <include file="202005071939_ABS-263_Create_Constraints.xml" relativeToChangelogFile="true"/>	
+	    <include file="202005140000_ItemTypes_Data.xml" relativeToChangelogFile="true"/>
+	    <include file="202005151728_ItemTypes_for_ScenarioTypes_dropown_data.xml" relativeToChangelogFile="true"/>
+		<include file="20200516155723_BudgetVersion_Schema_Update.xml" relativeToChangelogFile="true"/>
+		<include file="20200517022525_BudgetVersionStatisticalData_DBSchema_Create.xml" relativeToChangelogFile="true"/>
+	    <include file="20200516195225_StatisticalData_DBSchema_Update.xml" relativeToChangelogFile="true"/>
+	    <include file="202005170306005_Statistical_DataScenario_Schema_Update.xml" relativeToChangelogFile="true"/>
+		<include file="20200520052900_ItemTypes_and_TimePeriods_table_update_for_release.xml" relativeToChangelogFile="true"/>
+		<include file="20200522163900_ItemTypes_DateFormats_January_Display_Updates_ABS-264.xml" relativeToChangelogFile="true"/>
+    
+   <!-- <include file="202005082000_ABS-43_ABS-44_ABS-62_ABS-129_ABS-263_SQL_Updates.xml" relativeToChangelogFile="true"/> -->
+</databaseChangeLog>

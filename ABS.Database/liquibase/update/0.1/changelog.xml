@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!-- reference the release changelog.xml file for each release folder here -->
+    <include file="20200526011550_ABS-176_IsGroup_Column_Addition.xml" relativeToChangelogFile="true" />
+    <include file="20200527195918_ABS-176_StatisticsType_ItemType_Insert.xml" relativeToChangelogFile="true" />
+    <include file="20200601190903_ABS-172_Departments_IsHierarchy_Column_Addition.xml" relativeToChangelogFile="true" />
+    <include file="20200601154320_ABS-231_Alter_Entities_Table_IsGroup.xml" relativeToChangelogFile="true" />
+    <include file="20200603213433_ABS-340_Updates.xml" relativeToChangelogFile="true" />
+    <include file="20200604160802_ABS-340_Additional_Updates.xml" relativeToChangelogFile="true" />	
+	<include file="20200605173521_ABS-278_Update_Staffing_Scenario_Type_Item_Type.xml" relativeToChangelogFile="true"/>
+	<include file="202006171538_ABS_ADSDataImport_ADDEntitiesTableColumns.xml" relativeToChangelogFile="true"/>
+	<include file="20200618025712_ABS-400_RelationshipTable_Table_Creation.xml" relativeToChangelogFile="true"/>
+	<include file="20200618022015_ABS-400_RelationshipTable_ItemTypes_Insert.xml" relativeToChangelogFile="true"/>
+    
+</databaseChangeLog>

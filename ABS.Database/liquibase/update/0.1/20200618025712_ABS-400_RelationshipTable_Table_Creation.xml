@@ -1,0 +1,42 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="jbeam" id="20200618025712-RelationshipTableCreation">
+        <createTable tableName="Relationships">
+            <column autoIncrement="true" name="RelationshipID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_Relationships"/>
+            </column>
+            <column name="ParentID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ChildID" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="RelationshipTypeItemTypeID" type="int"/>
+            <column name="ModelTypeItemTypeID" type="int"/>
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="jbeam" id="20200618025712-RelationshipTableModelTypeIndex">
+        <createIndex indexName="IX_Relationships_ModelTypeItemTypeID" tableName="Relationships">
+            <column name="ModelTypeItemTypeID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="jbeam" id="20200618025712-RelationshipTableRelationshipTypeIndex">
+        <createIndex indexName="IX_Relationships_RelationshipTypeItemTypeID" tableName="Relationships">
+            <column name="RelationshipTypeItemTypeID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="jbeam" id="20200618025712-RelationshipTableModelTypeForeignKey">
+        <addForeignKeyConstraint baseColumnNames="ModelTypeItemTypeID" baseTableName="Relationships" constraintName="FK_Relationships_ItemTypes_ModelTypeItemTypeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ItemTypeID" referencedTableName="ItemTypes" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200618025712-RelationshipTableRelationshipTypeForeignKey">
+        <addForeignKeyConstraint baseColumnNames="RelationshipTypeItemTypeID" baseTableName="Relationships" constraintName="FK_Relationships_ItemTypes_RelationshipTypeItemTypeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ItemTypeID" referencedTableName="ItemTypes" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

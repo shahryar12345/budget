@@ -1,0 +1,74 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+      http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+
+    <changeSet id="202005050038_Create_Constraints" author="jbeam">
+        <sql>
+			ALTER TABLE [dbo].[Accounts]  WITH CHECK ADD  CONSTRAINT [FK_Accounts_Departments_DepartmentID] FOREIGN KEY([DepartmentID])
+			REFERENCES [dbo].[Departments] ([DepartmentID])
+			 
+			ALTER TABLE [dbo].[Accounts] CHECK CONSTRAINT [FK_Accounts_Departments_DepartmentID]
+			 
+			ALTER TABLE [dbo].[Addresses]  WITH CHECK ADD  CONSTRAINT [FK_Addresses_ItemTypes_AddressTypeItemTypeID] FOREIGN KEY([AddressTypeItemTypeID])
+			REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+			 
+			ALTER TABLE [dbo].[Addresses] CHECK CONSTRAINT [FK_Addresses_ItemTypes_AddressTypeItemTypeID]
+			 
+			ALTER TABLE [dbo].[ChargeCodes]  WITH CHECK ADD  CONSTRAINT [FK_ChargeCodes_Departments_DepartmentID] FOREIGN KEY([DepartmentID])
+			REFERENCES [dbo].[Departments] ([DepartmentID])
+			 
+			ALTER TABLE [dbo].[ChargeCodes] CHECK CONSTRAINT [FK_ChargeCodes_Departments_DepartmentID]
+			 
+			ALTER TABLE [dbo].[Departments]  WITH CHECK ADD  CONSTRAINT [FK_Departments_ItemTypes_DataSourcceIDItemTypeID] FOREIGN KEY([DataSourcceIDItemTypeID])
+			REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+			 
+			ALTER TABLE [dbo].[Departments] CHECK CONSTRAINT [FK_Departments_ItemTypes_DataSourcceIDItemTypeID]
+			 
+			ALTER TABLE [dbo].[Departments]  WITH CHECK ADD  CONSTRAINT [FK_Departments_ItemTypes_DepartmentTypeIDItemTypeID] FOREIGN KEY([DepartmentTypeIDItemTypeID])
+			REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+			 
+			ALTER TABLE [dbo].[Departments] CHECK CONSTRAINT [FK_Departments_ItemTypes_DepartmentTypeIDItemTypeID]
+			 
+			ALTER TABLE [dbo].[Departments]  WITH CHECK ADD  CONSTRAINT [FK_Departments_ItemTypes_GroupPolicyItemTypeID] FOREIGN KEY([GroupPolicyItemTypeID])
+			REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+			 
+			ALTER TABLE [dbo].[Departments] CHECK CONSTRAINT [FK_Departments_ItemTypes_GroupPolicyItemTypeID]
+			 
+			ALTER TABLE [dbo].[Entities]  WITH CHECK ADD  CONSTRAINT [FK_Entities_Accounts_AccountID] FOREIGN KEY([AccountID])
+			REFERENCES [dbo].[Accounts] ([AccountID])
+			 
+			ALTER TABLE [dbo].[Entities] CHECK CONSTRAINT [FK_Entities_Accounts_AccountID]
+			 
+			ALTER TABLE [dbo].[Entities]  WITH CHECK ADD  CONSTRAINT [FK_Entities_Addresses_AddressID] FOREIGN KEY([AddressID])
+			REFERENCES [dbo].[Addresses] ([AddressID])
+			 
+			ALTER TABLE [dbo].[Entities] CHECK CONSTRAINT [FK_Entities_Addresses_AddressID]
+			 
+			ALTER TABLE [dbo].[Entities]  WITH CHECK ADD  CONSTRAINT [FK_Entities_ChargeCodes_ChargeCodeID] FOREIGN KEY([ChargeCodeID])
+			REFERENCES [dbo].[ChargeCodes] ([ChargeCodeID])
+			 
+			ALTER TABLE [dbo].[Entities] CHECK CONSTRAINT [FK_Entities_ChargeCodes_ChargeCodeID]
+			 
+			ALTER TABLE [dbo].[Entities]  WITH CHECK ADD  CONSTRAINT [FK_Entities_Departments_DepartmentID] FOREIGN KEY([DepartmentID])
+			REFERENCES [dbo].[Departments] ([DepartmentID])
+			 
+			ALTER TABLE [dbo].[Entities] CHECK CONSTRAINT [FK_Entities_Departments_DepartmentID]
+			 
+			ALTER TABLE [dbo].[Entities]  WITH CHECK ADD  CONSTRAINT [FK_Entities_ItemTypes_DataSourceIDItemTypeID] FOREIGN KEY([DataSourceIDItemTypeID])
+			REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+			 
+			ALTER TABLE [dbo].[Entities] CHECK CONSTRAINT [FK_Entities_ItemTypes_DataSourceIDItemTypeID]
+			 
+			ALTER TABLE [dbo].[Entities]  WITH CHECK ADD  CONSTRAINT [FK_Entities_JobCodes_JobCodeID] FOREIGN KEY([JobCodeID])
+			REFERENCES [dbo].[JobCodes] ([JobCodeID])
+			 
+			ALTER TABLE [dbo].[Entities] CHECK CONSTRAINT [FK_Entities_JobCodes_JobCodeID]
+			 
+			ALTER TABLE [dbo].[Entities]  WITH CHECK ADD  CONSTRAINT [FK_Entities_PayTypes_PayTypeID] FOREIGN KEY([PayTypeID])
+			REFERENCES [dbo].[PayTypes] ([PayTypeID])
+			 
+			ALTER TABLE [dbo].[Entities] CHECK CONSTRAINT [FK_Entities_PayTypes_PayTypeID]			 			   
+        </sql>
+    </changeSet>
+</databaseChangeLog>

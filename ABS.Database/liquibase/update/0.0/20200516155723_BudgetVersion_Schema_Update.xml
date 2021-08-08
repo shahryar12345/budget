@@ -1,0 +1,24 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+      http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+
+    <changeSet id="20200516155723_BudgetVersion_Schema_Update" author="fshaikh">
+        <sql>
+            ALTER TABLE [dbo].[BudgetVersions]
+                ADD [TimePeriodID1] INT NULL;
+
+            ALTER TABLE [dbo].[BudgetVersions] WITH NOCHECK
+                ADD CONSTRAINT [FK_BudgetVersions_TimePeriods_TimePeriodID1] FOREIGN KEY ([TimePeriodID1]) REFERENCES [dbo].[TimePeriods] ([TimePeriodID]);
+
+
+            CREATE NONCLUSTERED INDEX [IX_BudgetVersions_TimePeriodID1]
+                ON [dbo].[BudgetVersions]([TimePeriodID1] ASC);
+
+
+
+        </sql>
+    </changeSet>
+</databaseChangeLog>
+
+                    

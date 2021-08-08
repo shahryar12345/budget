@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!-- reference the release changelog.xml file for each release folder here -->    
+    <include file="20210107134600_AddColumn_IdentityUser.xml" relativeToChangelogFile="true"/>
+    <include file="20210127055800_Configuration_ItemType_Inserts_ImportData.xml" relativeToChangelogFile="true"/>
+    <include file="20210112000000_AddColumn_IdentityUser_isLdapUser.xml" relativeToChangelogFile="true"/>
+   	<include file="Security/202101120526_Security_AllTablesCreate.xml" relativeToChangelogFile="true"/>
+    <include file="Security/2021012135526_Security_AllIndex_AllFk.xml" relativeToChangelogFile="true"/>
+    <include file="20210113180000_Configuration_ItemType_Inserts_AUTHENTICATIONMODE.xml" relativeToChangelogFile="true"/>
+    <include file="2021014163400_Configuration_ItemType_Inserts_AuthenticationServerURL.xml" relativeToChangelogFile="true"/>
+    <include file="20210118185400_Configuration_ItemType_Inserts_FilterUserAccessData.xml" relativeToChangelogFile="true"/>
+    <include file="Security/202101281041_Security_OperationsTablesCreate.xml" relativeToChangelogFile="true"/>
+    <include file="Security/202102091720_Security_IdentityUserProfile_AddColumns.xml" relativeToChangelogFile="true"/>
+    <include file="Reporting/202102090806_Reporting_ReportingDimensions_TablesCreate.xml" relativeToChangelogFile="true"/>
+    <include file="Reporting/20210301175555_Configuration_ItemType_Inserts_ReportingTypes.xml" relativeToChangelogFile="true"/>
+    <include file="2021030221470000_Configuration_ItemType_Inserts_StoreParentChildData.xml" relativeToChangelogFile="true"/>
+
+	</databaseChangeLog>
+

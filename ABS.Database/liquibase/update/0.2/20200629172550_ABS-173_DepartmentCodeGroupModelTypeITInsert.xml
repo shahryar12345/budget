@@ -1,0 +1,28 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="jbeam" id="20200629172550_DepartmentCodeGroupModelTypeITInsert">
+        <sql dbms="mssql">
+            SET IDENTITY_INSERT [ItemTypes] ON 
+        </sql>			
+        <insert tableName="ItemTypes">
+            <column name="ItemTypeID" valueNumeric="106"/>
+            <column name="ItemDataType" value="string"/>
+            <column name="Identifier" value="CB52E6DC-3970-48E8-B6A6-79B5443DEBE4"/>
+            <column name="CreationDate" valueDate="2020-06-29T17:15:44.7766667"/>
+            <column name="UpdatedDate" valueDate="2020-06-29T17:15:44.7766667"/>
+            <column name="CreatedBy" valueNumeric="0"/>
+            <column name="UpdateBy" valueNumeric="0"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="RowVersion"/>
+            <column name="ItemTypeKeyword" value="MODELTYPE"/>
+            <column name="ItemTypeCode" value="DepartmentCodeGroup"/>
+            <column name="ItemTypeValue" value="DepartmentCodeGroup"/>
+            <column name="ItemTypeDescription" value="Model Type - Department Code Group"/>
+            <column name="ItemTypeDisplayName" value="Department Code Group"/>
+        </insert>
+        <sql dbms="mssql">
+            SET IDENTITY_INSERT [ItemTypes] OFF 
+        </sql>				
+    </changeSet>
+</databaseChangeLog>

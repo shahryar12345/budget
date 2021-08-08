@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!-- reference the release changelog.xml file for each release folder here -->    
+    <include file="202009012034_StatisticalDataScenarioID1Addition.xml" relativeToChangelogFile="true"/>
+	<include file="20200903175300_Configuration_ItemType_Inserts.xml" relativeToChangelogFile="true"/>
+	<include file="20200820160244_BudgetVersion_CHANGE_FK_ADSstatisticsID_DATASCENARIO.xml" relativeToChangelogFile="true"/>
+	<include file="20200909201044_BudgetVersions_DATASCENARIOID_Rename.xml" relativeToChangelogFile="true"/>
+	<include file="202009101306_DataScenarioID1Addition.xml" relativeToChangelogFile="true"/>
+	<include file="202009151806_BudgetVersionStaffing_ColumnAddition_WageRateOverride.xml" relativeToChangelogFile="true"/>
+	<include file="202009281806_BudgetVersion_ColumnAddition_CalculationStatus.xml" relativeToChangelogFile="true"/>
+</databaseChangeLog>
+

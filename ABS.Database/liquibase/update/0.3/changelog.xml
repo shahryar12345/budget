@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!-- reference the release changelog.xml file for each release folder here -->    
+    <include file="20200724112015_ABS-238_JobCodeTableJobCodeMasterAddition.xml" relativeToChangelogFile="true"/>
+    <include file="20200724183605_ABS-239_PayTypeTable_IsCodeGroup_PayTypeMaster_Additions.xml" relativeToChangelogFile="true"/>
+	<include file="27072020104025_ABS_565_PAYTYPES_ADSImports.xml" relativeToChangelogFile="true"/>
+	<include file="20200803152150_ABS-577_JobCodes_Field_Additions.xml" relativeToChangelogFile="true"/>
+    <include file="20200803000652_ABS-587_BudgetVersionStaffingTableCreation.xml" relativeToChangelogFile="true" />
+    <include file="20200803000652_ABS-587_Staffing_Data_Type_IT_Inserts.xml" relativeToChangelogFile="true" />	
+    <include file="20200803171512_ABS-586_DimensionsJobCodeIDPayTypeIDAddition.xml" relativeToChangelogFile="true" />
+    <include file="20200803202825_ABS-583_StaffingWageAdjustmentTableCreation.xml" relativeToChangelogFile="true" />
+    <include file="20200803120100_ABS-451_Dimensions_Column_Additions.xml" relativeToChangelogFile="true" />
+    <include file="20200804124800_ABS-582_StaffingTables_TimePeriodID_Rename.xml" relativeToChangelogFile="true" />		
+    <include file="20200805164430_ABS-593_StaffingDataTableCreation.xml" relativeToChangelogFile="true" />	
+    <include file="20200807181247123_ABS-593_StaffingData_DataScenarioIDAddition.xml" relativeToChangelogFile="true" /> 
+   <!-- <include file="20200811154200_ABS-592A_StaffingDataDataScenarioID1Addition_DataScenarioIDDrop.xml" relativeToChangelogFile="true" /> --> 
+    <include file="20200805094900_ABS-508_PayTypesJobCodes_IsCodeGroup_Rename.xml" relativeToChangelogFile="true" />    
+    <include file="20200812201130_ABS-622_FullTimeEquivalentTableCreation.xml" relativeToChangelogFile="true" />
+    <include file="20200814154000_ABS-626_StaffingGLMappingsTableCreation.xml" relativeToChangelogFile="true" />
+    <include file="20200817132408_ABS-626_StaffingGLMappings_FieldUpdates.xml" relativeToChangelogFile="true" />
+    <include file="20200813101200_ABS-599_StaffingDataType_ItemType_Inserts.xml" relativeToChangelogFile="true" />
+    <include file="20200819014643_ABS-640_PayTypeDistributionTableCreation.xml" relativeToChangelogFile="true" />
+    <include file="20200819014643_ABS-640_DistributionRelationshipTypeITInsert.xml" relativeToChangelogFile="true" />
+    <include file="20200820160244_BudgetVersionADSStaffingIDFKUpdate.xml" relativeToChangelogFile="true" />
+    <include file="20200821140252_BudgetVersionStaffingDataScenarioID1Addition.xml" relativeToChangelogFile="true" />
+    <include file="20200821201044_BudgetVersionsADSStaffingIDRename.xml" relativeToChangelogFile="true" />
+    <include file="20200821234022_BudgetVersionsStaffingDataScenarioIDRename.xml" relativeToChangelogFile="true" />
+    <include file="20200824132124_ABS-640_PayTypeDistributionFieldUpdate.xml" relativeToChangelogFile="true" />
+  </databaseChangeLog>
+

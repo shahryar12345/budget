@@ -1,0 +1,26 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+   <changeSet author="fshaikh" id="20200713144803213433_AlterTable_StatisticsTable_GL_AccountID_Column">
+        <addColumn tableName="StatisticalData">
+            <column name="GlAccoutnID" type="int" > 
+                <constraints nullable="true" />
+            </column>
+            <column name="GLAccountMasterID" type="int">
+                <constraints nullable="true" />
+            </column>
+            <column name="StaffingAccountID" type="int">
+                <constraints nullable="true" />
+            </column>
+            <column name="StaffingMasterID" type="int">
+                <constraints nullable="true" />
+            </column>
+            <column name="GLAccountTypeID" type="int">
+                <constraints nullable="true" />
+            </column>
+            <column name="StaffingAccoutTypeID" type="int">
+                <constraints nullable="true" />
+            </column>
+        </addColumn>
+    </changeSet>
+   
+</databaseChangeLog>

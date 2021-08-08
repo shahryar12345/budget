@@ -1,0 +1,135 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+      http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+
+    <changeSet id="20200517022525_BudgetVersionStatisticalData_DBSchema_Create" author="fshaikh">
+        <sql>
+
+            CREATE TABLE [dbo].[BudgetVersionStatistics]
+            (
+                [StatisticID] [int] IDENTITY(1,1),
+                [BudgetVersionID] [int] NULL,
+                [EntityID] [int] NULL,
+                [DepartmentID] [int] NULL,
+                [StatisticsCodesStatisticsCodeID] [int] NULL,
+                [DataScenarioTypeIDItemTypeID] [int] NULL,
+                [TimePeriodID1] [int] NULL,
+                [January] [decimal](18,2) NOT NULL,
+                [February] [decimal](18,2) NOT NULL,
+                [March] [decimal](18,2) NOT NULL,
+                [April] [decimal](18,2) NOT NULL,
+                [May] [decimal](18,2) NOT NULL,
+                [June] [decimal](18,2) NOT NULL,
+                [July] [decimal](18,2) NOT NULL,
+                [August] [decimal](18,2) NOT NULL,
+                [September] [decimal](18,2) NOT NULL,
+                [October] [decimal](18,2) NOT NULL,
+                [November] [decimal](18,2) NOT NULL,
+                [December] [decimal](18,2) NOT NULL,
+                [rowTotal] [decimal](18,2) NOT NULL,
+                [Identifier] [uniqueidentifier] NULL,
+                [CreationDate] [datetime2](7) NULL,
+                [UpdatedDate] [datetime2](7) NULL,
+                [CreatedBy] [int] NULL,
+                [UpdateBy] [int] NULL,
+                [IsActive] [bit] NULL,
+                [IsDeleted] [bit] NULL,
+                [RowVersion] [varbinary](max) NULL
+            ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+
+            ALTER TABLE [dbo].[BudgetVersionStatistics] ADD CONSTRAINT [PK_BudgetVersionStatistics] PRIMARY KEY CLUSTERED
+            (
+                [StatisticID] ASC
+            )
+
+
+
+            CREATE NONCLUSTERED INDEX [IX_BudgetVersionStatistics_BudgetVersionID] ON [dbo].[BudgetVersionStatistics]
+            (
+                [BudgetVersionID] ASC
+            )
+
+
+            CREATE NONCLUSTERED INDEX [IX_BudgetVersionStatistics_DepartmentID] ON [dbo].[BudgetVersionStatistics]
+            (
+                [DepartmentID] ASC
+            )
+
+
+            CREATE NONCLUSTERED INDEX [IX_BudgetVersionStatistics_EntityID] ON [dbo].[BudgetVersionStatistics]
+            (
+                [EntityID] ASC
+            )
+
+
+            CREATE NONCLUSTERED INDEX [IX_BudgetVersionStatistics_StatisticsCodesStatisticsCodeID] ON [dbo].[BudgetVersionStatistics]
+            (
+                [StatisticsCodesStatisticsCodeID] ASC
+            )
+
+
+            CREATE NONCLUSTERED INDEX [IX_BudgetVersionStatistics_TimePeriodID1] ON [dbo].[BudgetVersionStatistics]
+            (
+                [TimePeriodID1] ASC
+            )
+
+             CREATE NONCLUSTERED INDEX [IX_BudgetVersionStatistics_DataScenarioTypeIDItemTypeID] ON [dbo].[BudgetVersionStatistics]                 ([DataScenarioTypeIDItemTypeID] ASC)
+
+            ALTER TABLE [dbo].[BudgetVersionStatistics] WITH CHECK ADD CONSTRAINT [FK_BudgetVersionStatistics_BudgetVersions_BudgetVersionID] FOREIGN KEY
+            (
+                [BudgetVersionID]
+            )
+            REFERENCES [dbo].[BudgetVersions]
+            (
+                [BudgetVersionID]
+            )
+
+
+            ALTER TABLE [dbo].[BudgetVersionStatistics] WITH CHECK ADD CONSTRAINT [FK_BudgetVersionStatistics_Departments_DepartmentID] FOREIGN KEY
+            (
+                [DepartmentID]
+            )
+            REFERENCES [dbo].[Departments]
+            (
+                [DepartmentID]
+            )
+
+            ALTER TABLE [dbo].[BudgetVersionStatistics] WITH CHECK ADD CONSTRAINT [FK_BudgetVersionStatistics_Entities_EntityID] FOREIGN KEY
+            (
+                [EntityID]
+            )
+            REFERENCES [dbo].[Entities]
+            (
+                [EntityID]
+            )
+
+
+            ALTER TABLE [dbo].[BudgetVersionStatistics] WITH CHECK ADD CONSTRAINT [FK_BudgetVersionStatistics_StatisticsCodes_StatisticsCodesStatisticsCodeID] FOREIGN KEY
+            (
+                [StatisticsCodesStatisticsCodeID]
+            )
+            REFERENCES [dbo].[StatisticsCodes]
+            (
+                [StatisticsCodeID]
+            )
+
+
+            ALTER TABLE [dbo].[BudgetVersionStatistics] WITH CHECK ADD CONSTRAINT [FK_BudgetVersionStatistics_TimePeriods_TimePeriodID1] FOREIGN KEY
+            (
+                [TimePeriodID1]
+            )
+            REFERENCES [dbo].[TimePeriods]
+            (
+                [TimePeriodID]
+            )
+
+             ALTER TABLE [dbo].[BudgetVersionStatistics] WITH NOCHECK ADD CONSTRAINT [FK_BudgetVersionStatistics_ItemTypes_DataScenarioTypeIDItemTypeID] FOREIGN KEY  ([DataScenarioTypeIDItemTypeID]) REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+
+          
+        </sql>
+    </changeSet>
+</databaseChangeLog>
+
+                    

@@ -1,0 +1,45 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+      http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+
+    <changeSet id="202005140000_Department_Statististics_ItemTypes_Data" author="fshaikh">
+        <sql>
+
+            SET IDENTITY_INSERT [dbo].[ItemTypes] ON 
+
+
+
+            INSERT [dbo].[ItemTypes] ([ItemTypeID], [ItemDataType], [Identifier], [CreationDate], [UpdatedDate], [CreatedBy], [UpdateBy], [IsActive], [IsDeleted], [RowVersion], [ItemTypeKeyword], [ItemTypeCode], [ItemTypeValue], [ItemTypeDescription], [ItemTypeDisplayName]) VALUES (167, N'string', N'802f3e34-e157-4dbf-ad68-402e18b5159d', CAST(N'2020-05-14T09:17:03.4700000' AS DateTime2), CAST(N'2020-05-14T09:17:03.4700000' AS DateTime2), 0, 0, 1, 0, NULL, N'GROUPPOLICY', N'PatientCareDepartment', N'PatientCareDepartment', N'Patient Care Department - Group Policy', N'Patient Care Department')
+
+            INSERT [dbo].[ItemTypes] ([ItemTypeID], [ItemDataType], [Identifier], [CreationDate], [UpdatedDate], [CreatedBy], [UpdateBy], [IsActive], [IsDeleted], [RowVersion], [ItemTypeKeyword], [ItemTypeCode], [ItemTypeValue], [ItemTypeDescription], [ItemTypeDisplayName]) VALUES (168, N'string', N'802f3e34-e157-4dbf-ad68-402e18b5159d', CAST(N'2020-05-14T09:17:03.4733333' AS DateTime2), CAST(N'2020-05-14T09:17:03.4733333' AS DateTime2), 0, 0, 1, 0, NULL, N'GROUPPOLICY', N'OtherOperatingDepartment', N'OtherOperatingDepartment', N'Other Operating Department - Group Policy', N'Other Operating Department')
+
+            INSERT [dbo].[ItemTypes] ([ItemTypeID], [ItemDataType], [Identifier], [CreationDate], [UpdatedDate], [CreatedBy], [UpdateBy], [IsActive], [IsDeleted], [RowVersion], [ItemTypeKeyword], [ItemTypeCode], [ItemTypeValue], [ItemTypeDescription], [ItemTypeDisplayName]) VALUES (169, N'string', N'802f3e34-e157-4dbf-ad68-402e18b5159d', CAST(N'2020-05-14T09:17:03.4733333' AS DateTime2), CAST(N'2020-05-14T09:17:03.4733333' AS DateTime2), 0, 0, 1, 0, NULL, N'GROUPPOLICY', N'NonOperatingDepartment', N'NonOperatingDepartment', N'Non-Operating Department - Group Policy', N'Non-Operating Department')
+
+            INSERT [dbo].[ItemTypes] ([ItemTypeID], [ItemDataType], [Identifier], [CreationDate], [UpdatedDate], [CreatedBy], [UpdateBy], [IsActive], [IsDeleted], [RowVersion], [ItemTypeKeyword], [ItemTypeCode], [ItemTypeValue], [ItemTypeDescription], [ItemTypeDisplayName]) VALUES (170, N'string', N'802f3e34-e157-4dbf-ad68-402e18b5159d', CAST(N'2020-05-14T09:17:03.4766667' AS DateTime2), CAST(N'2020-05-14T09:17:03.4766667' AS DateTime2), 0, 0, 1, 0, NULL, N'GROUPPOLICY', N'OverheadDepartment', N'OverheadDepartment', N'Overhead Department - Group Policy', N'Overhead Department')
+
+            INSERT [dbo].[ItemTypes] ([ItemTypeID], [ItemDataType], [Identifier], [CreationDate], [UpdatedDate], [CreatedBy], [UpdateBy], [IsActive], [IsDeleted], [RowVersion], [ItemTypeKeyword], [ItemTypeCode], [ItemTypeValue], [ItemTypeDescription], [ItemTypeDisplayName]) VALUES (171, N'string', N'802f3e34-e157-4dbf-ad68-402e18b5159d', CAST(N'2020-05-14T09:17:03.4766667' AS DateTime2), CAST(N'2020-05-14T09:17:03.4766667' AS DateTime2), 0, 0, 1, 0, NULL, N'GROUPPOLICY', N'NullPolicy', N'NullPolicy', N'Null Policy (Groups Only) - Group Policy', N'Null Policy')
+
+            INSERT [dbo].[ItemTypes] ([ItemTypeID], [ItemDataType], [Identifier], [CreationDate], [UpdatedDate], [CreatedBy], [UpdateBy], [IsActive], [IsDeleted], [RowVersion], [ItemTypeKeyword], [ItemTypeCode], [ItemTypeValue], [ItemTypeDescription], [ItemTypeDisplayName]) VALUES (172, N'string', N'607808ed-c6de-4c3f-b44a-6f4baadb2013', CAST(N'2020-05-14T09:23:31.1154783' AS DateTime2), NULL, 0, NULL, 1, 0, NULL, N'STATISTICMASTERTYPE', N'B', N'B', N'string', N'B')
+
+            INSERT [dbo].[ItemTypes] ([ItemTypeID], [ItemDataType], [Identifier], [CreationDate], [UpdatedDate], [CreatedBy], [UpdateBy], [IsActive], [IsDeleted], [RowVersion], [ItemTypeKeyword], [ItemTypeCode], [ItemTypeValue], [ItemTypeDescription], [ItemTypeDisplayName]) VALUES (173, N'string', N'6b7a2ff2-8ee7-49a4-ba01-626c3daf7565', CAST(N'2020-05-14T09:24:21.1234383' AS DateTime2), NULL, 0, NULL, 1, 0, NULL, N'STATISTICMASTERTYPE', N'D', N'D', N'string', N'D')
+
+            INSERT [dbo].[ItemTypes] ([ItemTypeID], [ItemDataType], [Identifier], [CreationDate], [UpdatedDate], [CreatedBy], [UpdateBy], [IsActive], [IsDeleted], [RowVersion], [ItemTypeKeyword], [ItemTypeCode], [ItemTypeValue], [ItemTypeDescription], [ItemTypeDisplayName]) VALUES (174, N'string', N'5516726b-5701-438f-8d72-76051477fdbd', CAST(N'2020-05-14T09:24:31.8132821' AS DateTime2), NULL, 0, NULL, 1, 0, NULL, N'STATISTICMASTERTYPE', N'C', N'C', N'string', N'C')
+
+            INSERT [dbo].[ItemTypes] ([ItemTypeID], [ItemDataType], [Identifier], [CreationDate], [UpdatedDate], [CreatedBy], [UpdateBy], [IsActive], [IsDeleted], [RowVersion], [ItemTypeKeyword], [ItemTypeCode], [ItemTypeValue], [ItemTypeDescription], [ItemTypeDisplayName]) VALUES (175, N'string', N'cffb9d00-21f4-464c-aadf-dcda0468240a', CAST(N'2020-05-14T09:24:40.8330177' AS DateTime2), NULL, 0, NULL, 1, 0, NULL, N'STATISTICMASTERTYPE', N'E', N'E', N'string', N'E')
+
+            INSERT [dbo].[ItemTypes] ([ItemTypeID], [ItemDataType], [Identifier], [CreationDate], [UpdatedDate], [CreatedBy], [UpdateBy], [IsActive], [IsDeleted], [RowVersion], [ItemTypeKeyword], [ItemTypeCode], [ItemTypeValue], [ItemTypeDescription], [ItemTypeDisplayName]) VALUES (176, N'string', N'a3929a1d-a2d0-4da4-9b69-31e497f629c6', CAST(N'2020-05-14T09:36:23.8002982' AS DateTime2), NULL, 0, NULL, 1, 0, NULL, N'DEPARTMENTTYPE', N'A', N'A', N'string', N'A')
+
+            INSERT [dbo].[ItemTypes] ([ItemTypeID], [ItemDataType], [Identifier], [CreationDate], [UpdatedDate], [CreatedBy], [UpdateBy], [IsActive], [IsDeleted], [RowVersion], [ItemTypeKeyword], [ItemTypeCode], [ItemTypeValue], [ItemTypeDescription], [ItemTypeDisplayName]) VALUES (177, N'string', N'5c26e355-87b3-42dc-9ad1-59fc3ceea182', CAST(N'2020-05-14T09:36:30.6900125' AS DateTime2), NULL, 0, NULL, 1, 0, NULL, N'DEPARTMENTTYPE', N'B', N'B', N'string', N'B')
+
+            INSERT [dbo].[ItemTypes] ([ItemTypeID], [ItemDataType], [Identifier], [CreationDate], [UpdatedDate], [CreatedBy], [UpdateBy], [IsActive], [IsDeleted], [RowVersion], [ItemTypeKeyword], [ItemTypeCode], [ItemTypeValue], [ItemTypeDescription], [ItemTypeDisplayName]) VALUES (178, N'string', N'f975f5c8-5bd0-41b6-9d7b-a7f630c60ad2', CAST(N'2020-05-14T09:36:38.3268831' AS DateTime2), NULL, 0, NULL, 1, 0, NULL, N'DEPARTMENTTYPE', N'C', N'C', N'string', N'C')
+
+            SET IDENTITY_INSERT [dbo].[ItemTypes] OFF
+
+           
+
+
+
+        </sql>
+    </changeSet>
+</databaseChangeLog>

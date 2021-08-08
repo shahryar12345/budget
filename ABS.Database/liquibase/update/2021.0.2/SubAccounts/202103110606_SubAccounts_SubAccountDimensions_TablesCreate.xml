@@ -1,0 +1,252 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+
+    <changeSet author="fshaikh" id="202103110606_SubAccounts_SubAccountDimensions_TablesCreate">
+        <preConditions  onFail="MARK_RAN" onFailMessage="SubAccountDimensions table already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if SubAccountDimensions table exists. Will try to run again next LB update.">  
+            <not>
+                <tableExists tableName="SubAccountsDimensions"/>
+            </not>  
+        </preConditions> 
+        <createTable tableName="SubAccountsDimensions">
+            <column autoIncrement="true" name="SubAccountsDimensionID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_SubAccountsDimensions"/>
+            </column>
+            <column name="subAccountCode" type="nvarchar(MAX)"/>
+            <column name="subAccountName" type="nvarchar(MAX)"/>
+            <column name="subAccountValue" type="nvarchar(MAX)"/>
+            <column name="subAccountTitle" type="nvarchar(MAX)"/>
+            <column name="Description" type="nvarchar(MAX)"/>
+            <column name="Comments" type="nvarchar(MAX)"/>
+            <column name="BudgetVersionID" type="int"/>
+            <column name="EntityID" type="int"/>
+            <column name="DepartmentID" type="int"/>
+            <column name="StatisticsCodesStatisticsCodeID" type="int"/>
+            <column name="GLAccountsGLAccountID" type="int"/>
+            <column name="JobCodeID" type="int"/>
+            <column name="PayTypeID" type="int"/>
+            <column name="TimePeriodID1" type="int"/>
+            <column name="DataScenarioTypeIDItemTypeID" type="int"/>
+            <column name="DataScenarioID1" type="int"/>
+            <column name="StaffingDataTypeItemTypeID" type="int"/>
+            <column name="DimensionsRowIDDimensionsID" type="int"/>
+            <column name="January" type="decimal(18, 2)"/>
+            <column name="February" type="decimal(18, 2)"/>
+            <column name="March" type="decimal(18, 2)"/>
+            <column name="April" type="decimal(18, 2)"/>
+            <column name="May" type="decimal(18, 2)"/>
+            <column name="June" type="decimal(18, 2)"/>
+            <column name="July" type="decimal(18, 2)"/>
+            <column name="August" type="decimal(18, 2)"/>
+            <column name="September" type="decimal(18, 2)"/>
+            <column name="October" type="decimal(18, 2)"/>
+            <column name="November" type="decimal(18, 2)"/>
+            <column name="December" type="decimal(18, 2)"/>
+            <column name="rowTotal" type="decimal(18, 2)"/>
+            <column name="wageRateOverride" type="decimal(18, 2)"/>
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="varbinary(MAX)"/>
+       </createTable>
+    </changeSet>
+    <changeSet author="FShaikh" id="202103110606_SA_SAD_IA_IX_SubAccountsDimensions_BudgetVersionID">
+        <createIndex indexName="IX_SubAccountsDimensions_BudgetVersionID" tableName="SubAccountsDimensions">
+            <column name="BudgetVersionID"/>
+        </createIndex>
+    </changeSet>
+
+<changeSet author="FShaikh" id="202103110606_SA_SAD_IA_IX_SubAccountsDimensions_DataScenarioID1">
+        <createIndex indexName="IX_SubAccountsDimensions_DataScenarioID1" tableName="SubAccountsDimensions">
+            <column name="DataScenarioID1"/>
+        </createIndex>
+    </changeSet>
+
+<changeSet author="FShaikh" id="202103110606_SA_SAD_IA_IX_SubAccountsDimensions_DataScenarioTypeIDItemTypeID">
+    <createIndex indexName="IX_SubAccountsDimensions_DataScenarioTypeIDItemTypeID" tableName="SubAccountsDimensions">
+            <column name="DataScenarioTypeIDItemTypeID"/>
+        </createIndex>
+    </changeSet>
+
+
+
+<changeSet author="FShaikh" id="202103110606_SA_SAD_IA_IX_SubAccountsDimensions_DepartmentID">
+        <createIndex indexName="IX_SubAccountsDimensions_DepartmentID" tableName="SubAccountsDimensions">
+            <column name="DepartmentID"/>
+        </createIndex>
+    </changeSet>
+
+<changeSet author="FShaikh" id="202103110606_SA_SAD_IA_IX_SubAccountsDimensions_DimensionsRowIDDimensionsID">
+        <createIndex indexName="IX_SubAccountsDimensions_DimensionsRowIDDimensionsID" tableName="SubAccountsDimensions">
+            <column name="DimensionsRowIDDimensionsID"/>
+        </createIndex>
+    </changeSet>
+
+<changeSet author="FShaikh" id="202103110606_SA_SAD_IA_IX_SubAccountsDimensions_EntityID">
+        <createIndex indexName="IX_SubAccountsDimensions_EntityID" tableName="SubAccountsDimensions">
+            <column name="EntityID"/>
+        </createIndex>
+    </changeSet>
+
+<changeSet author="FShaikh" id="202103110606_SA_SAD_IA_IX_SubAccountsDimensions_GLAccountsGLAccountID">
+        <createIndex indexName="IX_SubAccountsDimensions_GLAccountsGLAccountID" tableName="SubAccountsDimensions">
+            <column name="GLAccountsGLAccountID"/>
+        </createIndex>
+    </changeSet>
+
+<changeSet author="FShaikh" id="202103110606_SA_SAD_IA_IX_SubAccountsDimensions_JobCodeID">
+        <createIndex indexName="IX_SubAccountsDimensions_JobCodeID" tableName="SubAccountsDimensions">
+            <column name="JobCodeID"/>
+        </createIndex>
+    </changeSet>
+
+<changeSet author="FShaikh" id="202103110606_SA_SAD_IA_IX_SubAccountsDimensions_PayTypeID">
+        <createIndex indexName="IX_SubAccountsDimensions_PayTypeID" tableName="SubAccountsDimensions">
+            <column name="PayTypeID"/>
+        </createIndex>
+    </changeSet>
+
+<changeSet author="FShaikh" id="202103110606_SA_SAD_IA_IX_SubAccountsDimensions_StaffingDataTypeItemTypeID">
+        <createIndex indexName="IX_SubAccountsDimensions_StaffingDataTypeItemTypeID" tableName="SubAccountsDimensions">
+            <column name="StaffingDataTypeItemTypeID"/>
+        </createIndex>
+    </changeSet>
+
+<changeSet author="FShaikh" id="202103110606_SA_SAD_IA_IX_SubAccountsDimensions_StatisticsCodesStatisticsCodeID">
+    <createIndex indexName="IX_SubAccountsDimensions_StatisticsCodesStatisticsCodeID" tableName="SubAccountsDimensions">
+            <column name="StatisticsCodesStatisticsCodeID"/>
+        </createIndex>
+    </changeSet>
+
+<changeSet author="FShaikh" id="202103110606_SA_SAD_IA_IX_SubAccountsDimensions_TimePeriodID1">
+        <createIndex indexName="IX_SubAccountsDimensions_TimePeriodID1" tableName="SubAccountsDimensions">
+            <column name="TimePeriodID1"/>
+        </createIndex>
+    </changeSet>
+
+
+
+<changeSet author="fshaikh" id="202103110606_SA_SAD_FK_SubAccountsDimensions_BudgetVersions_BudgetVersionID">
+        <addForeignKeyConstraint 
+        baseColumnNames="BudgetVersionID" 
+        baseTableName="SubAccountsDimensions" 
+        constraintName="FK_SubAccountsDimensions_BudgetVersions_BudgetVersionID" 
+        deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" 
+        referencedColumnNames="BudgetVersionID" 
+        referencedTableName="BudgetVersions" validate="true"/>
+    </changeSet> 
+
+    <changeSet author="fshaikh" id="202103110606_SA_SAD_FK_SubAccountsDimensions_DataScenario_DataScenarioID1">
+        <addForeignKeyConstraint 
+        baseColumnNames="DataScenarioID1" 
+        baseTableName="SubAccountsDimensions" 
+        constraintName="FK_SubAccountsDimensions_DataScenario_DataScenarioID1" 
+        deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" 
+        referencedColumnNames="DataScenarioID" 
+        referencedTableName="DataScenario" validate="true"/>
+    </changeSet> 
+    <changeSet author="fshaikh" id="202103110606_SA_SAD_FK_SubAccountsDimensions_ItemTypes_DataScenarioTypeIDItemTypeID">
+        <addForeignKeyConstraint 
+        baseColumnNames="DataScenarioTypeIDItemTypeID" 
+        baseTableName="SubAccountsDimensions" 
+        constraintName="FK_SubAccountsDimensions_ItemTypes_DataScenarioTypeIDItemTypeID" 
+        deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" 
+          referencedColumnNames="ItemTypeID" 
+        referencedTableName="ItemTypes" validate="true"/>
+      
+    </changeSet> 
+    <changeSet author="fshaikh" id="202103110606_SA_SAD_FK_SubAccountsDimensions_Departments_DepartmentID">
+        <addForeignKeyConstraint 
+        baseColumnNames="DepartmentID" 
+        baseTableName="SubAccountsDimensions" 
+        constraintName="FK_SubAccountsDimensions_Departments_DepartmentID" 
+        deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" 
+          referencedColumnNames="DepartmentID" 
+        referencedTableName="Departments" validate="true"/>
+      
+    </changeSet> 
+ <changeSet author="fshaikh" id="202103110606_SA_SAD_FK_SubAccountsDimensions_Dimensions_DimensionsRowIDDimensionsID">
+        <addForeignKeyConstraint 
+        baseColumnNames="DimensionsRowIDDimensionsID" 
+        baseTableName="SubAccountsDimensions" 
+        constraintName="FK_SubAccountsDimensions_Dimensions_DimensionsRowIDDimensionsID" 
+        deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" 
+          referencedColumnNames="DimensionsID" 
+        referencedTableName="Dimensions" validate="true"/>
+      
+    </changeSet> 
+    <changeSet author="fshaikh" id="202103110606_SA_SAD_FK_SubAccountsDimensions_Entities_EntityID">
+        <addForeignKeyConstraint 
+        baseColumnNames="EntityID" 
+        baseTableName="SubAccountsDimensions" 
+        constraintName="FK_SubAccountsDimensions_Entities_EntityID" 
+        deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" 
+          referencedColumnNames="EntityID" 
+        referencedTableName="Entities" validate="true"/>
+      
+    </changeSet> 
+    <changeSet author="fshaikh" id="202103110606_SA_SAD_FK_SubAccountsDimensions_GLAccounts_GLAccountsGLAccountID">
+        <addForeignKeyConstraint 
+        baseColumnNames="GLAccountsGLAccountID" 
+        baseTableName="SubAccountsDimensions" 
+        constraintName="FK_SubAccountsDimensions_GLAccounts_GLAccountsGLAccountID" 
+        deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" 
+          referencedColumnNames="GLAccountID" 
+        referencedTableName="GLAccounts" validate="true"/>
+      
+    </changeSet> 
+    <changeSet author="fshaikh" id="202103110606_SA_SAD_FK_SubAccountsDimensions_JobCodes_JobCodeID">
+        <addForeignKeyConstraint 
+        baseColumnNames="JobCodeID" 
+        baseTableName="SubAccountsDimensions" 
+        constraintName="FK_SubAccountsDimensions_JobCodes_JobCodeID" 
+        deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" 
+          referencedColumnNames="JobCodeID" 
+        referencedTableName="JobCodes" validate="true"/>
+      
+    </changeSet> 
+    <changeSet author="fshaikh" id="202103110606_SA_SAD_FK_SubAccountsDimensions_PayTypes_PayTypeID">
+        <addForeignKeyConstraint 
+        baseColumnNames="PayTypeID" 
+        baseTableName="SubAccountsDimensions" 
+        constraintName="FK_SubAccountsDimensions_PayTypes_PayTypeID" 
+        deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" 
+          referencedColumnNames="PayTypeID" 
+        referencedTableName="PayTypes" validate="true"/>
+      
+    </changeSet> 
+    <changeSet author="fshaikh" id="202103110606_SA_SAD_FK_SubAccountsDimensions_ItemTypes_StaffingDataTypeItemTypeID">
+        <addForeignKeyConstraint 
+        baseColumnNames="StaffingDataTypeItemTypeID" 
+        baseTableName="SubAccountsDimensions" 
+        constraintName="FK_SubAccountsDimensions_ItemTypes_StaffingDataTypeItemTypeID" 
+        deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" 
+          referencedColumnNames="ItemTypeID" 
+        referencedTableName="ItemTypes" validate="true"/>
+      
+    </changeSet> 
+    <changeSet author="fshaikh" id="202103110606_SA_SAD_FK_SubAccountsDimensions_StatisticsCodes_StatisticsCodesStatisticsCodeID">
+        <addForeignKeyConstraint 
+        baseColumnNames="StatisticsCodesStatisticsCodeID" 
+        baseTableName="SubAccountsDimensions" 
+        constraintName="FK_SubAccountsDimensions_StatisticsCodes_StatisticsCodesStatisticsCodeID" 
+        deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" 
+          referencedColumnNames="StatisticsCodeID" 
+        referencedTableName="StatisticsCodes" validate="true"/>
+      
+    </changeSet> 
+    <changeSet author="fshaikh" id="202103110606_SA_SAD_FK_SubAccountsDimensions_TimePeriods_TimePeriodID1">
+        <addForeignKeyConstraint 
+        baseColumnNames="TimePeriodID1" 
+        baseTableName="SubAccountsDimensions" 
+        constraintName="FK_SubAccountsDimensions_TimePeriods_TimePeriodID1" 
+        deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" 
+          referencedColumnNames="TimePeriodID" 
+        referencedTableName="TimePeriods" validate="true"/>
+      
+    </changeSet> 
+    
+</databaseChangeLog>

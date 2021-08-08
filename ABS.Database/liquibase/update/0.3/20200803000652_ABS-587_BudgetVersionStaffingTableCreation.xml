@@ -1,0 +1,67 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="jbeam" id="20200803000652-BudgetVersionStaffingTableCreation">
+        <createTable tableName="BudgetVersionStaffing">
+            <column autoIncrement="true" name="BudgetVersionStaffingID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_BudgetVersionStaffing"/>
+            </column>
+            <column name="BudgetVersionID" type="int"/>
+            <column name="EntityID" type="int"/>
+            <column name="DepartmentID" type="int"/>
+            <column name="JobCodeID" type="int"/>
+            <column name="PayTypeID" type="int"/>
+            <column name="TimePeriodID" type="int"/>
+            <column name="DataScenarioTypeIDItemTypeID" type="int"/>
+            <column name="StaffingDataTypeItemTypeID" type="int"/>
+            <column name="DimensionsRowIDDimensionsID" type="int"/>
+            <column name="January" type="decimal(18, 2)"/>
+            <column name="February" type="decimal(18, 2)"/>
+            <column name="March" type="decimal(18, 2)"/>
+            <column name="April" type="decimal(18, 2)"/>
+            <column name="May" type="decimal(18, 2)"/>
+            <column name="June" type="decimal(18, 2)"/>
+            <column name="July" type="decimal(18, 2)"/>
+            <column name="August" type="decimal(18, 2)"/>
+            <column name="September" type="decimal(18, 2)"/>
+            <column name="October" type="decimal(18, 2)"/>
+            <column name="November" type="decimal(18, 2)"/>
+            <column name="December" type="decimal(18, 2)"/>
+            <column name="rowTotal" type="decimal(18, 2)"/>
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="varbinary(MAX)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="jbeam" id="20200803000652-BudgetVersionStaffingPayTypeIDFK">
+        <addForeignKeyConstraint baseColumnNames="PayTypeID" baseTableName="BudgetVersionStaffing" constraintName="FK_BudgetVersionStaffing_PayTypes_PayTypeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="PayTypeID" referencedTableName="PayTypes" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200803000652-BudgetVersionStaffingTimePeriodIDFK">
+        <addForeignKeyConstraint baseColumnNames="TimePeriodID" baseTableName="BudgetVersionStaffing" constraintName="FK_BudgetVersionStaffing_TimePeriods_TimePeriodID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="TimePeriodID" referencedTableName="TimePeriods" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200803000652-BudgetVersionStaffingBudgetVersionIDFK">
+        <addForeignKeyConstraint baseColumnNames="BudgetVersionID" baseTableName="BudgetVersionStaffing" constraintName="FK_BudgetVersionStaffing_BudgetVersions_BudgetVersionID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="BudgetVersionID" referencedTableName="BudgetVersions" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200803000652-BudgetVersionStaffingDepartmentIDFK">
+        <addForeignKeyConstraint baseColumnNames="DepartmentID" baseTableName="BudgetVersionStaffing" constraintName="FK_BudgetVersionStaffing_Departments_DepartmentID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="DepartmentID" referencedTableName="Departments" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200803000652-BudgetVersionStaffingDimensionsRowIDDimensionsIDFK">
+        <addForeignKeyConstraint baseColumnNames="DimensionsRowIDDimensionsID" baseTableName="BudgetVersionStaffing" constraintName="FK_BudgetVersionStaffing_Dimensions_DimensionsRowIDDimensionsID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="DimensionsID" referencedTableName="Dimensions" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200803000652-BudgetVersionStaffingEntityIDFK">
+        <addForeignKeyConstraint baseColumnNames="EntityID" baseTableName="BudgetVersionStaffing" constraintName="FK_BudgetVersionStaffing_Entities_EntityID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="EntityID" referencedTableName="Entities" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200803000652-BudgetVersionStaffingDataScenarioTypeIDItemTypeIDFK">
+        <addForeignKeyConstraint baseColumnNames="DataScenarioTypeIDItemTypeID" baseTableName="BudgetVersionStaffing" constraintName="FK_BudgetVersionStaffing_ItemTypes_DataScenarioTypeIDItemTypeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ItemTypeID" referencedTableName="ItemTypes" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200803000652-BudgetVersionStaffingStaffingDataTypeItemTypeIDFK">
+        <addForeignKeyConstraint baseColumnNames="StaffingDataTypeItemTypeID" baseTableName="BudgetVersionStaffing" constraintName="FK_BudgetVersionStaffing_ItemTypes_StaffingDataTypeItemTypeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ItemTypeID" referencedTableName="ItemTypes" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200803000652-BudgetVersionStaffingJobCodeIDFK">
+        <addForeignKeyConstraint baseColumnNames="JobCodeID" baseTableName="BudgetVersionStaffing" constraintName="FK_BudgetVersionStaffing_JobCodes_JobCodeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="JobCodeID" referencedTableName="JobCodes" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

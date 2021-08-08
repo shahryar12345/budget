@@ -1,0 +1,42 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.0.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+	 <changeSet author="fshaikh" id="1595871158368-85">
+        <addColumn tableName="PayTypes">
+            <column name="PayTypeDescription" type="nvarchar(-1)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="fshaikh" id="1595871158368-86">
+        <addColumn tableName="PayTypes">
+            <column name="Lowcode" type="nvarchar(-1)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="fshaikh" id="1595871158368-87">
+        <addColumn tableName="PayTypes">
+            <column name="HighCode" type="nvarchar(-1)"/>
+        </addColumn>
+    </changeSet>
+     <changeSet author="fshaikh" id="1595871158368-89">
+        <addColumn tableName="PayTypes">
+            <column name="AccumulateHours" type="bit(1)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="fshaikh" id="1595871158368-90">
+        <addColumn tableName="PayTypes">
+            <column name="PayTypeTypeItemTypeID" type="int(10)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet author="fshaikh" id="1595871158368-61">
+        <createIndex indexName="IX_PayTypes_PayTypeMasterPayTypeID" tableName="PayTypes">
+            <column name="PayTypeMasterPayTypeID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="fshaikh" id="1595871158368-62">
+        <createIndex indexName="IX_PayTypes_PayTypeTypeItemTypeID" tableName="PayTypes">
+            <column name="PayTypeTypeItemTypeID"/>
+        </createIndex>
+    </changeSet>
+     <changeSet author="fshaikh" id="1595871158368-82">
+        <addForeignKeyConstraint baseColumnNames="PayTypeTypeItemTypeID" baseTableName="PayTypes" constraintName="FK_PayTypes_ItemTypes_PayTypeTypeItemTypeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ItemTypeID" referencedTableName="ItemTypes" validate="true"/>
+    </changeSet>
+   </databaseChangeLog>

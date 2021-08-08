@@ -1,0 +1,47 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="jbeam" id="20200714182030-GLAccountsInflationTableCreation">
+        <createTable tableName="GLAccountsInflation">
+            <column autoIncrement="true" name="GLAccountsInflationID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_GLAccountsInflation"/>
+            </column>
+            <column name="BudgetVersionID" type="int"/>
+            <column name="TimePeriodID1" type="int"/>
+            <column name="EntityID" type="int"/>
+            <column name="DepartmentID" type="int"/>
+            <column name="GLAccountID" type="int"/>
+            <column name="InflationPercent" type="decimal(18, 2)"/>
+            <column name="StartMonthItemTypeID" type="int"/>
+            <column name="EndMonthItemTypeID" type="int"/>
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="varbinary(MAX)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="jbeam" id="20200714182030-GLAccountsInflationFKBudgetVersionID">
+        <addForeignKeyConstraint baseColumnNames="BudgetVersionID" baseTableName="GLAccountsInflation" constraintName="FK_GLAccountsInflation_BudgetVersions_BudgetVersionID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="BudgetVersionID" referencedTableName="BudgetVersions" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200714182030-GLAccountsInflationDepartmentID">
+        <addForeignKeyConstraint baseColumnNames="DepartmentID" baseTableName="GLAccountsInflation" constraintName="FK_GLAccountsInflation_Departments_DepartmentID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="DepartmentID" referencedTableName="Departments" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200714182030-GLAccountsInflationFKEntityID">
+        <addForeignKeyConstraint baseColumnNames="EntityID" baseTableName="GLAccountsInflation" constraintName="FK_GLAccountsInflation_Entities_EntityID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="EntityID" referencedTableName="Entities" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200714182030-GLAccountsInflationFKGLAccountID">
+        <addForeignKeyConstraint baseColumnNames="GLAccountID" baseTableName="GLAccountsInflation" constraintName="FK_GLAccountsInflation_GLAccounts_GLAccountID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="GLAccountID" referencedTableName="GLAccounts" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200714182030-GLAccountsInflationFKEndMonthItemTypeID">
+        <addForeignKeyConstraint baseColumnNames="EndMonthItemTypeID" baseTableName="GLAccountsInflation" constraintName="FK_GLAccountsInflation_ItemTypes_EndMonthItemTypeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ItemTypeID" referencedTableName="ItemTypes" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200714182030-GLAccountsInflationFKStartMonthItemTypeID">
+        <addForeignKeyConstraint baseColumnNames="StartMonthItemTypeID" baseTableName="GLAccountsInflation" constraintName="FK_GLAccountsInflation_ItemTypes_StartMonthItemTypeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ItemTypeID" referencedTableName="ItemTypes" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200714182030-GLAccountsInflationFKTimePeriodID">
+        <addForeignKeyConstraint baseColumnNames="TimePeriodID1" baseTableName="GLAccountsInflation" constraintName="FK_GLAccountsInflation_TimePeriods_TimePeriodID1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="TimePeriodID" referencedTableName="TimePeriods" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

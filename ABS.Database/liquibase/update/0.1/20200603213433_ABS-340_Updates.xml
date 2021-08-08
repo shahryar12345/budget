@@ -1,0 +1,55 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="jbeam" id="20200603213433_Dimensions_Table_Creation">
+        <createTable tableName="Dimensions">
+            <column autoIncrement="true" name="DimensionsID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_Dimensions"/>
+            </column>
+            <column name="BudgetVersionID" type="int"/>
+            <column name="EntityID" type="int"/>
+            <column name="DepartmentID" type="int"/>
+            <column name="Ratio" type="decimal(18, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ParentID" type="int"/>
+            <column name="ChildID" type="nvarchar(MAX)"/>
+            <column name="DataSourcceIDItemTypeID" type="int"/>
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="jbeam" id="20200603213433_Dimensions_Index_BudgetVersionID">
+        <createIndex indexName="IX_Dimensions_BudgetVersionID" tableName="Dimensions">
+            <column name="BudgetVersionID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="jbeam" id="20200603213433_Dimensions_Index_DataSourrceID">
+        <createIndex indexName="IX_Dimensions_DataSourcceIDItemTypeID" tableName="Dimensions">
+            <column name="DataSourcceIDItemTypeID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="jbeam" id="20200603213433_Dimensions_Index_DepartmentID">
+        <createIndex indexName="IX_Dimensions_DepartmentID" tableName="Dimensions">
+            <column name="DepartmentID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="jbeam" id="20200603213433_Dimensions_Index_EntityID">
+        <createIndex indexName="IX_Dimensions_EntityID" tableName="Dimensions">
+            <column name="EntityID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="jbeam" id="20200603213433_BudgetVersionStatistics_DimensionsRowID">
+        <addColumn tableName="BudgetVersionStatistics">
+            <column name="DimensionsRowIDDimensionsID" type="int(10)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="jbeam" id="20200603213433_StatisticsCode_Summable_AllowNulls">
+        <dropNotNullConstraint columnDataType="boolean" columnName="Summable" tableName="StatisticsCodes"/>
+    </changeSet>
+</databaseChangeLog>

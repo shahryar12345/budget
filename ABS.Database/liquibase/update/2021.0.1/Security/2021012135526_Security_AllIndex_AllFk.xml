@@ -1,0 +1,534 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+   
+    <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleDataDepartments_AppRoleIDIdentityAppRoleID">
+        <createIndex indexName="IX_IdentityAppRoleDataDepartments_AppRoleIDIdentityAppRoleID" tableName="IdentityAppRoleDataDepartments">
+            <column name="AppRoleIDIdentityAppRoleID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleDataDepartments_DepartmentID1">
+        <createIndex indexName="IX_IdentityAppRoleDataDepartments_DepartmentID1" tableName="IdentityAppRoleDataDepartments">
+            <column name="DepartmentID1"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleDataEntities_AppRoleIDIdentityAppRoleID">
+        <createIndex indexName="IX_IdentityAppRoleDataEntities_AppRoleIDIdentityAppRoleID" tableName="IdentityAppRoleDataEntities">
+            <column name="AppRoleIDIdentityAppRoleID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleDataEntities_EntityID1">
+        <createIndex indexName="IX_IdentityAppRoleDataEntities_EntityID1" tableName="IdentityAppRoleDataEntities">
+            <column name="EntityID1"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleGroup_AppRoleIDIdentityAppRoleID">
+        <createIndex indexName="IX_IdentityAppRoleGroup_AppRoleIDIdentityAppRoleID" tableName="IdentityAppRoleGroup">
+            <column name="AppRoleIDIdentityAppRoleID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleGroup_GroupsIDIdentityGroupID">
+        <createIndex indexName="IX_IdentityAppRoleGroup_GroupsIDIdentityGroupID" tableName="IdentityAppRoleGroup">
+            <column name="GroupsIDIdentityGroupID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleScreenOperations_AppRoleIDIdentityAppRoleID">
+        <createIndex indexName="IX_IdentityAppRoleScreenOperations_AppRoleIDIdentityAppRoleID" tableName="IdentityAppRoleScreenOperations">
+            <column name="AppRoleIDIdentityAppRoleID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleScreenOperations_ScreenOperationIDIdentityScreenOperationID">
+        <createIndex indexName="IX_IdentityAppRoleScreenOperations_ScreenOperationIDIdentityScreenOperationID" tableName="IdentityAppRoleScreenOperations">
+            <column name="ScreenOperationIDIdentityScreenOperationID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleScreens_AppRoleIDIdentityAppRoleID">
+        <createIndex indexName="IX_IdentityAppRoleScreens_AppRoleIDIdentityAppRoleID" tableName="IdentityAppRoleScreens">
+            <column name="AppRoleIDIdentityAppRoleID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleScreens_ScreenIDIdentityScreenID">
+        <createIndex indexName="IX_IdentityAppRoleScreens_ScreenIDIdentityScreenID" tableName="IdentityAppRoleScreens">
+            <column name="ScreenIDIdentityScreenID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleUsers_AppRoleIDIdentityAppRoleID">
+        <createIndex indexName="IX_IdentityAppRoleUsers_AppRoleIDIdentityAppRoleID" tableName="IdentityAppRoleUsers">
+            <column name="AppRoleIDIdentityAppRoleID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleUsers_UserIDUserProfileID">
+        <createIndex indexName="IX_IdentityAppRoleUsers_UserIDUserProfileID" tableName="IdentityAppRoleUsers">
+            <column name="UserIDUserProfileID"/>
+        </createIndex>
+    </changeSet>
+    <!--     STage 2 Indexes        -->
+
+<changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleDataDepartments_UserIDUserProfileID">
+        <createIndex indexName="IX_IdentityAppRoleDataDepartments_UserIDUserProfileID" tableName="IdentityAppRoleDataDepartments">
+            <column name="UserIDUserProfileID"/>
+        </createIndex>
+    </changeSet>
+
+<changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleDataEntities_UserIDUserProfileID">
+        <createIndex indexName="IX_IdentityAppRoleDataEntities_UserIDUserProfileID" tableName="IdentityAppRoleDataEntities">
+            <column name="UserIDUserProfileID"/>
+        </createIndex>
+    </changeSet>
+    
+<changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleDataGLAccounts_AppRoleIDIdentityAppRoleID">
+        <createIndex indexName="IX_IdentityAppRoleDataGLAccounts_AppRoleIDIdentityAppRoleID" tableName="IdentityAppRoleDataGLAccounts">
+            <column name="AppRoleIDIdentityAppRoleID"/>
+        </createIndex>
+    </changeSet>
+<changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleDataGLAccounts_GLAccountsIDGLAccountID">
+        <createIndex indexName="IX_IdentityAppRoleDataGLAccounts_GLAccountsIDGLAccountID" tableName="IdentityAppRoleDataGLAccounts">
+            <column name="GLAccountsIDGLAccountID"/>
+        </createIndex>
+    </changeSet>
+<changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleDataGLAccounts_UserIDUserProfileID">
+        <createIndex indexName="IX_IdentityAppRoleDataGLAccounts_UserIDUserProfileID" tableName="IdentityAppRoleDataGLAccounts">
+            <column name="UserIDUserProfileID"/>
+        </createIndex>
+    </changeSet>
+<changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleDataJobCodes_AppRoleIDIdentityAppRoleID">
+        <createIndex indexName="IX_IdentityAppRoleDataJobCodes_AppRoleIDIdentityAppRoleID" tableName="IdentityAppRoleDataJobCodes">
+            <column name="AppRoleIDIdentityAppRoleID"/>
+        </createIndex>
+    </changeSet>
+<changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleDataJobCodes_JobCodesIDJobCodeID">
+        <createIndex indexName="IX_IdentityAppRoleDataJobCodes_JobCodesIDJobCodeID" tableName="IdentityAppRoleDataJobCodes">
+            <column name="JobCodesIDJobCodeID"/>
+        </createIndex>
+    </changeSet>
+<changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleDataJobCodes_UserIDUserProfileID">
+        <createIndex indexName="IX_IdentityAppRoleDataJobCodes_UserIDUserProfileID" tableName="IdentityAppRoleDataJobCodes">
+            <column name="UserIDUserProfileID"/>
+        </createIndex>
+    </changeSet>
+    
+<changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleDataPayTypes_AppRoleIDIdentityAppRoleID">
+        <createIndex indexName="IX_IdentityAppRoleDataPayTypes_AppRoleIDIdentityAppRoleID" tableName="IdentityAppRoleDataPayTypes">
+            <column name="AppRoleIDIdentityAppRoleID"/>
+        </createIndex>
+    </changeSet>
+<changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleDataPayTypes_PayTypesIDPayTypeID">
+        <createIndex indexName="IX_IdentityAppRoleDataPayTypes_PayTypesIDPayTypeID" tableName="IdentityAppRoleDataPayTypes">
+            <column name="PayTypesIDPayTypeID"/>
+        </createIndex>
+    </changeSet>
+<changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleDataPayTypes_UserIDUserProfileID">
+        <createIndex indexName="IX_IdentityAppRoleDataPayTypes_UserIDUserProfileID" tableName="IdentityAppRoleDataPayTypes">
+            <column name="UserIDUserProfileID"/>
+        </createIndex>
+    </changeSet>
+    
+<changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleDataStatistics_AppRoleIDIdentityAppRoleID">
+        <createIndex indexName="IX_IdentityAppRoleDataStatistics_AppRoleIDIdentityAppRoleID" tableName="IdentityAppRoleDataStatistics">
+            <column name="AppRoleIDIdentityAppRoleID"/>
+        </createIndex>
+    </changeSet>
+    
+<changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleDataStatistics_StatsCodeIDStatisticsCodeID">
+        <createIndex indexName="IX_IdentityAppRoleDataStatistics_StatsCodeIDStatisticsCodeID" tableName="IdentityAppRoleDataStatistics">
+            <column name="StatsCodeIDStatisticsCodeID"/>
+        </createIndex>
+    </changeSet>
+    
+<changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleDataStatistics_UserIDUserProfileID">
+        <createIndex indexName="IX_IdentityAppRoleDataStatistics_UserIDUserProfileID" tableName="IdentityAppRoleDataStatistics">
+            <column name="UserIDUserProfileID"/>
+        </createIndex>
+    </changeSet>
+<changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleGroup_UserIDUserProfileID">
+        <createIndex indexName="IX_IdentityAppRoleGroup_UserIDUserProfileID" tableName="IdentityAppRoleGroup">
+            <column name="UserIDUserProfileID"/>
+        </createIndex>
+    </changeSet>
+    
+<changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleScreenOperations_UserIDUserProfileID">
+        <createIndex indexName="IX_IdentityAppRoleScreenOperations_UserIDUserProfileID" tableName="IdentityAppRoleScreenOperations">
+            <column name="UserIDUserProfileID"/>
+        </createIndex>
+    </changeSet>
+    
+
+<changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_IX_IdentityAppRoleScreens_UserIDUserProfileID">
+        <createIndex indexName="IX_IdentityAppRoleScreens_UserIDUserProfileID" tableName="IdentityAppRoleScreens">
+            <column name="UserIDUserProfileID"/>
+        </createIndex>
+    </changeSet>
+    
+
+    <!-- Stage 2 Indexes End -->
+    <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleDataDepartments_IdentityAppRoles_AppRoleIDIdentityAppRoleID">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleDataDepartments_IdentityAppRoles_AppRoleIDIdentityAppRoleID" 
+        baseTableName="IdentityAppRoleDataDepartments" 
+        baseColumnNames="AppRoleIDIdentityAppRoleID" 
+        referencedTableName="IdentityAppRoles" 
+        referencedColumnNames="IdentityAppRoleID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+   
+    <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleDataDepartments_Departments_DepartmentID1">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleDataDepartments_Departments_DepartmentID1" 
+        baseTableName="IdentityAppRoleDataDepartments" 
+        baseColumnNames="DepartmentID1" 
+        referencedTableName="Departments" 
+        referencedColumnNames="DepartmentID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+     
+   
+   
+    <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleDataEntities_IdentityAppRoles_AppRoleIDIdentityAppRoleID">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleDataEntities_IdentityAppRoles_AppRoleIDIdentityAppRoleID" 
+        baseTableName="IdentityAppRoleDataEntities" 
+        baseColumnNames="AppRoleIDIdentityAppRoleID" 
+        referencedTableName="IdentityAppRoles" 
+        referencedColumnNames="IdentityAppRoleID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+    <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleDataEntities_Entities_EntityID1">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleDataEntities_Entities_EntityID1" 
+        baseTableName="IdentityAppRoleDataEntities" 
+        baseColumnNames="EntityID1" 
+        referencedTableName="Entities" 
+        referencedColumnNames="EntityID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+
+
+    <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleUsers_IdentityAppRoles_AppRoleIDIdentityAppRoleID">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleUsers_IdentityAppRoles_AppRoleIDIdentityAppRoleID" 
+        baseTableName="IdentityAppRoleUsers" 
+        baseColumnNames="AppRoleIDIdentityAppRoleID" 
+        referencedTableName="IdentityAppRoles" 
+        referencedColumnNames="IdentityAppRoleID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+    <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleUsers_IdentityUserProfile_UserIDUserProfileID">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleUsers_IdentityUserProfile_UserIDUserProfileID" 
+        baseTableName="IdentityAppRoleUsers" 
+        baseColumnNames="UserIDUserProfileID" 
+        referencedTableName="IdentityUserProfile" 
+        referencedColumnNames="UserProfileID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+
+
+    <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleGroup_IdentityAppRoles_AppRoleIDIdentityAppRoleID">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleGroup_IdentityAppRoles_AppRoleIDIdentityAppRoleID" 
+        baseTableName="IdentityAppRoleGroup" 
+        baseColumnNames="AppRoleIDIdentityAppRoleID" 
+        referencedTableName="IdentityAppRoles" 
+        referencedColumnNames="IdentityAppRoleID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+    <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleGroup_IdentityGroups_GroupsIDIdentityGroupID">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleGroup_IdentityGroups_GroupsIDIdentityGroupID" 
+        baseTableName="IdentityAppRoleGroup" 
+        baseColumnNames="GroupsIDIdentityGroupID" 
+        referencedTableName="IdentityGroups" 
+        referencedColumnNames="IdentityGroupID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+
+
+
+
+    <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleScreenOperations_IdentityAppRoles_AppRoleIDIdentityAppRoleID">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleScreenOperations_IdentityAppRoles_AppRoleIDIdentityAppRoleID" 
+        baseTableName="IdentityAppRoleScreenOperations" 
+        baseColumnNames="AppRoleIDIdentityAppRoleID" 
+        referencedTableName="IdentityAppRoles" 
+        referencedColumnNames="IdentityAppRoleID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+    <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleScreenOperations_IdentityScreenOperations_ScreenOperationIDIdentityScreenOperationID">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleScreenOperations_IdentityScreenOperations_ScreenOperationIDIdentityScreenOperationID" 
+        baseTableName="IdentityAppRoleScreenOperations" 
+        baseColumnNames="ScreenOperationIDIdentityScreenOperationID" 
+        referencedTableName="IdentityScreenOperations" 
+        referencedColumnNames="IdentityScreenOperationID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+
+
+
+    <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleScreens_IdentityAppRoles_AppRoleIDIdentityAppRoleID">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleScreens_IdentityAppRoles_AppRoleIDIdentityAppRoleID" 
+        baseTableName="IdentityAppRoleScreens" 
+        baseColumnNames="AppRoleIDIdentityAppRoleID" 
+        referencedTableName="IdentityAppRoles" 
+        referencedColumnNames="IdentityAppRoleID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+    <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleScreens_IdentityScreens_ScreenIDIdentityScreenID">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleScreens_IdentityScreens_ScreenIDIdentityScreenID" 
+        baseTableName="IdentityAppRoleScreens" 
+        baseColumnNames="ScreenIDIdentityScreenID" 
+        referencedTableName="IdentityScreens" 
+        referencedColumnNames="IdentityScreenID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+
+
+<!-- stage 2 FK -->
+
+ <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleDataDepartments_IdentityUserProfile_UserIDUserProfileID">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleDataDepartments_IdentityUserProfile_UserIDUserProfileID" 
+        baseTableName="IdentityAppRoleDataDepartments" 
+        baseColumnNames="UserIDUserProfileID" 
+        referencedTableName="IdentityUserProfile" 
+        referencedColumnNames="UserProfileID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+ <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleDataEntities_IdentityUserProfile_UserIDUserProfileID">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleDataEntities_IdentityUserProfile_UserIDUserProfileID" 
+        baseTableName="IdentityAppRoleDataEntities" 
+        baseColumnNames="UserIDUserProfileID" 
+        referencedTableName="IdentityUserProfile" 
+        referencedColumnNames="UserProfileID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+ <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleDataGLAccounts_IdentityAppRoles_AppRoleIDIdentityAppRoleID">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleDataGLAccounts_IdentityAppRoles_AppRoleIDIdentityAppRoleID" 
+        baseTableName="IdentityAppRoleDataGLAccounts" 
+        baseColumnNames="AppRoleIDIdentityAppRoleID" 
+        referencedTableName="IdentityAppRoles" 
+        referencedColumnNames="IdentityAppRoleID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+ <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleDataGLAccounts_GLAccounts_GLAccountsIDGLAccountID">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleDataGLAccounts_GLAccounts_GLAccountsIDGLAccountID" 
+        baseTableName="IdentityAppRoleDataGLAccounts" 
+        baseColumnNames="GLAccountsIDGLAccountID" 
+        referencedTableName="GLAccounts" 
+        referencedColumnNames="GLAccountID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+ <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleDataGLAccounts_IdentityUserProfile_UserIDUserProfileID">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleDataGLAccounts_IdentityUserProfile_UserIDUserProfileID" 
+        baseTableName="IdentityAppRoleDataGLAccounts" 
+        baseColumnNames="UserIDUserProfileID" 
+        referencedTableName="IdentityUserProfile" 
+        referencedColumnNames="UserProfileID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+ <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleDataJobCodes_IdentityAppRoles_AppRoleIDIdentityAppRoleID">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleDataJobCodes_IdentityAppRoles_AppRoleIDIdentityAppRoleID" 
+        baseTableName="IdentityAppRoleDataJobCodes" 
+        baseColumnNames="AppRoleIDIdentityAppRoleID" 
+        referencedTableName="IdentityAppRoles" 
+        referencedColumnNames="IdentityAppRoleID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+ <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleDataJobCodes_JobCodes_JobCodesIDJobCodeID">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleDataJobCodes_JobCodes_JobCodesIDJobCodeID" 
+        baseTableName="IdentityAppRoleDataJobCodes" 
+        baseColumnNames="JobCodesIDJobCodeID" 
+        referencedTableName="JobCodes" 
+        referencedColumnNames="JobCodeID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+ <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleDataJobCodes_IdentityUserProfile_UserIDUserProfileID">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleDataJobCodes_IdentityUserProfile_UserIDUserProfileID" 
+        baseTableName="IdentityAppRoleDataJobCodes" 
+        baseColumnNames="UserIDUserProfileID" 
+        referencedTableName="IdentityUserProfile" 
+        referencedColumnNames="UserProfileID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+ <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleDataPayTypes_IdentityAppRoles_AppRoleIDIdentityAppRoleID">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleDataPayTypes_IdentityAppRoles_AppRoleIDIdentityAppRoleID" 
+        baseTableName="IdentityAppRoleDataPayTypes" 
+        baseColumnNames="AppRoleIDIdentityAppRoleID" 
+        referencedTableName="IdentityAppRoles" 
+        referencedColumnNames="IdentityAppRoleID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+ <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleDataPayTypes_PayTypes_PayTypesIDPayTypeID">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleDataPayTypes_PayTypes_PayTypesIDPayTypeID" 
+        baseTableName="IdentityAppRoleDataPayTypes" 
+        baseColumnNames="PayTypesIDPayTypeID" 
+        referencedTableName="PayTypes" 
+        referencedColumnNames="PayTypeID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+ <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleDataPayTypes_IdentityUserProfile_UserIDUserProfileID">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleDataPayTypes_IdentityUserProfile_UserIDUserProfileID" 
+        baseTableName="IdentityAppRoleDataPayTypes" 
+        baseColumnNames="UserIDUserProfileID" 
+        referencedTableName="IdentityUserProfile" 
+        referencedColumnNames="UserProfileID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+ <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleDataStatistics_IdentityAppRoles_AppRoleIDIdentityAppRoleID">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleDataStatistics_IdentityAppRoles_AppRoleIDIdentityAppRoleID" 
+        baseTableName="IdentityAppRoleDataStatistics" 
+        baseColumnNames="AppRoleIDIdentityAppRoleID" 
+        referencedTableName="IdentityAppRoles" 
+        referencedColumnNames="IdentityAppRoleID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+ <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleDataStatistics_StatisticsCodes_StatsCodeIDStatisticsCodeID">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleDataStatistics_StatisticsCodes_StatsCodeIDStatisticsCodeID" 
+        baseTableName="IdentityAppRoleDataStatistics" 
+        baseColumnNames="StatsCodeIDStatisticsCodeID" 
+        referencedTableName="StatisticsCodes" 
+        referencedColumnNames="StatisticsCodeID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+ <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleDataStatistics_IdentityUserProfile_UserIDUserProfileID">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleDataStatistics_IdentityUserProfile_UserIDUserProfileID" 
+        baseTableName="IdentityAppRoleDataStatistics" 
+        baseColumnNames="UserIDUserProfileID" 
+        referencedTableName="IdentityUserProfile" 
+        referencedColumnNames="UserProfileID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+ <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleGroup_IdentityUserProfile_UserIDUserProfileID">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleGroup_IdentityUserProfile_UserIDUserProfileID" 
+        baseTableName="IdentityAppRoleGroup" 
+        baseColumnNames="UserIDUserProfileID" 
+        referencedTableName="IdentityUserProfile" 
+        referencedColumnNames="UserProfileID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+ <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleScreenOperations_IdentityUserProfile_UserIDUserProfileID">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleScreenOperations_IdentityUserProfile_UserIDUserProfileID" 
+        baseTableName="IdentityAppRoleScreenOperations" 
+        baseColumnNames="UserIDUserProfileID" 
+        referencedTableName="IdentityUserProfile" 
+        referencedColumnNames="UserProfileID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+ <changeSet author="FShaikh" id="2021012135526_Security_AllIndex_AllFk_FK_IdentityAppRoleScreens_IdentityUserProfile_UserIDUserProfileID">
+        <addForeignKeyConstraint 
+        constraintName="FK_IdentityAppRoleScreens_IdentityUserProfile_UserIDUserProfileID" 
+        baseTableName="IdentityAppRoleScreens" 
+        baseColumnNames="UserIDUserProfileID" 
+        referencedTableName="IdentityUserProfile" 
+        referencedColumnNames="UserProfileID" 
+        deferrable="false" 
+        initiallyDeferred="false" 
+        onDelete="NO ACTION" onUpdate="NO ACTION" 
+        validate="true"/>
+    </changeSet>
+
+
+<!-- Stage 2 FK ends here  -->
+   
+</databaseChangeLog>

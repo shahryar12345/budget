@@ -1,0 +1,64 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+      http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+
+	<changeSet id="202005062149_Create_DataScenario_Table" author="jbeam">
+        <sql>
+			/****** Object:  Table [dbo].[DataScenario]    Script Date: 5/6/2020 5:51:20 PM ******/
+			CREATE TABLE [dbo].[DataScenario](
+				[DataScenarioID] [int] IDENTITY(1,1) NOT NULL,
+				[DataScenarioCode] [nvarchar](max) NULL,
+				[DataScenarioName] [nvarchar](max) NULL,
+				[Description] [nvarchar](max) NULL,
+				[ScenarioTypeItemTypeID] [int] NULL,
+				[TimePeriodID] [int] NULL,
+				[ParentID] [int] NULL,
+				[ChildID] [nvarchar](max) NULL,
+				[DataSourcceIDItemTypeID] [int] NULL,
+				[Identifier] [uniqueidentifier] NULL,
+				[CreationDate] [datetime2](7) NULL,
+				[UpdatedDate] [datetime2](7) NULL,
+				[CreatedBy] [int] NULL,
+				[UpdateBy] [int] NULL,
+				[IsActive] [bit] NULL,
+				[IsDeleted] [bit] NULL,
+				[RowVersion] [varbinary](max) NULL,
+			 CONSTRAINT [PK_DataScenario] PRIMARY KEY CLUSTERED 
+			(
+				[DataScenarioID] ASC
+			)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+			) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+        </sql>
+    </changeSet>
+	<changeSet id="202005062149_Create_StatisticalData_Table" author="jbeam">
+        <sql>
+			/****** Object:  Table [dbo].[StatisticalData]    Script Date: 5/6/2020 5:51:20 PM ******/
+			CREATE TABLE [dbo].[StatisticalData](
+				[StatisticalDataID] [int] IDENTITY(1,1) NOT NULL,
+				[EntityID] [int] NULL,
+				[DepartmentID] [int] NULL,
+				[StatisticCodeStatisticsCodeID] [int] NULL,
+				[StatisticTimePeriodTimePeriodID] [int] NULL,
+				[FiscalYearIDItemTypeID] [int] NULL,
+				[FiscalYearMonthIDItemTypeID] [int] NULL,
+				[Value] [int] NOT NULL,
+				[ParentID] [int] NULL,
+				[ChildID] [nvarchar](max) NULL,
+				[DataSourcceIDItemTypeID] [int] NULL,
+				[Identifier] [uniqueidentifier] NULL,
+				[CreationDate] [datetime2](7) NULL,
+				[UpdatedDate] [datetime2](7) NULL,
+				[CreatedBy] [int] NULL,
+				[UpdateBy] [int] NULL,
+				[IsActive] [bit] NULL,
+				[IsDeleted] [bit] NULL,
+				[RowVersion] [varbinary](max) NULL,
+			 CONSTRAINT [PK_StatisticalData] PRIMARY KEY CLUSTERED 
+			(
+				[StatisticalDataID] ASC
+			)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+			) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+        </sql>
+    </changeSet>	
+</databaseChangeLog>

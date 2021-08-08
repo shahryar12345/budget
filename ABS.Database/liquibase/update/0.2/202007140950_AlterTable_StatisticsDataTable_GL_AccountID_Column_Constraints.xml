@@ -1,0 +1,32 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+   <changeSet author="fshaikh" id="202007140950_AlterTable_StatisticsDataTable_GL_AccountID_Column_Constraints">
+      
+      <sql>
+     
+                ALTER TABLE [dbo].[StatisticalData] ADD [GlAccoutnIDGLAccountID] [int] NULL
+
+                ALTER TABLE [dbo].[StatisticalData] WITH NOCHECK ADD CONSTRAINT [FK_StatisticalData_GLAccounts_GlAccoutnIDGLAccountID] FOREIGN KEY  ([GlAccoutnIDGLAccountID]) REFERENCES [dbo].[GLAccounts] ([GLAccountID])
+
+                CREATE NONCLUSTERED INDEX [IX_StatisticalData_GlAccoutnIDGLAccountID] ON [dbo].[StatisticalData]                 ([GlAccoutnIDGLAccountID] ASC)
+  
+
+                ALTER TABLE [dbo].[StatisticalData] ADD [GLAccountMasterIDGLAccountID] [int] NULL
+
+                ALTER TABLE [dbo].[StatisticalData] WITH NOCHECK ADD CONSTRAINT [FK_StatisticalData_GLAccounts_GLAccountMasterIDGLAccountID] FOREIGN KEY  ([GLAccountMasterIDGLAccountID]) REFERENCES [dbo].[GLAccounts] ([GLAccountID])
+
+                CREATE NONCLUSTERED INDEX [IX_StatisticalData_GLAccountMasterIDGLAccountID] ON [dbo].[StatisticalData]                 ([GLAccountMasterIDGLAccountID] ASC)
+  
+  
+
+                ALTER TABLE [dbo].[StatisticalData] ADD [GLAccountTypeIDItemTypeID] [int] NULL
+
+                ALTER TABLE [dbo].[StatisticalData] WITH NOCHECK ADD CONSTRAINT [FK_StatisticalData_ItemTypes_GLAccountTypeIDItemTypeID] FOREIGN KEY  ([GLAccountTypeIDItemTypeID]) REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+
+                CREATE NONCLUSTERED INDEX [IX_StatisticalData_GLAccountTypeIDItemTypeID] ON [dbo].[StatisticalData]                 ([GLAccountTypeIDItemTypeID] ASC)
+  
+      
+      </sql>
+    </changeSet>
+   
+</databaseChangeLog>

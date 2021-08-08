@@ -1,0 +1,69 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+
+    <changeSet author="fshaikh" id="202102090806_Reporting_ReportingDimensions_TablesCreate">
+        <preConditions  onFail="MARK_RAN" onFailMessage="ReportingDimensions table already exists. Marking as executed." onError="CONTINUE" onErrorMessage="Error checking if ReportingDimensions table exists. Will try to run again next LB update.">  
+            <not>
+                <tableExists tableName="ReportingDimensions"/>
+            </not>  
+        </preConditions> 
+        <createTable tableName="ReportingDimensions">
+            <column autoIncrement="true" name="ReportingDimensionID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_ReportingDimensions"/>
+            </column>
+             <column name="Code" type="nvarchar(MAX)"/>
+            <column name="Name" type="nvarchar(MAX)"/>
+            <column name="Value" type="nvarchar(MAX)"/>
+            <column name="Description" type="nvarchar(MAX)"/>
+            <column name="Comments" type="nvarchar(MAX)"/>
+            <column name="ReportProcessingStatus" type="nvarchar(MAX)"/>
+            <column name="ReportDetails" type="nvarchar(MAX)"/>
+            <column name="ReportData" type="nvarchar(MAX)"/>
+            <column name="Path" type="nvarchar(MAX)"/>
+            <column name="RelatedPath" type="nvarchar(MAX)"/>
+            <column name="ReportPath" type="nvarchar(MAX)"/>
+            <column name="JsonConfig" type="nvarchar(MAX)"/>
+            <column name="ReportStatusItemTypeID" type="int"/>
+            <column name="ScenarioTypeItemTypeID" type="int"/>
+            <column name="UserProfileID" type="int"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="datetime"/>
+        </createTable>
+    </changeSet>
+   
+    <changeSet author="FShaikh" id="202102090806_Reporting_ReportingDimensions_IndexAddition_IX_ReportingDimensions_ReportStatusItemTypeID">
+        <createIndex indexName="IX_ReportingDimensions_ReportStatusItemTypeID" tableName="ReportingDimensions">
+            <column name="ReportStatusItemTypeID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="FShaikh" id="202102090806_Reporting_ReportingDimensions_IndexAddition_IX_ReportingDimensions_ScenarioTypeItemTypeID">
+        <createIndex indexName="IX_ReportingDimensions_ScenarioTypeItemTypeID" tableName="ReportingDimensions">
+            <column name="ScenarioTypeItemTypeID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="fshaikh" id="202102090806_Reporting_FK_ReportingDimensions_ItemTypes_ReportStatusItemTypeID">
+        <addForeignKeyConstraint 
+        baseColumnNames="ReportStatusItemTypeID" 
+        baseTableName="ReportingDimensions" 
+        constraintName="FK_ReportingDimensions_ItemTypes_ReportStatusItemTypeID" 
+        deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" 
+        referencedColumnNames="ItemTypeID" 
+        referencedTableName="ItemTypes" validate="true"/>
+    </changeSet> 
+    <changeSet author="fshaikh" id="202102090806_Reporting_FK_ReportingDimensions_ItemTypes_ScenarioTypeItemTypeID">
+        <addForeignKeyConstraint 
+        baseColumnNames="ScenarioTypeItemTypeID" 
+        baseTableName="ReportingDimensions" 
+        constraintName="FK_ReportingDimensions_ItemTypes_ScenarioTypeItemTypeID" 
+        deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" 
+          referencedColumnNames="ItemTypeID" 
+        referencedTableName="ItemTypes" validate="true"/>
+      
+    </changeSet> 
+</databaseChangeLog>

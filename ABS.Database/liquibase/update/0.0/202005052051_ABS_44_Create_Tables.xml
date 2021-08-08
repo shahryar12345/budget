@@ -1,0 +1,223 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+      http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+
+	<changeSet id="202005052051_Create_Accounts_Table" author="jbeam">
+        <sql>
+			/****** Object:  Table [dbo].[Accounts]    Script Date: 5/5/2020 4:55:13 PM ******/
+			CREATE TABLE [dbo].[Accounts](
+				[AccountID] [int] IDENTITY(1,1) NOT NULL,
+				[AccountCode] [nvarchar](max) NULL,
+				[AccountName] [nvarchar](max) NULL,
+				[DepartmentID] [int] NULL,
+				[Identifier] [uniqueidentifier] NULL,
+				[CreationDate] [datetime2](7) NULL,
+				[UpdatedDate] [datetime2](7) NULL,
+				[CreatedBy] [int] NULL,
+				[UpdateBy] [int] NULL,
+				[IsActive] [bit] NULL,
+				[IsDeleted] [bit] NULL,
+				[RowVersion] [varbinary](max) NULL,
+			 CONSTRAINT [PK_Accounts] PRIMARY KEY CLUSTERED 
+			(
+				[AccountID] ASC
+			)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+			) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+        </sql>
+    </changeSet>
+
+    <changeSet id="202005052051_Create_Addresses_Table" author="jbeam">
+        <sql>
+			/****** Object:  Table [dbo].[Addresses]    Script Date: 5/5/2020 4:55:14 PM ******/
+			CREATE TABLE [dbo].[Addresses](
+				[AddressID] [int] IDENTITY(1,1) NOT NULL,
+				[AddressTypeItemTypeID] [int] NULL,
+				[AddressName] [nvarchar](max) NULL,
+				[Description] [nvarchar](max) NULL,
+				[Street] [nvarchar](max) NULL,
+				[Street2] [nvarchar](max) NULL,
+				[City] [nvarchar](max) NULL,
+				[County] [nvarchar](max) NULL,
+				[State] [nvarchar](max) NULL,
+				[Country] [nvarchar](max) NULL,
+				[ZipCode] [nvarchar](max) NULL,
+				[PhoneNumber] [nvarchar](max) NULL,
+				[Identifier] [uniqueidentifier] NULL,
+				[CreationDate] [datetime2](7) NULL,
+				[UpdatedDate] [datetime2](7) NULL,
+				[CreatedBy] [int] NULL,
+				[UpdateBy] [int] NULL,
+				[IsActive] [bit] NULL,
+				[IsDeleted] [bit] NULL,
+				[RowVersion] [varbinary](max) NULL,
+			 CONSTRAINT [PK_Addresses] PRIMARY KEY CLUSTERED 
+			(
+				[AddressID] ASC
+			)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+			) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+        </sql>
+    </changeSet>
+
+    <changeSet id="202005052051_ChargeCodes_Table" author="jbeam">
+        <sql>
+			/****** Object:  Table [dbo].[ChargeCodes]    Script Date: 5/5/2020 4:55:14 PM ******/
+			CREATE TABLE [dbo].[ChargeCodes](
+				[ChargeCodeID] [int] IDENTITY(1,1) NOT NULL,
+				[ChargeCode] [nvarchar](max) NULL,
+				[DepartmentID] [int] NULL,
+				[ChargeCodeName] [nvarchar](max) NULL,
+				[IsMaster] [bit] NOT NULL,
+				[Identifier] [uniqueidentifier] NULL,
+				[CreationDate] [datetime2](7) NULL,
+				[UpdatedDate] [datetime2](7) NULL,
+				[CreatedBy] [int] NULL,
+				[UpdateBy] [int] NULL,
+				[IsActive] [bit] NULL,
+				[IsDeleted] [bit] NULL,
+				[RowVersion] [varbinary](max) NULL,
+			 CONSTRAINT [PK_ChargeCodes] PRIMARY KEY CLUSTERED 
+			(
+				[ChargeCodeID] ASC
+			)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+			) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+        </sql>
+    </changeSet>
+
+    <changeSet id="202005052051_Create_Departments_Table" author="jbeam">
+        <sql>
+			/****** Object:  Table [dbo].[Departments]    Script Date: 5/5/2020 4:55:14 PM ******/
+IF EXISTS 
+        (SELECT 
+             TABLE_NAME 
+         FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Departments') 
+DROP TABLE [dbo].[Departments]
+
+			CREATE TABLE [dbo].[Departments](
+				[DepartmentID] [int] IDENTITY(1,1) NOT NULL,
+				[DepartmentCode] [nvarchar](max) NULL,
+				[DepartmentName] [nvarchar](max) NULL,
+				[Description] [nvarchar](max) NULL,
+				[IsGroup] [bit] NOT NULL,
+				[IsMaster] [bit] NOT NULL,
+				[GroupPolicyItemTypeID] [int] NULL,
+				[DepartmentTypeIDItemTypeID] [int] NULL,
+				[ParentID] [int] NULL,
+				[ChildID] [nvarchar](max) NULL,
+				[DataSourcceIDItemTypeID] [int] NULL,
+				[Identifier] [uniqueidentifier] NULL,
+				[CreationDate] [datetime2](7) NULL,
+				[UpdatedDate] [datetime2](7) NULL,
+				[CreatedBy] [int] NULL,
+				[UpdateBy] [int] NULL,
+				[IsActive] [bit] NULL,
+				[IsDeleted] [bit] NULL,
+				[RowVersion] [varbinary](max) NULL,
+			 CONSTRAINT [PK_Departments] PRIMARY KEY CLUSTERED 
+			(
+				[DepartmentID] ASC
+			)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+			) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+        </sql>
+    </changeSet>
+
+    <changeSet id="202005052051_Create_Entities_Table" author="jbeam">
+        <sql>
+			/****** Object:  Table [dbo].[Entities]    Script Date: 5/5/2020 4:55:14 PM ******/
+
+IF EXISTS 
+        (SELECT 
+             TABLE_NAME 
+         FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'Entities') 
+DROP TABLE [dbo].[Entities]
+
+			CREATE TABLE [dbo].[Entities](
+				[EntityID] [int] IDENTITY(1,1) NOT NULL,
+				[EntityCode] [nvarchar](max) NULL,
+				[EntityName] [nvarchar](max) NULL,
+				[Description] [nvarchar](max) NULL,
+				[ChargeCodeID] [int] NULL,
+				[DepartmentID] [int] NULL,
+				[AccountID] [int] NULL,
+				[JobCodeID] [int] NULL,
+				[PayTypeID] [int] NULL,
+				[AddressID] [int] NULL,
+				[BuyerOfService] [bit] NOT NULL,
+				[CareDeliverFacility] [bit] NOT NULL,
+				[Clinical] [bit] NOT NULL,
+				[CostAccounting] [bit] NOT NULL,
+				[InsuranceCarrier] [bit] NOT NULL,
+				[SellerOfServices] [bit] NOT NULL,
+				[PayPeriodCalendarId] [nvarchar](max) NULL,
+				[FiscalYearCalendarId] [nvarchar](max) NULL,
+				[CurrentMonth] [nvarchar](max) NULL,
+				[CurrentDay] [nvarchar](max) NULL,
+				[EffectiveDate] [nvarchar](max) NULL,
+				[CostModelId] [nvarchar](max) NULL,
+				[ParentID] [int] NULL,
+				[ChildID] [nvarchar](max) NULL,
+				[DataSourceIDItemTypeID] [int] NULL,
+				[Identifier] [uniqueidentifier] NULL,
+				[CreationDate] [datetime2](7) NULL,
+				[UpdatedDate] [datetime2](7) NULL,
+				[CreatedBy] [int] NULL,
+				[UpdateBy] [int] NULL,
+				[IsActive] [bit] NULL,
+				[IsDeleted] [bit] NULL,
+				[RowVersion] [varbinary](max) NULL,
+			 CONSTRAINT [PK_Entities] PRIMARY KEY CLUSTERED 
+			(
+				[EntityID] ASC
+			)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+			) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+        </sql>
+    </changeSet>
+
+    <changeSet id="202005052051_Create_JobCodes_Table" author="jbeam">
+        <sql>
+			/****** Object:  Table [dbo].[JobCodes]    Script Date: 5/5/2020 4:55:14 PM ******/
+			CREATE TABLE [dbo].[JobCodes](
+				[JobCodeID] [int] IDENTITY(1,1) NOT NULL,
+				[JobCodeCode] [nvarchar](max) NULL,
+				[JobCodeName] [nvarchar](max) NULL,
+				[IsMaster] [bit] NOT NULL,
+				[Identifier] [uniqueidentifier] NULL,
+				[CreationDate] [datetime2](7) NULL,
+				[UpdatedDate] [datetime2](7) NULL,
+				[CreatedBy] [int] NULL,
+				[UpdateBy] [int] NULL,
+				[IsActive] [bit] NULL,
+				[IsDeleted] [bit] NULL,
+				[RowVersion] [varbinary](max) NULL,
+			 CONSTRAINT [PK_JobCodes] PRIMARY KEY CLUSTERED 
+			(
+				[JobCodeID] ASC
+			)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+			) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+        </sql>
+    </changeSet>
+	
+    <changeSet id="202005052051_Create_PayTypes_Table" author="jbeam">
+        <sql>
+			/****** Object:  Table [dbo].[PayTypes]    Script Date: 5/5/2020 4:55:14 PM ******/
+			CREATE TABLE [dbo].[PayTypes](
+				[PayTypeID] [int] IDENTITY(1,1) NOT NULL,
+				[PayTypeCode] [nvarchar](max) NULL,
+				[PayTypeName] [nvarchar](max) NULL,
+				[IsMaster] [bit] NOT NULL,
+				[Identifier] [uniqueidentifier] NULL,
+				[CreationDate] [datetime2](7) NULL,
+				[UpdatedDate] [datetime2](7) NULL,
+				[CreatedBy] [int] NULL,
+				[UpdateBy] [int] NULL,
+				[IsActive] [bit] NULL,
+				[IsDeleted] [bit] NULL,
+				[RowVersion] [varbinary](max) NULL,
+			 CONSTRAINT [PK_PayTypes] PRIMARY KEY CLUSTERED 
+			(
+				[PayTypeID] ASC
+			)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+			) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+        </sql>
+    </changeSet>	
+</databaseChangeLog>

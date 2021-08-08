@@ -1,0 +1,21 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="jbeam" id="20200819014643_DistributionRelationshipTypeITInsert">
+        <insert tableName="ItemTypes">
+            <column name="ItemTypeKeyword" value="RELATIONSHIPTYPE"/>
+            <column name="ItemTypeCode" value="Distribution"/>
+            <column name="ItemDataType" value="string"/>
+            <column name="ItemTypeValue" value="Distribution"/>
+            <column name="ItemTypeDisplayName" value="Distribution"/>
+            <column name="ItemTypeDescription" value="Relationship Type - Distribution"/>
+            <column name="Identifier" value="1D8DDD2E-4FD6-423B-BFC4-9EB2C0CB282E"/>
+            <column name="CreationDate" valueDate="2020-08-20T01:39:26.92"/>
+            <column name="UpdatedDate" valueDate="2020-08-20T01:39:26.92"/>
+            <column name="CreatedBy" valueNumeric="0"/>
+            <column name="UpdateBy" valueNumeric="0"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="RowVersion"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

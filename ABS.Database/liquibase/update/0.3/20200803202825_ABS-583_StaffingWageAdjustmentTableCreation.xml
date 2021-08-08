@@ -1,0 +1,51 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+     <changeSet author="jbeam" id="20200803202825-StaffingWageAdjustmentTableCreation">
+        <createTable tableName="StaffingWageAdjustment">
+            <column autoIncrement="true" name="StaffingWageAdjustmentID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_StaffingWageAdjustment"/>
+            </column>
+            <column name="BudgetVersionID" type="int"/>
+            <column name="TimePeriodID" type="int"/>
+            <column name="EntityID" type="int"/>
+            <column name="DepartmentID" type="int"/>
+            <column name="JobCodeID" type="int"/>
+            <column name="PayTypeID" type="int"/>
+            <column name="WageAdjustmentPercent" type="decimal(18, 2)"/>
+            <column name="StartMonthItemTypeID" type="int"/>
+            <column name="EndMonthItemTypeID" type="int"/>
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="varbinary(MAX)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="jbeam" id="20200803202825-StaffingWageAdjustmentBudgetVersionFK">
+        <addForeignKeyConstraint baseColumnNames="BudgetVersionID" baseTableName="StaffingWageAdjustment" constraintName="FK_StaffingWageAdjustment_BudgetVersions_BudgetVersionID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="BudgetVersionID" referencedTableName="BudgetVersions" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200803202825-StaffingWageAdjustmentDepartmentFK">
+        <addForeignKeyConstraint baseColumnNames="DepartmentID" baseTableName="StaffingWageAdjustment" constraintName="FK_StaffingWageAdjustment_Departments_DepartmentID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="DepartmentID" referencedTableName="Departments" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200803202825-StaffingWageAdjustmentEntityFK">
+        <addForeignKeyConstraint baseColumnNames="EntityID" baseTableName="StaffingWageAdjustment" constraintName="FK_StaffingWageAdjustment_Entities_EntityID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="EntityID" referencedTableName="Entities" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200803202825-StaffingWageAdjustmentJobCodeFK">
+        <addForeignKeyConstraint baseColumnNames="JobCodeID" baseTableName="StaffingWageAdjustment" constraintName="FK_StaffingWageAdjustment_JobCodes_JobCodeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="JobCodeID" referencedTableName="JobCodes" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200803202825-StaffingWageAdjustmentPayTypeFK">
+        <addForeignKeyConstraint baseColumnNames="PayTypeID" baseTableName="StaffingWageAdjustment" constraintName="FK_StaffingWageAdjustment_PayTypes_PayTypeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="PayTypeID" referencedTableName="PayTypes" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200803202825-StaffingWageAdjustmentTimePeriodFK">
+        <addForeignKeyConstraint baseColumnNames="TimePeriodID" baseTableName="StaffingWageAdjustment" constraintName="FK_StaffingWageAdjustment_TimePeriods_TimePeriodID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="TimePeriodID" referencedTableName="TimePeriods" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200803202825-StaffingWageAdjustmentEndMonthFK">
+        <addForeignKeyConstraint baseColumnNames="EndMonthItemTypeID" baseTableName="StaffingWageAdjustment" constraintName="FK_StaffingWageAdjustment_ItemTypes_EndMonthItemTypeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ItemTypeID" referencedTableName="ItemTypes" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200803202825-StaffingWageAdjustmentStartMonthFK">
+        <addForeignKeyConstraint baseColumnNames="StartMonthItemTypeID" baseTableName="StaffingWageAdjustment" constraintName="FK_StaffingWageAdjustment_ItemTypes_StartMonthItemTypeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ItemTypeID" referencedTableName="ItemTypes" validate="true"/>
+    </changeSet>
+ </databaseChangeLog>

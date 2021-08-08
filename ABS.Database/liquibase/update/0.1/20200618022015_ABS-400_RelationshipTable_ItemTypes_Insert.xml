@@ -1,0 +1,164 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">    
+    <changeSet author="jbeam" id="20200618022015_RelationshipTable_ItemTypes_Insert">
+        <sql dbms="mssql">
+            SET IDENTITY_INSERT [ItemTypes] ON 
+        </sql>	
+        <insert tableName="ItemTypes">
+            <column name="ItemTypeID" valueNumeric="96"/>
+            <column name="ItemDataType" value="string"/>
+            <column name="Identifier" value="FB2A6B16-4BAB-4F09-A68A-7CE5695B0F79"/>
+            <column name="CreationDate" valueDate="2020-06-17T23:59:56.2533333"/>
+            <column name="UpdatedDate" valueDate="2020-06-17T23:59:56.2533333"/>
+            <column name="CreatedBy" valueNumeric="0"/>
+            <column name="UpdateBy" valueNumeric="0"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="RowVersion"/>
+            <column name="ItemTypeKeyword" value="RELATIONSHIPTYPE"/>
+            <column name="ItemTypeCode" value="Group"/>
+            <column name="ItemTypeValue" value="Group"/>
+            <column name="ItemTypeDescription" value="Relationship Type - Group"/>
+            <column name="ItemTypeDisplayName" value="Group"/>
+        </insert>
+        <insert tableName="ItemTypes">
+            <column name="ItemTypeID" valueNumeric="97"/>
+            <column name="ItemDataType" value="string"/>
+            <column name="Identifier" value="7ED9D342-5CA2-415A-9679-8296B6255356"/>
+            <column name="CreationDate" valueDate="2020-06-18T00:00:19.35"/>
+            <column name="UpdatedDate" valueDate="2020-06-18T00:00:19.35"/>
+            <column name="CreatedBy" valueNumeric="0"/>
+            <column name="UpdateBy" valueNumeric="0"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="RowVersion"/>
+            <column name="ItemTypeKeyword" value="RELATIONSHIPTYPE"/>
+            <column name="ItemTypeCode" value="Master"/>
+            <column name="ItemTypeValue" value="Master"/>
+            <column name="ItemTypeDescription" value="Relationship Type - Master"/>
+            <column name="ItemTypeDisplayName" value="Master"/>
+        </insert>
+        <insert tableName="ItemTypes">
+            <column name="ItemTypeID" valueNumeric="98"/>
+            <column name="ItemDataType" value="string"/>
+            <column name="Identifier" value="8E916779-AD9A-48E0-B6CD-11CF296DFD19"/>
+            <column name="CreationDate" valueDate="2020-06-18T00:04:08.09"/>
+            <column name="UpdatedDate" valueDate="2020-06-18T00:04:08.09"/>
+            <column name="CreatedBy" valueNumeric="0"/>
+            <column name="UpdateBy" valueNumeric="0"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="RowVersion"/>
+            <column name="ItemTypeKeyword" value="RELATIONSHIPTYPE"/>
+            <column name="ItemTypeCode" value="Hierarchy"/>
+            <column name="ItemTypeValue" value="Hierarchy"/>
+            <column name="ItemTypeDescription" value="Relationship Type - Hierarchy"/>
+            <column name="ItemTypeDisplayName" value="Hierarchy"/>
+        </insert>
+        <insert tableName="ItemTypes">
+            <column name="ItemTypeID" valueNumeric="99"/>
+            <column name="ItemDataType" value="string"/>
+            <column name="Identifier" value="50CC450B-267E-4C90-9770-04662BC9AAB6"/>
+            <column name="CreationDate" valueDate="2020-06-18T00:08:00.7766667"/>
+            <column name="UpdatedDate" valueDate="2020-06-18T00:08:00.7766667"/>
+            <column name="CreatedBy" valueNumeric="0"/>
+            <column name="UpdateBy" valueNumeric="0"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="RowVersion"/>
+            <column name="ItemTypeKeyword" value="MODELTYPE"/>
+            <column name="ItemTypeCode" value="ChargeCode"/>
+            <column name="ItemTypeValue" value="ChargeCode"/>
+            <column name="ItemTypeDescription" value="Model Type - Charge Code"/>
+            <column name="ItemTypeDisplayName" value="Charge Code"/>
+        </insert>
+        <insert tableName="ItemTypes">
+            <column name="ItemTypeID" valueNumeric="100"/>
+            <column name="ItemDataType" value="string"/>
+            <column name="Identifier" value="B8482234-DDD9-4992-9264-A7DE271B8A06"/>
+            <column name="CreationDate" valueDate="2020-06-18T00:09:17.82"/>
+            <column name="UpdatedDate" valueDate="2020-06-18T00:09:17.82"/>
+            <column name="CreatedBy" valueNumeric="0"/>
+            <column name="UpdateBy" valueNumeric="0"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="RowVersion"/>
+            <column name="ItemTypeKeyword" value="MODELTYPE"/>
+            <column name="ItemTypeCode" value="Department"/>
+            <column name="ItemTypeValue" value="Department"/>
+            <column name="ItemTypeDescription" value="Model Type - Department"/>
+            <column name="ItemTypeDisplayName" value="Department"/>
+        </insert>
+        <insert tableName="ItemTypes">
+            <column name="ItemTypeID" valueNumeric="101"/>
+            <column name="ItemDataType" value="string"/>
+            <column name="Identifier" value="B1B4406C-2711-4122-BE3A-49F983578352"/>
+            <column name="CreationDate" valueDate="2020-06-18T00:10:28.85"/>
+            <column name="UpdatedDate" valueDate="2020-06-18T00:10:28.85"/>
+            <column name="CreatedBy" valueNumeric="0"/>
+            <column name="UpdateBy" valueNumeric="0"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="RowVersion"/>
+            <column name="ItemTypeKeyword" value="MODELTYPE"/>
+            <column name="ItemTypeCode" value="Entity"/>
+            <column name="ItemTypeValue" value="Entity"/>
+            <column name="ItemTypeDescription" value="Model Type - Entity"/>
+            <column name="ItemTypeDisplayName" value="Entity"/>
+        </insert>
+        <insert tableName="ItemTypes">
+            <column name="ItemTypeID" valueNumeric="102"/>
+            <column name="ItemDataType" value="string"/>
+            <column name="Identifier" value="E84655B7-212A-47DA-97DA-158803FAFF61"/>
+            <column name="CreationDate" valueDate="2020-06-18T00:19:39.04"/>
+            <column name="UpdatedDate" valueDate="2020-06-18T00:19:39.04"/>
+            <column name="CreatedBy" valueNumeric="0"/>
+            <column name="UpdateBy" valueNumeric="0"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="RowVersion"/>
+            <column name="ItemTypeKeyword" value="MODELTYPE"/>
+            <column name="ItemTypeCode" value="JobCode"/>
+            <column name="ItemTypeValue" value="JobCode"/>
+            <column name="ItemTypeDescription" value="Model Type - Job Code"/>
+            <column name="ItemTypeDisplayName" value="JobCode"/>
+        </insert>
+        <insert tableName="ItemTypes">
+            <column name="ItemTypeID" valueNumeric="103"/>
+            <column name="ItemDataType" value="string"/>
+            <column name="Identifier" value="3DB7BAC1-8BB1-4453-A7C4-E518D75E54C8"/>
+            <column name="CreationDate" valueDate="2020-06-18T00:20:29.25"/>
+            <column name="UpdatedDate" valueDate="2020-06-18T00:20:29.25"/>
+            <column name="CreatedBy" valueNumeric="0"/>
+            <column name="UpdateBy" valueNumeric="0"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="RowVersion"/>
+            <column name="ItemTypeKeyword" value="MODELTYPE"/>
+            <column name="ItemTypeCode" value="PayType"/>
+            <column name="ItemTypeValue" value="PayType"/>
+            <column name="ItemTypeDescription" value="Model Type - Pay Type"/>
+            <column name="ItemTypeDisplayName" value="PayType"/>
+        </insert>
+        <insert tableName="ItemTypes">
+            <column name="ItemTypeID" valueNumeric="104"/>
+            <column name="ItemDataType" value="string"/>
+            <column name="Identifier" value="E69765DD-072D-44C1-9533-8FE1C17C3A16"/>
+            <column name="CreationDate" valueDate="2020-06-18T00:22:17.8966667"/>
+            <column name="UpdatedDate" valueDate="2020-06-18T00:22:17.8966667"/>
+            <column name="CreatedBy" valueNumeric="0"/>
+            <column name="UpdateBy" valueNumeric="0"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="RowVersion"/>
+            <column name="ItemTypeKeyword" value="MODELTYPE"/>
+            <column name="ItemTypeCode" value="StatisticsCode"/>
+            <column name="ItemTypeValue" value="StatisticsCode"/>
+            <column name="ItemTypeDescription" value="Model Type - Statistics Code"/>
+            <column name="ItemTypeDisplayName" value="Statistics Code"/>
+        </insert>
+		<sql dbms="mssql">
+			SET IDENTITY_INSERT [ItemTypes] OFF 
+		</sql>	
+    </changeSet>
+</databaseChangeLog>

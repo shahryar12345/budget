@@ -1,0 +1,63 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="jbeam" id="20200805164430-StaffingDataTableCreation">
+        <createTable tableName="StaffingData">
+            <column autoIncrement="true" name="StaffingDataID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_StaffingData"/>
+            </column>
+            <column name="EntityID" type="int"/>
+            <column name="DepartmentID" type="int"/>
+            <column name="JobCodeID" type="int"/>
+            <column name="PayTypeID" type="int"/>
+            <column name="StaffingTimePeriodTimePeriodID" type="int"/>
+            <column name="FiscalYearItemTypeID" type="int"/>
+            <column name="FiscalMonthItemTypeID" type="int"/>
+            <column name="Value" type="int"/>
+            <column name="DataScenarioTypeIDItemTypeID" type="int"/>
+            <column name="StaffingAccountID" type="int"/>
+            <column name="StaffingMasterID" type="int"/>
+            <column name="StaffingAccountTypeID" type="int"/>
+            <column name="January" type="decimal(18, 2)"/>
+            <column name="February" type="decimal(18, 2)"/>
+            <column name="March" type="decimal(18, 2)"/>
+            <column name="April" type="decimal(18, 2)"/>
+            <column name="May" type="decimal(18, 2)"/>
+            <column name="June" type="decimal(18, 2)"/>
+            <column name="July" type="decimal(18, 2)"/>
+            <column name="August" type="decimal(18, 2)"/>
+            <column name="September" type="decimal(18, 2)"/>
+            <column name="October" type="decimal(18, 2)"/>
+            <column name="November" type="decimal(18, 2)"/>
+            <column name="December" type="decimal(18, 2)"/>
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="varbinary(MAX)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="jbeam" id="20200805164430-StaffingDataDepartmentFK">
+        <addForeignKeyConstraint baseColumnNames="DepartmentID" baseTableName="StaffingData" constraintName="FK_StaffingData_Departments_DepartmentID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="DepartmentID" referencedTableName="Departments" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200805164430-StaffingDataEntityFK">
+        <addForeignKeyConstraint baseColumnNames="EntityID" baseTableName="StaffingData" constraintName="FK_StaffingData_Entities_EntityID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="EntityID" referencedTableName="Entities" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200805164430-StaffingDataJobCodeFK">
+        <addForeignKeyConstraint baseColumnNames="JobCodeID" baseTableName="StaffingData" constraintName="FK_StaffingData_JobCodes_JobCodeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="JobCodeID" referencedTableName="JobCodes" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200805164430-StaffingDataPayTypeFK">
+        <addForeignKeyConstraint baseColumnNames="PayTypeID" baseTableName="StaffingData" constraintName="FK_StaffingData_PayTypes_PayTypeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="PayTypeID" referencedTableName="PayTypes" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200805164430-StaffingDataStaffingTimePeriodFK">
+        <addForeignKeyConstraint baseColumnNames="StaffingTimePeriodTimePeriodID" baseTableName="StaffingData" constraintName="FK_StaffingData_TimePeriods_StaffingTimePeriodTimePeriodID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="TimePeriodID" referencedTableName="TimePeriods" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200805164430-StaffingDataFiscalMonthFK">
+        <addForeignKeyConstraint baseColumnNames="FiscalMonthItemTypeID" baseTableName="StaffingData" constraintName="FK_StaffingData_ItemTypes_FiscalMonthItemTypeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ItemTypeID" referencedTableName="ItemTypes" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200805164430-StaffingDataFiscalYearFK">
+        <addForeignKeyConstraint baseColumnNames="FiscalYearItemTypeID" baseTableName="StaffingData" constraintName="FK_StaffingData_ItemTypes_FiscalYearItemTypeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ItemTypeID" referencedTableName="ItemTypes" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

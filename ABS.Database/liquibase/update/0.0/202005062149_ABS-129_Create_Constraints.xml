@@ -1,0 +1,59 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+      http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+
+    <changeSet id="202005062149_Create_Constraints" author="jbeam">
+        <sql>
+			ALTER TABLE [dbo].[DataScenario]  WITH CHECK ADD  CONSTRAINT [FK_DataScenario_ItemTypes_DataSourcceIDItemTypeID] FOREIGN KEY([DataSourcceIDItemTypeID])
+			REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+			 
+			ALTER TABLE [dbo].[DataScenario] CHECK CONSTRAINT [FK_DataScenario_ItemTypes_DataSourcceIDItemTypeID]
+			 
+			ALTER TABLE [dbo].[DataScenario]  WITH CHECK ADD  CONSTRAINT [FK_DataScenario_ItemTypes_ScenarioTypeItemTypeID] FOREIGN KEY([ScenarioTypeItemTypeID])
+			REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+			 
+			ALTER TABLE [dbo].[DataScenario] CHECK CONSTRAINT [FK_DataScenario_ItemTypes_ScenarioTypeItemTypeID]
+			 
+			ALTER TABLE [dbo].[DataScenario]  WITH CHECK ADD  CONSTRAINT [FK_DataScenario_TimePeriods_TimePeriodID] FOREIGN KEY([TimePeriodID])
+			REFERENCES [dbo].[TimePeriods] ([TimePeriodID])
+			 
+			ALTER TABLE [dbo].[DataScenario] CHECK CONSTRAINT [FK_DataScenario_TimePeriods_TimePeriodID]
+			 
+			ALTER TABLE [dbo].[StatisticalData]  WITH CHECK ADD  CONSTRAINT [FK_StatisticalData_Departments_DepartmentID] FOREIGN KEY([DepartmentID])
+			REFERENCES [dbo].[Departments] ([DepartmentID])
+			 
+			ALTER TABLE [dbo].[StatisticalData] CHECK CONSTRAINT [FK_StatisticalData_Departments_DepartmentID]
+			 
+			ALTER TABLE [dbo].[StatisticalData]  WITH CHECK ADD  CONSTRAINT [FK_StatisticalData_Entities_EntityID] FOREIGN KEY([EntityID])
+			REFERENCES [dbo].[Entities] ([EntityID])
+			 
+			ALTER TABLE [dbo].[StatisticalData] CHECK CONSTRAINT [FK_StatisticalData_Entities_EntityID]
+			 
+			ALTER TABLE [dbo].[StatisticalData]  WITH CHECK ADD  CONSTRAINT [FK_StatisticalData_ItemTypes_DataSourcceIDItemTypeID] FOREIGN KEY([DataSourcceIDItemTypeID])
+			REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+			 
+			ALTER TABLE [dbo].[StatisticalData] CHECK CONSTRAINT [FK_StatisticalData_ItemTypes_DataSourcceIDItemTypeID]
+			 
+			ALTER TABLE [dbo].[StatisticalData]  WITH CHECK ADD  CONSTRAINT [FK_StatisticalData_ItemTypes_FiscalYearIDItemTypeID] FOREIGN KEY([FiscalYearIDItemTypeID])
+			REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+			 
+			ALTER TABLE [dbo].[StatisticalData] CHECK CONSTRAINT [FK_StatisticalData_ItemTypes_FiscalYearIDItemTypeID]
+			 
+			ALTER TABLE [dbo].[StatisticalData]  WITH CHECK ADD  CONSTRAINT [FK_StatisticalData_ItemTypes_FiscalYearMonthIDItemTypeID] FOREIGN KEY([FiscalYearMonthIDItemTypeID])
+			REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+			 
+			ALTER TABLE [dbo].[StatisticalData] CHECK CONSTRAINT [FK_StatisticalData_ItemTypes_FiscalYearMonthIDItemTypeID]
+			 
+			ALTER TABLE [dbo].[StatisticalData]  WITH CHECK ADD  CONSTRAINT [FK_StatisticalData_StatisticsCodes_StatisticCodeStatisticsCodeID] FOREIGN KEY([StatisticCodeStatisticsCodeID])
+			REFERENCES [dbo].[StatisticsCodes] ([StatisticsCodeID])
+			 
+			ALTER TABLE [dbo].[StatisticalData] CHECK CONSTRAINT [FK_StatisticalData_StatisticsCodes_StatisticCodeStatisticsCodeID]
+			 
+			ALTER TABLE [dbo].[StatisticalData]  WITH CHECK ADD  CONSTRAINT [FK_StatisticalData_TimePeriods_StatisticTimePeriodTimePeriodID] FOREIGN KEY([StatisticTimePeriodTimePeriodID])
+			REFERENCES [dbo].[TimePeriods] ([TimePeriodID])
+			 
+			ALTER TABLE [dbo].[StatisticalData] CHECK CONSTRAINT [FK_StatisticalData_TimePeriods_StatisticTimePeriodTimePeriodID]	 			   
+        </sql>
+    </changeSet>
+</databaseChangeLog>

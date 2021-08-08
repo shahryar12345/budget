@@ -1,0 +1,270 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+
+    <changeSet author="fshaikh" id="20210301175555_Configuration_ItemType_Inserts_ReportingTypes_M1">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="ItemTypeKeyword" value="MEASURES"/>
+            <column name="ItemTypeCode" value="Amount"/>
+            <column name="ItemTypeValue" value="1"/>
+            <column name="ItemTypeDescription" value="amount/volumeRate"/>
+            <column name="ItemTypeDisplayName" value="AMOUNT"/>
+        </insert>       
+    </changeSet>
+    <changeSet author="fshaikh" id="20210301175555_Configuration_ItemType_Inserts_ReportingTypes_M2">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="ItemTypeKeyword" value="MEASURES"/>
+            <column name="ItemTypeCode" value="VOLUMERATE"/>
+            <column name="ItemTypeValue" value="2"/>
+            <column name="ItemTypeDescription" value="amount/volumeRate"/>
+            <column name="ItemTypeDisplayName" value="VOLUMERATE"/>
+        </insert>       
+    </changeSet>
+    <changeSet author="fshaikh" id="20210301175555_Configuration_ItemType_Inserts_ReportingTypes_Q1">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="ItemTypeKeyword" value="QUARTERS"/>
+            <column name="ItemTypeCode" value="1st quarter"/>
+            <column name="ItemTypeValue" value="1"/>
+            <column name="ItemTypeDescription" value="amount/volumeRate"/>
+            <column name="ItemTypeDisplayName" value="1st quarter"/>
+        </insert>       
+    </changeSet>
+    <changeSet author="fshaikh" id="20210301175555_Configuration_ItemType_Inserts_ReportingTypes_Q2">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="ItemTypeKeyword" value="QUARTERS"/>
+            <column name="ItemTypeCode" value="1st quarter"/>
+            <column name="ItemTypeValue" value="2"/>
+            <column name="ItemTypeDescription" value="amount/volumeRate"/>
+            <column name="ItemTypeDisplayName" value="2nd quarter"/>
+        </insert>       
+    </changeSet>
+    <changeSet author="fshaikh" id="20210301175555_Configuration_ItemType_Inserts_ReportingTypes_Q3">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="ItemTypeKeyword" value="QUARTERS"/>
+            <column name="ItemTypeCode" value="1st quarter"/>
+            <column name="ItemTypeValue" value="3"/>
+            <column name="ItemTypeDescription" value="amount/volumeRate"/>
+            <column name="ItemTypeDisplayName" value="3rd quarter"/>
+        </insert>       
+    </changeSet>
+    <changeSet author="fshaikh" id="20210301175555_Configuration_ItemType_Inserts_ReportingTypes_Q4">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="ItemTypeKeyword" value="QUARTERS"/>
+            <column name="ItemTypeCode" value="1st quarter"/>
+            <column name="ItemTypeValue" value="4"/>
+            <column name="ItemTypeDescription" value="amount/volumeRate"/>
+            <column name="ItemTypeDisplayName" value="4th quarter"/>
+        </insert>       
+    </changeSet>
+    <changeSet author="fshaikh" id="20210301175555_Configuration_ItemType_Inserts_FileTypes_F1">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="ItemTypeKeyword" value="FILEFORMAT"/>
+            <column name="ItemTypeCode" value="PDF"/>
+            <column name="ItemTypeValue" value="PDF"/>
+            <column name="ItemTypeDescription" value="PDF/XLSX/CSV/CONNECTEDEXCEL"/>
+            <column name="ItemTypeDisplayName" value="PDF"/>
+        </insert>       
+    </changeSet>
+    <changeSet author="fshaikh" id="20210301175555_Configuration_ItemType_Inserts_FileTypes_F2">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="ItemTypeKeyword" value="FILEFORMAT"/>
+            <column name="ItemTypeCode" value="XLSX"/>
+            <column name="ItemTypeValue" value="XLSX"/>
+            <column name="ItemTypeDescription" value="PDF/XLSX/CSV/CONNECTEDEXCEL"/>
+            <column name="ItemTypeDisplayName" value="Connected excel"/>
+        </insert>       
+    </changeSet>
+    <changeSet author="fshaikh" id="20210301175555_Configuration_ItemType_Inserts_FileTypes_F3">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="ItemTypeKeyword" value="FILEFORMAT"/>
+            <column name="ItemTypeCode" value="XLSX"/>
+            <column name="ItemTypeValue" value="XLSX"/>
+            <column name="ItemTypeDescription" value="PDF/XLSX/CSV/CONNECTEDEXCEL"/>
+            <column name="ItemTypeDisplayName" value="Excel"/>
+        </insert>       
+    </changeSet>
+    <changeSet author="fshaikh" id="20210301175555_Configuration_ItemType_Inserts_FileTypes_F4">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="ItemTypeKeyword" value="FILEFORMAT"/>
+            <column name="ItemTypeCode" value="CSV"/>
+            <column name="ItemTypeValue" value="CSV"/>
+            <column name="ItemTypeDescription" value="PDF/XLSX/CSV/CONNECTEDEXCEL"/>
+            <column name="ItemTypeDisplayName" value="Comma delimited (.csv)"/>
+        </insert>       
+    </changeSet>
+    <changeSet author="fshaikh" id="20210301175555_Configuration_ItemType_Inserts_Periods_P1">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="ItemTypeKeyword" value="PERIODS"/>
+            <column name="ItemTypeCode" value="Months and FY total"/>
+            <column name="ItemTypeValue" value="1"/>
+            <column name="ItemTypeDescription" value="Months and FY total"/>
+            <column name="ItemTypeDisplayName" value="Months and FY total"/>
+        </insert>       
+    </changeSet>
+    <changeSet author="fshaikh" id="20210301175555_Configuration_ItemType_Inserts_Periods_P2">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="ItemTypeKeyword" value="PERIODS"/>
+            <column name="ItemTypeCode" value="Month"/>
+            <column name="ItemTypeValue" value="2"/>
+            <column name="ItemTypeDescription" value="Month"/>
+            <column name="ItemTypeDisplayName" value="Month"/>
+        </insert>       
+    </changeSet>
+    <changeSet author="fshaikh" id="20210301175555_Configuration_ItemType_Inserts_Periods_P3">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="ItemTypeKeyword" value="PERIODS"/>
+            <column name="ItemTypeCode" value="Current month"/>
+            <column name="ItemTypeValue" value="3"/>
+            <column name="ItemTypeDescription" value="Current month"/>
+            <column name="ItemTypeDisplayName" value="Current month"/>
+        </insert>       
+    </changeSet>
+    <changeSet author="fshaikh" id="20210301175555_Configuration_ItemType_Inserts_Periods_P4">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="ItemTypeKeyword" value="PERIODS"/>
+            <column name="ItemTypeCode" value="Current FYTD"/>
+            <column name="ItemTypeValue" value="4"/>
+            <column name="ItemTypeDescription" value="Current FYTD"/>
+            <column name="ItemTypeDisplayName" value="Current FYTD"/>
+        </insert>       
+    </changeSet>
+    <changeSet author="fshaikh" id="20210301175555_Configuration_ItemType_Inserts_Periods_P5">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="ItemTypeKeyword" value="PERIODS"/>
+            <column name="ItemTypeCode" value="Quarters and FY total"/>
+            <column name="ItemTypeValue" value="5"/>
+            <column name="ItemTypeDescription" value="Quarters and FY total"/>
+            <column name="ItemTypeDisplayName" value="Quarters and FY total"/>
+        </insert>       
+    </changeSet>
+    <changeSet author="fshaikh" id="20210301175555_Configuration_ItemType_Inserts_Periods_P6">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="ItemTypeKeyword" value="PERIODS"/>
+            <column name="ItemTypeCode" value="Quarter"/>
+            <column name="ItemTypeValue" value="6"/>
+            <column name="ItemTypeDescription" value="Quarter"/>
+            <column name="ItemTypeDisplayName" value="Quarter"/>
+        </insert>       
+    </changeSet>
+    <changeSet author="fshaikh" id="20210301175555_Configuration_ItemType_Inserts_Periods_P7">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="ItemTypeKeyword" value="PERIODS"/>
+            <column name="ItemTypeCode" value="Current quarter"/>
+            <column name="ItemTypeValue" value="1"/>
+            <column name="ItemTypeDescription" value="Current quarter"/>
+            <column name="ItemTypeDisplayName" value="Current quarter"/>
+        </insert>       
+    </changeSet>
+    <changeSet author="fshaikh" id="20210301175555_Configuration_ItemType_Inserts_Periods_P8">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="ItemTypeKeyword" value="PERIODS"/>
+            <column name="ItemTypeCode" value="Current quarter FYTD"/>
+            <column name="ItemTypeValue" value="8"/>
+            <column name="ItemTypeDescription" value="Current quarter FYTD"/>
+            <column name="ItemTypeDisplayName" value="Current quarter FYTD"/>
+        </insert>       
+    </changeSet>
+    <changeSet author="fshaikh" id="20210301175555_Configuration_ItemType_Inserts_Periods_P9">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="ItemTypeKeyword" value="PERIODS"/>
+            <column name="ItemTypeCode" value="FY total"/>
+            <column name="ItemTypeValue" value="9"/>
+            <column name="ItemTypeDescription" value="FY total"/>
+            <column name="ItemTypeDisplayName" value="FY total"/>
+        </insert>       
+    </changeSet>
+    <changeSet author="fshaikh" id="20210301175555_Configuration_ItemType_Inserts_ReportDisplay_RD1">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="ItemTypeKeyword" value="REPORTDISPLAY"/>
+            <column name="ItemTypeCode" value="Report Header"/>
+            <column name="ItemTypeValue" value="1"/>
+            <column name="ItemTypeDescription" value="Report Header"/>
+            <column name="ItemTypeDisplayName" value="Report Header"/>
+        </insert>       
+    </changeSet>
+    <changeSet author="fshaikh" id="20210301175555_Configuration_ItemType_Inserts_ReportDisplay_RD2">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="ItemTypeKeyword" value="REPORTDISPLAY"/>
+            <column name="ItemTypeCode" value="Row"/>
+            <column name="ItemTypeValue" value="2"/>
+            <column name="ItemTypeDescription" value="Row"/>
+            <column name="ItemTypeDisplayName" value="Row"/>
+        </insert>       
+    </changeSet>
+    <changeSet author="fshaikh" id="20210301175555_Configuration_ItemType_Inserts_ReportDisplay_RD3">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="ItemTypeKeyword" value="REPORTDISPLAY"/>
+            <column name="ItemTypeCode" value="Column"/>
+            <column name="ItemTypeValue" value="3"/>
+            <column name="ItemTypeDescription" value="Column"/>
+            <column name="ItemTypeDisplayName" value="Column"/>
+        </insert>       
+    </changeSet>
+   
+   
+</databaseChangeLog>

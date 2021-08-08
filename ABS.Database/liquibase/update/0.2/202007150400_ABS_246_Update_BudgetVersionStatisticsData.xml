@@ -1,0 +1,13 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+      http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+
+    <changeSet id="202007150400_ABS_246_Update_BudgetVersionStatisticsData.xml" author="fsheikh">
+        <sql>
+	      update StatisticalData set DataScenarioTypeIDItemTypeID = (select top 1 ItemTypeID from ItemTypes where ItemTypeKeyword = 'STATISTICSDATA' and ItemTypeCode = 'Patient Care') where DataScenarioTypeIDItemTypeID = (select top 1 ItemTypeID from ItemTypes where ItemTypeCode = 'ST')
+        update StatisticalData set DataScenarioTypeIDItemTypeID = (select top 1 ItemTypeID from ItemTypes where ItemTypeKeyword = 'GENERALLEDGERDATA' and ItemTypeCode = 'Patient Care') where DataScenarioTypeIDItemTypeID = (select top 1 ItemTypeID from ItemTypes where ItemTypeCode = 'GL')
+        update StatisticalData set DataScenarioTypeIDItemTypeID = (select top 1 ItemTypeID from ItemTypes where ItemTypeKeyword = 'STAFFINGDATA' and ItemTypeCode = 'Patient Care') where DataScenarioTypeIDItemTypeID = (select top 1 ItemTypeID from ItemTypes where ItemTypeCode = 'SF')
+        </sql>
+    </changeSet>
+</databaseChangeLog>

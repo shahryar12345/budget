@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="fshaikh" id="20200903175300_Configuration_ItemType_DATABASEPROCESSINGTHRESHOLD">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="ItemTypeKeyword" value="CONFIGURATION"/>
+            <column name="ItemTypeCode" value="DATABASEPROCESSINGTHRESHOLD"/>
+            <column name="ItemTypeValue" value="25"/>
+            <column name="ItemTypeDescription" value="DATABASEPROCESSINGTHRESHOLD"/>
+            <column name="ItemTypeDisplayName" value="DATABASEPROCESSINGTHRESHOLD"/>
+        </insert>		
+    </changeSet>
+    <changeSet author="fshaikh" id="20200903175300_Configuration_ItemType_PROCESSMETHOD">
+        <insert tableName="ItemTypes">
+            <column name="ItemDataType" value="string"/>
+            <column name="IsActive" valueBoolean="true"/>
+            <column name="IsDeleted" valueBoolean="false"/>
+            <column name="ItemTypeKeyword" value="CONFIGURATION"/>
+            <column name="ItemTypeCode" value="PROCESSMETHOD"/>
+            <column name="ItemTypeValue" value="VALIDATIONPARALLEL"/>
+            <column name="ItemTypeDescription" value="VALIDATIONPARALLEL/VALIDATIONNORMAL"/>
+            <column name="ItemTypeDisplayName" value="PROCESSMETHOD"/>
+        </insert>       
+    </changeSet>
+</databaseChangeLog>

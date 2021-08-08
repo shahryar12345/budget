@@ -1,0 +1,76 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no" ?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+
+    <changeSet author="jbeam" id="20200527195918_StatisticsType_ItemType_Insert">
+        <sql dbms="mssql">
+            SET IDENTITY_INSERT [ItemTypes] ON 
+        </sql>
+        <insert tableName="ItemTypes">
+            <column name="ItemTypeID" valueNumeric="92" />
+            <column name="ItemDataType" value="string" />
+            <column name="Identifier" value="99466924-8B15-4177-AAE0-CD43A8EE1A89" />
+            <column name="CreationDate" valueDate="2020-05-27T17:11:29.25" />
+            <column name="UpdatedDate" valueDate="2020-05-27T17:11:29.25" />
+            <column name="CreatedBy" valueNumeric="0" />
+            <column name="UpdateBy" valueNumeric="0" />
+            <column name="IsActive" valueBoolean="true" />
+            <column name="IsDeleted" valueBoolean="false" />
+            <column name="ItemTypeKeyword" value="STATISTICSTYPE" />
+            <column name="ItemTypeCode" value="G" />
+            <column name="ItemTypeValue" value="G" />
+            <column name="ItemTypeDescription" value="Statistic Type - GL Costing Activity" />
+            <column name="ItemTypeDisplayName" value="GL Costing Activity" />
+        </insert>
+        <insert tableName="ItemTypes">
+            <column name="ItemTypeID" valueNumeric="93" />
+            <column name="ItemDataType" value="string" />
+            <column name="Identifier" value="53765273-F245-4EB8-A9FE-39826E4CE8CF" />
+            <column name="CreationDate" valueDate="2020-05-27T17:11:29.27" />
+            <column name="UpdatedDate" valueDate="2020-05-27T17:11:29.27" />
+            <column name="CreatedBy" valueNumeric="0" />
+            <column name="UpdateBy" valueNumeric="0" />
+            <column name="IsActive" valueBoolean="true" />
+            <column name="IsDeleted" valueBoolean="false" />
+            <column name="ItemTypeKeyword" value="STATISTICSTYPE" />
+            <column name="ItemTypeCode" value="F" />
+            <column name="ItemTypeValue" value="F" />
+            <column name="ItemTypeDescription" value="Statistic Type - Free Form Costing Activity" />
+            <column name="ItemTypeDisplayName" value="Free Form Costing Activity" />
+        </insert>
+        <insert tableName="ItemTypes">
+            <column name="ItemTypeID" valueNumeric="94" />
+            <column name="ItemDataType" value="string" />
+            <column name="Identifier" value="DA284B09-4738-431E-8339-B6C563223C19" />
+            <column name="CreationDate" valueDate="2020-05-27T17:11:29.28" />
+            <column name="UpdatedDate" valueDate="2020-05-27T17:11:29.28" />
+            <column name="CreatedBy" valueNumeric="0" />
+            <column name="UpdateBy" valueNumeric="0" />
+            <column name="IsActive" valueBoolean="true" />
+            <column name="IsDeleted" valueBoolean="false" />
+            <column name="ItemTypeKeyword" value="STATISTICSTYPE" />
+            <column name="ItemTypeCode" value="B" />
+            <column name="ItemTypeValue" value="B" />
+            <column name="ItemTypeDescription" value="Statistic Type - Group Statistic" />
+            <column name="ItemTypeDisplayName" value="Group Statistic" />
+        </insert>
+        <insert tableName="ItemTypes">
+            <column name="ItemTypeID" valueNumeric="95" />
+            <column name="ItemDataType" value="string" />
+            <column name="Identifier" value="E2621E3F-8587-42A6-9A8C-3CC8910D599B" />
+            <column name="CreationDate" valueDate="2020-05-27T17:11:29.2933333" />
+            <column name="UpdatedDate" valueDate="2020-05-27T17:11:29.2933333" />
+            <column name="CreatedBy" valueNumeric="0" />
+            <column name="UpdateBy" valueNumeric="0" />
+            <column name="IsActive" valueBoolean="true" />
+            <column name="IsDeleted" valueBoolean="false" />
+            <column name="ItemTypeKeyword" value="STATISTICSTYPE" />
+            <column name="ItemTypeCode" value="C" />
+            <column name="ItemTypeValue" value="C" />
+            <column name="ItemTypeDescription" value="Statistic Type - Chargeable Costing Activity" />
+            <column name="ItemTypeDisplayName" value="Chargeable Costing Activity" />
+        </insert>
+        <sql dbms="mssql">
+            SET IDENTITY_INSERT [ItemTypes] OFF 
+        </sql>
+    </changeSet>
+</databaseChangeLog>

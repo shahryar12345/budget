@@ -1,0 +1,96 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+      http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+
+    <changeSet id="202004031437_Create_Constraints" author="efoster">
+        <sql>
+            ALTER TABLE [dbo].[SystemSettings] ADD  DEFAULT ((0)) FOR [UserProfileID]
+            
+            ALTER TABLE [dbo].[BudgetVersions]  WITH CHECK ADD  CONSTRAINT [FK_BudgetVersions_ItemTypes_budgetVersionTypeIDItemTypeID] FOREIGN KEY([budgetVersionTypeIDItemTypeID])
+            REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+            
+            ALTER TABLE [dbo].[BudgetVersions] CHECK CONSTRAINT [FK_BudgetVersions_ItemTypes_budgetVersionTypeIDItemTypeID]
+            
+            ALTER TABLE [dbo].[BudgetVersions]  WITH CHECK ADD  CONSTRAINT [FK_BudgetVersions_ItemTypes_fiscalStartMonthIDItemTypeID] FOREIGN KEY([fiscalStartMonthIDItemTypeID])
+            REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+            
+            ALTER TABLE [dbo].[BudgetVersions] CHECK CONSTRAINT [FK_BudgetVersions_ItemTypes_fiscalStartMonthIDItemTypeID]
+            
+            ALTER TABLE [dbo].[BudgetVersions]  WITH CHECK ADD  CONSTRAINT [FK_BudgetVersions_ItemTypes_fiscalYearIDItemTypeID] FOREIGN KEY([fiscalYearIDItemTypeID])
+            REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+            
+            ALTER TABLE [dbo].[BudgetVersions] CHECK CONSTRAINT [FK_BudgetVersions_ItemTypes_fiscalYearIDItemTypeID]
+            
+            ALTER TABLE [dbo].[BudgetVersions]  WITH CHECK ADD  CONSTRAINT [FK_BudgetVersions_ItemTypes_generalLedgerIDItemTypeID] FOREIGN KEY([generalLedgerIDItemTypeID])
+            REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+            
+            ALTER TABLE [dbo].[BudgetVersions] CHECK CONSTRAINT [FK_BudgetVersions_ItemTypes_generalLedgerIDItemTypeID]
+            
+            ALTER TABLE [dbo].[BudgetVersions]  WITH CHECK ADD  CONSTRAINT [FK_BudgetVersions_ItemTypes_scenarioTypeIDItemTypeID] FOREIGN KEY([scenarioTypeIDItemTypeID])
+            REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+            
+            ALTER TABLE [dbo].[BudgetVersions] CHECK CONSTRAINT [FK_BudgetVersions_ItemTypes_scenarioTypeIDItemTypeID]
+            
+            ALTER TABLE [dbo].[BudgetVersions]  WITH CHECK ADD  CONSTRAINT [FK_BudgetVersions_ItemTypes_staffingIDItemTypeID] FOREIGN KEY([staffingIDItemTypeID])
+            REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+            
+            ALTER TABLE [dbo].[BudgetVersions] CHECK CONSTRAINT [FK_BudgetVersions_ItemTypes_staffingIDItemTypeID]
+            
+            ALTER TABLE [dbo].[BudgetVersions]  WITH CHECK ADD  CONSTRAINT [FK_BudgetVersions_ItemTypes_StatisticsIDItemTypeID] FOREIGN KEY([StatisticsIDItemTypeID])
+            REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+            
+            ALTER TABLE [dbo].[BudgetVersions] CHECK CONSTRAINT [FK_BudgetVersions_ItemTypes_StatisticsIDItemTypeID]
+            
+            ALTER TABLE [dbo].[DepartmentGroups]  WITH CHECK ADD  CONSTRAINT [FK_DepartmentGroups_Entities_EntityID1] FOREIGN KEY([EntityID1])
+            REFERENCES [dbo].[Entities] ([EntityID])
+            
+            ALTER TABLE [dbo].[DepartmentGroups] CHECK CONSTRAINT [FK_DepartmentGroups_Entities_EntityID1]
+            
+            ALTER TABLE [dbo].[DepartmentGroups]  WITH CHECK ADD  CONSTRAINT [FK_DepartmentGroups_ItemTypes_CateryIDItemTypeID] FOREIGN KEY([CateryIDItemTypeID])
+            REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+            
+            ALTER TABLE [dbo].[DepartmentGroups] CHECK CONSTRAINT [FK_DepartmentGroups_ItemTypes_CateryIDItemTypeID]
+            
+            ALTER TABLE [dbo].[Departments]  WITH CHECK ADD  CONSTRAINT [FK_Departments_DepartmentGroups_DepartmentGroupID1] FOREIGN KEY([DepartmentGroupID1])
+            REFERENCES [dbo].[DepartmentGroups] ([DepartmentGroupID])
+            
+            ALTER TABLE [dbo].[Departments] CHECK CONSTRAINT [FK_Departments_DepartmentGroups_DepartmentGroupID1]
+            
+            ALTER TABLE [dbo].[Departments]  WITH CHECK ADD  CONSTRAINT [FK_Departments_ItemTypes_CateryIDItemTypeID] FOREIGN KEY([CateryIDItemTypeID])
+            REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+            
+            ALTER TABLE [dbo].[Departments] CHECK CONSTRAINT [FK_Departments_ItemTypes_CateryIDItemTypeID]
+            
+            ALTER TABLE [dbo].[Entities]  WITH CHECK ADD  CONSTRAINT [FK_Entities_ItemTypes_CateryIDItemTypeID] FOREIGN KEY([CateryIDItemTypeID])
+            REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+            
+            ALTER TABLE [dbo].[Entities] CHECK CONSTRAINT [FK_Entities_ItemTypes_CateryIDItemTypeID]
+            
+            ALTER TABLE [dbo].[Notification]  WITH CHECK ADD  CONSTRAINT [FK_Notification_IdentityUserProfile_IdentityUserProfile_Recipient_FKUserProfileID] FOREIGN KEY([IdentityUserProfile_Recipient_FKUserProfileID])
+            REFERENCES [dbo].[IdentityUserProfile] ([UserProfileID])
+            
+            ALTER TABLE [dbo].[Notification] CHECK CONSTRAINT [FK_Notification_IdentityUserProfile_IdentityUserProfile_Recipient_FKUserProfileID]
+            
+            ALTER TABLE [dbo].[Notification]  WITH CHECK ADD  CONSTRAINT [FK_Notification_IdentityUserProfile_IdentityUserProfile_SEntBy_FKUserProfileID] FOREIGN KEY([IdentityUserProfile_SEntBy_FKUserProfileID])
+            REFERENCES [dbo].[IdentityUserProfile] ([UserProfileID])
+            
+            ALTER TABLE [dbo].[Notification] CHECK CONSTRAINT [FK_Notification_IdentityUserProfile_IdentityUserProfile_SEntBy_FKUserProfileID]
+            
+            ALTER TABLE [dbo].[Notification]  WITH CHECK ADD  CONSTRAINT [FK_Notification_ItemTypes_NotificationItemTypeIDs_FKItemTypeID] FOREIGN KEY([NotificationItemTypeIDs_FKItemTypeID])
+            REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+            
+            ALTER TABLE [dbo].[Notification] CHECK CONSTRAINT [FK_Notification_ItemTypes_NotificationItemTypeIDs_FKItemTypeID]
+            
+            ALTER TABLE [dbo].[Notification]  WITH CHECK ADD  CONSTRAINT [FK_Notification_ItemTypes_Statuses_FKItemTypeID] FOREIGN KEY([Statuses_FKItemTypeID])
+            REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+            
+            ALTER TABLE [dbo].[Notification] CHECK CONSTRAINT [FK_Notification_ItemTypes_Statuses_FKItemTypeID]
+            
+            ALTER TABLE [dbo].[SystemSettings]  WITH CHECK ADD  CONSTRAINT [FK_SystemSettings_ItemTypes_ItemDataTypeItemTypeID] FOREIGN KEY([ItemDataTypeItemTypeID])
+            REFERENCES [dbo].[ItemTypes] ([ItemTypeID])
+            
+            ALTER TABLE [dbo].[SystemSettings] CHECK CONSTRAINT [FK_SystemSettings_ItemTypes_ItemDataTypeItemTypeID]            
+        </sql>
+    </changeSet>
+</databaseChangeLog>

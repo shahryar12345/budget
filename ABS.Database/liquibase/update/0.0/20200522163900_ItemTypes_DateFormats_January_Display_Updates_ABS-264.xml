@@ -1,0 +1,19 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+      http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+
+	<changeSet id="20200522163900_ItemTypes_DateFormats_January_Display_Updates" author="jbeam">
+		<sql>
+			UPDATE [dbo].[ItemTypes]
+			SET ItemTypeDisplayName = 'dd-Jan-yy'
+			WHERE ItemTypeValue = 'itemsDateFormat-3'
+
+			UPDATE [dbo].[ItemTypes]
+			SET ItemTypeDisplayName = 'January dd, yyyy'
+			WHERE ItemTypeValue = 'itemsDateFormat-4'
+
+			UPDATE [dbo].[ItemTypes]
+			SET ItemTypeDisplayName = 'dd-Jan-yyyy'
+			WHERE ItemTypeValue = 'itemsDateFormat-5'
+        </sql>
+	</changeSet>
+</databaseChangeLog>

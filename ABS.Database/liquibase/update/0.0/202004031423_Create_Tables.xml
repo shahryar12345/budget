@@ -1,0 +1,364 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+      http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+
+<changeSet id="202004031423_Create_ItemTypes_Table" author="efoster">
+        <sql>
+            /****** Object:  Table [dbo].[ItemTypes]    Script Date: 3/31/2020 7:17:01 PM ******/                        
+            CREATE TABLE [dbo].[ItemTypes](
+                [ItemTypeID] [int] IDENTITY(1,1) NOT NULL,
+                [ItemDataType] [nvarchar](max) NULL,
+                [Identifier] [uniqueidentifier] NULL,
+                [CreationDate] [datetime2](7) NULL,
+                [UpdatedDate] [datetime2](7) NULL,
+                [CreatedBy] [int] NULL,
+                [UpdateBy] [int] NULL,
+                [IsActive] [bit] NULL,
+                [IsDeleted] [bit] NULL,
+                [RowVersion] [varbinary](max) NULL,
+                [ItemTypeKeyword] [nvarchar](max) NULL,
+                [ItemTypeCode] [nvarchar](max) NULL,
+                [ItemTypeValue] [nvarchar](max) NULL,
+                [ItemTypeDescription] [nvarchar](max) NULL,
+                [ItemTypeDisplayName] [nvarchar](max) NULL,
+            CONSTRAINT [PK_ItemTypes] PRIMARY KEY CLUSTERED 
+            (
+                [ItemTypeID] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+        </sql>
+    </changeSet>
+
+
+    <changeSet id="202004031423_Create_ApplicationLogging_Table" author="efoster">
+        <sql>
+            /****** Object:  Table [dbo].[ApplicationLogging]    Script Date: 3/31/2020 7:17:01 PM ******/
+            CREATE TABLE [dbo].[ApplicationLogging](
+                [MLogID] [int] IDENTITY(1,1) NOT NULL,
+                [ApplicationName] [nvarchar](max) NULL,
+                [AppPath] [nvarchar](max) NULL,
+                [MaintenanceLogDetails] [text] NULL,
+                [Status] [nvarchar](max) NULL,
+                [ErrorDetails] [nvarchar](max) NULL,
+                [ErrorLevel] [nvarchar](max) NULL,
+                [CreatedBy] [nvarchar](max) NULL,
+                [CreatedDate] [datetime2](7) NULL,
+                [TimeStamp] [timestamp] NULL,
+            CONSTRAINT [PK_ApplicationLogging] PRIMARY KEY CLUSTERED 
+            (
+                [MLogID] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+        </sql>
+    </changeSet>
+
+    <changeSet id="202004031423_BudgetVersions_Table" author="efoster">
+        <sql>
+            /****** Object:  Table [dbo].[BudgetVersions]    Script Date: 3/31/2020 7:17:01 PM ******/ 
+           CREATE TABLE [BudgetVersions] (
+            [BudgetVersionID] int NOT NULL IDENTITY,
+            [Code] nvarchar(max) NULL,
+            [Description] nvarchar(max) NULL,
+            [Comments] nvarchar(max) NULL,
+            [UserProfileID] int NOT NULL,
+            [fiscalYearIDItemTypeID] int NULL,
+            [fiscalStartMonthIDItemTypeID] int NULL,
+            [budgetVersionTypeIDItemTypeID] int NULL,
+            [scenarioTypeIDItemTypeID] int NULL,
+            [ADSstatisticsIDItemTypeID] int NULL,
+            [ADSgeneralLedgerIDItemTypeID] int NULL,
+            [ADSstaffingIDItemTypeID] int NULL,
+            [ADSscenarioTypeIDItemTypeID] int NULL,
+            [ADSbudgetVersionIDItemTypeID] int NULL,
+            [Identifier] uniqueidentifier NULL,
+            [CreationDate] datetime2 NULL,
+            [UpdatedDate] datetime2 NULL,
+            [CreatedBy] int NULL,
+            [UpdateBy] int NULL,
+            [IsActive] bit NULL,
+            [IsDeleted] bit NULL,
+            [RowVersion] varbinary(max) NULL,
+            CONSTRAINT [PK_BudgetVersions] PRIMARY KEY ([BudgetVersionID]),
+            CONSTRAINT [FK_BudgetVersions_ItemTypes_ADSbudgetVersionIDItemTypeID] FOREIGN KEY ([ADSbudgetVersionIDItemTypeID]) REFERENCES [ItemTypes] ([ItemTypeID]) ON DELETE NO ACTION,
+            CONSTRAINT [FK_BudgetVersions_ItemTypes_ADSgeneralLedgerIDItemTypeID] FOREIGN KEY ([ADSgeneralLedgerIDItemTypeID]) REFERENCES [ItemTypes] ([ItemTypeID]) ON DELETE NO ACTION,
+            CONSTRAINT [FK_BudgetVersions_ItemTypes_ADSscenarioTypeIDItemTypeID] FOREIGN KEY ([ADSscenarioTypeIDItemTypeID]) REFERENCES [ItemTypes] ([ItemTypeID]) ON DELETE NO ACTION,
+            CONSTRAINT [FK_BudgetVersions_ItemTypes_ADSstaffingIDItemTypeID] FOREIGN KEY ([ADSstaffingIDItemTypeID]) REFERENCES [ItemTypes] ([ItemTypeID]) ON DELETE NO ACTION,
+            CONSTRAINT [FK_BudgetVersions_ItemTypes_ADSstatisticsIDItemTypeID] FOREIGN KEY ([ADSstatisticsIDItemTypeID]) REFERENCES [ItemTypes] ([ItemTypeID]) ON DELETE NO ACTION,
+            CONSTRAINT [FK_BudgetVersions_ItemTypes_budgetVersionTypeIDItemTypeID] FOREIGN KEY ([budgetVersionTypeIDItemTypeID]) REFERENCES [ItemTypes] ([ItemTypeID]) ON DELETE NO ACTION,
+            CONSTRAINT [FK_BudgetVersions_ItemTypes_fiscalStartMonthIDItemTypeID] FOREIGN KEY ([fiscalStartMonthIDItemTypeID]) REFERENCES [ItemTypes] ([ItemTypeID]) ON DELETE NO ACTION,
+            CONSTRAINT [FK_BudgetVersions_ItemTypes_fiscalYearIDItemTypeID] FOREIGN KEY ([fiscalYearIDItemTypeID]) REFERENCES [ItemTypes] ([ItemTypeID]) ON DELETE NO ACTION,
+            CONSTRAINT [FK_BudgetVersions_ItemTypes_scenarioTypeIDItemTypeID] FOREIGN KEY ([scenarioTypeIDItemTypeID]) REFERENCES [ItemTypes] ([ItemTypeID]) ON DELETE NO ACTION
+        );
+        </sql>
+    </changeSet>
+
+    <changeSet id="202004031423_Create_DepartmentGroups_Table" author="efoster">
+        <sql>
+            /****** Object:  Table [dbo].[DepartmentGroups]    Script Date: 3/31/2020 7:17:01 PM ******/
+            CREATE TABLE [dbo].[DepartmentGroups](
+                [DepartmentGroupID] [int] IDENTITY(1,1) NOT NULL,
+                [DepartmentGroupCode] [nvarchar](max) NULL,
+                [DepartmentGroupName] [nvarchar](max) NULL,
+                [CategoryIDItemTypeID] [int] NULL,
+                [EntityID1] [int] NULL,
+                [Identifier] [uniqueidentifier] NULL,
+                [CreationDate] [datetime2](7) NULL,
+                [UpdatedDate] [datetime2](7) NULL,
+                [CreatedBy] [int] NULL,
+                [UpdateBy] [int] NULL,
+                [IsActive] [bit] NULL,
+                [IsDeleted] [bit] NULL,
+                [RowVersion] [varbinary](max) NULL,
+            CONSTRAINT [PK_DepartmentGroups] PRIMARY KEY CLUSTERED 
+            (
+                [DepartmentGroupID] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+        </sql>
+    </changeSet>
+
+    <changeSet id="202004031423_Create_Departments_Table" author="efoster">
+        <sql>
+        /****** Object:  Table [dbo].[Departments]    Script Date: 3/31/2020 7:17:01 PM ******/    
+        CREATE TABLE [dbo].[Departments](
+            [DepartmentID] [int] IDENTITY(1,1) NOT NULL,
+            [DepartmentCode] [nvarchar](max) NULL,
+            [DepartmentName] [nvarchar](max) NULL,
+            [CategoryIDItemTypeID] [int] NULL,
+            [DepartmentGroupID1] [int] NULL,
+            [Identifier] [uniqueidentifier] NULL,
+            [CreationDate] [datetime2](7) NULL,
+            [UpdatedDate] [datetime2](7) NULL,
+            [CreatedBy] [int] NULL,
+            [UpdateBy] [int] NULL,
+            [IsActive] [bit] NULL,
+            [IsDeleted] [bit] NULL,
+            [RowVersion] [varbinary](max) NULL,
+        CONSTRAINT [PK_Departments] PRIMARY KEY CLUSTERED 
+        (
+            [DepartmentID] ASC
+        )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+        ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+        </sql>
+    </changeSet>
+
+    <changeSet id="202004031423_Create_Entities_Table" author="efoster">
+        <sql>
+            /****** Object:  Table [dbo].[Entities]    Script Date: 3/31/2020 7:17:01 PM ******/                        
+            CREATE TABLE [dbo].[Entities](
+                [EntityID] [int] IDENTITY(1,1) NOT NULL,
+                [Entity] [nvarchar](max) NULL,
+                [EntityName] [nvarchar](max) NULL,
+                [CategoryIDItemTypeID] [int] NULL,
+                [Identifier] [uniqueidentifier] NULL,
+                [CreationDate] [datetime2](7) NULL,
+                [UpdatedDate] [datetime2](7) NULL,
+                [CreatedBy] [int] NULL,
+                [UpdateBy] [int] NULL,
+                [IsActive] [bit] NULL,
+                [IsDeleted] [bit] NULL,
+                [RowVersion] [varbinary](max) NULL,
+            CONSTRAINT [PK_Entities] PRIMARY KEY CLUSTERED 
+            (
+                [EntityID] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+        </sql>
+    </changeSet>
+
+    <changeSet id="202004031423_Create_IdentityUserProfile_Table" author="efoster">
+        <sql>
+            /****** Object:  Table [dbo].[IdentityUserProfile]    Script Date: 3/31/2020 7:17:01 PM ******/                    
+            CREATE TABLE [dbo].[IdentityUserProfile](
+                [UserProfileID] [int] IDENTITY(1,1) NOT NULL,
+                [FirstName] [nvarchar](max) NULL,
+                [MiddleName] [nvarchar](max) NULL,
+                [LastName] [nvarchar](max) NULL,
+                [DOB] [datetime2](7) NULL,
+                [ContactNumber] [nvarchar](max) NULL,
+                [Address] [nvarchar](max) NULL,
+                [Username] [nvarchar](max) NULL,
+                [UserPassword] [nvarchar](max) NULL,
+                [CreationDate] [datetime2](7) NULL,
+                [UpdatedDate] [datetime2](7) NULL,
+                [CreatedBy] [int] NULL,
+                [UpdateBy] [int] NULL,
+                [IsActive] [bit] NULL,
+                [IsDeleted] [bit] NULL,
+                [RowVersion] [varbinary](max) NULL,
+                [Identifier] [uniqueidentifier] NULL,
+            CONSTRAINT [PK_IdentityUserProfile] PRIMARY KEY CLUSTERED 
+            (
+                [UserProfileID] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+        </sql>
+    </changeSet>
+
+    
+
+    <changeSet id="202004031423_Create_Notification_Table" author="efoster">
+        <sql>
+            /****** Object:  Table [dbo].[Notification]    Script Date: 3/31/2020 7:17:01 PM ******/                        
+            CREATE TABLE [dbo].[Notification](
+                [NotificationID] [int] IDENTITY(1,1) NOT NULL,
+                [Comments] [nvarchar](max) NULL,
+                [TicketInformationID] [int] NOT NULL,
+                [SentByID] [int] NOT NULL,
+                [IdentityUserProfile_SEntBy_FKUserProfileID] [int] NULL,
+                [RecipientID] [int] NULL,
+                [IdentityUserProfile_Recipient_FKUserProfileID] [int] NULL,
+                [Subject] [nvarchar](max) NULL,
+                [Body] [nvarchar](max) NULL,
+                [EventCategory] [nvarchar](max) NULL,
+                [ToAddress] [nvarchar](max) NULL,
+                [CCAddress] [nvarchar](max) NULL,
+                [EmailTemplateID] [int] NOT NULL,
+                [NotificationTypeID] [int] NOT NULL,
+                [NotificationItemTypeIDs_FKItemTypeID] [int] NULL,
+                [Statuses_FKItemTypeID] [int] NULL,
+                [isExternal] [bit] NOT NULL,
+                [CreatedBy] [nvarchar](max) NULL,
+                [CreationDate] [datetime2](7) NULL,
+                [UpdatedBy] [nvarchar](max) NULL,
+                [UpdateDate] [datetime2](7) NULL,
+                [TimeStamp] [timestamp] NULL,
+            CONSTRAINT [PK_Notification] PRIMARY KEY CLUSTERED 
+            (
+                [NotificationID] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+        </sql>
+    </changeSet>
+
+    <changeSet id="202004031423_Create_NotificationTemplates_Table" author="efoster">
+        <sql>
+            /****** Object:  Table [dbo].[NotificationTemplates]    Script Date: 3/31/2020 7:17:01 PM ******/                        
+            CREATE TABLE [dbo].[NotificationTemplates](
+                [TemplateID] [int] IDENTITY(1,1) NOT NULL,
+                [TemplateType] [nvarchar](max) NULL,
+                [Category] [nvarchar](max) NULL,
+                [EmailSubject] [nvarchar](max) NULL,
+                [EmailBody] [nvarchar](max) NULL,
+                [CreatedBy] [nvarchar](max) NULL,
+                [CreationDate] [datetime2](7) NULL,
+                [UpdatedBy] [nvarchar](max) NULL,
+                [UpdateDate] [datetime2](7) NULL,
+                [TimeStamp] [timestamp] NULL,
+            CONSTRAINT [PK_NotificationTemplates] PRIMARY KEY CLUSTERED 
+            (
+                [TemplateID] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+        </sql>
+    </changeSet>
+
+    <changeSet id="202004031423_Create_SystemSettings_Table" author="efoster">
+        <sql>
+            /****** Object:  Table [dbo].[SystemSettings]    Script Date: 3/31/2020 7:17:01 PM ******/                        
+            CREATE TABLE [dbo].[SystemSettings](
+                [SettingID] [int] IDENTITY(1,1) NOT NULL,
+                [SettingKey] [nvarchar](max) NULL,
+                [SettingValue] [nvarchar](max) NULL,
+                [ItemDataTypeItemTypeID] [int] NULL,
+                [Identifier] [uniqueidentifier] NULL,
+                [CreationDate] [datetime2](7) NULL,
+                [UpdatedDate] [datetime2](7) NULL,
+                [CreatedBy] [int] NULL,
+                [UpdateBy] [int] NULL,
+                [IsActive] [bit] NULL,
+                [IsDeleted] [bit] NULL,
+                [RowVersion] [varbinary](max) NULL,
+                [UserProfileID] [int] NOT NULL,
+            CONSTRAINT [PK_SystemSettings] PRIMARY KEY CLUSTERED 
+            (
+                [SettingID] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+        </sql>
+    </changeSet>
+
+    <changeSet id="202004031423_Create_tbl_Admin_Entities_Table" author="efoster">
+        <sql>
+            /****** Object:  Table [dbo].[tbl_Admin_Entities]    Script Date: 3/31/2020 7:17:01 PM ******/                        
+            CREATE TABLE [dbo].[tbl_Admin_Entities](
+                [EntityId] [int] NOT NULL,
+                [EntityName] [nchar](10) NULL,
+            PRIMARY KEY CLUSTERED 
+            (
+                [EntityId] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            ) ON [PRIMARY]
+        </sql>
+    </changeSet>
+
+    <changeSet id="202004031423_Create_tbl_Admin_UserPreference_Table" author="efoster">
+        <sql>
+            /****** Object:  Table [dbo].[tbl_Admin_UserPreference]    Script Date: 3/31/2020 7:17:01 PM ******/                        
+            CREATE TABLE [dbo].[tbl_Admin_UserPreference](
+                [UserPreferenceID] [int] NOT NULL,
+                [Key] [nchar](100) NULL,
+                [Value] [nchar](100) NULL,
+            PRIMARY KEY CLUSTERED 
+            (
+                [UserPreferenceID] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            ) ON [PRIMARY]
+        </sql>
+    </changeSet>
+
+    <changeSet id="202004031423_Create_UserBackups_Table" author="efoster">
+        <sql>
+            /****** Object:  Table [dbo].[UserBackups]    Script Date: 3/31/2020 7:17:01 PM ******/                        
+            CREATE TABLE [dbo].[UserBackups](
+                [UserBackupID] [int] IDENTITY(1,1) NOT NULL,
+                [BackupDate] [nvarchar](max) NULL,
+                [UserProfileID] [int] NOT NULL,
+                [Identifier] [uniqueidentifier] NULL,
+                [CreationDate] [datetime2](7) NULL,
+                [UpdatedDate] [datetime2](7) NULL,
+                [CreatedBy] [int] NULL,
+                [UpdateBy] [int] NULL,
+                [IsActive] [bit] NULL,
+                [IsDeleted] [bit] NULL,
+                [RowVersion] [varbinary](max) NULL,
+            CONSTRAINT [PK_UserBackups] PRIMARY KEY CLUSTERED 
+            (
+                [UserBackupID] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+        </sql>
+    </changeSet>
+
+     <changeSet id="202028104823_Create_TimePeriods_Table" author="fshaikh">
+        <sql>
+            /****** Object:  Table [dbo].[TimePeriods]    Script Date: 4/28/2020 7:17:01 PM ******/                        
+            
+            CREATE TABLE [TimePeriods] (
+                [TimePeriodID] int NOT NULL IDENTITY,
+                [TimePeriodName] nvarchar(max) NULL,
+                [TimePeriodCode] nvarchar(max) NULL,
+                [TimePeriodDescription] nvarchar(max) NULL,
+                [FetchedFromADS] bit NULL,
+                [FiscalYearIDItemTypeID] int NULL,
+                [FiscalStartMonthIDItemTypeID] int NULL,
+                [FiscalYearEndIDItemTypeID] int NULL,
+                [FiscalEndMonthIDItemTypeID] int NULL,
+                [Identifier] uniqueidentifier NULL,
+                [CreationDate] datetime2 NULL,
+                [UpdatedDate] datetime2 NULL,
+                [CreatedBy] int NULL,
+                [UpdateBy] int NULL,
+                [IsActive] bit NULL,
+                [IsDeleted] bit NULL,
+                [RowVersion] rowversion NULL,
+                CONSTRAINT [PK_TimePeriods] PRIMARY KEY ([TimePeriodID]),
+                CONSTRAINT [FK_TimePeriods_ItemTypes_FiscalEndMonthIDItemTypeID] FOREIGN KEY ([FiscalEndMonthIDItemTypeID]) REFERENCES [ItemTypes] ([ItemTypeID]) ON DELETE NO ACTION,
+                CONSTRAINT [FK_TimePeriods_ItemTypes_FiscalStartMonthIDItemTypeID] FOREIGN KEY ([FiscalStartMonthIDItemTypeID]) REFERENCES [ItemTypes] ([ItemTypeID]) ON DELETE NO ACTION,
+                CONSTRAINT [FK_TimePeriods_ItemTypes_FiscalYearEndIDItemTypeID] FOREIGN KEY ([FiscalYearEndIDItemTypeID]) REFERENCES [ItemTypes] ([ItemTypeID]) ON DELETE NO ACTION,
+                CONSTRAINT [FK_TimePeriods_ItemTypes_FiscalYearIDItemTypeID] FOREIGN KEY ([FiscalYearIDItemTypeID]) REFERENCES [ItemTypes] ([ItemTypeID]) ON DELETE NO ACTION
+            );
+        </sql>
+    </changeSet>
+</databaseChangeLog>

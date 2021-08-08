@@ -1,0 +1,71 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+      http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+
+	<changeSet id="202005071939_Create_ForecastModels_Table" author="jbeam">
+        <sql>
+			/****** Object:  Table [dbo].[ForecastModels]    Script Date: 5/7/2020 3:41:41 PM ******/
+			CREATE TABLE [dbo].[ForecastModels](
+				[ForecastModelID] [int] IDENTITY(1,1) NOT NULL,
+				[Code] [nvarchar](max) NULL,
+				[Name] [nvarchar](max) NULL,
+				[Description] [nvarchar](max) NULL,
+				[AsJson] [nvarchar](max) NULL,
+
+				[Identifier] [uniqueidentifier] NULL,
+				[CreationDate] [datetime2](7) NULL,
+				[UpdatedDate] [datetime2](7) NULL,
+				[CreatedBy] [int] NULL,
+				[UpdateBy] [int] NULL,
+				[IsActive] [bit] NULL,
+				[IsDeleted] [bit] NULL,
+				[RowVersion] [varbinary](max) NULL,
+			 CONSTRAINT [PK_ForecastModels] PRIMARY KEY CLUSTERED 
+			(
+				[ForecastModelID] ASC
+			)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+			) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+        </sql>
+    </changeSet>
+	<changeSet id="202005071939_Create_StatisticalData_Table" author="jbeam">
+        <sql>
+			/****** Object:  Table [dbo].[ForecastSteps]    Script Date: 5/7/2020 3:41:41 PM ******/
+			CREATE TABLE [dbo].[ForecastSteps](
+				[ForecastStepID] [int] IDENTITY(1,1) NOT NULL,
+				[ForecastStepOrder] [int] NOT NULL,
+				[ForecastModelID] [int] NULL,
+				[ForecastStepTypeItemTypeID] [int] NULL,
+				[SourceScenarioTypeItemTypeID] [int] NULL,
+				[SourceBudgetVersionBudgetVersionID] [int] NULL,
+				[SourceEntityEntityID] [int] NULL,
+				[UseEntityGroupTotal] [bit] NOT NULL,
+				[SourceDepartmentDepartmentID] [int] NULL,
+				[UseDepartmentGroupTotal] [bit] NOT NULL,
+				[SourceStatisticCodeStatisticsCodeID] [int] NULL,
+				[UseStatisticGroupTotal] [bit] NOT NULL,
+				[TargetEntityEntityID] [int] NULL,
+				[TargetDepartmentDepartmentID] [int] NULL,
+				[TargetStatisticCodeStatisticsCodeID] [int] NULL,
+				[TargetScenarioTypeItemTypeID] [int] NULL,
+				[TargetBudgetVersionBudgetVersionID] [int] NULL,
+				[PercentageChangeValue] [decimal](18, 2) NOT NULL,
+				[SpreadMethod] [nvarchar](max) NULL,
+				[NumberOfMonths] [int] NULL,
+				[MaintainSeasonality] [bit] NULL,
+				[Identifier] [uniqueidentifier] NULL,
+				[CreationDate] [datetime2](7) NULL,
+				[UpdatedDate] [datetime2](7) NULL,
+				[CreatedBy] [int] NULL,
+				[UpdateBy] [int] NULL,
+				[IsActive] [bit] NULL,
+				[IsDeleted] [bit] NULL,
+				[RowVersion] [varbinary](max) NULL,
+			 CONSTRAINT [PK_ForecastSteps] PRIMARY KEY CLUSTERED 
+			(
+				[ForecastStepID] ASC
+			)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+			) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+        </sql>
+    </changeSet>	
+</databaseChangeLog>

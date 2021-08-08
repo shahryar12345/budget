@@ -1,0 +1,25 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="fshaikh" id="202010291528_APIEndpoints_Table_Creation">
+        <createTable tableName="APIEndpoints">
+            <column autoIncrement="true" name="APIEndpointID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_APIEndpoint"/>
+            </column>
+             <column name="Name" type="nvarchar(MAX)"/>
+            <column name="BaseAddress" type="nvarchar(MAX)"/>
+            <column name="RequestHeaders" type="nvarchar(MAX)"/>
+             <column name="Interval" type="int"/>
+            <column name="cronstring" type="nvarchar(MAX)"/>
+            <column name="APICode" type="nvarchar(MAX)"/>
+            <column name="EnvironmentName" type="nvarchar(MAX)"/>
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="datetime"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

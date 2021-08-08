@@ -1,0 +1,117 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+      http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+
+    <changeSet id="202004031435_Create_Indexes" author="efoster">
+        <sql>
+            /****** Object:  Index [IX_BudgetVersions_budgetVersionTypeIDItemTypeID]    Script Date: 3/31/2020 7:17:01 PM ******/
+            CREATE NONCLUSTERED INDEX [IX_BudgetVersions_budgetVersionTypeIDItemTypeID] ON [dbo].[BudgetVersions]
+            (
+                [budgetVersionTypeIDItemTypeID] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            
+            /****** Object:  Index [IX_BudgetVersions_fiscalStartMonthIDItemTypeID]    Script Date: 3/31/2020 7:17:01 PM ******/
+            CREATE NONCLUSTERED INDEX [IX_BudgetVersions_fiscalStartMonthIDItemTypeID] ON [dbo].[BudgetVersions]
+            (
+                [fiscalStartMonthIDItemTypeID] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            
+            /****** Object:  Index [IX_BudgetVersions_fiscalYearIDItemTypeID]    Script Date: 3/31/2020 7:17:01 PM ******/
+            CREATE NONCLUSTERED INDEX [IX_BudgetVersions_fiscalYearIDItemTypeID] ON [dbo].[BudgetVersions]
+            (
+                [fiscalYearIDItemTypeID] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            
+            /****** Object:  Index [IX_BudgetVersions_generalLedgerIDItemTypeID]    Script Date: 3/31/2020 7:17:01 PM ******/
+            CREATE NONCLUSTERED INDEX [IX_BudgetVersions_generalLedgerIDItemTypeID] ON [dbo].[BudgetVersions]
+            (
+                [generalLedgerIDItemTypeID] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            
+            /****** Object:  Index [IX_BudgetVersions_scenarioTypeIDItemTypeID]    Script Date: 3/31/2020 7:17:01 PM ******/
+            CREATE NONCLUSTERED INDEX [IX_BudgetVersions_scenarioTypeIDItemTypeID] ON [dbo].[BudgetVersions]
+            (
+                [scenarioTypeIDItemTypeID] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            
+            /****** Object:  Index [IX_BudgetVersions_staffingIDItemTypeID]    Script Date: 3/31/2020 7:17:01 PM ******/
+            CREATE NONCLUSTERED INDEX [IX_BudgetVersions_staffingIDItemTypeID] ON [dbo].[BudgetVersions]
+            (
+                [staffingIDItemTypeID] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            
+            /****** Object:  Index [IX_BudgetVersions_StatisticsIDItemTypeID]    Script Date: 3/31/2020 7:17:01 PM ******/
+            CREATE NONCLUSTERED INDEX [IX_BudgetVersions_StatisticsIDItemTypeID] ON [dbo].[BudgetVersions]
+            (
+                [StatisticsIDItemTypeID] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            
+            /****** Object:  Index [IX_BudgetVersions_UserProfileID]    Script Date: 3/31/2020 7:17:01 PM ******/
+            CREATE NONCLUSTERED INDEX [IX_BudgetVersions_UserProfileID] ON [dbo].[BudgetVersions]
+            (
+                [UserProfileID] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            
+            /****** Object:  Index [IX_DepartmentGroups_CategoryIDItemTypeID]    Script Date: 3/31/2020 7:17:01 PM ******/
+            CREATE NONCLUSTERED INDEX [IX_DepartmentGroups_CategoryIDItemTypeID] ON [dbo].[DepartmentGroups]
+            (
+                [CategoryIDItemTypeID] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            
+            /****** Object:  Index [IX_DepartmentGroups_EntityID1]    Script Date: 3/31/2020 7:17:01 PM ******/
+            CREATE NONCLUSTERED INDEX [IX_DepartmentGroups_EntityID1] ON [dbo].[DepartmentGroups]
+            (
+                [EntityID1] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            
+            /****** Object:  Index [IX_Departments_CategoryIDItemTypeID]    Script Date: 3/31/2020 7:17:01 PM ******/
+            CREATE NONCLUSTERED INDEX [IX_Departments_CategoryIDItemTypeID] ON [dbo].[Departments]
+            (
+                [CategoryIDItemTypeID] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            
+            /****** Object:  Index [IX_Departments_DepartmentGroupID1]    Script Date: 3/31/2020 7:17:01 PM ******/
+            CREATE NONCLUSTERED INDEX [IX_Departments_DepartmentGroupID1] ON [dbo].[Departments]
+            (
+                [DepartmentGroupID1] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            
+            /****** Object:  Index [IX_Entities_CategoryIDItemTypeID]    Script Date: 3/31/2020 7:17:01 PM ******/
+            CREATE NONCLUSTERED INDEX [IX_Entities_CategoryIDItemTypeID] ON [dbo].[Entities]
+            (
+                [CategoryIDItemTypeID] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            
+            /****** Object:  Index [IX_Notification_IdentityUserProfile_Recipient_FKUserProfileID]    Script Date: 3/31/2020 7:17:01 PM ******/
+            CREATE NONCLUSTERED INDEX [IX_Notification_IdentityUserProfile_Recipient_FKUserProfileID] ON [dbo].[Notification]
+            (
+                [IdentityUserProfile_Recipient_FKUserProfileID] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            
+            /****** Object:  Index [IX_Notification_IdentityUserProfile_SEntBy_FKUserProfileID]    Script Date: 3/31/2020 7:17:01 PM ******/
+            CREATE NONCLUSTERED INDEX [IX_Notification_IdentityUserProfile_SEntBy_FKUserProfileID] ON [dbo].[Notification]
+            (
+                [IdentityUserProfile_SEntBy_FKUserProfileID] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            
+            /****** Object:  Index [IX_Notification_NotificationItemTypeIDs_FKItemTypeID]    Script Date: 3/31/2020 7:17:01 PM ******/
+            CREATE NONCLUSTERED INDEX [IX_Notification_NotificationItemTypeIDs_FKItemTypeID] ON [dbo].[Notification]
+            (
+                [NotificationItemTypeIDs_FKItemTypeID] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            
+            /****** Object:  Index [IX_Notification_Statuses_FKItemTypeID]    Script Date: 3/31/2020 7:17:01 PM ******/
+            CREATE NONCLUSTERED INDEX [IX_Notification_Statuses_FKItemTypeID] ON [dbo].[Notification]
+            (
+                [Statuses_FKItemTypeID] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+            
+            /****** Object:  Index [IX_SystemSettings_ItemDataTypeItemTypeID]    Script Date: 3/31/2020 7:17:01 PM ******/
+            CREATE NONCLUSTERED INDEX [IX_SystemSettings_ItemDataTypeItemTypeID] ON [dbo].[SystemSettings]
+            (
+                [ItemDataTypeItemTypeID] ASC
+            )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+        </sql>
+    </changeSet>
+</databaseChangeLog>

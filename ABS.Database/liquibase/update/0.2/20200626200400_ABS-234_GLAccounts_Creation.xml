@@ -1,0 +1,175 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="sbadgley" id="20200626200400-BudgetVersionGLAccounts_Creation">
+        <createTable tableName="BudgetVersionGLAccounts">
+            <column autoIncrement="true" name="StatisticID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_BudgetVersionGLAccounts"/>
+            </column>
+            <column name="BudgetVersionID" type="int"/>
+            <column name="EntityID" type="int"/>
+            <column name="DepartmentID" type="int"/>
+            <column name="GLAccountID" type="int"/>
+            <column name="TimePeriodID1" type="int"/>
+            <column name="DataScenarioTypeIDItemTypeID" type="int"/>
+            <column name="DimensionsRowIDDimensionsID" type="int"/>
+            <column name="January" type="decimal(18, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="February" type="decimal(18, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="March" type="decimal(18, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="April" type="decimal(18, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="May" type="decimal(18, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="June" type="decimal(18, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="July" type="decimal(18, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="August" type="decimal(18, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="September" type="decimal(18, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="October" type="decimal(18, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="November" type="decimal(18, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="December" type="decimal(18, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rowTotal" type="decimal(18, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="varbinary(MAX)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sbadgley" id="20200626200400-GLAccounts_Creation">
+        <createTable tableName="GLAccounts">
+            <column autoIncrement="true" name="GLAccountID" type="int">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_GLAccounts"/>
+            </column>
+            <column name="GLAccountCode" type="nvarchar(MAX)"/>
+            <column name="GLAccountName" type="nvarchar(MAX)"/>
+            <column name="Description" type="nvarchar(MAX)"/>
+            <column name="IsMaster" type="bit"/>
+            <column name="GLAccountTypeItemTypeID" type="int"/>
+            <column name="Summable" type="bit"/>
+            <column name="ColumnLabel" type="nvarchar(MAX)"/>
+            <column name="IsGroup" type="bit"/>
+            <column name="ParentID" type="int"/>
+            <column name="ChildID" type="nvarchar(MAX)"/>
+            <column name="DataSourcceIDItemTypeID" type="int"/>
+            <column name="Identifier" type="uniqueidentifier"/>
+            <column name="CreationDate" type="datetime2"/>
+            <column name="UpdatedDate" type="datetime2"/>
+            <column name="CreatedBy" type="int"/>
+            <column name="UpdateBy" type="int"/>
+            <column name="IsActive" type="bit"/>
+            <column name="IsDeleted" type="bit"/>
+            <column name="RowVersion" type="datetime"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sbadgley" id="20200626200400-Dimensions_AddColumn_GLAccountID">
+        <addColumn tableName="Dimensions">
+            <column name="GLAccountID" type="int(10)"/>
+        </addColumn>
+    </changeSet>  
+    <changeSet author="sbadgley" id="20200626200400-BudgetVersionGLAccounts_TimePeriods_TimePeriodID1_Constraint">
+        <addForeignKeyConstraint baseColumnNames="TimePeriodID1" baseTableName="BudgetVersionGLAccounts" constraintName="FK_BudgetVersionGLAccounts_TimePeriods_TimePeriodID1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="TimePeriodID" referencedTableName="TimePeriods" validate="true"/>
+    </changeSet>
+    <changeSet author="sbadgley" id="20200626200400-BudgetVersionIDIndex">
+        <createIndex indexName="IX_BudgetVersionGLAccounts_BudgetVersionID" tableName="BudgetVersionGLAccounts">
+            <column name="BudgetVersionID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="sbadgley" id="20200626200400-BudgetVersionGLAccounts_DataScenarioTypeIDItemTypeIDIndex">
+        <createIndex indexName="IX_BudgetVersionGLAccounts_DataScenarioTypeIDItemTypeID" tableName="BudgetVersionGLAccounts">
+            <column name="DataScenarioTypeIDItemTypeID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="sbadgley" id="20200626200400-BudgetVersionGLAccounts_DepartmentIDIndex">
+        <createIndex indexName="IX_BudgetVersionGLAccounts_DepartmentID" tableName="BudgetVersionGLAccounts">
+            <column name="DepartmentID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="sbadgley" id="20200626200400-BudgetVersionGLAccounts_DimensionsRowIDDimensionsIDIndex">
+        <createIndex indexName="IX_BudgetVersionGLAccounts_DimensionsRowIDDimensionsID" tableName="BudgetVersionGLAccounts">
+            <column name="DimensionsRowIDDimensionsID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="sbadgley" id="20200626200400-BudgetVersionGLAccounts_EntityIDIndex">
+        <createIndex indexName="IX_BudgetVersionGLAccounts_EntityID" tableName="BudgetVersionGLAccounts">
+            <column name="EntityID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="sbadgley" id="20200626200400-BudgetVersionGLAccounts_GLAccountIDIndex">
+        <createIndex indexName="IX_BudgetVersionGLAccounts_GLAccountID" tableName="BudgetVersionGLAccounts">
+            <column name="GLAccountID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="sbadgley" id="20200626200400-BudgetVersionGLAccounts_TimePeriodID1Index">
+        <createIndex indexName="IX_BudgetVersionGLAccounts_TimePeriodID1" tableName="BudgetVersionGLAccounts">
+            <column name="TimePeriodID1"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="sbadgley" id="20200626200400-GLAccounts_DataSourcceIDItemTypeIDIndex">
+        <createIndex indexName="IX_GLAccounts_DataSourcceIDItemTypeID" tableName="GLAccounts">
+            <column name="DataSourcceIDItemTypeID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="sbadgley" id="20200626200400-GLAccounts_GLAccountTypeItemTypeIDIndex">
+        <createIndex indexName="IX_GLAccounts_GLAccountTypeItemTypeID" tableName="GLAccounts">
+            <column name="GLAccountTypeItemTypeID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="sbadgley" id="20200626200400-Dimensions_GLAccounts_GLAccountID_Constraint">
+        <addForeignKeyConstraint baseColumnNames="GLAccountID" baseTableName="Dimensions" constraintName="FK_Dimensions_GLAccounts_GLAccountID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="GLAccountID" referencedTableName="GLAccounts" validate="true"/>
+    </changeSet>
+    <changeSet author="sbadgley" id="20200626200400-Dimensions_GLAccountIDIndex">
+        <createIndex indexName="IX_Dimensions_GLAccountID" tableName="Dimensions">
+            <column name="GLAccountID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="sbadgley" id="20200626200400-BudgetVersionGLAccounts_BudgetVersions_BudgetVersionID_Constraint">
+        <addForeignKeyConstraint baseColumnNames="BudgetVersionID" baseTableName="BudgetVersionGLAccounts" constraintName="FK_BudgetVersionGLAccounts_BudgetVersions_BudgetVersionID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="BudgetVersionID" referencedTableName="BudgetVersions" validate="true"/>
+    </changeSet>
+    <changeSet author="sbadgley" id="20200626200400-BudgetVersionGLAccounts_Departments_DepartmentID_Constraint">
+        <addForeignKeyConstraint baseColumnNames="DepartmentID" baseTableName="BudgetVersionGLAccounts" constraintName="FK_BudgetVersionGLAccounts_Departments_DepartmentID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="DepartmentID" referencedTableName="Departments" validate="true"/>
+    </changeSet>
+    <changeSet author="sbadgley" id="20200626200400-BudgetVersionGLAccounts_Dimensions_DimensionsRowIDDimensionsID_Constraint">
+        <addForeignKeyConstraint baseColumnNames="DimensionsRowIDDimensionsID" baseTableName="BudgetVersionGLAccounts" constraintName="FK_BudgetVersionGLAccounts_Dimensions_DimensionsRowIDDimensionsID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="DimensionsID" referencedTableName="Dimensions" validate="true"/>
+    </changeSet>
+    <changeSet author="sbadgley" id="20200626200400-BudgetVersionGLAccounts_Entities_EntityID_Constraint">
+        <addForeignKeyConstraint baseColumnNames="EntityID" baseTableName="BudgetVersionGLAccounts" constraintName="FK_BudgetVersionGLAccounts_Entities_EntityID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="EntityID" referencedTableName="Entities" validate="true"/>
+    </changeSet>
+    <changeSet author="sbadgley" id="20200626200400-BudgetVersionGLAccounts_GLAccounts_GLAccountID_Constraint">
+        <addForeignKeyConstraint baseColumnNames="GLAccountID" baseTableName="BudgetVersionGLAccounts" constraintName="FK_BudgetVersionGLAccounts_GLAccounts_GLAccountID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="GLAccountID" referencedTableName="GLAccounts" validate="true"/>
+    </changeSet>
+    <changeSet author="sbadgley" id="20200626200400-BudgetVersionGLAccounts_ItemTypes_DataScenarioTypeIDItemTypeID_Constraint">
+        <addForeignKeyConstraint baseColumnNames="DataScenarioTypeIDItemTypeID" baseTableName="BudgetVersionGLAccounts" constraintName="FK_BudgetVersionGLAccounts_ItemTypes_DataScenarioTypeIDItemTypeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ItemTypeID" referencedTableName="ItemTypes" validate="true"/>
+    </changeSet>
+    <changeSet author="sbadgley" id="20200626200400-GLAccounts_ItemTypes_DataSourcceIDItemTypeID_Constraint">
+        <addForeignKeyConstraint baseColumnNames="DataSourcceIDItemTypeID" baseTableName="GLAccounts" constraintName="FK_GLAccounts_ItemTypes_DataSourcceIDItemTypeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ItemTypeID" referencedTableName="ItemTypes" validate="true"/>
+    </changeSet>
+    <changeSet author="sbadgley" id="20200626200400-GLAccounts_ItemTypes_GLAccountTypeItemTypeID_Constraint">
+        <addForeignKeyConstraint baseColumnNames="GLAccountTypeItemTypeID" baseTableName="GLAccounts" constraintName="FK_GLAccounts_ItemTypes_GLAccountTypeItemTypeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ItemTypeID" referencedTableName="ItemTypes" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

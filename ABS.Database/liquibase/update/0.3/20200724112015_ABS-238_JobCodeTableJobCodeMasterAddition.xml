@@ -1,0 +1,16 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="jbeam" id="20200724112015-JobCodeTableJobCodeMasterAddition">
+        <addColumn tableName="JobCodes">
+            <column name="JobCodeMasterJobCodeID" type="int(10)"/>
+        </addColumn>
+    </changeSet>    
+	<changeSet author="jbeam" id="20200724112015-JobCodeTableJobCodeMasterFK">
+        <addForeignKeyConstraint baseColumnNames="JobCodeMasterJobCodeID" baseTableName="JobCodes" constraintName="FK_JobCodes_JobCodes_JobCodeMasterJobCodeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="JobCodeID" referencedTableName="JobCodes" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200724112015-JobCodeTableIsCodeGroupAddition">
+        <addColumn tableName="JobCodes">
+            <column name="IsCodeGroup" type="bit(1)"/>
+        </addColumn>
+    </changeSet>	
+</databaseChangeLog>

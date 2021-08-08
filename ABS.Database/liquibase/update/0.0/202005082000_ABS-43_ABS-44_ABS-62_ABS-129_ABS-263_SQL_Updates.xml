@@ -1,0 +1,1227 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:pro="http://www.liquibase.org/xml/ns/pro" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd
+      http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd">
+
+	<changeSet id="202005082000_ABS-44_ABS-62_Departments_Table_Update" author="jbeam">
+        <sql>
+			PRINT N'Starting rebuilding table [dbo].[Departments]...';
+
+			GO
+			BEGIN TRANSACTION;
+
+			SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+
+			SET XACT_ABORT ON;
+
+			CREATE TABLE [dbo].[tmp_ms_xx_Departments] (
+				[DepartmentID]               INT              IDENTITY (1, 1) NOT NULL,
+				[DepartmentCode]             NVARCHAR (MAX)   NULL,
+				[DepartmentName]             NVARCHAR (MAX)   NULL,
+				[Description]                NVARCHAR (MAX)   NULL,
+				[IsGroup]                    BIT              NOT NULL,
+				[IsMaster]                   BIT              NOT NULL,
+				[GroupPolicyItemTypeID]      INT              NULL,
+				[DepartmentTypeIDItemTypeID] INT              NULL,
+				[ParentID]                   INT              NULL,
+				[ChildID]                    NVARCHAR (MAX)   NULL,
+				[DataSourcceIDItemTypeID]    INT              NULL,
+				[Identifier]                 UNIQUEIDENTIFIER NULL,
+				[CreationDate]               DATETIME2 (7)    NULL,
+				[UpdatedDate]                DATETIME2 (7)    NULL,
+				[CreatedBy]                  INT              NULL,
+				[UpdateBy]                   INT              NULL,
+				[IsActive]                   BIT              NULL,
+				[IsDeleted]                  BIT              NULL,
+				[RowVersion]                 VARBINARY (MAX)  NULL,
+				CONSTRAINT [tmp_ms_xx_constraint_PK_Departments1] PRIMARY KEY CLUSTERED ([DepartmentID] ASC)
+			);
+
+			IF EXISTS (SELECT TOP 1 1 
+					   FROM   [dbo].[Departments])
+				BEGIN
+					SET IDENTITY_INSERT [dbo].[tmp_ms_xx_Departments] ON;
+					INSERT INTO [dbo].[tmp_ms_xx_Departments] ([DepartmentID], [DepartmentCode], [DepartmentName], [Identifier], [CreationDate], [UpdatedDate], [CreatedBy], [UpdateBy], [IsActive], [IsDeleted], [RowVersion])
+					SELECT   [DepartmentID],
+							 [DepartmentCode],
+							 [DepartmentName],
+							 [Identifier],
+							 [CreationDate],
+							 [UpdatedDate],
+							 [CreatedBy],
+							 [UpdateBy],
+							 [IsActive],
+							 [IsDeleted],
+							 [RowVersion]
+					FROM     [dbo].[Departments]
+					ORDER BY [DepartmentID] ASC;
+					SET IDENTITY_INSERT [dbo].[tmp_ms_xx_Departments] OFF;
+				END
+
+			DROP TABLE [dbo].[Departments];
+
+			EXECUTE sp_rename N'[dbo].[tmp_ms_xx_Departments]', N'Departments';
+
+			EXECUTE sp_rename N'[dbo].[tmp_ms_xx_constraint_PK_Departments1]', N'PK_Departments', N'OBJECT';
+
+			COMMIT TRANSACTION;
+
+			SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+
+			GO
+			PRINT N'Creating [dbo].[Departments].[IX_Departments_DataSourcceIDItemTypeID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_Departments_DataSourcceIDItemTypeID]
+				ON [dbo].[Departments]([DataSourcceIDItemTypeID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[Departments].[IX_Departments_DepartmentTypeIDItemTypeID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_Departments_DepartmentTypeIDItemTypeID]
+				ON [dbo].[Departments]([DepartmentTypeIDItemTypeID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[Departments].[IX_Departments_GroupPolicyItemTypeID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_Departments_GroupPolicyItemTypeID]
+				ON [dbo].[Departments]([GroupPolicyItemTypeID] ASC);
+        </sql>
+    </changeSet>
+	<changeSet id="202005071939_ABS-44_Entities_Table_Update" author="jbeam">	
+        <sql>
+			PRINT N'Starting rebuilding table [dbo].[Entities]...';
+
+			GO
+			BEGIN TRANSACTION;
+
+			SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+
+			SET XACT_ABORT ON;
+
+			CREATE TABLE [dbo].[tmp_ms_xx_Entities] (
+				[EntityID]               INT              IDENTITY (1, 1) NOT NULL,
+				[EntityCode]             NVARCHAR (MAX)   NULL,
+				[EntityName]             NVARCHAR (MAX)   NULL,
+				[Description]            NVARCHAR (MAX)   NULL,
+				[ChargeCodeID]           INT              NULL,
+				[DepartmentID]           INT              NULL,
+				[AccountID]              INT              NULL,
+				[JobCodeID]              INT              NULL,
+				[PayTypeID]              INT              NULL,
+				[AddressID]              INT              NULL,
+				[BuyerOfServices]        BIT              NOT NULL,
+				[CareDeliveryFacility]   BIT              NOT NULL,
+				[Clinical]               BIT              NOT NULL,
+				[CostAccounting]         BIT              NOT NULL,
+				[InsuranceCarrier]       BIT              NOT NULL,
+				[SellerOfServices]       BIT              NOT NULL,
+				[PayPeriodCalendarId]    NVARCHAR (MAX)   NULL,
+				[FiscalYearCalendarId]   NVARCHAR (MAX)   NULL,
+				[CurrentMonth]           NVARCHAR (MAX)   NULL,
+				[CurrentDay]             NVARCHAR (MAX)   NULL,
+				[EffectiveDate]          NVARCHAR (MAX)   NULL,
+				[CostModelId]            NVARCHAR (MAX)   NULL,
+				[ParentID]               INT              NULL,
+				[ChildID]                NVARCHAR (MAX)   NULL,
+				[DataSourceIDItemTypeID] INT              NULL,
+				[Identifier]             UNIQUEIDENTIFIER NULL,
+				[CreationDate]           DATETIME2 (7)    NULL,
+				[UpdatedDate]            DATETIME2 (7)    NULL,
+				[CreatedBy]              INT              NULL,
+				[UpdateBy]               INT              NULL,
+				[IsActive]               BIT              NULL,
+				[IsDeleted]              BIT              NULL,
+				[RowVersion]             VARBINARY (MAX)  NULL,
+				CONSTRAINT [tmp_ms_xx_constraint_PK_Entities1] PRIMARY KEY CLUSTERED ([EntityID] ASC)
+			);
+
+			IF EXISTS (SELECT TOP 1 1 
+					   FROM   [dbo].[Entities])
+				BEGIN
+					SET IDENTITY_INSERT [dbo].[tmp_ms_xx_Entities] ON;
+					INSERT INTO [dbo].[tmp_ms_xx_Entities] ([EntityID], [EntityName], [Identifier], [CreationDate], [UpdatedDate], [CreatedBy], [UpdateBy], [IsActive], [IsDeleted], [RowVersion])
+					SELECT   [EntityID],
+							 [EntityName],
+							 [Identifier],
+							 [CreationDate],
+							 [UpdatedDate],
+							 [CreatedBy],
+							 [UpdateBy],
+							 [IsActive],
+							 [IsDeleted],
+							 [RowVersion]
+					FROM     [dbo].[Entities]
+					ORDER BY [EntityID] ASC;
+					SET IDENTITY_INSERT [dbo].[tmp_ms_xx_Entities] OFF;
+				END
+
+			DROP TABLE [dbo].[Entities];
+
+			EXECUTE sp_rename N'[dbo].[tmp_ms_xx_Entities]', N'Entities';
+
+			EXECUTE sp_rename N'[dbo].[tmp_ms_xx_constraint_PK_Entities1]', N'PK_Entities', N'OBJECT';
+
+			COMMIT TRANSACTION;
+
+			SET TRANSACTION ISOLATION LEVEL READ COMMITTED;
+
+
+			GO
+			PRINT N'Creating [dbo].[Entities].[IX_Entities_AccountID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_Entities_AccountID]
+				ON [dbo].[Entities]([AccountID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[Entities].[IX_Entities_AddressID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_Entities_AddressID]
+				ON [dbo].[Entities]([AddressID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[Entities].[IX_Entities_ChargeCodeID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_Entities_ChargeCodeID]
+				ON [dbo].[Entities]([ChargeCodeID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[Entities].[IX_Entities_DataSourceIDItemTypeID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_Entities_DataSourceIDItemTypeID]
+				ON [dbo].[Entities]([DataSourceIDItemTypeID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[Entities].[IX_Entities_DepartmentID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_Entities_DepartmentID]
+				ON [dbo].[Entities]([DepartmentID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[Entities].[IX_Entities_JobCodeID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_Entities_JobCodeID]
+				ON [dbo].[Entities]([JobCodeID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[Entities].[IX_Entities_PayTypeID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_Entities_PayTypeID]
+				ON [dbo].[Entities]([PayTypeID] ASC);
+        </sql>		
+    </changeSet>	
+	<changeSet id="202005071939_ABS-44_Accounts_Table_Creation" author="jbeam">	
+        <sql>
+			PRINT N'Creating [dbo].[Accounts]...';
+
+			GO
+			CREATE TABLE [dbo].[Accounts] (
+				[AccountID]             INT              IDENTITY (1, 1) NOT NULL,
+				[AccountCode]           NVARCHAR (MAX)   NULL,
+				[AccountName]           NVARCHAR (MAX)   NULL,
+				[DepartmentID]          INT              NULL,
+				[IsMaster]              BIT              NOT NULL,
+				[IsGroup]               BIT              NOT NULL,
+				[AccountTypeItemTypeID] INT              NULL,
+				[Identifier]            UNIQUEIDENTIFIER NULL,
+				[CreationDate]          DATETIME2 (7)    NULL,
+				[UpdatedDate]           DATETIME2 (7)    NULL,
+				[CreatedBy]             INT              NULL,
+				[UpdateBy]              INT              NULL,
+				[IsActive]              BIT              NULL,
+				[IsDeleted]             BIT              NULL,
+				[RowVersion]            VARBINARY (MAX)  NULL,
+				CONSTRAINT [PK_Accounts] PRIMARY KEY CLUSTERED ([AccountID] ASC)
+			);
+
+
+			GO
+			PRINT N'Creating [dbo].[Accounts].[IX_Accounts_AccountTypeItemTypeID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_Accounts_AccountTypeItemTypeID]
+				ON [dbo].[Accounts]([AccountTypeItemTypeID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[Accounts].[IX_Accounts_DepartmentID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_Accounts_DepartmentID]
+				ON [dbo].[Accounts]([DepartmentID] ASC);
+        </sql>		
+    </changeSet>
+	<changeSet id="202005071939_ABS-44_Addresses_Table_Creation" author="jbeam">	
+        <sql>
+			PRINT N'Creating [dbo].[Addresses]...';
+
+			GO
+			CREATE TABLE [dbo].[Addresses] (
+				[AddressID]             INT              IDENTITY (1, 1) NOT NULL,
+				[AddressTypeItemTypeID] INT              NULL,
+				[AddressName]           NVARCHAR (MAX)   NULL,
+				[Description]           NVARCHAR (MAX)   NULL,
+				[Street]                NVARCHAR (MAX)   NULL,
+				[Street2]               NVARCHAR (MAX)   NULL,
+				[City]                  NVARCHAR (MAX)   NULL,
+				[County]                NVARCHAR (MAX)   NULL,
+				[State]                 NVARCHAR (MAX)   NULL,
+				[Country]               NVARCHAR (MAX)   NULL,
+				[ZipCode]               NVARCHAR (MAX)   NULL,
+				[PhoneNumber]           NVARCHAR (MAX)   NULL,
+				[Identifier]            UNIQUEIDENTIFIER NULL,
+				[CreationDate]          DATETIME2 (7)    NULL,
+				[UpdatedDate]           DATETIME2 (7)    NULL,
+				[CreatedBy]             INT              NULL,
+				[UpdateBy]              INT              NULL,
+				[IsActive]              BIT              NULL,
+				[IsDeleted]             BIT              NULL,
+				[RowVersion]            VARBINARY (MAX)  NULL,
+				CONSTRAINT [PK_Addresses] PRIMARY KEY CLUSTERED ([AddressID] ASC)
+			);
+
+
+			GO
+			PRINT N'Creating [dbo].[Addresses].[IX_Addresses_AddressTypeItemTypeID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_Addresses_AddressTypeItemTypeID]
+				ON [dbo].[Addresses]([AddressTypeItemTypeID] ASC);
+        </sql>		
+    </changeSet>
+	<changeSet id="202005071939_ABS-44_ChargeCodes_Table_Creation" author="jbeam">		
+        <sql>
+			PRINT N'Creating [dbo].[ChargeCodes]...';
+
+
+			GO
+			CREATE TABLE [dbo].[ChargeCodes] (
+				[ChargeCodeID]   INT              IDENTITY (1, 1) NOT NULL,
+				[ChargeCode]     NVARCHAR (MAX)   NULL,
+				[DepartmentID]   INT              NULL,
+				[ChargeCodeName] NVARCHAR (MAX)   NULL,
+				[IsMaster]       BIT              NOT NULL,
+				[IsGroup]        BIT              NOT NULL,
+				[Identifier]     UNIQUEIDENTIFIER NULL,
+				[CreationDate]   DATETIME2 (7)    NULL,
+				[UpdatedDate]    DATETIME2 (7)    NULL,
+				[CreatedBy]      INT              NULL,
+				[UpdateBy]       INT              NULL,
+				[IsActive]       BIT              NULL,
+				[IsDeleted]      BIT              NULL,
+				[RowVersion]     VARBINARY (MAX)  NULL,
+				CONSTRAINT [PK_ChargeCodes] PRIMARY KEY CLUSTERED ([ChargeCodeID] ASC)
+			);
+
+
+			GO
+			PRINT N'Creating [dbo].[ChargeCodes].[IX_ChargeCodes_DepartmentID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_ChargeCodes_DepartmentID]
+				ON [dbo].[ChargeCodes]([DepartmentID] ASC);
+        </sql>		
+    </changeSet>	
+	<changeSet id="202005071939_ABS-129_DataScenario_Table_Creation" author="jbeam">	
+        <sql>
+			PRINT N'Creating [dbo].[DataScenario]...';
+
+
+			GO
+			CREATE TABLE [dbo].[DataScenario] (
+				[DataScenarioID]          INT              IDENTITY (1, 1) NOT NULL,
+				[DataScenarioCode]        NVARCHAR (MAX)   NULL,
+				[DataScenarioName]        NVARCHAR (MAX)   NULL,
+				[Description]             NVARCHAR (MAX)   NULL,
+				[ScenarioTypeItemTypeID]  INT              NULL,
+				[TimePeriodID]            INT              NULL,
+				[ParentID]                INT              NULL,
+				[ChildID]                 NVARCHAR (MAX)   NULL,
+				[DataSourcceIDItemTypeID] INT              NULL,
+				[Identifier]              UNIQUEIDENTIFIER NULL,
+				[CreationDate]            DATETIME2 (7)    NULL,
+				[UpdatedDate]             DATETIME2 (7)    NULL,
+				[CreatedBy]               INT              NULL,
+				[UpdateBy]                INT              NULL,
+				[IsActive]                BIT              NULL,
+				[IsDeleted]               BIT              NULL,
+				[RowVersion]              VARBINARY (MAX)  NULL,
+				CONSTRAINT [PK_DataScenario] PRIMARY KEY CLUSTERED ([DataScenarioID] ASC)
+			);
+
+
+			GO
+			PRINT N'Creating [dbo].[DataScenario].[IX_DataScenario_DataSourcceIDItemTypeID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_DataScenario_DataSourcceIDItemTypeID]
+				ON [dbo].[DataScenario]([DataSourcceIDItemTypeID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[DataScenario].[IX_DataScenario_ScenarioTypeItemTypeID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_DataScenario_ScenarioTypeItemTypeID]
+				ON [dbo].[DataScenario]([ScenarioTypeItemTypeID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[DataScenario].[IX_DataScenario_TimePeriodID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_DataScenario_TimePeriodID]
+				ON [dbo].[DataScenario]([TimePeriodID] ASC);
+
+        </sql>		
+    </changeSet>
+	<changeSet id="202005071939_ABS-263_ForecastModels_Table_Creation" author="jbeam">	
+        <sql>
+			PRINT N'Creating [dbo].[ForecastModels]...';
+
+			GO
+			CREATE TABLE [dbo].[ForecastModels] (
+				[ForecastModelID] INT              IDENTITY (1, 1) NOT NULL,
+				[Code]            NVARCHAR (MAX)   NULL,
+				[Name]            NVARCHAR (MAX)   NULL,
+				[Description]     NVARCHAR (MAX)   NULL,
+				[Identifier]      UNIQUEIDENTIFIER NULL,
+				[CreationDate]    DATETIME2 (7)    NULL,
+				[UpdatedDate]     DATETIME2 (7)    NULL,
+				[CreatedBy]       INT              NULL,
+				[UpdateBy]        INT              NULL,
+				[IsActive]        BIT              NULL,
+				[IsDeleted]       BIT              NULL,
+				[RowVersion]      VARBINARY (MAX)  NULL,
+				CONSTRAINT [PK_ForecastModels] PRIMARY KEY CLUSTERED ([ForecastModelID] ASC)
+			);
+        </sql>		
+    </changeSet>	
+	<changeSet id="202005071939_ABS-263_ForecastSteps_Table_Creation" author="jbeam">	
+        <sql>
+			PRINT N'Creating [dbo].[ForecastSteps]...';
+
+			GO
+			CREATE TABLE [dbo].[ForecastSteps] (
+				[ForecastStepID]                      INT              IDENTITY (1, 1) NOT NULL,
+				[ForecastStepOrder]                   INT              NOT NULL,
+				[ForecastModelID]                     INT              NULL,
+				[ForecastStepTypeItemTypeID]          INT              NULL,
+				[SourceScenarioTypeItemTypeID]        INT              NULL,
+				[SourceBudgetVersionBudgetVersionID]  INT              NULL,
+				[SourceEntityEntityID]                INT              NULL,
+				[UseEntityGroupTotal]                 BIT              NOT NULL,
+				[SourceDepartmentDepartmentID]        INT              NULL,
+				[UseDepartmentGroupTotal]             BIT              NOT NULL,
+				[SourceStatisticCodeStatisticsCodeID] INT              NULL,
+				[UseStatisticGroupTotal]              BIT              NOT NULL,
+				[TargetEntityEntityID]                INT              NULL,
+				[TargetDepartmentDepartmentID]        INT              NULL,
+				[TargetStatisticCodeStatisticsCodeID] INT              NULL,
+				[TargetScenarioTypeItemTypeID]        INT              NULL,
+				[TargetBudgetVersionBudgetVersionID]  INT              NULL,
+				[PercentageChangeValue]               DECIMAL (18, 2)  NOT NULL,
+				[SpreadMethod]                        NVARCHAR (MAX)   NULL,
+				[NumberOfMonths]                      INT              NULL,
+				[MaintainSeasonality]                 BIT              NULL,
+				[Identifier]                          UNIQUEIDENTIFIER NULL,
+				[CreationDate]                        DATETIME2 (7)    NULL,
+				[UpdatedDate]                         DATETIME2 (7)    NULL,
+				[CreatedBy]                           INT              NULL,
+				[UpdateBy]                            INT              NULL,
+				[IsActive]                            BIT              NULL,
+				[IsDeleted]                           BIT              NULL,
+				[RowVersion]                          VARBINARY (MAX)  NULL,
+				CONSTRAINT [PK_ForecastSteps] PRIMARY KEY CLUSTERED ([ForecastStepID] ASC)
+			);
+
+
+			GO
+			PRINT N'Creating [dbo].[ForecastSteps].[IX_ForecastSteps_ForecastModelID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_ForecastSteps_ForecastModelID]
+				ON [dbo].[ForecastSteps]([ForecastModelID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[ForecastSteps].[IX_ForecastSteps_ForecastStepTypeItemTypeID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_ForecastSteps_ForecastStepTypeItemTypeID]
+				ON [dbo].[ForecastSteps]([ForecastStepTypeItemTypeID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[ForecastSteps].[IX_ForecastSteps_SourceBudgetVersionBudgetVersionID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_ForecastSteps_SourceBudgetVersionBudgetVersionID]
+				ON [dbo].[ForecastSteps]([SourceBudgetVersionBudgetVersionID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[ForecastSteps].[IX_ForecastSteps_SourceDepartmentDepartmentID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_ForecastSteps_SourceDepartmentDepartmentID]
+				ON [dbo].[ForecastSteps]([SourceDepartmentDepartmentID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[ForecastSteps].[IX_ForecastSteps_SourceEntityEntityID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_ForecastSteps_SourceEntityEntityID]
+				ON [dbo].[ForecastSteps]([SourceEntityEntityID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[ForecastSteps].[IX_ForecastSteps_SourceScenarioTypeItemTypeID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_ForecastSteps_SourceScenarioTypeItemTypeID]
+				ON [dbo].[ForecastSteps]([SourceScenarioTypeItemTypeID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[ForecastSteps].[IX_ForecastSteps_SourceStatisticCodeStatisticsCodeID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_ForecastSteps_SourceStatisticCodeStatisticsCodeID]
+				ON [dbo].[ForecastSteps]([SourceStatisticCodeStatisticsCodeID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[ForecastSteps].[IX_ForecastSteps_TargetBudgetVersionBudgetVersionID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_ForecastSteps_TargetBudgetVersionBudgetVersionID]
+				ON [dbo].[ForecastSteps]([TargetBudgetVersionBudgetVersionID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[ForecastSteps].[IX_ForecastSteps_TargetDepartmentDepartmentID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_ForecastSteps_TargetDepartmentDepartmentID]
+				ON [dbo].[ForecastSteps]([TargetDepartmentDepartmentID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[ForecastSteps].[IX_ForecastSteps_TargetEntityEntityID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_ForecastSteps_TargetEntityEntityID]
+				ON [dbo].[ForecastSteps]([TargetEntityEntityID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[ForecastSteps].[IX_ForecastSteps_TargetScenarioTypeItemTypeID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_ForecastSteps_TargetScenarioTypeItemTypeID]
+				ON [dbo].[ForecastSteps]([TargetScenarioTypeItemTypeID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[ForecastSteps].[IX_ForecastSteps_TargetStatisticCodeStatisticsCodeID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_ForecastSteps_TargetStatisticCodeStatisticsCodeID]
+				ON [dbo].[ForecastSteps]([TargetStatisticCodeStatisticsCodeID] ASC);
+
+
+        </sql>		
+    </changeSet>	
+	<changeSet id="202005071939_ABS-44_JobCodes_Table_Creation" author="jbeam">	
+        <sql>
+			PRINT N'Creating [dbo].[JobCodes]...';
+
+
+			GO
+			CREATE TABLE [dbo].[JobCodes] (
+				[JobCodeID]    INT              IDENTITY (1, 1) NOT NULL,
+				[JobCodeCode]  NVARCHAR (MAX)   NULL,
+				[JobCodeName]  NVARCHAR (MAX)   NULL,
+				[IsMaster]     BIT              NOT NULL,
+				[IsGroup]      BIT              NOT NULL,
+				[Description]  NVARCHAR (MAX)   NULL,
+				[Identifier]   UNIQUEIDENTIFIER NULL,
+				[CreationDate] DATETIME2 (7)    NULL,
+				[UpdatedDate]  DATETIME2 (7)    NULL,
+				[CreatedBy]    INT              NULL,
+				[UpdateBy]     INT              NULL,
+				[IsActive]     BIT              NULL,
+				[IsDeleted]    BIT              NULL,
+				[RowVersion]   VARBINARY (MAX)  NULL,
+				CONSTRAINT [PK_JobCodes] PRIMARY KEY CLUSTERED ([JobCodeID] ASC)
+			);
+        </sql>		
+    </changeSet>
+	<changeSet id="202005071939_ABS-44_PayTypes_Table_Creation" author="jbeam">	
+        <sql>
+			PRINT N'Creating [dbo].[PayTypes]...';
+
+			GO
+			CREATE TABLE [dbo].[PayTypes] (
+				[PayTypeID]             INT              IDENTITY (1, 1) NOT NULL,
+				[PayTypeCode]           NVARCHAR (MAX)   NULL,
+				[PayTypeName]           NVARCHAR (MAX)   NULL,
+				[IsMaster]              BIT              NOT NULL,
+				[IsGroup]               BIT              NOT NULL,
+				[PayTypeTypeItemTypeID] INT              NULL,
+				[Description]           NVARCHAR (MAX)   NULL,
+				[ColumnLabel]           NVARCHAR (MAX)   NULL,
+				[AccumulateHours]       BIT              NOT NULL,
+				[Identifier]            UNIQUEIDENTIFIER NULL,
+				[CreationDate]          DATETIME2 (7)    NULL,
+				[UpdatedDate]           DATETIME2 (7)    NULL,
+				[CreatedBy]             INT              NULL,
+				[UpdateBy]              INT              NULL,
+				[IsActive]              BIT              NULL,
+				[IsDeleted]             BIT              NULL,
+				[RowVersion]            VARBINARY (MAX)  NULL,
+				CONSTRAINT [PK_PayTypes] PRIMARY KEY CLUSTERED ([PayTypeID] ASC)
+			);
+
+
+			GO
+			PRINT N'Creating [dbo].[PayTypes].[IX_PayTypes_PayTypeTypeItemTypeID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_PayTypes_PayTypeTypeItemTypeID]
+				ON [dbo].[PayTypes]([PayTypeTypeItemTypeID] ASC);
+
+
+        </sql>		
+    </changeSet>	
+	<changeSet id="202005071939_ABS-43_StatisticalData_Table_Creation" author="jbeam">	
+        <sql>
+			PRINT N'Creating [dbo].[StatisticalData]...';
+
+			GO
+			CREATE TABLE [dbo].[StatisticalData] (
+				[StatisticalDataID]               INT              IDENTITY (1, 1) NOT NULL,
+				[EntityID]                        INT              NULL,
+				[DepartmentID]                    INT              NULL,
+				[StatisticCodeStatisticsCodeID]   INT              NULL,
+				[StatisticTimePeriodTimePeriodID] INT              NULL,
+				[FiscalYearIDItemTypeID]          INT              NULL,
+				[FiscalYearMonthIDItemTypeID]     INT              NULL,
+				[Value]                           INT              NOT NULL,
+				[ParentID]                        INT              NULL,
+				[ChildID]                         NVARCHAR (MAX)   NULL,
+				[DataSourcceIDItemTypeID]         INT              NULL,
+				[Identifier]                      UNIQUEIDENTIFIER NULL,
+				[CreationDate]                    DATETIME2 (7)    NULL,
+				[UpdatedDate]                     DATETIME2 (7)    NULL,
+				[CreatedBy]                       INT              NULL,
+				[UpdateBy]                        INT              NULL,
+				[IsActive]                        BIT              NULL,
+				[IsDeleted]                       BIT              NULL,
+				[RowVersion]                      VARBINARY (MAX)  NULL,
+				CONSTRAINT [PK_StatisticalData] PRIMARY KEY CLUSTERED ([StatisticalDataID] ASC)
+			);
+
+
+			GO
+			PRINT N'Creating [dbo].[StatisticalData].[IX_StatisticalData_DataSourcceIDItemTypeID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_StatisticalData_DataSourcceIDItemTypeID]
+				ON [dbo].[StatisticalData]([DataSourcceIDItemTypeID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[StatisticalData].[IX_StatisticalData_DepartmentID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_StatisticalData_DepartmentID]
+				ON [dbo].[StatisticalData]([DepartmentID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[StatisticalData].[IX_StatisticalData_EntityID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_StatisticalData_EntityID]
+				ON [dbo].[StatisticalData]([EntityID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[StatisticalData].[IX_StatisticalData_FiscalYearIDItemTypeID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_StatisticalData_FiscalYearIDItemTypeID]
+				ON [dbo].[StatisticalData]([FiscalYearIDItemTypeID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[StatisticalData].[IX_StatisticalData_FiscalYearMonthIDItemTypeID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_StatisticalData_FiscalYearMonthIDItemTypeID]
+				ON [dbo].[StatisticalData]([FiscalYearMonthIDItemTypeID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[StatisticalData].[IX_StatisticalData_StatisticCodeStatisticsCodeID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_StatisticalData_StatisticCodeStatisticsCodeID]
+				ON [dbo].[StatisticalData]([StatisticCodeStatisticsCodeID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[StatisticalData].[IX_StatisticalData_StatisticTimePeriodTimePeriodID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_StatisticalData_StatisticTimePeriodTimePeriodID]
+				ON [dbo].[StatisticalData]([StatisticTimePeriodTimePeriodID] ASC);
+        </sql>		
+    </changeSet>
+	<changeSet id="202005071939_ABS-43_StatisticsCodes_Table_Creation" author="jbeam">	
+        <sql>
+			PRINT N'Creating [dbo].[StatisticsCodes]...';
+
+			GO
+			CREATE TABLE [dbo].[StatisticsCodes] (
+				[StatisticsCodeID]            INT              IDENTITY (1, 1) NOT NULL,
+				[StatisticsCode]              NVARCHAR (MAX)   NULL,
+				[StatisticsCodeName]          NVARCHAR (MAX)   NULL,
+				[Description]                 NVARCHAR (MAX)   NULL,
+				[IsMaster]                    BIT              NOT NULL,
+				[StatisticCodeTypeItemTypeID] INT              NULL,
+				[Summable]                    BIT              NOT NULL,
+				[ColumnLabel]                 NVARCHAR (MAX)   NULL,
+				[ParentID]                    INT              NULL,
+				[ChildID]                     NVARCHAR (MAX)   NULL,
+				[DataSourcceIDItemTypeID]     INT              NULL,
+				[Identifier]                  UNIQUEIDENTIFIER NULL,
+				[CreationDate]                DATETIME2 (7)    NULL,
+				[UpdatedDate]                 DATETIME2 (7)    NULL,
+				[CreatedBy]                   INT              NULL,
+				[UpdateBy]                    INT              NULL,
+				[IsActive]                    BIT              NULL,
+				[IsDeleted]                   BIT              NULL,
+				[RowVersion]                  VARBINARY (MAX)  NULL,
+				CONSTRAINT [PK_StatisticsCodes] PRIMARY KEY CLUSTERED ([StatisticsCodeID] ASC)
+			);
+
+
+			GO
+			PRINT N'Creating [dbo].[StatisticsCodes].[IX_StatisticsCodes_DataSourcceIDItemTypeID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_StatisticsCodes_DataSourcceIDItemTypeID]
+				ON [dbo].[StatisticsCodes]([DataSourcceIDItemTypeID] ASC);
+
+
+			GO
+			PRINT N'Creating [dbo].[StatisticsCodes].[IX_StatisticsCodes_StatisticCodeTypeItemTypeID]...';
+
+
+			GO
+			CREATE NONCLUSTERED INDEX [IX_StatisticsCodes_StatisticCodeTypeItemTypeID]
+				ON [dbo].[StatisticsCodes]([StatisticCodeTypeItemTypeID] ASC);
+
+        </sql>		
+    </changeSet>	
+	<changeSet id="202005071939_ABS-43_44_62_129_263_Add_Constraints" author="jbeam">	
+        <sql>
+			PRINT N'Creating [dbo].[FK_Departments_ItemTypes_DataSourcceIDItemTypeID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[Departments] WITH NOCHECK
+				ADD CONSTRAINT [FK_Departments_ItemTypes_DataSourcceIDItemTypeID] FOREIGN KEY ([DataSourcceIDItemTypeID]) REFERENCES [dbo].[ItemTypes] ([ItemTypeID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_Departments_ItemTypes_DepartmentTypeIDItemTypeID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[Departments] WITH NOCHECK
+				ADD CONSTRAINT [FK_Departments_ItemTypes_DepartmentTypeIDItemTypeID] FOREIGN KEY ([DepartmentTypeIDItemTypeID]) REFERENCES [dbo].[ItemTypes] ([ItemTypeID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_Departments_ItemTypes_GroupPolicyItemTypeID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[Departments] WITH NOCHECK
+				ADD CONSTRAINT [FK_Departments_ItemTypes_GroupPolicyItemTypeID] FOREIGN KEY ([GroupPolicyItemTypeID]) REFERENCES [dbo].[ItemTypes] ([ItemTypeID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_Entities_Accounts_AccountID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[Entities] WITH NOCHECK
+				ADD CONSTRAINT [FK_Entities_Accounts_AccountID] FOREIGN KEY ([AccountID]) REFERENCES [dbo].[Accounts] ([AccountID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_Entities_Addresses_AddressID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[Entities] WITH NOCHECK
+				ADD CONSTRAINT [FK_Entities_Addresses_AddressID] FOREIGN KEY ([AddressID]) REFERENCES [dbo].[Addresses] ([AddressID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_Entities_ChargeCodes_ChargeCodeID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[Entities] WITH NOCHECK
+				ADD CONSTRAINT [FK_Entities_ChargeCodes_ChargeCodeID] FOREIGN KEY ([ChargeCodeID]) REFERENCES [dbo].[ChargeCodes] ([ChargeCodeID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_Entities_Departments_DepartmentID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[Entities] WITH NOCHECK
+				ADD CONSTRAINT [FK_Entities_Departments_DepartmentID] FOREIGN KEY ([DepartmentID]) REFERENCES [dbo].[Departments] ([DepartmentID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_Entities_ItemTypes_DataSourceIDItemTypeID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[Entities] WITH NOCHECK
+				ADD CONSTRAINT [FK_Entities_ItemTypes_DataSourceIDItemTypeID] FOREIGN KEY ([DataSourceIDItemTypeID]) REFERENCES [dbo].[ItemTypes] ([ItemTypeID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_Entities_JobCodes_JobCodeID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[Entities] WITH NOCHECK
+				ADD CONSTRAINT [FK_Entities_JobCodes_JobCodeID] FOREIGN KEY ([JobCodeID]) REFERENCES [dbo].[JobCodes] ([JobCodeID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_Entities_PayTypes_PayTypeID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[Entities] WITH NOCHECK
+				ADD CONSTRAINT [FK_Entities_PayTypes_PayTypeID] FOREIGN KEY ([PayTypeID]) REFERENCES [dbo].[PayTypes] ([PayTypeID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_Accounts_Departments_DepartmentID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[Accounts] WITH NOCHECK
+				ADD CONSTRAINT [FK_Accounts_Departments_DepartmentID] FOREIGN KEY ([DepartmentID]) REFERENCES [dbo].[Departments] ([DepartmentID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_Accounts_ItemTypes_AccountTypeItemTypeID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[Accounts] WITH NOCHECK
+				ADD CONSTRAINT [FK_Accounts_ItemTypes_AccountTypeItemTypeID] FOREIGN KEY ([AccountTypeItemTypeID]) REFERENCES [dbo].[ItemTypes] ([ItemTypeID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_Addresses_ItemTypes_AddressTypeItemTypeID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[Addresses] WITH NOCHECK
+				ADD CONSTRAINT [FK_Addresses_ItemTypes_AddressTypeItemTypeID] FOREIGN KEY ([AddressTypeItemTypeID]) REFERENCES [dbo].[ItemTypes] ([ItemTypeID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_ChargeCodes_Departments_DepartmentID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[ChargeCodes] WITH NOCHECK
+				ADD CONSTRAINT [FK_ChargeCodes_Departments_DepartmentID] FOREIGN KEY ([DepartmentID]) REFERENCES [dbo].[Departments] ([DepartmentID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_DataScenario_ItemTypes_DataSourcceIDItemTypeID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[DataScenario] WITH NOCHECK
+				ADD CONSTRAINT [FK_DataScenario_ItemTypes_DataSourcceIDItemTypeID] FOREIGN KEY ([DataSourcceIDItemTypeID]) REFERENCES [dbo].[ItemTypes] ([ItemTypeID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_DataScenario_ItemTypes_ScenarioTypeItemTypeID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[DataScenario] WITH NOCHECK
+				ADD CONSTRAINT [FK_DataScenario_ItemTypes_ScenarioTypeItemTypeID] FOREIGN KEY ([ScenarioTypeItemTypeID]) REFERENCES [dbo].[ItemTypes] ([ItemTypeID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_DataScenario_TimePeriods_TimePeriodID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[DataScenario] WITH NOCHECK
+				ADD CONSTRAINT [FK_DataScenario_TimePeriods_TimePeriodID] FOREIGN KEY ([TimePeriodID]) REFERENCES [dbo].[TimePeriods] ([TimePeriodID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_ForecastSteps_BudgetVersions_SourceBudgetVersionBudgetVersionID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[ForecastSteps] WITH NOCHECK
+				ADD CONSTRAINT [FK_ForecastSteps_BudgetVersions_SourceBudgetVersionBudgetVersionID] FOREIGN KEY ([SourceBudgetVersionBudgetVersionID]) REFERENCES [dbo].[BudgetVersions] ([BudgetVersionID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_ForecastSteps_BudgetVersions_TargetBudgetVersionBudgetVersionID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[ForecastSteps] WITH NOCHECK
+				ADD CONSTRAINT [FK_ForecastSteps_BudgetVersions_TargetBudgetVersionBudgetVersionID] FOREIGN KEY ([TargetBudgetVersionBudgetVersionID]) REFERENCES [dbo].[BudgetVersions] ([BudgetVersionID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_ForecastSteps_Departments_SourceDepartmentDepartmentID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[ForecastSteps] WITH NOCHECK
+				ADD CONSTRAINT [FK_ForecastSteps_Departments_SourceDepartmentDepartmentID] FOREIGN KEY ([SourceDepartmentDepartmentID]) REFERENCES [dbo].[Departments] ([DepartmentID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_ForecastSteps_Departments_TargetDepartmentDepartmentID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[ForecastSteps] WITH NOCHECK
+				ADD CONSTRAINT [FK_ForecastSteps_Departments_TargetDepartmentDepartmentID] FOREIGN KEY ([TargetDepartmentDepartmentID]) REFERENCES [dbo].[Departments] ([DepartmentID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_ForecastSteps_Entities_SourceEntityEntityID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[ForecastSteps] WITH NOCHECK
+				ADD CONSTRAINT [FK_ForecastSteps_Entities_SourceEntityEntityID] FOREIGN KEY ([SourceEntityEntityID]) REFERENCES [dbo].[Entities] ([EntityID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_ForecastSteps_Entities_TargetEntityEntityID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[ForecastSteps] WITH NOCHECK
+				ADD CONSTRAINT [FK_ForecastSteps_Entities_TargetEntityEntityID] FOREIGN KEY ([TargetEntityEntityID]) REFERENCES [dbo].[Entities] ([EntityID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_ForecastSteps_ForecastModels_ForecastModelID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[ForecastSteps] WITH NOCHECK
+				ADD CONSTRAINT [FK_ForecastSteps_ForecastModels_ForecastModelID] FOREIGN KEY ([ForecastModelID]) REFERENCES [dbo].[ForecastModels] ([ForecastModelID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_ForecastSteps_ItemTypes_ForecastStepTypeItemTypeID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[ForecastSteps] WITH NOCHECK
+				ADD CONSTRAINT [FK_ForecastSteps_ItemTypes_ForecastStepTypeItemTypeID] FOREIGN KEY ([ForecastStepTypeItemTypeID]) REFERENCES [dbo].[ItemTypes] ([ItemTypeID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_ForecastSteps_ItemTypes_SourceScenarioTypeItemTypeID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[ForecastSteps] WITH NOCHECK
+				ADD CONSTRAINT [FK_ForecastSteps_ItemTypes_SourceScenarioTypeItemTypeID] FOREIGN KEY ([SourceScenarioTypeItemTypeID]) REFERENCES [dbo].[ItemTypes] ([ItemTypeID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_ForecastSteps_ItemTypes_TargetScenarioTypeItemTypeID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[ForecastSteps] WITH NOCHECK
+				ADD CONSTRAINT [FK_ForecastSteps_ItemTypes_TargetScenarioTypeItemTypeID] FOREIGN KEY ([TargetScenarioTypeItemTypeID]) REFERENCES [dbo].[ItemTypes] ([ItemTypeID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_ForecastSteps_StatisticsCodes_SourceStatisticCodeStatisticsCodeID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[ForecastSteps] WITH NOCHECK
+				ADD CONSTRAINT [FK_ForecastSteps_StatisticsCodes_SourceStatisticCodeStatisticsCodeID] FOREIGN KEY ([SourceStatisticCodeStatisticsCodeID]) REFERENCES [dbo].[StatisticsCodes] ([StatisticsCodeID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_ForecastSteps_StatisticsCodes_TargetStatisticCodeStatisticsCodeID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[ForecastSteps] WITH NOCHECK
+				ADD CONSTRAINT [FK_ForecastSteps_StatisticsCodes_TargetStatisticCodeStatisticsCodeID] FOREIGN KEY ([TargetStatisticCodeStatisticsCodeID]) REFERENCES [dbo].[StatisticsCodes] ([StatisticsCodeID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_PayTypes_ItemTypes_PayTypeTypeItemTypeID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[PayTypes] WITH NOCHECK
+				ADD CONSTRAINT [FK_PayTypes_ItemTypes_PayTypeTypeItemTypeID] FOREIGN KEY ([PayTypeTypeItemTypeID]) REFERENCES [dbo].[ItemTypes] ([ItemTypeID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_StatisticalData_Departments_DepartmentID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[StatisticalData] WITH NOCHECK
+				ADD CONSTRAINT [FK_StatisticalData_Departments_DepartmentID] FOREIGN KEY ([DepartmentID]) REFERENCES [dbo].[Departments] ([DepartmentID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_StatisticalData_Entities_EntityID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[StatisticalData] WITH NOCHECK
+				ADD CONSTRAINT [FK_StatisticalData_Entities_EntityID] FOREIGN KEY ([EntityID]) REFERENCES [dbo].[Entities] ([EntityID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_StatisticalData_ItemTypes_DataSourcceIDItemTypeID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[StatisticalData] WITH NOCHECK
+				ADD CONSTRAINT [FK_StatisticalData_ItemTypes_DataSourcceIDItemTypeID] FOREIGN KEY ([DataSourcceIDItemTypeID]) REFERENCES [dbo].[ItemTypes] ([ItemTypeID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_StatisticalData_ItemTypes_FiscalYearIDItemTypeID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[StatisticalData] WITH NOCHECK
+				ADD CONSTRAINT [FK_StatisticalData_ItemTypes_FiscalYearIDItemTypeID] FOREIGN KEY ([FiscalYearIDItemTypeID]) REFERENCES [dbo].[ItemTypes] ([ItemTypeID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_StatisticalData_ItemTypes_FiscalYearMonthIDItemTypeID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[StatisticalData] WITH NOCHECK
+				ADD CONSTRAINT [FK_StatisticalData_ItemTypes_FiscalYearMonthIDItemTypeID] FOREIGN KEY ([FiscalYearMonthIDItemTypeID]) REFERENCES [dbo].[ItemTypes] ([ItemTypeID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_StatisticalData_StatisticsCodes_StatisticCodeStatisticsCodeID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[StatisticalData] WITH NOCHECK
+				ADD CONSTRAINT [FK_StatisticalData_StatisticsCodes_StatisticCodeStatisticsCodeID] FOREIGN KEY ([StatisticCodeStatisticsCodeID]) REFERENCES [dbo].[StatisticsCodes] ([StatisticsCodeID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_StatisticalData_TimePeriods_StatisticTimePeriodTimePeriodID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[StatisticalData] WITH NOCHECK
+				ADD CONSTRAINT [FK_StatisticalData_TimePeriods_StatisticTimePeriodTimePeriodID] FOREIGN KEY ([StatisticTimePeriodTimePeriodID]) REFERENCES [dbo].[TimePeriods] ([TimePeriodID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_StatisticsCodes_ItemTypes_DataSourcceIDItemTypeID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[StatisticsCodes] WITH NOCHECK
+				ADD CONSTRAINT [FK_StatisticsCodes_ItemTypes_DataSourcceIDItemTypeID] FOREIGN KEY ([DataSourcceIDItemTypeID]) REFERENCES [dbo].[ItemTypes] ([ItemTypeID]);
+
+
+			GO
+			PRINT N'Creating [dbo].[FK_StatisticsCodes_ItemTypes_StatisticCodeTypeItemTypeID]...';
+
+
+			GO
+			ALTER TABLE [dbo].[StatisticsCodes] WITH NOCHECK
+				ADD CONSTRAINT [FK_StatisticsCodes_ItemTypes_StatisticCodeTypeItemTypeID] FOREIGN KEY ([StatisticCodeTypeItemTypeID]) REFERENCES [dbo].[ItemTypes] ([ItemTypeID]);
+
+
+			GO
+			PRINT N'Checking existing data against newly created constraints';
+
+
+			GO
+			ALTER TABLE [dbo].[Departments] WITH CHECK CHECK CONSTRAINT [FK_Departments_ItemTypes_DataSourcceIDItemTypeID];
+
+			ALTER TABLE [dbo].[Departments] WITH CHECK CHECK CONSTRAINT [FK_Departments_ItemTypes_DepartmentTypeIDItemTypeID];
+
+			ALTER TABLE [dbo].[Departments] WITH CHECK CHECK CONSTRAINT [FK_Departments_ItemTypes_GroupPolicyItemTypeID];
+
+			ALTER TABLE [dbo].[Entities] WITH CHECK CHECK CONSTRAINT [FK_Entities_Accounts_AccountID];
+
+			ALTER TABLE [dbo].[Entities] WITH CHECK CHECK CONSTRAINT [FK_Entities_Addresses_AddressID];
+
+			ALTER TABLE [dbo].[Entities] WITH CHECK CHECK CONSTRAINT [FK_Entities_ChargeCodes_ChargeCodeID];
+
+			ALTER TABLE [dbo].[Entities] WITH CHECK CHECK CONSTRAINT [FK_Entities_Departments_DepartmentID];
+
+			ALTER TABLE [dbo].[Entities] WITH CHECK CHECK CONSTRAINT [FK_Entities_ItemTypes_DataSourceIDItemTypeID];
+
+			ALTER TABLE [dbo].[Entities] WITH CHECK CHECK CONSTRAINT [FK_Entities_JobCodes_JobCodeID];
+
+			ALTER TABLE [dbo].[Entities] WITH CHECK CHECK CONSTRAINT [FK_Entities_PayTypes_PayTypeID];
+
+			ALTER TABLE [dbo].[Accounts] WITH CHECK CHECK CONSTRAINT [FK_Accounts_Departments_DepartmentID];
+
+			ALTER TABLE [dbo].[Accounts] WITH CHECK CHECK CONSTRAINT [FK_Accounts_ItemTypes_AccountTypeItemTypeID];
+
+			ALTER TABLE [dbo].[Addresses] WITH CHECK CHECK CONSTRAINT [FK_Addresses_ItemTypes_AddressTypeItemTypeID];
+
+			ALTER TABLE [dbo].[ChargeCodes] WITH CHECK CHECK CONSTRAINT [FK_ChargeCodes_Departments_DepartmentID];
+
+			ALTER TABLE [dbo].[DataScenario] WITH CHECK CHECK CONSTRAINT [FK_DataScenario_ItemTypes_DataSourcceIDItemTypeID];
+
+			ALTER TABLE [dbo].[DataScenario] WITH CHECK CHECK CONSTRAINT [FK_DataScenario_ItemTypes_ScenarioTypeItemTypeID];
+
+			ALTER TABLE [dbo].[DataScenario] WITH CHECK CHECK CONSTRAINT [FK_DataScenario_TimePeriods_TimePeriodID];
+
+			ALTER TABLE [dbo].[ForecastSteps] WITH CHECK CHECK CONSTRAINT [FK_ForecastSteps_BudgetVersions_SourceBudgetVersionBudgetVersionID];
+
+			ALTER TABLE [dbo].[ForecastSteps] WITH CHECK CHECK CONSTRAINT [FK_ForecastSteps_BudgetVersions_TargetBudgetVersionBudgetVersionID];
+
+			ALTER TABLE [dbo].[ForecastSteps] WITH CHECK CHECK CONSTRAINT [FK_ForecastSteps_Departments_SourceDepartmentDepartmentID];
+
+			ALTER TABLE [dbo].[ForecastSteps] WITH CHECK CHECK CONSTRAINT [FK_ForecastSteps_Departments_TargetDepartmentDepartmentID];
+
+			ALTER TABLE [dbo].[ForecastSteps] WITH CHECK CHECK CONSTRAINT [FK_ForecastSteps_Entities_SourceEntityEntityID];
+
+			ALTER TABLE [dbo].[ForecastSteps] WITH CHECK CHECK CONSTRAINT [FK_ForecastSteps_Entities_TargetEntityEntityID];
+
+			ALTER TABLE [dbo].[ForecastSteps] WITH CHECK CHECK CONSTRAINT [FK_ForecastSteps_ForecastModels_ForecastModelID];
+
+			ALTER TABLE [dbo].[ForecastSteps] WITH CHECK CHECK CONSTRAINT [FK_ForecastSteps_ItemTypes_ForecastStepTypeItemTypeID];
+
+			ALTER TABLE [dbo].[ForecastSteps] WITH CHECK CHECK CONSTRAINT [FK_ForecastSteps_ItemTypes_SourceScenarioTypeItemTypeID];
+
+			ALTER TABLE [dbo].[ForecastSteps] WITH CHECK CHECK CONSTRAINT [FK_ForecastSteps_ItemTypes_TargetScenarioTypeItemTypeID];
+
+			ALTER TABLE [dbo].[ForecastSteps] WITH CHECK CHECK CONSTRAINT [FK_ForecastSteps_StatisticsCodes_SourceStatisticCodeStatisticsCodeID];
+
+			ALTER TABLE [dbo].[ForecastSteps] WITH CHECK CHECK CONSTRAINT [FK_ForecastSteps_StatisticsCodes_TargetStatisticCodeStatisticsCodeID];
+
+			ALTER TABLE [dbo].[PayTypes] WITH CHECK CHECK CONSTRAINT [FK_PayTypes_ItemTypes_PayTypeTypeItemTypeID];
+
+			ALTER TABLE [dbo].[StatisticalData] WITH CHECK CHECK CONSTRAINT [FK_StatisticalData_Departments_DepartmentID];
+
+			ALTER TABLE [dbo].[StatisticalData] WITH CHECK CHECK CONSTRAINT [FK_StatisticalData_Entities_EntityID];
+
+			ALTER TABLE [dbo].[StatisticalData] WITH CHECK CHECK CONSTRAINT [FK_StatisticalData_ItemTypes_DataSourcceIDItemTypeID];
+
+			ALTER TABLE [dbo].[StatisticalData] WITH CHECK CHECK CONSTRAINT [FK_StatisticalData_ItemTypes_FiscalYearIDItemTypeID];
+
+			ALTER TABLE [dbo].[StatisticalData] WITH CHECK CHECK CONSTRAINT [FK_StatisticalData_ItemTypes_FiscalYearMonthIDItemTypeID];
+
+			ALTER TABLE [dbo].[StatisticalData] WITH CHECK CHECK CONSTRAINT [FK_StatisticalData_StatisticsCodes_StatisticCodeStatisticsCodeID];
+
+			ALTER TABLE [dbo].[StatisticalData] WITH CHECK CHECK CONSTRAINT [FK_StatisticalData_TimePeriods_StatisticTimePeriodTimePeriodID];
+
+			ALTER TABLE [dbo].[StatisticsCodes] WITH CHECK CHECK CONSTRAINT [FK_StatisticsCodes_ItemTypes_DataSourcceIDItemTypeID];
+
+			ALTER TABLE [dbo].[StatisticsCodes] WITH CHECK CHECK CONSTRAINT [FK_StatisticsCodes_ItemTypes_StatisticCodeTypeItemTypeID];
+
+
+			GO
+			PRINT N'Update complete.';
+        </sql>		
+    </changeSet>	
+</databaseChangeLog>

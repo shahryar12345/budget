@@ -1,0 +1,36 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="jbeam" id="20200604160802_DimensionStatCodeIDFieldAddition">
+        <addColumn tableName="Dimensions">
+            <column name="StatisticsCodeID" type="int(10)" />
+        </addColumn>
+    </changeSet>
+    <changeSet author="jbeam" id="20200604160802_DimensionStatCodeIDIndex">
+        <createIndex indexName="IX_Dimensions_StatisticsCodeID" tableName="Dimensions">
+            <column name="StatisticsCodeID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="jbeam" id="20200604160802_DimensionRowIDFKConstraint">
+        <addForeignKeyConstraint baseColumnNames="DimensionsRowIDDimensionsID" baseTableName="BudgetVersionStatistics" constraintName="FK_BudgetVersionStatistics_Dimensions_DimensionsRowIDDimensionsID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="DimensionsID" referencedTableName="Dimensions" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200604160802_DimensionRowIDIndex">
+        <createIndex indexName="IX_BudgetVersionStatistics_DimensionsRowIDDimensionsID" tableName="BudgetVersionStatistics">
+            <column name="DimensionsRowIDDimensionsID"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="jbeam" id="20200604160802_DimensionBVIDFKConstraint">
+        <addForeignKeyConstraint baseColumnNames="BudgetVersionID" baseTableName="Dimensions" constraintName="FK_Dimensions_BudgetVersions_BudgetVersionID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="BudgetVersionID" referencedTableName="BudgetVersions" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200604160802_DimensionDeptIDFKConstraint">
+        <addForeignKeyConstraint baseColumnNames="DepartmentID" baseTableName="Dimensions" constraintName="FK_Dimensions_Departments_DepartmentID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="DepartmentID" referencedTableName="Departments" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200604160802_DimensionEntityIDFKConstraint">
+        <addForeignKeyConstraint baseColumnNames="EntityID" baseTableName="Dimensions" constraintName="FK_Dimensions_Entities_EntityID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="EntityID" referencedTableName="Entities" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200604160802_DimensionDatasourceIDFKConstraint">
+        <addForeignKeyConstraint baseColumnNames="DataSourcceIDItemTypeID" baseTableName="Dimensions" constraintName="FK_Dimensions_ItemTypes_DataSourcceIDItemTypeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="ItemTypeID" referencedTableName="ItemTypes" validate="true"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200604160802_DimensionStatCodeIDFKConstraint">
+        <addForeignKeyConstraint baseColumnNames="StatisticsCodeID" baseTableName="Dimensions" constraintName="FK_Dimensions_StatisticsCodes_StatisticsCodeID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="StatisticsCodeID" referencedTableName="StatisticsCodes" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

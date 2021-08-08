@@ -1,0 +1,30 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+	
+    <changeSet author="fshaikh" id="2020090971512-BUDGETVERSION_FK_UPDATE_ADSstatisticsID_DATASCENRIO_DROP">
+    	<preConditions onFail="MARK_RAN">  
+        <foreignKeyConstraintExists  schemaName="BUDGET_DB" foreignKeyName="FK_BudgetVersions_ItemTypes_ADSstatisticsIDItemTypeID" />  
+    	</preConditions>  
+        <dropForeignKeyConstraint baseTableName="BudgetVersions" constraintName="FK_BudgetVersions_ItemTypes_ADSstatisticsIDItemTypeID" />
+    </changeSet>
+    <changeSet author="fshaikh" id="2020090971512-BUDGETVERSION_FK_UPDATE_ADSstatisticsID_DATASCENRIO_ADD">
+        <preConditions onFail="MARK_RAN"> 
+         <not>
+        <foreignKeyConstraintExists  schemaName="BUDGET_DB" foreignKeyName="FK_BudgetVersions_DataScenario_ADSstatisticsIDDataScenarioID" />
+	    </not>
+		</preConditions> 
+	    <addForeignKeyConstraint baseColumnNames="ADSstatisticsIDItemTypeID" baseTableName="BudgetVersions" constraintName="FK_BudgetVersions_DataScenario_ADSstatisticsIDDataScenarioID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="DataScenarioID" referencedTableName="DataScenario" validate="true"/>
+    </changeSet>
+    <changeSet author="fshaikh" id="2020090971512-BUDGETVERSION_FK_UPDATE_ADSgeneralLedgerIDItemTypeID_DATASCENRIO_DROP">
+        <preConditions onFail="MARK_RAN">  
+        <foreignKeyConstraintExists  schemaName="BUDGET_DB"  foreignKeyName="FK_BudgetVersions_ItemTypes_ADSgeneralLedgerIDItemTypeID"/>  
+	    </preConditions>
+	    <dropForeignKeyConstraint baseTableName="BudgetVersions" constraintName="FK_BudgetVersions_ItemTypes_ADSgeneralLedgerIDItemTypeID" />
+    </changeSet>
+    <changeSet author="fshaikh" id="2020090971512-BUDGETVERSION_FK_UPDATE_ADSgeneralLedgerIDItemTypeID_DATASCENRIO_ADD">
+        <preConditions onFail="MARK_RAN">  <not>
+        <foreignKeyConstraintExists  schemaName="BUDGET_DB"  foreignKeyName="FK_BudgetVersions_DataScenario_ADSgeneralLedgerIDDataScenarioID"/>  </not>
+	    </preConditions>
+	    <addForeignKeyConstraint baseColumnNames="ADSgeneralLedgerIDItemTypeID" baseTableName="BudgetVersions" constraintName="FK_BudgetVersions_DataScenario_ADSgeneralLedgerIDDataScenarioID" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="DataScenarioID" referencedTableName="DataScenario" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

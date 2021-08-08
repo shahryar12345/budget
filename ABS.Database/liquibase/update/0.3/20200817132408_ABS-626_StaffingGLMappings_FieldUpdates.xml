@@ -1,0 +1,17 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <changeSet author="jbeam" id="20200817132408-StaffingGLMappingsCodeFieldDrop">
+        <dropColumn columnName="Code" tableName="StaffingGLMappings"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200817132408-StaffingGLMappingsDescriptionFieldDrop">
+        <dropColumn columnName="Description" tableName="StaffingGLMappings"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200817132408-StaffingGLMappingsNameFieldDrop">
+        <dropColumn columnName="Name" tableName="StaffingGLMappings"/>
+    </changeSet>
+    <changeSet author="jbeam" id="20200817132408-StaffingGLMappingsIndexFieldAddition">
+        <addColumn tableName="StaffingGLMappings">
+            <column name="Index" type="int(10)"/>
+        </addColumn>
+    </changeSet>	
+</databaseChangeLog>

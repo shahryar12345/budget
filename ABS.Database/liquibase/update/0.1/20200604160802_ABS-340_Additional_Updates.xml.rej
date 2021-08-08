@@ -1,0 +1,12 @@
+diff a/ABS.Database/liquibase/update/0.1/20200604160802_ABS-340_Additional_Updates.xml b/ABS.Database/liquibase/update/0.1/20200604160802_ABS-340_Additional_Updates.xml	(rejected hunks)
+@@ -1,5 +1,10 @@
+ <?xml version="1.1" encoding="UTF-8" standalone="no"?>
+ <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.9.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
++    <changeSet author="jbeam" id="20200604160802_DimensionStatCodeIDFieldAddition">
++        <addColumn tableName="Dimensions">
++            <column name="StatisticsCodeID" type="int(10)" />
++        </addColumn>
++    </changeSet>
+     <changeSet author="jbeam" id="20200604160802_DimensionStatCodeIDIndex">
+         <createIndex indexName="IX_Dimensions_StatisticsCodeID" tableName="Dimensions">
+             <column name="StatisticsCodeID"/>
