@@ -1,0 +1,55 @@
+.fte-entity-row {
+  position: relative;
+  width: 100%;
+}
+
+.fte-entity-row-item {
+  display: inline-block;
+}
+
+.fte-content {
+  width: 2000px;
+}
+
+.fte-months-row {
+  height: 5rem;
+}
+
+.fte-month-label {
+  padding-bottom: 10px;
+}
+
+.fte-month {
+  -moz-appearance: textfield;
+}
+
+.fte-month::-webkit-inner-spin-button, 
+.fte-month::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+}
+
+.fte-month-total {
+  font-weight: bold;
+  -moz-appearance: textfield;
+}
+
+.fte-month-total::-webkit-inner-spin-button, 
+.fte-month-total::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+}
+
+.fte-inline-tooltip {
+  max-height: 20px;
+  vertical-align: top;
+}
+
+.fte-inline-tooltip-icon {
+  padding-bottom: 0.3rem;
+}
+
+.fte-notification{
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 20rem;
+}

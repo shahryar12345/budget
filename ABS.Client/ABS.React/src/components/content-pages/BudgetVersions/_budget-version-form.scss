@@ -1,0 +1,31 @@
+.filter-accordion-label {
+  color: #171717;
+  display: inline-block;
+  font-weight: normal;
+}
+
+.filter-accordion-status-first-element {
+  margin-left: 1rem !important;
+}
+
+.filter-accordion-status-hidden {
+  margin-left: 0px !important;
+  padding-left: 0px;
+  visibility: collapse;
+  width: 0px;
+}
+
+.filter-accordion-status-visible {
+  background: #bbd4c3 !important;
+  margin-right: 1rem !important;
+  padding-left: 1rem;
+  visibility: visible;
+}
+
+.filter-accordion-status-visible button {
+  font-size: 0.75rem !important;
+}
+
+.filter-accordion-table tr td{
+  padding-right: 1rem;
+}

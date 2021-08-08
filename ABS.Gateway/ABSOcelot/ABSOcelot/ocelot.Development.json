@@ -1,0 +1,78 @@
+{
+  "ReRoutes": [
+    {
+      "DownstreamPathTemplate": "/IdentityServer",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+
+        {
+          "Host": "auth",
+          "Port": 20250
+        }
+      ],
+      "UpstreamPathTemplate": "/IdentityServer",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+        //"Type": "LeastConnection"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/swagger",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        //{
+        //  "Host": "docker.for.win.localhost",
+        //  "Port": 20201
+        //},
+        {
+          "Host": "api",
+          "Port": 20201
+        }
+      ],
+      "UpstreamPathTemplate": "/swagger",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+        //"Type": "LeastConnection"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        //{
+        //  "Host": "docker.for.win.localhost",
+        //  "Port": 20201
+        //},
+        {
+          "Host": "localhost",
+          "Port": 51830
+        }
+      ],
+      "UpstreamPathTemplate": "/api/{url}",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+        //"Type": "LeastConnection"
+      }
+
+    },
+    {
+      "DownstreamPathTemplate": "/processing/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 20203
+        }
+      ],
+      "UpstreamPathTemplate": "/processing/{url}",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      }
+
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http:/localhost:2020/index.html",
+    "Administration": "/administration"
+  }
+}

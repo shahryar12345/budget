@@ -1,0 +1,32 @@
+version: '3.4'
+
+services:
+  api:
+    image: abs-api
+    build:
+      context: ../../
+      dockerfile: Repo/ABS.DAL/ABSDAL/Dockerfile
+    hostname: ABSAPI
+    container_name: abs-api
+    healthcheck:
+      test: "curl localhost:20201/swagger"
+      interval: "120s"
+      timeout: "3s"
+      start_period: "5s"
+      retries: 3
+    ports:
+    - "20201:20201"
+
+    environment:
+      DB_USER: 'sa'
+      DB_PASSWORD: 'AbsDa7a9as3'
+      DB_SERVER: 'db'
+      DB_DATABASE: 'BUDGET_DB'    
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_URLS: "http://+:20201"
+
+  # absredis:
+  #   image: redis
+  #   container_name: abs-redis
+  #   ports:
+  #   - "6379:6379"

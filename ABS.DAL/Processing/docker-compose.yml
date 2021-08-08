@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  processing:
+    image: abs-processing
+    build:
+      context: .
+      dockerfile: ABSProcessing/Dockerfile
+    hostname: ABSPROCESSING
+    container_name: abs-processing
+    healthcheck:
+      test: "curl localhost:20203/swagger"
+      interval: "120s"
+      timeout: "3s"
+      start_period: "5s"
+      retries: 3
+    ports:
+    - "20203:20203"
+
+    environment:
+      DB_USER: 'sa'
+      DB_PASSWORD: 'AbsDa7a9as3'
+      DB_SERVER: 'db'
+      DB_DATABASE: 'BUDGET_DB'    
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_URLS: "http://+:20203"

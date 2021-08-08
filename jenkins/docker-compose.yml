@@ -1,0 +1,39 @@
+version: "3.4"
+services:
+    jenkins-master:
+        image: jenkins-master
+        container_name: jenkins-master
+        ports:
+            - "8080:8080"
+            - "50000:50000"
+        volumes:
+            - jenkins-master-data:/var/jenkins_home
+        environment:
+            JENKINS_USER: admin
+            JENKINS_PASS: admin
+            JAVA_OPTS: -Djenkins.install.runSetupWizard=false
+
+    # this container is not named so it can scale, also it does not restart and fails upon initial start up
+    # this is on purpose.  
+    # Please start slaves by specifying how many(IE: 2) using the command: docker-compose scale jenkins-slave=2
+    jenkins-slave:
+        image: jenkins-slave
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock # Expose the docker daemon in the container
+            - jenkins-slave-data:/home/jenkins # Avoid mysql volume mount issue
+        environment:
+            # url must match the jenkins-master service name, IE: jenkins-master
+            JENKINS_URL: http://jenkins-master:8080
+            JENKINS_SLAVE_ADDRESS: ""
+            JENKINS_USER: admin
+            JENKINS_PASS: admin
+            SLAVE_NAME: ""
+            SLAVE_SECRET: ""
+            SLAVE_EXECUTORS: 1
+            SLAVE_LABELS: slave1
+            SLAVE_WORING_DIR: ""
+            CLEAN_WORKING_DIR: "true"
+
+volumes:
+    jenkins-slave-data:
+    jenkins-master-data:

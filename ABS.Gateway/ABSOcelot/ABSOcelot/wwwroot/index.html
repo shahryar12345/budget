@@ -1,0 +1,34 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>OCELOT CONFIGURATION</title>
+    <script type="text/javascript" src="ocelot.json"></script>
+    <script type="text/javascript">
+                function load() {
+                     var mydata = JSON.parse(data);
+                     alert(mydata.length);
+
+                     var div = document.getElementById('data');
+
+                     for(var i = 0;i < mydata.length; i++)
+                     {
+                        div.innerHTML = div.innerHTML + "<p class='inner' id="+i+">"+ mydata[i].name +"</p>" + "<br>";
+                     }
+                 }
+    </script>
+
+    <script>
+        var loc = window.location.pathname;
+        var dir = loc.substring(0, loc.lastIndexOf('/'));
+    </script>
+</head>
+<body onload="load()">
+    <h1>[[ OCELOT CONFIGURATION ]]</h1>
+  
+
+     <a href="www.google.com" >GOOGLE </a>
+    <div id="data">
+
+    </div>
+</body>
+</html>

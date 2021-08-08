@@ -1,0 +1,2433 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AddSystemSettings /> Unit Testing should match the snapshot of <AddSystemSettings /> 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <Connect(AddSystemSettings)>
+    <AddSystemSettings
+      systemSettings={
+        Object {
+          "BudgetVersions": Object {
+            "UserAuthenticated": true,
+            "UserID": 1,
+            "budgetVersionTypeID": null,
+            "budgetVersionsData": Array [],
+            "code": null,
+            "comments": null,
+            "description": null,
+            "fiscalStartMonthID": null,
+            "fiscalYearID": null,
+            "isLoaded": null,
+            "isLoading": null,
+            "list": Array [],
+            "scenarioTypeID": null,
+          },
+          "ForecastReducer": Object {
+            "collapseAll": false,
+            "forecastModelData": Array [],
+            "forecastSections": Array [
+              Object {
+                "forecastType": "notSelected",
+                "included": false,
+                "percentChange": "",
+                "source": Object {
+                  "dataRow": Array [
+                    Object {
+                      "budgetVersion": "ABS-123",
+                      "endMonth": "fiscalStartMonth-01",
+                      "startMonth": "fiscalStartMonth-02",
+                    },
+                  ],
+                  "dimensionRow": Object {
+                    "departments": "",
+                    "departmentsCheckbox": false,
+                    "entities": "",
+                    "entitiesCheckbox": false,
+                    "statistics": "",
+                    "statisticsCheckbox": false,
+                  },
+                },
+                "spreadMethod": "",
+                "target": Object {
+                  "dataRow": Object {},
+                  "dimensionRow": Object {},
+                },
+              },
+            ],
+            "forecast_budgetversion_code": "FY2020PROJ",
+            "forecast_budgetversion_name": "FY 2020 Projecctions for CFY",
+            "forecast_budgetversion_scenario_type": "Statistics",
+            "forecast_model_code": "",
+            "forecast_model_name": "",
+            "forecast_model_selected": false,
+          },
+          "ItemTypes": Object {
+            "ItemDataType": null,
+            "ItemTypeCode": null,
+            "ItemTypeKeyword": null,
+            "ItemTypeValue": null,
+            "UserID": null,
+          },
+          "MasterData": Object {
+            "BudgetType": Array [],
+            "BudgetVersionsType": Array [],
+            "FiscalYear": Array [],
+            "ForecastMethodType": Array [],
+            "ItemDateFormat": Array [],
+            "ItemDecimalPlaces": Array [],
+            "ItemMonths": Array [],
+            "ScenarioType": Array [],
+            "count": 1,
+            "isLoaded": true,
+            "isLoading": false,
+            "lastupdated": "",
+          },
+          "NotificationsReducer": Object {
+            "NotificationTitle": "Setting saved ",
+            "ShowNOtification": "true",
+            "ShownAlready": false,
+            "isLoaded": true,
+            "isShown": false,
+            "isloading": false,
+            "kind": "success",
+          },
+          "StructureTables": Object {
+            "UserAuthenticated": null,
+            "fiscalStartMonth": "Jul",
+          },
+          "systemSettings": Object {
+            "UserID": 1,
+            "backupfilelocation": "C:\\\\ABSDocs\\\\Backup",
+            "decimalPlaceStatistics": "itemDecimalPlaces-2",
+            "decimalPlacesAmounts": "itemDecimalPlaces-2",
+            "decimalPlacesFTE": "itemDecimalPlaces-2",
+            "decimalPlacesHours": "itemDecimalPlaces-2",
+            "decimalPlacesPercentValues": "itemDecimalPlaces-2",
+            "exportfilelocation": "c:\\\\ABSDocs\\\\Export",
+            "fiscalEndMonth": "Jun",
+            "fiscalStartMonth": "Jan",
+            "fiscalStartMonthDateFormat": "itemsDateFormat-0",
+            "importFilelocation": "c:\\\\ABSDocs\\\\Import",
+            "list": Array [],
+            "rd_negativeValues": "withBracket",
+            "xc_Commas": false,
+            "xc_Currency": false,
+          },
+        }
+      }
+      updateSystemSettings={[Function]}
+      updateSystemSettingsDB={[Function]}
+    >
+      <div>
+        <PageHeader
+          heading="System settings"
+          icon={<ForwardRef(Favorite16) />}
+        >
+          <div
+            className="bx--grid page-header-container"
+          >
+            <Breadcrumb
+              noTrailingSlash={true}
+            >
+              <nav
+                aria-label="Breadcrumb"
+              >
+                <ol
+                  className="bx--breadcrumb bx--breadcrumb--no-trailing-slash"
+                >
+                  <BreadcrumbItem>
+                    <li
+                      className="bx--breadcrumb-item"
+                    >
+                      <a
+                        className="bx--link"
+                        href="/#"
+                      >
+                        Home
+                      </a>
+                    </li>
+                  </BreadcrumbItem>
+                  <BreadcrumbItem
+                    href="#"
+                  >
+                    <li
+                      className="bx--breadcrumb-item"
+                    >
+                      <Link
+                        href="#"
+                      >
+                        <a
+                          className="bx--link"
+                          href="#"
+                        />
+                      </Link>
+                    </li>
+                  </BreadcrumbItem>
+                </ol>
+              </nav>
+            </Breadcrumb>
+            <h4>
+              System settings
+                  
+              <ForwardRef(Favorite16)>
+                <Icon
+                  height={16}
+                  preserveAspectRatio="xMidYMid meet"
+                  viewBox="0 0 16 16"
+                  width={16}
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <svg
+                    aria-hidden={true}
+                    focusable="false"
+                    height={16}
+                    preserveAspectRatio="xMidYMid meet"
+                    style={
+                      Object {
+                        "willChange": "transform",
+                      }
+                    }
+                    viewBox="0 0 16 16"
+                    width={16}
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M11.2,3c0.7,0,1.4,0.3,2,0.8c1.1,1.1,1.1,2.9,0,4L8,13.1L2.8,7.8c-1.1-1.1-1.1-2.9,0-4c1.1-1.1,2.8-1.1,3.9,0c0,0,0,0,0,0	L8,5.1l1.3-1.3C9.8,3.3,10.5,3,11.2,3 M11.2,2c-1,0-2,0.4-2.7,1.1L8,3.7L7.4,3.1C6,1.6,3.6,1.6,2.1,3.1c0,0,0,0,0,0	C0.6,4.6,0.6,7,2.1,8.5l5.9,6l5.9-6c1.5-1.5,1.5-3.9,0-5.4C13.2,2.4,12.2,2,11.2,2z"
+                    />
+                  </svg>
+                </Icon>
+              </ForwardRef(Favorite16)>
+            </h4>
+          </div>
+        </PageHeader>
+        <Tabs
+          ariaLabel="listbox"
+          iconDescription="show menu options"
+          role="navigation"
+          selected={0}
+          triggerHref="#"
+          type="default"
+        >
+          <div
+            className="bx--tabs"
+            role="navigation"
+            selected={0}
+          >
+            <div
+              aria-label="listbox"
+              className="bx--tabs-trigger"
+              onClick={[Function]}
+              onKeyPress={[Function]}
+              role="listbox"
+              tabIndex={0}
+            >
+              <a
+                className="bx--tabs-trigger-text"
+                href="#"
+                onClick={[Function]}
+                tabIndex={-1}
+              >
+                Budgeting
+              </a>
+              <ForwardRef(ChevronDownGlyph)
+                aria-hidden="true"
+              >
+                <Icon
+                  aria-hidden="true"
+                  height={6}
+                  preserveAspectRatio="xMidYMid meet"
+                  viewBox="0 0 10 6"
+                  width={10}
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <svg
+                    aria-hidden={true}
+                    focusable="false"
+                    height={6}
+                    preserveAspectRatio="xMidYMid meet"
+                    style={
+                      Object {
+                        "willChange": "transform",
+                      }
+                    }
+                    viewBox="0 0 10 6"
+                    width={10}
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5 6L0 1 0.7 0.3 5 4.6 9.3 0.3 10 1z"
+                    />
+                    <title>
+                      show menu options
+                    </title>
+                  </svg>
+                </Icon>
+              </ForwardRef(ChevronDownGlyph)>
+            </div>
+            <ul
+              className="bx--tabs__nav bx--tabs__nav--hidden"
+              role="tablist"
+            >
+              <Tab
+                className="bx--tabs"
+                handleTabAnchorFocus={[Function]}
+                handleTabClick={[Function]}
+                handleTabKeyDown={[Function]}
+                href="#"
+                index={0}
+                key=".0"
+                label="Budgeting"
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                renderContent={[Function]}
+                role="presentation"
+                selected={true}
+                tabIndex={0}
+              >
+                <li
+                  className="bx--tabs bx--tabs__nav-item bx--tabs__nav-item--selected"
+                  onClick={[Function]}
+                  onKeyDown={[Function]}
+                  role="presentation"
+                  selected={true}
+                  tabIndex={-1}
+                >
+                  <a
+                    aria-selected={true}
+                    className="bx--tabs__nav-link"
+                    href="#"
+                    role="tab"
+                    tabIndex={0}
+                  >
+                    Budgeting
+                  </a>
+                </li>
+              </Tab>
+            </ul>
+          </div>
+          <TabContent
+            aria-hidden={false}
+            hidden={false}
+            key=".$.0"
+            selected={true}
+          >
+            <div
+              aria-hidden={false}
+              className="bx--tab-content"
+              hidden={false}
+              selected={true}
+            >
+              <Form
+                id="FrmUpdateSystemSettings"
+                onSubmit={[Function]}
+              >
+                <form
+                  className="bx--form"
+                  id="FrmUpdateSystemSettings"
+                  onSubmit={[Function]}
+                >
+                   
+                  <div
+                    className="bx--content-switcher"
+                  />
+                  <h4>
+                    Dates
+                  </h4>
+                   
+                  <div
+                    className="bx--row"
+                  >
+                    <div
+                      className="bx--col-lg-3"
+                    >
+                       Date format 
+                      <br />
+                      <br />
+                      <Dropdown
+                        disabled={false}
+                        helperText=""
+                        id="fiscalStartMonthDateFormat"
+                        itemToElement={null}
+                        itemToString={[Function]}
+                        items={
+                          Array [
+                            Object {
+                              "id": "itemsDateFormat",
+                              "text": "mm/dd/yyyy",
+                              "value": "itemsDateFormat-0",
+                            },
+                            Object {
+                              "id": "itemsDateFormat",
+                              "text": "yyyy-mm-dd",
+                              "value": "itemsDateFormat-1",
+                            },
+                            Object {
+                              "id": "itemsDateFormat",
+                              "text": "mm/dd/yy",
+                              "value": "itemsDateFormat-2",
+                            },
+                            Object {
+                              "id": "itemsDateFormat",
+                              "text": "dd-mmm-yy",
+                              "value": "itemsDateFormat-3",
+                            },
+                            Object {
+                              "id": "itemsDateFormat",
+                              "text": "mmmm dd, yyyy",
+                              "value": "itemsDateFormat-4",
+                            },
+                            Object {
+                              "id": "itemsDateFormat",
+                              "text": "dd-mmm-yyyy",
+                              "value": "itemsDateFormat-5",
+                            },
+                          ]
+                        }
+                        light={false}
+                        onChange={[Function]}
+                        selectedItem={
+                          Object {
+                            "id": "itemsDateFormat",
+                            "text": "mm/dd/yyyy",
+                            "value": "itemsDateFormat-0",
+                          }
+                        }
+                        titleText=""
+                        type="default"
+                      >
+                        <div
+                          className="bx--dropdown__wrapper bx--list-box__wrapper"
+                        >
+                          <Downshift
+                            breakingChanges={Object {}}
+                            defaultHighlightedIndex={null}
+                            defaultInputValue=""
+                            defaultIsOpen={false}
+                            defaultSelectedItem={null}
+                            environment={[Window]}
+                            getA11yStatusMessage={[Function]}
+                            itemToString={[Function]}
+                            onChange={[Function]}
+                            onInputValueChange={[Function]}
+                            onOuterClick={[Function]}
+                            onSelect={[Function]}
+                            onStateChange={[Function]}
+                            onUserAction={[Function]}
+                            selectedItem={
+                              Object {
+                                "id": "itemsDateFormat",
+                                "text": "mm/dd/yyyy",
+                                "value": "itemsDateFormat-0",
+                              }
+                            }
+                            selectedItemChanged={[Function]}
+                            stateReducer={[Function]}
+                          >
+                            <ListBox
+                              className="bx--dropdown"
+                              disabled={false}
+                              id="fiscalStartMonthDateFormat"
+                              innerRef={[Function]}
+                              isOpen={false}
+                              light={false}
+                              type="default"
+                            >
+                              <div
+                                className="bx--dropdown bx--list-box"
+                                id="fiscalStartMonthDateFormat"
+                                onClick={[Function]}
+                                onKeyDown={[Function]}
+                                role="listbox"
+                                tabIndex="-1"
+                              >
+                                <ListBoxField
+                                  aria-disabled={false}
+                                  aria-expanded={false}
+                                  aria-haspopup={true}
+                                  aria-label="open menu"
+                                  data-toggle={true}
+                                  disabled={false}
+                                  id="fiscalStartMonthDateFormat"
+                                  onBlur={[Function]}
+                                  onClick={[Function]}
+                                  onKeyDown={[Function]}
+                                  role="button"
+                                  tabIndex="0"
+                                  translateWithId={[Function]}
+                                  type="button"
+                                >
+                                  <div
+                                    aria-controls={null}
+                                    aria-disabled={false}
+                                    aria-expanded={false}
+                                    aria-haspopup={true}
+                                    aria-label="Open menu"
+                                    aria-owns={null}
+                                    className="bx--list-box__field"
+                                    data-toggle={true}
+                                    onBlur={[Function]}
+                                    onClick={[Function]}
+                                    onKeyDown={[Function]}
+                                    role="button"
+                                    tabIndex="0"
+                                    type="button"
+                                  >
+                                    <span
+                                      className="bx--list-box__label"
+                                      htmlFor="downshift-0-input"
+                                    >
+                                      mm/dd/yyyy
+                                    </span>
+                                    <ListBoxMenuIcon
+                                      isOpen={false}
+                                      translateWithId={[Function]}
+                                    >
+                                      <div
+                                        className="bx--list-box__menu-icon"
+                                      >
+                                        <ForwardRef(ChevronDown16)
+                                          aria-label="Open menu"
+                                          name="chevron--down"
+                                        >
+                                          <Icon
+                                            aria-label="Open menu"
+                                            height={16}
+                                            name="chevron--down"
+                                            preserveAspectRatio="xMidYMid meet"
+                                            viewBox="0 0 16 16"
+                                            width={16}
+                                            xmlns="http://www.w3.org/2000/svg"
+                                          >
+                                            <svg
+                                              aria-label="Open menu"
+                                              focusable="false"
+                                              height={16}
+                                              name="chevron--down"
+                                              preserveAspectRatio="xMidYMid meet"
+                                              role="img"
+                                              style={
+                                                Object {
+                                                  "willChange": "transform",
+                                                }
+                                              }
+                                              viewBox="0 0 16 16"
+                                              width={16}
+                                              xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                              <path
+                                                d="M8 11L3 6 3.7 5.3 8 9.6 12.3 5.3 13 6z"
+                                              />
+                                              <title>
+                                                Open menu
+                                              </title>
+                                            </svg>
+                                          </Icon>
+                                        </ForwardRef(ChevronDown16)>
+                                      </div>
+                                    </ListBoxMenuIcon>
+                                  </div>
+                                </ListBoxField>
+                              </div>
+                            </ListBox>
+                          </Downshift>
+                        </div>
+                      </Dropdown>
+                    </div>
+                  </div>
+                  <br />
+                  <br />
+                  <br />
+                  <div>
+                    <h4>
+                      Decimal places
+                    </h4>
+                    <div
+                      className="bx--row"
+                    >
+                      <div
+                        className="bx--col"
+                      >
+                         Number of decimal places for statistics  
+                        <br />
+                         
+                        <br />
+                        <Dropdown
+                          disabled={false}
+                          helperText=""
+                          id="decimalPlaceStatistics"
+                          itemToElement={null}
+                          itemToString={[Function]}
+                          items={
+                            Array [
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "0 decimal places: x",
+                                "value": "itemDecimalPlaces-0",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "1 decimal places: x.x",
+                                "value": "itemDecimalPlaces-1",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "2 decimal places: x.xx",
+                                "value": "itemDecimalPlaces-2",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "3 decimal places: x.xxx",
+                                "value": "itemDecimalPlaces-3",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "4 decimal places: x.xxxx",
+                                "value": "itemDecimalPlaces-4",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "5 decimal places: x.xxxxx",
+                                "value": "itemDecimalPlaces-5",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "6 decimal places: x.xxxxxx",
+                                "value": "itemDecimalPlaces-6",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "7 decimal places: x.xxxxxxx",
+                                "value": "itemDecimalPlaces-7",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "8 decimal places: x.xxxxxxxx",
+                                "value": "itemDecimalPlaces-8",
+                              },
+                            ]
+                          }
+                          light={false}
+                          onChange={[Function]}
+                          selectedItem={
+                            Object {
+                              "id": "itemDecimalPlaces",
+                              "text": "2 decimal places: x.xx",
+                              "value": "itemDecimalPlaces-2",
+                            }
+                          }
+                          titleText=""
+                          type="default"
+                        >
+                          <div
+                            className="bx--dropdown__wrapper bx--list-box__wrapper"
+                          >
+                            <Downshift
+                              breakingChanges={Object {}}
+                              defaultHighlightedIndex={null}
+                              defaultInputValue=""
+                              defaultIsOpen={false}
+                              defaultSelectedItem={null}
+                              environment={[Window]}
+                              getA11yStatusMessage={[Function]}
+                              itemToString={[Function]}
+                              onChange={[Function]}
+                              onInputValueChange={[Function]}
+                              onOuterClick={[Function]}
+                              onSelect={[Function]}
+                              onStateChange={[Function]}
+                              onUserAction={[Function]}
+                              selectedItem={
+                                Object {
+                                  "id": "itemDecimalPlaces",
+                                  "text": "2 decimal places: x.xx",
+                                  "value": "itemDecimalPlaces-2",
+                                }
+                              }
+                              selectedItemChanged={[Function]}
+                              stateReducer={[Function]}
+                            >
+                              <ListBox
+                                className="bx--dropdown"
+                                disabled={false}
+                                id="decimalPlaceStatistics"
+                                innerRef={[Function]}
+                                isOpen={false}
+                                light={false}
+                                type="default"
+                              >
+                                <div
+                                  className="bx--dropdown bx--list-box"
+                                  id="decimalPlaceStatistics"
+                                  onClick={[Function]}
+                                  onKeyDown={[Function]}
+                                  role="listbox"
+                                  tabIndex="-1"
+                                >
+                                  <ListBoxField
+                                    aria-disabled={false}
+                                    aria-expanded={false}
+                                    aria-haspopup={true}
+                                    aria-label="open menu"
+                                    data-toggle={true}
+                                    disabled={false}
+                                    id="decimalPlaceStatistics"
+                                    onBlur={[Function]}
+                                    onClick={[Function]}
+                                    onKeyDown={[Function]}
+                                    role="button"
+                                    tabIndex="0"
+                                    translateWithId={[Function]}
+                                    type="button"
+                                  >
+                                    <div
+                                      aria-controls={null}
+                                      aria-disabled={false}
+                                      aria-expanded={false}
+                                      aria-haspopup={true}
+                                      aria-label="Open menu"
+                                      aria-owns={null}
+                                      className="bx--list-box__field"
+                                      data-toggle={true}
+                                      onBlur={[Function]}
+                                      onClick={[Function]}
+                                      onKeyDown={[Function]}
+                                      role="button"
+                                      tabIndex="0"
+                                      type="button"
+                                    >
+                                      <span
+                                        className="bx--list-box__label"
+                                        htmlFor="downshift-1-input"
+                                      >
+                                        2 decimal places: x.xx
+                                      </span>
+                                      <ListBoxMenuIcon
+                                        isOpen={false}
+                                        translateWithId={[Function]}
+                                      >
+                                        <div
+                                          className="bx--list-box__menu-icon"
+                                        >
+                                          <ForwardRef(ChevronDown16)
+                                            aria-label="Open menu"
+                                            name="chevron--down"
+                                          >
+                                            <Icon
+                                              aria-label="Open menu"
+                                              height={16}
+                                              name="chevron--down"
+                                              preserveAspectRatio="xMidYMid meet"
+                                              viewBox="0 0 16 16"
+                                              width={16}
+                                              xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                              <svg
+                                                aria-label="Open menu"
+                                                focusable="false"
+                                                height={16}
+                                                name="chevron--down"
+                                                preserveAspectRatio="xMidYMid meet"
+                                                role="img"
+                                                style={
+                                                  Object {
+                                                    "willChange": "transform",
+                                                  }
+                                                }
+                                                viewBox="0 0 16 16"
+                                                width={16}
+                                                xmlns="http://www.w3.org/2000/svg"
+                                              >
+                                                <path
+                                                  d="M8 11L3 6 3.7 5.3 8 9.6 12.3 5.3 13 6z"
+                                                />
+                                                <title>
+                                                  Open menu
+                                                </title>
+                                              </svg>
+                                            </Icon>
+                                          </ForwardRef(ChevronDown16)>
+                                        </div>
+                                      </ListBoxMenuIcon>
+                                    </div>
+                                  </ListBoxField>
+                                </div>
+                              </ListBox>
+                            </Downshift>
+                          </div>
+                        </Dropdown>
+                      </div>
+                      <div
+                        className="bx--col"
+                      >
+                         Number of decimal places for amounts  
+                        <br />
+                         
+                        <br />
+                        <Dropdown
+                          disabled={false}
+                          helperText=""
+                          id="decimalPlacesAmounts"
+                          itemToElement={null}
+                          itemToString={[Function]}
+                          items={
+                            Array [
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "0 decimal places: x",
+                                "value": "itemDecimalPlaces-0",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "1 decimal places: x.x",
+                                "value": "itemDecimalPlaces-1",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "2 decimal places: x.xx",
+                                "value": "itemDecimalPlaces-2",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "3 decimal places: x.xxx",
+                                "value": "itemDecimalPlaces-3",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "4 decimal places: x.xxxx",
+                                "value": "itemDecimalPlaces-4",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "5 decimal places: x.xxxxx",
+                                "value": "itemDecimalPlaces-5",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "6 decimal places: x.xxxxxx",
+                                "value": "itemDecimalPlaces-6",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "7 decimal places: x.xxxxxxx",
+                                "value": "itemDecimalPlaces-7",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "8 decimal places: x.xxxxxxxx",
+                                "value": "itemDecimalPlaces-8",
+                              },
+                            ]
+                          }
+                          light={false}
+                          onChange={[Function]}
+                          selectedItem={
+                            Object {
+                              "id": "itemDecimalPlaces",
+                              "text": "2 decimal places: x.xx",
+                              "value": "itemDecimalPlaces-2",
+                            }
+                          }
+                          titleText=""
+                          type="default"
+                        >
+                          <div
+                            className="bx--dropdown__wrapper bx--list-box__wrapper"
+                          >
+                            <Downshift
+                              breakingChanges={Object {}}
+                              defaultHighlightedIndex={null}
+                              defaultInputValue=""
+                              defaultIsOpen={false}
+                              defaultSelectedItem={null}
+                              environment={[Window]}
+                              getA11yStatusMessage={[Function]}
+                              itemToString={[Function]}
+                              onChange={[Function]}
+                              onInputValueChange={[Function]}
+                              onOuterClick={[Function]}
+                              onSelect={[Function]}
+                              onStateChange={[Function]}
+                              onUserAction={[Function]}
+                              selectedItem={
+                                Object {
+                                  "id": "itemDecimalPlaces",
+                                  "text": "2 decimal places: x.xx",
+                                  "value": "itemDecimalPlaces-2",
+                                }
+                              }
+                              selectedItemChanged={[Function]}
+                              stateReducer={[Function]}
+                            >
+                              <ListBox
+                                className="bx--dropdown"
+                                disabled={false}
+                                id="decimalPlacesAmounts"
+                                innerRef={[Function]}
+                                isOpen={false}
+                                light={false}
+                                type="default"
+                              >
+                                <div
+                                  className="bx--dropdown bx--list-box"
+                                  id="decimalPlacesAmounts"
+                                  onClick={[Function]}
+                                  onKeyDown={[Function]}
+                                  role="listbox"
+                                  tabIndex="-1"
+                                >
+                                  <ListBoxField
+                                    aria-disabled={false}
+                                    aria-expanded={false}
+                                    aria-haspopup={true}
+                                    aria-label="open menu"
+                                    data-toggle={true}
+                                    disabled={false}
+                                    id="decimalPlacesAmounts"
+                                    onBlur={[Function]}
+                                    onClick={[Function]}
+                                    onKeyDown={[Function]}
+                                    role="button"
+                                    tabIndex="0"
+                                    translateWithId={[Function]}
+                                    type="button"
+                                  >
+                                    <div
+                                      aria-controls={null}
+                                      aria-disabled={false}
+                                      aria-expanded={false}
+                                      aria-haspopup={true}
+                                      aria-label="Open menu"
+                                      aria-owns={null}
+                                      className="bx--list-box__field"
+                                      data-toggle={true}
+                                      onBlur={[Function]}
+                                      onClick={[Function]}
+                                      onKeyDown={[Function]}
+                                      role="button"
+                                      tabIndex="0"
+                                      type="button"
+                                    >
+                                      <span
+                                        className="bx--list-box__label"
+                                        htmlFor="downshift-2-input"
+                                      >
+                                        2 decimal places: x.xx
+                                      </span>
+                                      <ListBoxMenuIcon
+                                        isOpen={false}
+                                        translateWithId={[Function]}
+                                      >
+                                        <div
+                                          className="bx--list-box__menu-icon"
+                                        >
+                                          <ForwardRef(ChevronDown16)
+                                            aria-label="Open menu"
+                                            name="chevron--down"
+                                          >
+                                            <Icon
+                                              aria-label="Open menu"
+                                              height={16}
+                                              name="chevron--down"
+                                              preserveAspectRatio="xMidYMid meet"
+                                              viewBox="0 0 16 16"
+                                              width={16}
+                                              xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                              <svg
+                                                aria-label="Open menu"
+                                                focusable="false"
+                                                height={16}
+                                                name="chevron--down"
+                                                preserveAspectRatio="xMidYMid meet"
+                                                role="img"
+                                                style={
+                                                  Object {
+                                                    "willChange": "transform",
+                                                  }
+                                                }
+                                                viewBox="0 0 16 16"
+                                                width={16}
+                                                xmlns="http://www.w3.org/2000/svg"
+                                              >
+                                                <path
+                                                  d="M8 11L3 6 3.7 5.3 8 9.6 12.3 5.3 13 6z"
+                                                />
+                                                <title>
+                                                  Open menu
+                                                </title>
+                                              </svg>
+                                            </Icon>
+                                          </ForwardRef(ChevronDown16)>
+                                        </div>
+                                      </ListBoxMenuIcon>
+                                    </div>
+                                  </ListBoxField>
+                                </div>
+                              </ListBox>
+                            </Downshift>
+                          </div>
+                        </Dropdown>
+                        <br />
+                        <Checkbox
+                          checked={false}
+                          className="bx--checkbox-wrapper"
+                          id="xc_Commas"
+                          indeterminate={false}
+                          labelText="Show commas (e.g., 1,000.00)"
+                          onChange={[Function]}
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="bx--form-item bx--checkbox-wrapper"
+                          >
+                            <input
+                              checked={false}
+                              className="bx--checkbox"
+                              id="xc_Commas"
+                              onChange={[Function]}
+                              onClick={[Function]}
+                              type="checkbox"
+                            />
+                            <label
+                              className="bx--checkbox-label bx--checkbox-wrapper"
+                              htmlFor="xc_Commas"
+                              title={null}
+                            >
+                              <span
+                                className="bx--checkbox-label-text"
+                              >
+                                Show commas (e.g., 1,000.00)
+                              </span>
+                            </label>
+                          </div>
+                        </Checkbox>
+                        <Checkbox
+                          checked={false}
+                          className="bx--checkbox-wrapper"
+                          id="xc_Currency"
+                          indeterminate={false}
+                          labelText="Show amount symbol ($)"
+                          onChange={[Function]}
+                          onClick={[Function]}
+                        >
+                          <div
+                            className="bx--form-item bx--checkbox-wrapper"
+                          >
+                            <input
+                              checked={false}
+                              className="bx--checkbox"
+                              id="xc_Currency"
+                              onChange={[Function]}
+                              onClick={[Function]}
+                              type="checkbox"
+                            />
+                            <label
+                              className="bx--checkbox-label bx--checkbox-wrapper"
+                              htmlFor="xc_Currency"
+                              title={null}
+                            >
+                              <span
+                                className="bx--checkbox-label-text"
+                              >
+                                Show amount symbol ($)
+                              </span>
+                            </label>
+                          </div>
+                        </Checkbox>
+                      </div>
+                      <div
+                        className="bx--col"
+                      >
+                         Number of decimal places for FTEs  
+                        <br />
+                        <br />
+                        <Dropdown
+                          disabled={false}
+                          helperText=""
+                          id="decimalPlacesFTE"
+                          itemToElement={null}
+                          itemToString={[Function]}
+                          items={
+                            Array [
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "0 decimal places: x",
+                                "value": "itemDecimalPlaces-0",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "1 decimal places: x.x",
+                                "value": "itemDecimalPlaces-1",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "2 decimal places: x.xx",
+                                "value": "itemDecimalPlaces-2",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "3 decimal places: x.xxx",
+                                "value": "itemDecimalPlaces-3",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "4 decimal places: x.xxxx",
+                                "value": "itemDecimalPlaces-4",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "5 decimal places: x.xxxxx",
+                                "value": "itemDecimalPlaces-5",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "6 decimal places: x.xxxxxx",
+                                "value": "itemDecimalPlaces-6",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "7 decimal places: x.xxxxxxx",
+                                "value": "itemDecimalPlaces-7",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "8 decimal places: x.xxxxxxxx",
+                                "value": "itemDecimalPlaces-8",
+                              },
+                            ]
+                          }
+                          light={false}
+                          onChange={[Function]}
+                          selectedItem={
+                            Object {
+                              "id": "itemDecimalPlaces",
+                              "text": "2 decimal places: x.xx",
+                              "value": "itemDecimalPlaces-2",
+                            }
+                          }
+                          titleText=""
+                          type="default"
+                        >
+                          <div
+                            className="bx--dropdown__wrapper bx--list-box__wrapper"
+                          >
+                            <Downshift
+                              breakingChanges={Object {}}
+                              defaultHighlightedIndex={null}
+                              defaultInputValue=""
+                              defaultIsOpen={false}
+                              defaultSelectedItem={null}
+                              environment={[Window]}
+                              getA11yStatusMessage={[Function]}
+                              itemToString={[Function]}
+                              onChange={[Function]}
+                              onInputValueChange={[Function]}
+                              onOuterClick={[Function]}
+                              onSelect={[Function]}
+                              onStateChange={[Function]}
+                              onUserAction={[Function]}
+                              selectedItem={
+                                Object {
+                                  "id": "itemDecimalPlaces",
+                                  "text": "2 decimal places: x.xx",
+                                  "value": "itemDecimalPlaces-2",
+                                }
+                              }
+                              selectedItemChanged={[Function]}
+                              stateReducer={[Function]}
+                            >
+                              <ListBox
+                                className="bx--dropdown"
+                                disabled={false}
+                                id="decimalPlacesFTE"
+                                innerRef={[Function]}
+                                isOpen={false}
+                                light={false}
+                                type="default"
+                              >
+                                <div
+                                  className="bx--dropdown bx--list-box"
+                                  id="decimalPlacesFTE"
+                                  onClick={[Function]}
+                                  onKeyDown={[Function]}
+                                  role="listbox"
+                                  tabIndex="-1"
+                                >
+                                  <ListBoxField
+                                    aria-disabled={false}
+                                    aria-expanded={false}
+                                    aria-haspopup={true}
+                                    aria-label="open menu"
+                                    data-toggle={true}
+                                    disabled={false}
+                                    id="decimalPlacesFTE"
+                                    onBlur={[Function]}
+                                    onClick={[Function]}
+                                    onKeyDown={[Function]}
+                                    role="button"
+                                    tabIndex="0"
+                                    translateWithId={[Function]}
+                                    type="button"
+                                  >
+                                    <div
+                                      aria-controls={null}
+                                      aria-disabled={false}
+                                      aria-expanded={false}
+                                      aria-haspopup={true}
+                                      aria-label="Open menu"
+                                      aria-owns={null}
+                                      className="bx--list-box__field"
+                                      data-toggle={true}
+                                      onBlur={[Function]}
+                                      onClick={[Function]}
+                                      onKeyDown={[Function]}
+                                      role="button"
+                                      tabIndex="0"
+                                      type="button"
+                                    >
+                                      <span
+                                        className="bx--list-box__label"
+                                        htmlFor="downshift-3-input"
+                                      >
+                                        2 decimal places: x.xx
+                                      </span>
+                                      <ListBoxMenuIcon
+                                        isOpen={false}
+                                        translateWithId={[Function]}
+                                      >
+                                        <div
+                                          className="bx--list-box__menu-icon"
+                                        >
+                                          <ForwardRef(ChevronDown16)
+                                            aria-label="Open menu"
+                                            name="chevron--down"
+                                          >
+                                            <Icon
+                                              aria-label="Open menu"
+                                              height={16}
+                                              name="chevron--down"
+                                              preserveAspectRatio="xMidYMid meet"
+                                              viewBox="0 0 16 16"
+                                              width={16}
+                                              xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                              <svg
+                                                aria-label="Open menu"
+                                                focusable="false"
+                                                height={16}
+                                                name="chevron--down"
+                                                preserveAspectRatio="xMidYMid meet"
+                                                role="img"
+                                                style={
+                                                  Object {
+                                                    "willChange": "transform",
+                                                  }
+                                                }
+                                                viewBox="0 0 16 16"
+                                                width={16}
+                                                xmlns="http://www.w3.org/2000/svg"
+                                              >
+                                                <path
+                                                  d="M8 11L3 6 3.7 5.3 8 9.6 12.3 5.3 13 6z"
+                                                />
+                                                <title>
+                                                  Open menu
+                                                </title>
+                                              </svg>
+                                            </Icon>
+                                          </ForwardRef(ChevronDown16)>
+                                        </div>
+                                      </ListBoxMenuIcon>
+                                    </div>
+                                  </ListBoxField>
+                                </div>
+                              </ListBox>
+                            </Downshift>
+                          </div>
+                        </Dropdown>
+                      </div>
+                      <div
+                        className="bx--col"
+                      >
+                         Number of decimal places for hours  
+                        <br />
+                        <br />
+                        <Dropdown
+                          disabled={false}
+                          helperText=""
+                          id="decimalPlacesHours"
+                          initialSelectedItem={
+                            Object {
+                              "id": "itemDecimalPlaces",
+                              "text": "2 decimal places: x.xx",
+                              "value": "itemDecimalPlaces-2",
+                            }
+                          }
+                          itemToElement={null}
+                          itemToString={[Function]}
+                          items={
+                            Array [
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "0 decimal places: x",
+                                "value": "itemDecimalPlaces-0",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "1 decimal places: x.x",
+                                "value": "itemDecimalPlaces-1",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "2 decimal places: x.xx",
+                                "value": "itemDecimalPlaces-2",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "3 decimal places: x.xxx",
+                                "value": "itemDecimalPlaces-3",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "4 decimal places: x.xxxx",
+                                "value": "itemDecimalPlaces-4",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "5 decimal places: x.xxxxx",
+                                "value": "itemDecimalPlaces-5",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "6 decimal places: x.xxxxxx",
+                                "value": "itemDecimalPlaces-6",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "7 decimal places: x.xxxxxxx",
+                                "value": "itemDecimalPlaces-7",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "8 decimal places: x.xxxxxxxx",
+                                "value": "itemDecimalPlaces-8",
+                              },
+                            ]
+                          }
+                          light={false}
+                          onChange={[Function]}
+                          selectedItem={
+                            Object {
+                              "id": "itemDecimalPlaces",
+                              "text": "2 decimal places: x.xx",
+                              "value": "itemDecimalPlaces-2",
+                            }
+                          }
+                          titleText=""
+                          type="default"
+                        >
+                          <div
+                            className="bx--dropdown__wrapper bx--list-box__wrapper"
+                          >
+                            <Downshift
+                              breakingChanges={Object {}}
+                              defaultHighlightedIndex={null}
+                              defaultInputValue=""
+                              defaultIsOpen={false}
+                              defaultSelectedItem={
+                                Object {
+                                  "id": "itemDecimalPlaces",
+                                  "text": "2 decimal places: x.xx",
+                                  "value": "itemDecimalPlaces-2",
+                                }
+                              }
+                              environment={[Window]}
+                              getA11yStatusMessage={[Function]}
+                              itemToString={[Function]}
+                              onChange={[Function]}
+                              onInputValueChange={[Function]}
+                              onOuterClick={[Function]}
+                              onSelect={[Function]}
+                              onStateChange={[Function]}
+                              onUserAction={[Function]}
+                              selectedItem={
+                                Object {
+                                  "id": "itemDecimalPlaces",
+                                  "text": "2 decimal places: x.xx",
+                                  "value": "itemDecimalPlaces-2",
+                                }
+                              }
+                              selectedItemChanged={[Function]}
+                              stateReducer={[Function]}
+                            >
+                              <ListBox
+                                className="bx--dropdown"
+                                disabled={false}
+                                id="decimalPlacesHours"
+                                innerRef={[Function]}
+                                isOpen={false}
+                                light={false}
+                                type="default"
+                              >
+                                <div
+                                  className="bx--dropdown bx--list-box"
+                                  id="decimalPlacesHours"
+                                  onClick={[Function]}
+                                  onKeyDown={[Function]}
+                                  role="listbox"
+                                  tabIndex="-1"
+                                >
+                                  <ListBoxField
+                                    aria-disabled={false}
+                                    aria-expanded={false}
+                                    aria-haspopup={true}
+                                    aria-label="open menu"
+                                    data-toggle={true}
+                                    disabled={false}
+                                    id="decimalPlacesHours"
+                                    onBlur={[Function]}
+                                    onClick={[Function]}
+                                    onKeyDown={[Function]}
+                                    role="button"
+                                    tabIndex="0"
+                                    translateWithId={[Function]}
+                                    type="button"
+                                  >
+                                    <div
+                                      aria-controls={null}
+                                      aria-disabled={false}
+                                      aria-expanded={false}
+                                      aria-haspopup={true}
+                                      aria-label="Open menu"
+                                      aria-owns={null}
+                                      className="bx--list-box__field"
+                                      data-toggle={true}
+                                      onBlur={[Function]}
+                                      onClick={[Function]}
+                                      onKeyDown={[Function]}
+                                      role="button"
+                                      tabIndex="0"
+                                      type="button"
+                                    >
+                                      <span
+                                        className="bx--list-box__label"
+                                        htmlFor="downshift-4-input"
+                                      >
+                                        2 decimal places: x.xx
+                                      </span>
+                                      <ListBoxMenuIcon
+                                        isOpen={false}
+                                        translateWithId={[Function]}
+                                      >
+                                        <div
+                                          className="bx--list-box__menu-icon"
+                                        >
+                                          <ForwardRef(ChevronDown16)
+                                            aria-label="Open menu"
+                                            name="chevron--down"
+                                          >
+                                            <Icon
+                                              aria-label="Open menu"
+                                              height={16}
+                                              name="chevron--down"
+                                              preserveAspectRatio="xMidYMid meet"
+                                              viewBox="0 0 16 16"
+                                              width={16}
+                                              xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                              <svg
+                                                aria-label="Open menu"
+                                                focusable="false"
+                                                height={16}
+                                                name="chevron--down"
+                                                preserveAspectRatio="xMidYMid meet"
+                                                role="img"
+                                                style={
+                                                  Object {
+                                                    "willChange": "transform",
+                                                  }
+                                                }
+                                                viewBox="0 0 16 16"
+                                                width={16}
+                                                xmlns="http://www.w3.org/2000/svg"
+                                              >
+                                                <path
+                                                  d="M8 11L3 6 3.7 5.3 8 9.6 12.3 5.3 13 6z"
+                                                />
+                                                <title>
+                                                  Open menu
+                                                </title>
+                                              </svg>
+                                            </Icon>
+                                          </ForwardRef(ChevronDown16)>
+                                        </div>
+                                      </ListBoxMenuIcon>
+                                    </div>
+                                  </ListBoxField>
+                                </div>
+                              </ListBox>
+                            </Downshift>
+                          </div>
+                        </Dropdown>
+                      </div>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <div
+                      className="bx--row"
+                    >
+                      <div
+                        className="bx--col-lg-3"
+                      >
+                         Number of decimal places for percent values  
+                        <br />
+                        <br />
+                        <Dropdown
+                          disabled={false}
+                          helperText=""
+                          id="decimalPlacesPercentValues"
+                          itemToElement={null}
+                          itemToString={[Function]}
+                          items={
+                            Array [
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "0 decimal places: x",
+                                "value": "itemDecimalPlaces-0",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "1 decimal places: x.x",
+                                "value": "itemDecimalPlaces-1",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "2 decimal places: x.xx",
+                                "value": "itemDecimalPlaces-2",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "3 decimal places: x.xxx",
+                                "value": "itemDecimalPlaces-3",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "4 decimal places: x.xxxx",
+                                "value": "itemDecimalPlaces-4",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "5 decimal places: x.xxxxx",
+                                "value": "itemDecimalPlaces-5",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "6 decimal places: x.xxxxxx",
+                                "value": "itemDecimalPlaces-6",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "7 decimal places: x.xxxxxxx",
+                                "value": "itemDecimalPlaces-7",
+                              },
+                              Object {
+                                "id": "itemDecimalPlaces",
+                                "text": "8 decimal places: x.xxxxxxxx",
+                                "value": "itemDecimalPlaces-8",
+                              },
+                            ]
+                          }
+                          light={false}
+                          onChange={[Function]}
+                          selectedItem={
+                            Object {
+                              "id": "itemDecimalPlaces",
+                              "text": "2 decimal places: x.xx",
+                              "value": "itemDecimalPlaces-2",
+                            }
+                          }
+                          titleText=""
+                          type="default"
+                        >
+                          <div
+                            className="bx--dropdown__wrapper bx--list-box__wrapper"
+                          >
+                            <Downshift
+                              breakingChanges={Object {}}
+                              defaultHighlightedIndex={null}
+                              defaultInputValue=""
+                              defaultIsOpen={false}
+                              defaultSelectedItem={null}
+                              environment={[Window]}
+                              getA11yStatusMessage={[Function]}
+                              itemToString={[Function]}
+                              onChange={[Function]}
+                              onInputValueChange={[Function]}
+                              onOuterClick={[Function]}
+                              onSelect={[Function]}
+                              onStateChange={[Function]}
+                              onUserAction={[Function]}
+                              selectedItem={
+                                Object {
+                                  "id": "itemDecimalPlaces",
+                                  "text": "2 decimal places: x.xx",
+                                  "value": "itemDecimalPlaces-2",
+                                }
+                              }
+                              selectedItemChanged={[Function]}
+                              stateReducer={[Function]}
+                            >
+                              <ListBox
+                                className="bx--dropdown"
+                                disabled={false}
+                                id="decimalPlacesPercentValues"
+                                innerRef={[Function]}
+                                isOpen={false}
+                                light={false}
+                                type="default"
+                              >
+                                <div
+                                  className="bx--dropdown bx--list-box"
+                                  id="decimalPlacesPercentValues"
+                                  onClick={[Function]}
+                                  onKeyDown={[Function]}
+                                  role="listbox"
+                                  tabIndex="-1"
+                                >
+                                  <ListBoxField
+                                    aria-disabled={false}
+                                    aria-expanded={false}
+                                    aria-haspopup={true}
+                                    aria-label="open menu"
+                                    data-toggle={true}
+                                    disabled={false}
+                                    id="decimalPlacesPercentValues"
+                                    onBlur={[Function]}
+                                    onClick={[Function]}
+                                    onKeyDown={[Function]}
+                                    role="button"
+                                    tabIndex="0"
+                                    translateWithId={[Function]}
+                                    type="button"
+                                  >
+                                    <div
+                                      aria-controls={null}
+                                      aria-disabled={false}
+                                      aria-expanded={false}
+                                      aria-haspopup={true}
+                                      aria-label="Open menu"
+                                      aria-owns={null}
+                                      className="bx--list-box__field"
+                                      data-toggle={true}
+                                      onBlur={[Function]}
+                                      onClick={[Function]}
+                                      onKeyDown={[Function]}
+                                      role="button"
+                                      tabIndex="0"
+                                      type="button"
+                                    >
+                                      <span
+                                        className="bx--list-box__label"
+                                        htmlFor="downshift-5-input"
+                                      >
+                                        2 decimal places: x.xx
+                                      </span>
+                                      <ListBoxMenuIcon
+                                        isOpen={false}
+                                        translateWithId={[Function]}
+                                      >
+                                        <div
+                                          className="bx--list-box__menu-icon"
+                                        >
+                                          <ForwardRef(ChevronDown16)
+                                            aria-label="Open menu"
+                                            name="chevron--down"
+                                          >
+                                            <Icon
+                                              aria-label="Open menu"
+                                              height={16}
+                                              name="chevron--down"
+                                              preserveAspectRatio="xMidYMid meet"
+                                              viewBox="0 0 16 16"
+                                              width={16}
+                                              xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                              <svg
+                                                aria-label="Open menu"
+                                                focusable="false"
+                                                height={16}
+                                                name="chevron--down"
+                                                preserveAspectRatio="xMidYMid meet"
+                                                role="img"
+                                                style={
+                                                  Object {
+                                                    "willChange": "transform",
+                                                  }
+                                                }
+                                                viewBox="0 0 16 16"
+                                                width={16}
+                                                xmlns="http://www.w3.org/2000/svg"
+                                              >
+                                                <path
+                                                  d="M8 11L3 6 3.7 5.3 8 9.6 12.3 5.3 13 6z"
+                                                />
+                                                <title>
+                                                  Open menu
+                                                </title>
+                                              </svg>
+                                            </Icon>
+                                          </ForwardRef(ChevronDown16)>
+                                        </div>
+                                      </ListBoxMenuIcon>
+                                    </div>
+                                  </ListBoxField>
+                                </div>
+                              </ListBox>
+                            </Downshift>
+                          </div>
+                        </Dropdown>
+                      </div>
+                    </div>
+                    <br />
+                    <br />
+                  </div>
+                  <div>
+                    <div
+                      className="bx--content-switcher"
+                    />
+                    <h4>
+                      Negative values
+                    </h4>
+                    <div
+                      className="bx--row"
+                    >
+                      <div
+                        className="bx--col-lg-3"
+                      >
+                         Display negative values 
+                        <RadioButtonGroup
+                          id="rd_negativeValues"
+                          labelPosition="right"
+                          onChange={[Function]}
+                          orientation="vertical"
+                          valueSelected="withBracket"
+                        >
+                          <div
+                            className="bx--form-item"
+                          >
+                            <div
+                              className="bx--radio-button-group bx--radio-button-group--vertical bx--radio-button-group--label-right"
+                            >
+                              <ForwardRef(RadioButton)
+                                checked={false}
+                                id="rd_negativeVal01"
+                                key="withSign/.0"
+                                labelText="-xx"
+                                onChange={[Function]}
+                                onClick={[Function]}
+                                value="withSign"
+                              >
+                                <RadioButton
+                                  checked={false}
+                                  id="rd_negativeVal01"
+                                  innerRef={null}
+                                  labelPosition="right"
+                                  labelText="-xx"
+                                  onChange={[Function]}
+                                  onClick={[Function]}
+                                  value="withSign"
+                                >
+                                  <div
+                                    className="bx--radio-button-wrapper"
+                                  >
+                                    <input
+                                      checked={false}
+                                      className="bx--radio-button"
+                                      id="rd_negativeVal01"
+                                      onChange={[Function]}
+                                      onClick={[Function]}
+                                      type="radio"
+                                      value="withSign"
+                                    />
+                                    <label
+                                      className="bx--radio-button__label"
+                                      htmlFor="rd_negativeVal01"
+                                    >
+                                      <span
+                                        className="bx--radio-button__appearance"
+                                      />
+                                      <span
+                                        className=""
+                                      >
+                                        -xx
+                                      </span>
+                                    </label>
+                                  </div>
+                                </RadioButton>
+                              </ForwardRef(RadioButton)>
+                              <ForwardRef(RadioButton)
+                                checked={true}
+                                id="rd_negativeVal02"
+                                key="withBracket/.1"
+                                labelText="(xx)"
+                                onChange={[Function]}
+                                onClick={[Function]}
+                                value="withBracket"
+                              >
+                                <RadioButton
+                                  checked={true}
+                                  id="rd_negativeVal02"
+                                  innerRef={null}
+                                  labelPosition="right"
+                                  labelText="(xx)"
+                                  onChange={[Function]}
+                                  onClick={[Function]}
+                                  value="withBracket"
+                                >
+                                  <div
+                                    className="bx--radio-button-wrapper"
+                                  >
+                                    <input
+                                      checked={true}
+                                      className="bx--radio-button"
+                                      id="rd_negativeVal02"
+                                      onChange={[Function]}
+                                      onClick={[Function]}
+                                      type="radio"
+                                      value="withBracket"
+                                    />
+                                    <label
+                                      className="bx--radio-button__label"
+                                      htmlFor="rd_negativeVal02"
+                                    >
+                                      <span
+                                        className="bx--radio-button__appearance"
+                                      />
+                                      <span
+                                        className=""
+                                      >
+                                        (xx)
+                                      </span>
+                                    </label>
+                                  </div>
+                                </RadioButton>
+                              </ForwardRef(RadioButton)>
+                              <ForwardRef(RadioButton)
+                                checked={false}
+                                className="bx--redColor"
+                                id="rd_negativeVal03"
+                                key="redSign/.2"
+                                labelText="-xx"
+                                onChange={[Function]}
+                                onClick={[Function]}
+                                value="redSign"
+                              >
+                                <RadioButton
+                                  checked={false}
+                                  className="bx--redColor"
+                                  id="rd_negativeVal03"
+                                  innerRef={null}
+                                  labelPosition="right"
+                                  labelText="-xx"
+                                  onChange={[Function]}
+                                  onClick={[Function]}
+                                  value="redSign"
+                                >
+                                  <div
+                                    className="bx--redColor bx--radio-button-wrapper"
+                                  >
+                                    <input
+                                      checked={false}
+                                      className="bx--radio-button"
+                                      id="rd_negativeVal03"
+                                      onChange={[Function]}
+                                      onClick={[Function]}
+                                      type="radio"
+                                      value="redSign"
+                                    />
+                                    <label
+                                      className="bx--radio-button__label"
+                                      htmlFor="rd_negativeVal03"
+                                    >
+                                      <span
+                                        className="bx--radio-button__appearance"
+                                      />
+                                      <span
+                                        className=""
+                                      >
+                                        -xx
+                                      </span>
+                                    </label>
+                                  </div>
+                                </RadioButton>
+                              </ForwardRef(RadioButton)>
+                              <ForwardRef(RadioButton)
+                                checked={false}
+                                className="bx--redColor"
+                                id="rd_negativeVal04"
+                                key="redBracket/.3"
+                                labelText="(xx)"
+                                onChange={[Function]}
+                                onClick={[Function]}
+                                value="redBracket"
+                              >
+                                <RadioButton
+                                  checked={false}
+                                  className="bx--redColor"
+                                  id="rd_negativeVal04"
+                                  innerRef={null}
+                                  labelPosition="right"
+                                  labelText="(xx)"
+                                  onChange={[Function]}
+                                  onClick={[Function]}
+                                  value="redBracket"
+                                >
+                                  <div
+                                    className="bx--redColor bx--radio-button-wrapper"
+                                  >
+                                    <input
+                                      checked={false}
+                                      className="bx--radio-button"
+                                      id="rd_negativeVal04"
+                                      onChange={[Function]}
+                                      onClick={[Function]}
+                                      type="radio"
+                                      value="redBracket"
+                                    />
+                                    <label
+                                      className="bx--radio-button__label"
+                                      htmlFor="rd_negativeVal04"
+                                    >
+                                      <span
+                                        className="bx--radio-button__appearance"
+                                      />
+                                      <span
+                                        className=""
+                                      >
+                                        (xx)
+                                      </span>
+                                    </label>
+                                  </div>
+                                </RadioButton>
+                              </ForwardRef(RadioButton)>
+                            </div>
+                          </div>
+                        </RadioButtonGroup>
+                         
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div
+                      className="bx--content-switcher"
+                    />
+                    <h4>
+                      File locations
+                    </h4>
+                    <div
+                      className="bx--row"
+                    />
+                    <div
+                      className="bx--row"
+                    >
+                      <div
+                        className="bx--col"
+                      >
+                        Import file location (optional)
+                        <br />
+                        <br />
+                        <ForwardRef(TextInput)
+                          defaultValue="c:\\\\ABSDocs\\\\Import"
+                          disabled={false}
+                          helperText=""
+                          id="importFilelocation"
+                          invalid={false}
+                          invalidText=""
+                          light={false}
+                          onChange={[Function]}
+                          onClick={[Function]}
+                          type="text"
+                        >
+                          <div
+                            className="bx--form-item bx--text-input-wrapper"
+                          >
+                            <div
+                              className="bx--text-input__field-wrapper"
+                              data-invalid={null}
+                            >
+                              <input
+                                className="bx--text-input bx--text__input"
+                                defaultValue="c:\\\\ABSDocs\\\\Import"
+                                disabled={false}
+                                id="importFilelocation"
+                                onChange={[Function]}
+                                onClick={[Function]}
+                                type="text"
+                              />
+                            </div>
+                          </div>
+                        </ForwardRef(TextInput)>
+                      </div>
+                      <div
+                        className="bx--col"
+                      >
+                        <br />
+                        <br />
+                        <FileUploaderButton
+                          accept={Array []}
+                          buttonKind="ghost"
+                          disableLabelChanges="true"
+                          disabled={false}
+                          labelText={<ForwardRef(Search20) />}
+                          multiple={false}
+                          onChange={[Function]}
+                          onClick={[Function]}
+                          role="button"
+                          tabIndex={0}
+                        >
+                          <label
+                            aria-disabled={false}
+                            className="bx--btn bx--btn--sm bx--btn--ghost"
+                            htmlFor="id2"
+                            onChange={[Function]}
+                            onClick={[Function]}
+                            onKeyDown={[Function]}
+                            tabIndex={0}
+                          >
+                            <span
+                              role="button"
+                            >
+                              <ForwardRef(Search20)>
+                                <Icon
+                                  height={20}
+                                  preserveAspectRatio="xMidYMid meet"
+                                  viewBox="0 0 32 32"
+                                  width={20}
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <svg
+                                    aria-hidden={true}
+                                    focusable="false"
+                                    height={20}
+                                    preserveAspectRatio="xMidYMid meet"
+                                    style={
+                                      Object {
+                                        "willChange": "transform",
+                                      }
+                                    }
+                                    viewBox="0 0 32 32"
+                                    width={20}
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M30,28.59,22.45,21A11,11,0,1,0,21,22.45L28.59,30ZM5,14a9,9,0,1,1,9,9A9,9,0,0,1,5,14Z"
+                                    />
+                                  </svg>
+                                </Icon>
+                              </ForwardRef(Search20)>
+                            </span>
+                          </label>
+                          <input
+                            accept={Array []}
+                            className="bx--visually-hidden"
+                            disabled={false}
+                            id="id2"
+                            multiple={false}
+                            onChange={[Function]}
+                            onClick={[Function]}
+                            tabIndex="-1"
+                            type="file"
+                          />
+                        </FileUploaderButton>
+                      </div>
+                    </div>
+                    <div
+                      className="bx--row"
+                    >
+                      <div
+                        className="bx--col"
+                      >
+                         Export file location (optional) 
+                        <br />
+                        <br />
+                        <ForwardRef(TextInput)
+                          defaultValue="c:\\\\ABSDocs\\\\Export"
+                          disabled={false}
+                          helperText=""
+                          id="exportfilelocation"
+                          invalid={false}
+                          invalidText=""
+                          light={false}
+                          onChange={[Function]}
+                          onClick={[Function]}
+                          type="text"
+                        >
+                          <div
+                            className="bx--form-item bx--text-input-wrapper"
+                          >
+                            <div
+                              className="bx--text-input__field-wrapper"
+                              data-invalid={null}
+                            >
+                              <input
+                                className="bx--text-input bx--text__input"
+                                defaultValue="c:\\\\ABSDocs\\\\Export"
+                                disabled={false}
+                                id="exportfilelocation"
+                                onChange={[Function]}
+                                onClick={[Function]}
+                                type="text"
+                              />
+                            </div>
+                          </div>
+                        </ForwardRef(TextInput)>
+                      </div>
+                      <div
+                        className="bx--col"
+                      >
+                        <br />
+                         
+                        <br />
+                        <FileUploaderButton
+                          accept={Array []}
+                          buttonKind="ghost"
+                          className="bx--fileuploaderbutton"
+                          disableLabelChanges="true"
+                          disabled={false}
+                          labelText={<ForwardRef(Search20) />}
+                          multiple={false}
+                          onChange={[Function]}
+                          onClick={[Function]}
+                          role="button"
+                          tabIndex={0}
+                        >
+                          <label
+                            aria-disabled={false}
+                            className="bx--btn bx--btn--sm bx--fileuploaderbutton bx--btn--ghost"
+                            htmlFor="id3"
+                            onChange={[Function]}
+                            onClick={[Function]}
+                            onKeyDown={[Function]}
+                            tabIndex={0}
+                          >
+                            <span
+                              role="button"
+                            >
+                              <ForwardRef(Search20)>
+                                <Icon
+                                  height={20}
+                                  preserveAspectRatio="xMidYMid meet"
+                                  viewBox="0 0 32 32"
+                                  width={20}
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <svg
+                                    aria-hidden={true}
+                                    focusable="false"
+                                    height={20}
+                                    preserveAspectRatio="xMidYMid meet"
+                                    style={
+                                      Object {
+                                        "willChange": "transform",
+                                      }
+                                    }
+                                    viewBox="0 0 32 32"
+                                    width={20}
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M30,28.59,22.45,21A11,11,0,1,0,21,22.45L28.59,30ZM5,14a9,9,0,1,1,9,9A9,9,0,0,1,5,14Z"
+                                    />
+                                  </svg>
+                                </Icon>
+                              </ForwardRef(Search20)>
+                            </span>
+                          </label>
+                          <input
+                            accept={Array []}
+                            className="bx--visually-hidden"
+                            disabled={false}
+                            id="id3"
+                            multiple={false}
+                            onChange={[Function]}
+                            onClick={[Function]}
+                            tabIndex="-1"
+                            type="file"
+                          />
+                        </FileUploaderButton>
+                      </div>
+                    </div>
+                    <div
+                      className="bx--row"
+                    >
+                      <div
+                        className="bx--col"
+                      >
+                         backup file location 
+                        <TooltipIcon
+                          align="center"
+                          direction="right"
+                          tooltipText="Location and frequency determined by your information technology"
+                        >
+                          <button
+                            aria-describedby="icon-tooltip-1"
+                            className="bx--tooltip__trigger bx--tooltip--a11y bx--tooltip--right bx--tooltip--align-center"
+                          >
+                            <span
+                              className="bx--assistive-text"
+                              id="icon-tooltip-1"
+                            >
+                              Location and frequency determined by your information technology
+                            </span>
+                            <ForwardRef(Information16)>
+                              <Icon
+                                height={16}
+                                preserveAspectRatio="xMidYMid meet"
+                                viewBox="0 0 16 16"
+                                width={16}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <svg
+                                  aria-hidden={true}
+                                  focusable="false"
+                                  height={16}
+                                  preserveAspectRatio="xMidYMid meet"
+                                  style={
+                                    Object {
+                                      "willChange": "transform",
+                                    }
+                                  }
+                                  viewBox="0 0 16 16"
+                                  width={16}
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M8.5 11L8.5 6.5 6.5 6.5 6.5 7.5 7.5 7.5 7.5 11 6 11 6 12 10 12 10 11zM8 3.5c-.4 0-.8.3-.8.8S7.6 5 8 5c.4 0 .8-.3.8-.8S8.4 3.5 8 3.5z"
+                                  />
+                                  <path
+                                    d="M8,15c-3.9,0-7-3.1-7-7s3.1-7,7-7s7,3.1,7,7S11.9,15,8,15z M8,2C4.7,2,2,4.7,2,8s2.7,6,6,6s6-2.7,6-6S11.3,2,8,2z"
+                                  />
+                                </svg>
+                              </Icon>
+                            </ForwardRef(Information16)>
+                          </button>
+                        </TooltipIcon>
+                        <br />
+                        <br />
+                        <ForwardRef(TextInput)
+                          defaultValue="C:\\\\ABSDocs\\\\Backup"
+                          disabled={false}
+                          helperText=""
+                          id="backupfilelocation"
+                          invalid={false}
+                          invalidText=""
+                          light={false}
+                          onChange={[Function]}
+                          onClick={[Function]}
+                          type="text"
+                        >
+                          <div
+                            className="bx--form-item bx--text-input-wrapper"
+                          >
+                            <div
+                              className="bx--text-input__field-wrapper"
+                              data-invalid={null}
+                            >
+                              <input
+                                className="bx--text-input bx--text__input"
+                                defaultValue="C:\\\\ABSDocs\\\\Backup"
+                                disabled={false}
+                                id="backupfilelocation"
+                                onChange={[Function]}
+                                onClick={[Function]}
+                                type="text"
+                              />
+                            </div>
+                          </div>
+                        </ForwardRef(TextInput)>
+                      </div>
+                      <div
+                        className="bx--col"
+                      >
+                        <br />
+                        <br />
+                        <FileUploaderButton
+                          accept={Array []}
+                          buttonKind="ghost"
+                          className="bx--fileuploaderbutton"
+                          disableLabelChanges="true"
+                          disabled={false}
+                          labelText={<ForwardRef(Search20) />}
+                          multiple={false}
+                          onChange={[Function]}
+                          onClick={[Function]}
+                          role="button"
+                          tabIndex={0}
+                        >
+                          <label
+                            aria-disabled={false}
+                            className="bx--btn bx--btn--sm bx--fileuploaderbutton bx--btn--ghost"
+                            htmlFor="id4"
+                            onChange={[Function]}
+                            onClick={[Function]}
+                            onKeyDown={[Function]}
+                            tabIndex={0}
+                          >
+                            <span
+                              role="button"
+                            >
+                              <ForwardRef(Search20)>
+                                <Icon
+                                  height={20}
+                                  preserveAspectRatio="xMidYMid meet"
+                                  viewBox="0 0 32 32"
+                                  width={20}
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <svg
+                                    aria-hidden={true}
+                                    focusable="false"
+                                    height={20}
+                                    preserveAspectRatio="xMidYMid meet"
+                                    style={
+                                      Object {
+                                        "willChange": "transform",
+                                      }
+                                    }
+                                    viewBox="0 0 32 32"
+                                    width={20}
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      d="M30,28.59,22.45,21A11,11,0,1,0,21,22.45L28.59,30ZM5,14a9,9,0,1,1,9,9A9,9,0,0,1,5,14Z"
+                                    />
+                                  </svg>
+                                </Icon>
+                              </ForwardRef(Search20)>
+                            </span>
+                          </label>
+                          <input
+                            accept={Array []}
+                            className="bx--visually-hidden"
+                            disabled={false}
+                            id="id4"
+                            multiple={false}
+                            onChange={[Function]}
+                            onClick={[Function]}
+                            tabIndex="-1"
+                            type="file"
+                          />
+                        </FileUploaderButton>
+                      </div>
+                    </div>
+                  </div>
+                  <br />
+                  <br />
+                  <div
+                    className="bx--row"
+                  >
+                    <div
+                      className="bx--col"
+                    >
+                      <ForwardRef(Button)
+                        className="bx--btn--secondary"
+                        disabled={false}
+                        kind="primary"
+                        onClick={[Function]}
+                        tabIndex={0}
+                        type="button"
+                      >
+                        <button
+                          className="bx--btn--secondary bx--btn bx--btn--primary"
+                          disabled={false}
+                          onClick={[Function]}
+                          tabIndex={0}
+                          type="button"
+                        >
+                          Cancel
+                        </button>
+                      </ForwardRef(Button)>
+                      <ForwardRef(Button)
+                        className="bx--btn--primary "
+                        disabled={false}
+                        kind="primary"
+                        onClick={[Function]}
+                        tabIndex={0}
+                        type="Submit"
+                      >
+                        <button
+                          className="bx--btn--primary  bx--btn bx--btn--primary"
+                          disabled={false}
+                          onClick={[Function]}
+                          tabIndex={0}
+                          type="Submit"
+                        >
+                          Save 
+                            	  
+                             
+                          <ForwardRef(Save16)
+                            className="iconColor"
+                          >
+                            <Icon
+                              className="iconColor"
+                              height={16}
+                              preserveAspectRatio="xMidYMid meet"
+                              viewBox="0 0 16 16"
+                              width={16}
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <svg
+                                aria-hidden={true}
+                                className="iconColor"
+                                focusable="false"
+                                height={16}
+                                preserveAspectRatio="xMidYMid meet"
+                                style={
+                                  Object {
+                                    "willChange": "transform",
+                                  }
+                                }
+                                viewBox="0 0 16 16"
+                                width={16}
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M13.9,4.6l-2.5-2.5C11.3,2.1,11.1,2,11,2H3C2.4,2,2,2.4,2,3v10c0,0.6,0.4,1,1,1h10c0.6,0,1-0.4,1-1V5	C14,4.9,13.9,4.7,13.9,4.6z M6,3h4v2H6V3z M10,13H6V9h4V13z M11,13V9c0-0.6-0.4-1-1-1H6C5.4,8,5,8.4,5,9v4H3V3h2v2c0,0.6,0.4,1,1,1	h4c0.6,0,1-0.4,1-1V3.2l2,2V13H11z"
+                                />
+                              </svg>
+                            </Icon>
+                          </ForwardRef(Save16)>
+                        </button>
+                      </ForwardRef(Button)>
+                    </div>
+                  </div>
+                  <div
+                    className="bx--row"
+                  />
+                  <div
+                    className="bx--row"
+                  />
+                  <div
+                    className="bx--row"
+                  />
+                   
+                </form>
+              </Form>
+            </div>
+          </TabContent>
+        </Tabs>
+      </div>
+    </AddSystemSettings>
+  </Connect(AddSystemSettings)>
+</Provider>
+`;

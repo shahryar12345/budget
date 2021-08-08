@@ -1,0 +1,631 @@
+[
+
+
+  {
+    "name": "BudgetingAPI",
+    "BaseAddress": "http://ash-aff-absops:{port}/",
+    "RequestHeaders": {
+      "ACCEPT": "text/plain"
+    },
+    "function": "ImportAll",
+    "cronstring": "59 */23 * * *"
+  },
+  {
+    "name": "TestAPI",
+    "BaseAddress": "http://ash-aff-absops:{port}/",
+    "RequestHeaders": {
+      "ACCEPT": "text/plain"
+    }
+  },
+
+  {
+    "name": "BUDGETINGINTEGRATIONLOGS",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/Integrationlogs",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+
+  {
+    "name": "BUDGETINGAPIEndpoints",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/APIEndpoints",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "ADSTIMEPERIOD",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/staffing/timeperiod{filter}",
+
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGTIMEPERIOD",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/TimePeriods",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "ADSPAYTYPES",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/entity/pay-type",
+
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGPAYTYPES",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/PayTypes",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "ADSPAYTYPESCODEGROUPS",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/entity/pay-type-code-group{filter}",
+
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGPAYTYPESCODEGROUPS",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/PayTypes",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "ADSPAYTYPESMASTER",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/entity/pay-type-master{filter}",
+
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGPAYTYPESMASTER",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/PayTypes",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+
+
+  {
+    "name": "ADSPAYTYPESCODEGROUPSMEMBERS",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/entity/pay-type-code-group-member{filter}",
+
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGPAYTYPESCODEGROUPSMEMBERS",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/PayTypes",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+
+  {
+    "name": "ADSTYPESPAYTYPES",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/entity/pay-type-type",
+
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGTYPESPAYTYPES",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/ItemTypes",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+
+
+  {
+    "name": "ADSCHARGECODEMASTER",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/chargemaster{filter}",
+
+
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGCHARGECODEMASTER",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/ChargeCodes",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+
+  {
+    "name": "ADSCHARGECODE",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/chargemaster{filter}",
+
+
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGCHARGECODE",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/ChargeCodes",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+
+  {
+    "name": "ADSSTATISTICSACTIVITY",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/statistic/timeperiod/costing-activity-data-scenario-combined{filter}",
+
+
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+
+  },
+  {
+    "name": "BUDGETINGSTATISTICSACTIVITY",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/StatisticalData",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+
+
+  {
+    "name": "ADSENTITY",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/entity{filter}",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGENTITY",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/Entities/PostADSEntities",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "ADSENTITYCODEGROUP",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/entity/entity-code-group{filter}",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGENTITYCODEGROUP",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/Entities/PostADSEntities",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "ADSENTITYCODEGROUPMEMBER",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/entity/entity-code-group-member{filter}",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGENTITYCODEGROUPMEMBER",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/Entities/PostADSEntityRelationshipData",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "ADSDEPARTMENTMASTER",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/department/department-master{filter}",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGDEPARTMENTMASTER",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/Departments/PostADSDepartmentData",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "ADSDEPARTMENT",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/department{filter}",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGDEPARTMENT",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/Departments/PostADSDepartmentData",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "ADSDEPARTMENTHIERARCHY",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/department/department-hierarchy{filter}",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGDEPARTMENTHIERARCHY",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/Departments/PostADSDepartmentData",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "ADSDEPARTMENTCODEGROUP",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/department/department-code-group{filter}",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGDEPARTMENTCODEGROUP",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/Departments/PostADSDepartmentData",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "ADSDEPARTMENTCODEGROUPMEMBER",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/department/department-code-group-member{filter}",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGDEPARTMENTCODEGROUPMEMBER",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/Departments/PostADSDepartmentRelationshipData",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "ADSDEPARTMENTNODE",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/department/department-node{filter}",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGDEPARTMENTNODE",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/Departments/PostADSDepartmentRelationshipData",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "ADSSTATISTICSCODE",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/statistic",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGSTATISTICSCODE",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/StatisticsCodes",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "ADSSTATISTICSCODESMASTER",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/statistic/statistic-master/abs",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGSTATISTICSCODESMASTER",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/StatisticsCodes",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  }
+,
+  {
+    "name": "ADSSTATISTICSCODESGROUPS",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/statistic/statistic-code-group/abs",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGSTATISTICSCODESGROUPS",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/StatisticsCodes",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "ADSSTATISTICSCODESGROUPMEMBERS",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/statistic/statistic-code-group-member/abs",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGSTATISTICSCODESGROUPMEMBERS",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/StatisticsCodes",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  }
+
+  //Job COdes EPs
+  ,
+  {
+    "name": "ADSJOBCODES",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/entity/job-code{filter}",
+
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGJOBCODES",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/JOBCODEs",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "ADSJOBCODESCODEGROUPS",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/entity/job-code-code-group{filter}",
+
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGJOBCODESGROUPS",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/JOBCODEs",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "ADSJOBCODESMASTER",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/entity/job-code-master{filter}",
+
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGJOBCODESMASTER",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/JOBCODEs",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+
+
+  {
+    "name": "ADSJOBCODESGROUPSMEMBERS",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/entity/job-code-code-group-member{filter}",
+
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGJOBCODESGROUPSMEMBERS",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/JOBCODEs",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+
+  {
+    "name": "ADSTYPESJOBCODES",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/entity/pay-type-type",
+
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGTYPESJOBCODES",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/ItemTypes",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  }
+
+  /*DataScenario TYpes starts here*/
+
+  ,
+
+  {
+    "name": "ADSDATASCENARIOTYPESTAFFING",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/staffing/staffing-data-scenario{filter}",
+
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGDATASCENARIOTYPESTAFFING",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/DataScenarios",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+
+  {
+    "name": "ADSDATASCENARIOTYPEGL",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/general-ledger/g-l-data-scenario{filter}",
+
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGDATASCENARIOTYPEGL",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/DataScenarios",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+
+  {
+    "name": "ADSDATASCENARIOTYPESTATS",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/statistic/costing-activity-data-scenario{filter}",
+
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGDATASCENARIOTYPESTATS",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/DataScenarios",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  }
+
+  /*DataScenario TYpes ends here*/
+
+  /*Staffing Data starts here*/
+  ,
+
+  {
+    "name": "ADSDATASTAFFINGDATAPAYTYPE",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/staffing/staffing-data-scenario/pay-type{filter}",
+
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGDATASTAFFINGDATAPAYTYPE",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/StaffingData",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+
+  {
+    "name": "ADSDATASTAFFINGDATAJOBCODE",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/staffing/staffing-data-scenario/job-code{filter}",
+
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGDATASTAFFINGDATAJOBCODE",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/StaffingData",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "ADSDATASTAFFINGDATA",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/staffing/staffing-data-scenario/pay-type/job-code/abbreviated{filter}",
+
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGDATASTAFFINGDATA",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/StaffingData",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  }
+  /*Staffing Data ends here*/
+  /*GL Activity Data*/
+  ,
+  {
+    "name": "ADSDATAGLDATA",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/general-ledger/g-l-account/time-period/combined{filter}",
+
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGDATAGLDATA",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/StatisticalData",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+
+  {
+    "name": "ADSGLACCOUNTS",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/general-ledger/g-l-account{filter}",
+
+
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGGLACCOUNTS",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/GLAccounts",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "ADSGLACCOUNTSMASTER",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/general-ledger/account-master{filter}",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGGLACCOUNTSMASTER",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/GLAccounts",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "ADSGLACCOUNTSHIERARCHY",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/general-ledger/account-hierarchy{filter}",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGGLACCOUNTSHIERARCHY",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/GLAccounts",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "ADSGLACCOUNTSNODES",
+    "BaseAddress": "http://ash-aff-absops:{port}/adsrest/v1/services/general-ledger/account-node{filter}",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  },
+  {
+    "name": "BUDGETINGGLACCOUNTSNODES",
+    "BaseAddress": "http://ash-aff-absops:{port}/api/GLAccounts",
+    "RequestHeaders": {
+      "ACCEPT": "application/json"
+    }
+  }
+  /*GL Activity Data Ends here*/
+
+]

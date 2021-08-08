@@ -1,0 +1,75 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>92ec3b22-ebb7-42aa-9b08-8bc97a66dffa</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+
+    <LangVersion>8.0</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\**" />
+    <Content Remove="Models\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="Models\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200110140651_DataFormatting.cs" />
+    <Compile Remove="Migrations\20200110140651_DataFormatting.Designer.cs" />
+    <Compile Remove="Migrations\20200110141248_Init1.cs" />
+    <Compile Remove="Migrations\20200110141248_Init1.Designer.cs" />
+    <Compile Remove="Migrations\20200428163105_A1.cs" />
+    <Compile Remove="Migrations\20200428163105_A1.Designer.cs" />
+    <Compile Remove="Migrations\20200428163939_A2.cs" />
+    <Compile Remove="Migrations\20200428163939_A2.Designer.cs" />
+    <Compile Remove="Migrations\20200512203753_GetAll.cs" />
+    <Compile Remove="Migrations\20200512203753_GetAll.Designer.cs" />
+    <Compile Remove="Migrations\20200516110343_init.cs" />
+    <Compile Remove="Migrations\20200516110343_init.Designer.cs" />
+    <Compile Remove="Migrations\20200516110811_init.cs" />
+    <Compile Remove="Migrations\20200516110811_init.Designer.cs" />
+    <Compile Remove="Migrations\20200516111604_Init.cs" />
+    <Compile Remove="Migrations\20200516111604_Init.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Migrations\Migrations.7z" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.0.0" />
+    <PackageReference Include="EFCore.BulkExtensions" Version="3.3.1" />
+    <PackageReference Include="Hangfire" Version="1.7.15" />
+    <PackageReference Include="Liquibase.Cli" Version="3.7.0" />
+    <PackageReference Include="MailKit" Version="2.9.0" />
+    <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Caching.Redis" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.9" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.9" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.8" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="NSwag.AspNetCore" Version="13.8.2" />
+    <PackageReference Include="RestSharp" Version="106.11.7" />
+    <PackageReference Include="Serilog" Version="2.10.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="3.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\DBModels\ABS.DBModels\ABS.DBModels.csproj" />
+  </ItemGroup>
+
+
+</Project>

@@ -1,0 +1,45 @@
+.statistics-table td {
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
+  white-space: nowrap;
+}
+
+.statistics-table-header-last {
+  padding-right: 25rem !important;
+}
+
+#custom-datatable {
+    &-views-multiselect {
+      & .bx--list-box__menu {
+        max-height: unset;
+      }
+      border-bottom: none;
+      width: 300px;
+      height: 48px;
+      max-height: 48px;
+      & .bx--list-box__field{
+        border-bottom: none;
+        height: 48px;
+      }
+      & .bx--list-box__menu-item .bx--list-box__menu-item__option {
+        border: none;
+      } 
+    } 
+}
+
+.custom-datatable-overflow-menu-item {
+  white-space: nowrap;
+  & svg {
+    vertical-align: middle;
+    fill: black !important;
+  }
+  & .icon-container{
+    display: inline-block;
+    width: 25px;
+  }
+}
+
+.custom-datatable-modal-content {
+  margin-bottom: 30px;
+  margin-right: 50px;
+}

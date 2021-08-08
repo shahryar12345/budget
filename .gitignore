@@ -1,0 +1,8 @@
+ABS.Database/sqldata
+/ABS.Integrator/ABS.ADSIntegrator/.vs
+/ABS.Gateway/ABSOcelot/.vs
+.vs
+bin
+obj
+/ABS.Authentication/AuthServer/tempkey.jwk
+DesignTimeBuild

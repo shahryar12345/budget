@@ -1,0 +1,147 @@
+version: "3.4"
+# All of these base images can also be stored in Nexus to make setup quicker/easier
+# services should generally be ordered by priority/dependency
+services:
+  # setup mssql server and initialize BUDGET_DB database
+  db:
+    build: ./ABS.Database/mssql
+    image: abs-database
+    container_name: abs-database
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql-server-linux-data:/var/opt/mssql/
+    environment:
+      SA_PASSWORD: "AbsDa7a9as3"
+      ACCEPT_EULA: "Y"
+
+  # perform database migrations / schema updates against mssql database container
+  liquibase:
+    build: ./ABS.Database/liquibase
+    image: abs-liquibase
+    container_name: abs-liquibase
+    command: liquibase update
+    # update to no use the restart config and instead use health checks to ensure the
+    # database is up and running prior to attempting to run the liquibase container.
+    # Restart has the potential to endlessly restart in the event of an update failure or error
+    restart: on-failure
+    depends_on:
+      - db
+    environment:
+      LIQUIBASE_HOST: "db"
+      LIQUIBASE_DATABASE: "BUDGET_DB"
+      LIQUIBASE_USERNAME: "sa"
+      LIQUIBASE_PASSWORD: "AbsDa7a9as3"
+      LIQUIBASE_DEBUG: "N"
+      LIQUIBASE_TRACE: "Y"
+
+  # Ocelot for microservice orchestration, delegation, routing, proxying, loading balancing
+  gateway:
+    build: ./ABS.Gateway/ABSOcelot
+    image: abs-gateway    
+    container_name: abs-gateway
+    ports:
+      - "2020:2020"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_URLS: "http://+:2020"
+      DOMAIN_URL: "http://localhost:3000" # used to configure CORS
+
+  # identity server / LDAP (AD)
+  auth:
+    build: ./ABS.Authentication
+    image: abs-auth
+    container_name: abs-auth    
+    ports:
+      - "20250:20250"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_URLS: "http://+:20250"
+    # will likely need a persistent volume
+
+  api:
+    # ABS.DAL context allows sharing of DBModels
+    build: 
+      context: ./ABS.DAL
+      dockerfile: ./Api/Dockerfile
+    image: abs-api
+    container_name: abs-api
+    healthcheck:
+      test: "curl localhost:20201/swagger"
+      interval: "120s"
+      timeout: "3s"
+      start_period: "5s"
+      retries: 3
+    ports:
+      - "20201:20201"
+    depends_on:
+      - db
+    environment:
+      DB_USER: 'sa'
+      DB_PASSWORD: 'AbsDa7a9as3'
+      DB_SERVER: 'db'
+      DB_DATABASE: 'BUDGET_DB'
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_URLS: "http://+:20201"
+
+  redis:
+    image: redis
+    container_name: abs-redis
+    ports:
+    - "6379:6379"
+  
+  processing:
+    # ABS.DAL context allows sharing of DBModels
+    build: 
+      context: ./ABS.DAL
+      dockerfile: ./Processing/Dockerfile
+    image: abs-processing
+    container_name: abs-processing
+    healthcheck:
+      test: "curl localhost:20203/swagger"
+      interval: "120s"
+      timeout: "3s"
+      start_period: "5s"
+      retries: 3
+    ports:
+      - "20203:20203"
+    depends_on:
+      - db
+    environment:
+      DB_USER: 'sa'
+      DB_PASSWORD: 'AbsDa7a9as3'
+      DB_SERVER: 'db'
+      DB_DATABASE: 'BUDGET_DB'
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_URLS: "http://+:20203"
+
+  integrator:
+    build: ./ABS.Integrator/ABS.ADSIntegrator/ABS.ADSIntegrator
+    image: abs-integrator    
+    container_name: abs-integrator
+    healthcheck:
+      test: "curl localhost:20205/swagger"
+      interval: "120s"
+      timeout: "3s"
+      start_period: "5s"
+      retries: 3
+    ports:
+      - "20205:20205"
+    depends_on:
+      - db
+      - api
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_URLS: "http://+:20205"
+      GATEWAY_PORT: 2020
+      ADS_REST_PORT: 20201
+      API_PORT: 20201
+      DB_USER: 'sa'
+      DB_PASSWORD: 'AbsDa7a9as3'
+      DB_SERVER: 'db'
+      DB_DATABASE: 'BUDGET_DB'
+      DB_PORT: 1433
+
+# used to persist mssql server data
+volumes:
+  mssql-server-linux-data:

@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  abs.adsintegrator:
+    image: ${DOCKER_REGISTRY-}adsintegrator
+    build:
+      context: .
+      dockerfile: ABS.ADSIntegrator/Dockerfile
+    hostname: adsintegrator
+    container_name: adsintegrator
+    environment:
+      DB_USER: 'sa'
+      DB_PASSWORD: 'AbsDa7a9as3'
+      DB_SERVER: 'db'
+      DB_DATABASE: 'BUDGET_DB' 
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_URLS: "http://+:20202"
+      
+    ports:
+      - "20202:20202"
+    healthcheck:
+      test: "curl localhost:20202/swagger"
+      interval: "60s"
+      timeout: "3s"
+      start_period: "5s"
+      retries: 3
